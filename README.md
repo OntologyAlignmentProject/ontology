@@ -1,6 +1,6 @@
 # The Ontology Alignment Project
 
-## Why make another Taxonomy/Ontology/Naming standard'?'
+## Why make another building Taxonomy/Ontology/Naming standard'?'
 
 First, let's get this question answered and out of the way! Currently, there are two main standards for naming and tagging in the building automation industry globally. We believe these are crucial first steps to solving the enormous challenges associated with building system data and efforts to make that data both available and useful across enterprises. [Project Haystack](https://project-haystack.dev/) and [Brick Schema](https://brickschema.org/) have given us a great start and we hope to contribute anything new from our taxonomy back to these standards as applicable. Our ultimate goal, which has carried through all aspects of this effort, is to support and extend the methods and tags already defined in these existing standards at a rate that is compatible with real-world integration project deliverables and timeframes.
 
