@@ -1,0 +1,4818 @@
+# Base air point definitions
+
+FANST:
+  name: Fan Status 
+  extends: ST
+  haystack:
+    type:
+      - fan
+      - run
+    identification:
+      - id: "FANST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          FANST-1, FANST-2, etc."
+      - navName: "FANST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : FANST-1, FANST-2, etc."
+      - dis: "Fan Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Fan Status-1, Fan Status-2, etc."
+FANI:
+  name: Fan Current (Base Definition)
+  is_base: true
+  google_ontology: fan_run_status
+  haystack:
+    type:
+      - point
+      - fan
+      - current
+      - sensor
+    identification:
+      - id: "FANI or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          FANI-1, FANI-2, etc."
+      - navName: "FANI or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : FANI-1, FANI-2, etc."
+      - dis: "Fan Current or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Fan Current-1, Fan Current-2, etc."
+      - kind: Number
+      - unit: amperage
+    reference:
+      - equipRef
+FANP:
+  name: Fan Power (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - fan
+      - power
+      - sensor
+    identification:
+      - id: "FANP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          FANP-1, FANP-2, etc."
+      - navName: "FANP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : FANP-1, FANP-2, etc."
+      - dis: "Fan Power or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Fan Power-1, Fan Power-2, etc."
+      - kind: Number
+      - unit: power
+    reference:
+      - equipRef
+FLTST:
+  name: Filter Status
+  extends: ST
+  google_ontology: filter_differential_pressure_status
+  haystack:
+    type:
+      - filter
+    identification:
+      - id: "FLTST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          FLTST-1, FLTST-2, etc."
+      - navName: "FLTST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : FLTST-1, FLTST-2, etc."
+      - dis: "Filter Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Filter Status-1, Filter Status-2, etc."
+LOAD:
+  name: Load (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - sensor
+      - load
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+
+CDAFLW:
+  name: Cold Deck Air Flow
+  extends: AIRFLOW
+  google_ontology: cooling_air_flowrate_sensor
+  haystack:
+    type:
+      - coldDeck
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+CDDAT:
+  name: Cold Deck Discharge Air Temperature
+  extends: DAT
+  haystack:
+    type:
+      - coldDeck
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+CCDAT:
+  name: Cooling Coil Discharge Air Temperature
+  short_name: Cooling Coil Discharge Air Temp
+  description: The air temperature measured by a sensor in the discharge air duct immediately downstream of a cooling coil.
+  extends: DAT
+  google_ontology: leaving_cooling_coil_temperature_sensor
+  haystack:
+    type:
+      - coolingCoil
+    identification:
+      - id: "CCDAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CCDAT-1, CCDAT-2, etc."
+      - navName: "CCDAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CCDAT-1, CCDAT-2, etc."
+      - dis: "Cooling Coil Discharge Air Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Cooling Coil Discharge Air Temperature-1, Cooling Coil Discharge Air
+          Temperature-2, etc."
+HCDAT:
+  name: Heating Coil Discharge Air Temperature
+  description: The air temperature measured by a sensor in the discharge air duct immediately downstream of a heating coil.
+  extends: DAT
+  google_ontology: leaving_heating_coil_temperature_sensor
+  haystack:
+    type:
+      - heatingCoil
+    identification:
+      - id: "HCDAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HCDAT-1, HCDAT-2, etc."
+      - navName: "HCDAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HCDAT-1, HCDAT-2, etc."
+      - dis: "Heating Coil Discharge Air Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Heating Coil Discharge Air Temperature-1, Heating Coil Discharge Air
+          Temperature-2, etc."    
+HDAFLW:
+  name: Hot Deck Air Flow
+  extends: AIRFLOW
+  haystack:
+    type:
+      - hotDeck
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+HDDAT:
+  name: Hot Deck Discharge Air Temperature
+  extends: DAT
+  haystack:
+    type:
+      - hotDeck
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>                      
+DACO2:
+  name: Discharge Air CO2
+  extends: AIRCO2
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DACO2 or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DACO2-1, DACO2-2, etc."
+      - navName: "DACO2 or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DACO2-1, DACO2-2, etc."
+      - dis: "Discharge Air CO2 or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Discharge Air CO2-1, Discharge Air CO2-2, etc."
+
+DAFLW:
+  name: Discharge Air Flow
+  extends: AIRFLOW
+  google_ontology: discharge_air_flowrate_sensor
+  google_ontology_full: 
+    - discharge_air_flowrate_sensor
+    - supply_air_flowrate_sensor
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DAFLW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DAFLW-1, DAFLW-2, etc."
+      - navName: "DAFLW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DAFLW-1, DAFLW-2, etc."
+      - dis: "Discharge Air Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Discharge Air Flow-1, Discharge Air Flow-2, etc."
+          
+DARH:
+  name: Discharge Air Rel Humidity
+  extends: RELHUM
+  google_ontology: discharge_air_relative_humidity_sensor
+  google_ontology_full: 
+    - discharge_air_relative_humidity_sensor
+    - supply_air_relative_humidity_sensor
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DARH or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DARH-1, DARH-2, etc."
+      - navName: "DARH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DARH-1, DARH-2, etc."
+      - dis: "Discharge Air Rel Humidity or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Rel Humidity-1, Discharge Air
+          Rel Humidity-2, etc."
+DAT:
+  name: Discharge Air Temperature
+  description: The air temperature measured by a sensor in the discharge air duct.
+  extends: AIRTEMP
+  google_ontology: discharge_air_temperature_sensor
+  google_ontology_full:
+    - discharge_air_temperature_sensor
+    - supply_air_temperature_sensor
+  brick_ontology: Discharge_Air_Temperature_Sensor
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DAT-1, DAT-2, etc."
+      - navName: "DAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DAT-1, DAT-2, etc."
+      - dis: "Discharge Air Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Temperature-1, Discharge Air
+          Temperature-2, etc."
+DFI:
+  name: Discharge Fan Current
+  extends: FANI
+  google_ontology: discharge_fan_current_sensor
+  google_ontology_full:
+    - discharge_fan_current_sensor
+    - supply_fan_current_sensor
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DFI or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DFI-1, DFI-2, etc."
+      - navName: "DFI or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DFI-1, DFI-2, etc."
+      - dis: "Discharge Fan Current or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Fan Current-1, Discharge Air
+          Fan Current-2, etc."
+DFMDSP:
+  name: Discharge Fan Speed Mode Status
+  description: Enumerated list of fan speeds (i.e. OFF, AUTO, LOW, MEDIUM, HIGH).
+  extends: FANSPMD
+  google_ontology: discharge_fan_speed_mode
+  haystack:
+    type:
+      - discharge
+    identification:
+      - kind: Str
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER> 
+    reference: 
+      - equipRef
+DFP:
+  name: Discharge Fan Power
+  extends: FANP
+  google_ontology: discharge_fan_power_sensor
+  google_ontology_full: 
+    - discharge_fan_power_sensor
+    - supply_fan_power_sensor
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DFP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DFP-1, DFP-2, etc."
+      - navName: "DFP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DFP-1, DFP-2, etc."
+      - dis: "Discharge Fan Power or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Discharge Fan Power-1, Discharge Fan
+          Power-2, etc."
+DFST:
+  name: Discharge Fan Status
+  extends: FANST
+  google_ontology: discharge_fan_run_status
+  google_ontology_full:
+    - discharge_fan_run_status
+    - supply_fan_run_status
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DFST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DFST-1, DFST-2, etc."
+      - navName: "DFST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DFST-1, DFST-2, etc."
+      - dis: "Discharge Fan Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Discharge Fan Status-1, Discharge Fan
+          Status-2, etc."
+EAFLW:
+  name: Exhaust Air Flow
+  extends: AIRFLOW
+  google_ontology: exhaust_air_flowrate_sensor
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EAFLW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EAFLW-1, EAFLW-2, etc."
+      - navName: "EAFLW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EAFLW-1, EAFLW-2, etc."
+      - dis: "Exhaust Air Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Exhaust Air Flow-1, Exhaust Air Flow-2, etc."
+EARH:
+  name: Exhaust Air Relative Humidity
+  description: The relative humidity measured by a sensor in the exhaust air duct.
+  extends: RELHUM
+  google_ontology: 
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EARH or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EARH-1, EARH-2, etc."
+      - navName: "EARH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EARH-1, EARH-2, etc."
+      - dis: "Exhaust Air Relative Humidity or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Exhaust Air Relative Humidity-1, Exhaust Air
+          Relative Humidity-2, etc."
+EAT:
+  name: Exhaust Air Temperature
+  description: The air temperature measured by a sensor in the exhaust air duct.
+  extends: AIRTEMP
+  google_ontology: exhaust_air_temperature_sensor
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EAT-1, EAT-2, etc."
+      - navName: "EAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EAT-1, EAT-2, etc."
+      - dis: "Exhaust Air Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Exhaust Air Temperature-1, Exhaust Air
+          Temperature-2, etc."
+
+EFST:
+  name: Exhaust Fan Status
+  extends: FANST
+  google_ontology: exhaust_fan_run_status
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EFST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EFST-1, EFST-2, etc."
+      - navName: "EFST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFST-1, EFST-2, etc."
+      - dis: "Exhaust Fan Status or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Exhaust Fan Status-1, Exhaust Fan Status-2,
+          etc."
+HVACMDSP:
+  name: HVAC Mode Status 
+  google_ontology: zone_conditioning_mode
+  description: Current mode of the equipment i.e. heating, cooling, fan etc
+  haystack:
+    type:
+      - hvacMode
+      - point
+      - sp
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Str
+    reference:
+      - equipRef
+HVACMDCMD:
+  name: HVAC Mode Command 
+  description: Commanded mode of the equipment i.e. heating, cooling, fan etc
+  extends: CMD
+  haystack:
+    type:
+      - hvacMode
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Str
+    reference:
+      - equipRef
+
+MACO2:
+  name: Mixed Air CO2
+  extends: AIRCO2
+  haystack:
+    type:
+      - mixed
+    identification:
+      - id: "MACO2 or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MACO2-1, MACO2-2, etc."
+      - navName: "MACO2 or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MACO2-1, MACO2-2, etc."
+      - dis: "Mixed Air CO2 or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Mixed Air CO2-1, Mixed Air CO2-2, etc."
+MAFLTST:
+  name: Mixed Air Filter Status
+  extends: FLTST
+  haystack:
+    type:
+      - mixed
+    identification:
+      - id: "MAFLTST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MAFLTST-1, MAFLTST-2, etc."
+      - navName: "MAFLTST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MAFLTST-1, MAFLTST-2, etc."
+      - dis: "Mixed Air Filter Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Mixed Air Filter Status-1, Mixed Air Filter
+          Status-2, etc."
+MAFLW:
+  name: Mixed Air Flow
+  extends: AIRFLOW
+  haystack:
+    type:
+      - mixed
+    identification:
+      - kind: Number
+      - id: "MAFLW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MAFLW-1, MAFLW-2, etc."
+      - navName: "MAFLW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MAFLW-1, MAFLW-2, etc."
+      - dis: "Mixed Air Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Mixed Air Flow-1, Mixed Air Flow-2, etc."
+MAENTH:
+  name: Mixed Air Enthalpy
+  extends: AIRENTH
+  haystack:
+    type:
+      - mixed
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER> 
+MARH:
+  name: Mixed Air Rel Humidity
+  extends: RELHUM
+  haystack:
+    type:
+      - mixed
+    identification:
+      - id: "MARH or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MARH-1, MARH-2, etc."
+      - navName: "MARH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MARH-1, MARH-2, etc."
+      - dis: "Mixed Air Rel Humidity or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Mixed Air Rel Humidity-1, Mixed Air Rel Humidity-2,
+          etc."          
+MAT:
+  name: Mixed Air Temperature
+  description: The air temperature measured by a sensor in the mixed air duct.
+  extends: AIRTEMP
+  google_ontology: mixed_air_temperature_sensor
+  haystack:
+    type:
+      - mixed
+    identification:
+      - id: "MAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MAT-1, MAT-2, etc."
+      - navName: "MAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MAT-1, MAT-2, etc."
+      - dis: "Mixed Air Temperature or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Mixed Air Temperature-1, Mixed Air Temperature-2,
+          etc."
+OAFLTST:
+  name: Outside Air Filter Status
+  extends: FLTST
+  haystack:
+    type:
+      - outside
+    identification:
+      - id: "OAFLTST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLTST-1, OAFLTST-2, etc."
+      - navName: "OAFLTST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLTST-1, OAFLTST-2, etc."
+      - dis: "Outside Air Filter Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Outside Air Filter Status-1, Outside Air
+          Filter Status-2, etc."
+OAFLW:
+  name: Outside Air Flow
+  extends: AIRFLOW
+  google_ontology: outside_air_flowrate_sensor
+  google_ontology_full: 
+    - outside_air_flowrate_sensor
+    - ventilation_outside_air_flowrate_sensor
+  haystack:
+    type:
+      - outside
+    identification:
+      - id: "OAFLW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          OAFLW-1, OAFLW-2, etc."
+      - navName: "OAFLW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLW-1, OAFLW-2, etc."
+      - dis: "Outside Air Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Outside Air Flow-1, Outside Air Flow-2, etc."    
+RACO2:
+  name: Return Air CO2
+  extends: AIRCO2
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RACO2 or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RACO2-1, RACO2-2, etc."
+      - navName: "RACO2 or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RACO2-1, RACO2-2, etc."
+      - dis: "Return Air CO2 or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Return Air CO2-1, Return Air CO2-2, etc."
+    reference:
+      - equipRef
+RADWP:
+  name: Return Air Dew Point
+  extends: AIRDWP
+  haystack:
+    type:
+      - return
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>      
+RAENTH:
+  name: Return Air Enthalpy
+  extends: AIRENTH
+  haystack:
+    type:
+      - return
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+RAFLW:
+  name: Return Air Flow
+  extends: AIRFLOW
+  google_ontology: return_air_flowrate
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RAFLW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RAFLW-1, RAFLW-2, etc."
+      - navName: "RAFLW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAFLW-1, RAFLW-2, etc."
+      - dis: "Return Air Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Return Air Flow-1, Return Air Flow-2, etc."
+RARH:
+  name: Return Air Rel Humidity
+  extends: RELHUM
+  google_ontology: return_air_relative_humidity_sensor
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RARH or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RARH-1, RARH-2, etc."
+      - navName: "RARH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RARH-1, RARH-2, etc."
+      - dis: "Return Air Rel Humidity or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Return Air Rel Humidity-1, Return Air Rel
+          Humidity-2, etc."
+RAT:
+  name: Return Air Temperature
+  description: The air temperature measured by a sensor in the return air duct.
+  extends: AIRTEMP
+  google_ontology: return_air_temperature_sensor
+  brick_ontology: Return_Air_Temperature_Sensor
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RAT-1, RAT-2, etc."
+      - navName: "RAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAT-1, RAT-2, etc."
+      - dis: "Return Air Temperature or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Return Air Temperature-1, Return Air Temperature-2,
+          etc."
+RFST:
+  name: Return Fan Status
+  extends: FANST
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RFST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RFST-1, RFST-2, etc."
+      - navName: "RFST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RFST-1, RFST-2, etc."
+      - dis: "Return Fan Status or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Return Fan Status-1, Return Fan Status-2,
+          etc."
+ZRH:
+  name: Zone Rel Humidity
+  extends: RELHUM
+  google_ontology: zone_air_relative_humidity_sensor
+  haystack:
+    type:
+      - zone
+    identification:
+      - id: "ZRH or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZRH-1, ZRH-2, etc."
+      - navName: "ZRH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZRH-1, ZRH-2, etc."
+      - dis: "Zone Rel Humidity or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone Rel Humidity-1, Zone Rel Humidity-2, etc."
+    reference:
+      - equipRef
+      - spaceRef
+
+ZRHAVG:
+  name: Avg Zone Rel Humidity
+  description: The average relative humidity of an indoor space.
+  extends: RELHUM
+  haystack:
+    type:
+      - zone
+      - avg
+    identification:
+      - id: "ZRHAVG or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZRHAVG-1, ZRHAVG-2, etc."
+      - navName: "ZRHAVG or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZRHAVG-1, ZRHAVG-2, etc."
+      - dis: "Avg Zone Rel Humidity or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Avg Zone Rel Humidity-1, Avg Zone Rel Humidity-2, etc."
+    reference:
+      - equipRef
+      - spaceRef
+
+ZT:
+  name: Zone Temperature
+  description: The air temperature of an indoor space.
+  extends: AIRTEMP
+  google_ontology: zone_air_temperature_sensor
+  brick_ontology: Zone_Air_Temperature_Sensor
+  haystack:
+    type:
+      - zone
+    identification:
+      - id: "ZT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZT-1, ZT-2, etc."
+      - navName: "ZT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZT-1, ZT-2, etc."
+      - dis: "Zone Temperature or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone Temperature-1, Zone Temperature-2, etc."
+    reference:
+      - equipRef
+      - spaceRef
+
+ZTAVG:
+  name: Avg Zone Temperature
+  description: The average air temperature of an indoor space.
+  extends: AIRTEMP
+  google_ontology: average_zone_air_temperature_sensor
+  brick_ontology: Average_Zone_Air_Temperature_Sensor
+  haystack:
+    type:
+      - zone
+      - avg
+    identification:
+      - id: "ZTAVG or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZTAVG-1, ZTAVG-2, etc."
+      - navName: "ZTAVG or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZTAVG-1, ZTAVG-2, etc."
+      - dis: "Avg Zone Temperature or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Avg Zone Temperature-1, Avg Zone Temperature-2, etc."
+    reference:
+      - equipRef
+      - spaceRef
+ZTCA:
+  name: Cold Aisle Zone Temperature
+  description: In a data center, the temperature of the cool or cold side of the server rack. 
+  extends: ZT
+  google_ontology: cold_aisle_temperature_sensor
+  haystack:
+    type:
+      - coldAisle
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - equipRef
+ZTHA:
+  name: Hot Aisle Zone Temperature
+  description: In a data center, the temperature of the warmo or hot side of the server rack. 
+  extends: ZT
+  google_ontology: hot_aisle_temperature_sensor
+  haystack:
+    type:
+      - hotAisle
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - equipRef
+HRWCMD:
+  name: Heat Recovery Wheel Command
+  short_name: Heat Recovery Wheel Cmd
+  description: The start/stop command for the heat recovery wheel.
+  extends: CMD
+  haystack:
+    type:
+      - heatWheel
+      - heatRecovery
+      - run
+    identification:
+      - id: "HRWCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HRWCMD-1, HRWCMD-2, etc."
+      - navName: "HRWCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HRWCMD-1, HRWCMD-2, etc."
+      - dis: "Heat Recovery Wheel Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heat Recovery Wheel Command-1, Heat Recovery Wheel Command-2, etc."
+
+HRWST:
+  name: Heat Recovery Wheel Status
+  description: The status for the heat recovery wheel.
+  extends: ST
+  haystack:
+    type:
+      - heatWheel
+      - heatRecovery
+      - run
+    identification:
+      - id: "HRWST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HRWST-1, HRWST-2, etc."
+      - navName: "HRWST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HRWST-1, HRWST-2, etc."
+      - dis: "Heat Recovery Wheel Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heat Recovery Wheel Status-1, Heat Recovery Wheel Status-2, etc."
+
+HRWSPCMD:
+  name: Heat Recovery Wheel Speed Command
+  short_name: Heat Recovery Wheel Speed Cmd
+  description: The heat recovery wheel speed command.
+  extends: CMD
+  haystack:
+    type:
+      - heatWheel
+      - heatRecovery
+      - speed
+    identification:
+      - id: "HRWSPCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HRWSPCMD-1, HRWSPCMD-2, etc."
+      - navName: "HRWSPCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HRWSPCMD-1, HRWSPCMD-2, etc."
+      - dis: "Heat Recovery Wheel Speed Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heat Recovery Wheel Speed Command-1, Heat Recovery Wheel Speed Command-2, etc."
+
+HRBYPDCMD:
+  name: Heat Recovery Bypass Damper Command
+  description: The heat recovery bypass damper command.
+  extends: CMD
+  haystack:
+    type:
+      - heatRecovery
+      - bypass
+      - damper
+    identification:
+      - id: "HRBYPDCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HRBYPDCMD-1, HRBYPDCMD-2, etc."
+      - navName: "HRBYPDCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HRBYPDCMD-1, HRBYPDCMD-2, etc."
+      - dis: "Heat Recovery Bypass Damper Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heat Recovery Bypass Damper Command-1, Heat Recovery Bypass Damper Command-2, etc."
+
+HRDAT:
+  name: Heat Recovery Discharge Air Temperature
+  description: The discharge air temperature leaving the heat recovery wheel.
+  extends: AIRTEMP
+  haystack:
+    type:
+      - heatRecovery
+      - discharge
+    identification:
+      - id: "HRDAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HRDAT-1, HRDAT-2, etc."
+      - navName: "HRDAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HRDAT-1, HRDAT-2, etc."
+      - dis: "Heat Recovery Discharge Air Temperature or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heat Recovery Discharge Air Temperature-1, Heat Recovery Discharge Air Temperature-2, etc."
+
+IAFLW:
+  name: Inlet Air Flow
+  extends: AIRFLOW
+  google_ontology: supply_air_flowrate_sensor
+  brick_ontology: Discharge_Air_Flow_Sensor
+  haystack:
+    type:
+      - inlet
+    identification:
+      - id: "IAFLW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          IAFLW-1, IAFLW-2, etc."
+      - navName: "IAFLW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IAFLW-1, IAFLW-2, etc."
+      - dis: "Inlet Air Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Inlet Air Flow-1, Inlet Air Flow-2, etc."
+ADP:
+  name: Air Pressure (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - pressure
+      - sensor
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+ADPSP:
+  name: Air Pressure Setpoint (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - pressure
+      - sp
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+AFLWSP:
+  name: Air Flow Setpoint (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - flow
+      - sp
+    identification:
+      - kind: Number
+      - unit: volumetric flow
+    reference:
+      - equipRef
+ATSP:
+  name: Air Temperature Setpoint (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - temp
+      - sp
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef
+# Base air point definitions
+
+
+
+RHSP: 
+  name: Relative Humidity Setpoint
+  is_base: true 
+  haystack:
+    type:
+      - point
+      - humidity
+      - sp
+      - air
+    identification:
+      - kind: Number 
+      - unit: percentage
+    referece: 
+      - equipRef
+DHCMD:
+  name: Dehumidify Command
+  google_ontology: dehumidification_run_command
+  haystack: 
+    type: 
+      - point
+      - cmd
+      - dehumidify
+    identification: 
+      - kind: Bool
+    reference: 
+      - equipRef
+HMCMD:
+  name: Humidify Command
+  google_ontology: humidification_run_command
+  google_ontology_full: 
+    - humidification_run_command: 
+      - kind: Bool
+    - humidfication_percentage_command: 
+      - kind: Number
+  haystack: 
+    type: 
+      - point
+      - cmd
+      - humidify
+    identification: 
+      - kind: Bool
+    reference: 
+      - equipRef      
+DPRCMD:
+  name: Damper Command (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - damper
+      - cmd
+    identification:
+      - kind: Number
+      - unit: percentage
+    reference:
+      - equipRef
+FANCMD:
+  name: Fan Command 
+  google_ontology: run_command
+  haystack:
+    type:
+      - point
+      - fan
+      - run
+      - cmd
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef
+FANSPCMD:
+  name: Fan Speed Command
+  google_ontology: fan_speed_percentage_command 
+  haystack:
+    type:
+      - point
+      - cmd
+      - speed
+      - fan
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Number
+    reference:
+      - equipRef 
+FANSPFBK:
+  name: Fan Speed Feedback
+  haystack:
+    type:
+      - point
+      - speed
+      - fan
+      - sensor
+    identification:
+      - kind: Number      
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+    reference: 
+      - equipRef
+FANSPMD:
+  name: Fan Speed Mode Status
+  description: Current fan speed mode. Typically an enumerated list of fan speeds (i.e. OFF, LOW, HIGH).
+  google_ontology: fan_speed_mode
+  haystack:
+    type: 
+      - fan
+      - mode
+      - sp
+      - point
+    identification:
+      - kind: Str
+    reference: 
+      - equipRef
+FANSPMDCMD:
+  name: Fan Speed Mode Command
+  description: Fan speed mode as commanded to an equipment by an outside source such as the BAS. Typically an enumerated list of fan speeds (i.e. OFF, LOW, HIGH).
+  google_ontology: fan_speed_mode
+  haystack:
+    type: 
+      - fan
+      - mode
+      - cmd
+      - point
+    identification:
+      - kind: Str
+    reference: 
+      - equipRef
+REQ:
+  name: Requests (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - sp
+      - request
+    identification:
+      - kind: Number
+    reference:
+      - equipRef     
+VCMD:
+  name: Valve Command (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - valve
+      - cmd
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+VPOS:
+  name: Valve Position (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - valve
+      - sensor
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+VST:
+  name: Valve Status (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - sensor
+      - valve
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef
+
+# Standard air point definitions
+
+BLDSPR:
+  name: Bldg Static Pressure
+  extends: ADP
+  google_ontology: building_air_static_pressure_sensor
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "BLDSPR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          BLDSPR-1, BLDSPR-2, etc."
+      - navName: "BLDSPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : BLDSPR-1, BLDSPR-2, etc."
+      - dis: "Bldg Static Pressure or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Bldg Static Pressure-1, Bldg Static Pressure-2, etc."
+BLDSPRSP:
+  name: Bldg Static Pressure Setpoint
+  short_name: Bldg Static Pressure Sp
+  extends: ADPSP
+  google_ontology: building_air_static_pressure_setpoint
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "BLDSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : BLDSPRSP-1, BLDSPRSP-2, etc."
+      - navName: "BLDSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : BLDSPRSP-1, BLDSPRSP-2, etc."
+      - dis: "Bldg Static Pressure Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Bldg Static Pressure Setpoint-1, Bldg Static
+          Pressure Setpoint-2, etc."
+BYPDCMD:
+  name: Bypass Damper Command
+  short_name: Bypass Damper Cmd
+  extends: DPRCMD
+  google_ontology: bypass_air_damper_percentage_command
+  haystack:
+    type:
+      - air
+      - bypass
+    identification:
+      - id: "BYPDCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          BYPDCMD-1, BYPDCMD-2, etc."
+      - navName: "BYPDCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : BYPDCMD-1, BYPDCMD-2, etc."
+      - dis: "Bypass Damper Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Bypass Damper Command-1, Bypass Damper Command-2,
+          etc."
+EFFCDAFLWSP:
+  name: Effective Cold Deck Air Flow Setpoint
+  extends: AFLWSP
+  google_ontology: cooling_air_flowrate_setpoint
+  haystack:
+    type:
+      - coldDeck
+      - effective
+    identification:
+      - id: "EFFCDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFCDAFLWSP-1, EFFCDAFLWSP-2, etc."
+      - navName: "EFFCDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFCDAFLWSP-1, EFFCDAFLWSP-2, etc."
+      - dis: "Effective Cold Deck Air Flow Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Effective Cold Deck Air Flow
+          Setpoint-1, Effective Cold Deck Air Flow Setpoint-2, etc."
+CDDATSP:
+  name: Cold Deck Discharge Air Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - coldDeck
+      - discharge
+      - effective
+    identification:
+      - id: "CDDATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CDDATSP-1, CDDATSP-2, etc."
+      - navName: "CDDATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CDDATSP-1, CDDATSP-2, etc."
+      - dis: "Cold Deck Discharge Air Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Cold Deck Discharge Air
+          Temperature Setpoint-1, Cold Deck Discharge Air Temperature
+          Setpoint-2, etc."
+CDDCMD:
+  name: Cold Deck Damper Command
+  extends: DPRCMD
+  google_ontology: cooling_air_damper_percentage_command
+  haystack:
+    type:
+      - coldDeck
+    identification:
+      - id: "CDDCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CDDCMD-1, CDDCMD-2, etc."
+      - navName: "CDDCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CDDCMD-1, CDDCMD-2, etc."
+      - dis: "Cold Deck Damper Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cold Deck Damper Command-1, Cold Deck Damper
+          Command-2, etc."
+CHWBYPVCMD:
+  name: Chilled Water Bypass Valve Command
+  extends: VCMD
+  google_ontology: chilled_water_bypass_valve_percentage_command
+  haystack:
+    type:
+      - bypass
+      - chilled
+      - water
+    identification:
+      - id: "CHWBYPVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWBYPVCMD-1, CHWBYPVCMD-2, etc."
+      - navName: "CHWBYPVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWBYPVCMD-1, CHWBYPVCMD-2, etc."
+      - dis: "Chilled Water Bypass Valve Command or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Chilled Water Bypass Valve Command-1,
+          Chilled Water Bypass Valve Command-2, etc."
+CHWBYPVFBK:
+  name: Chilled Water Bypass Valve Position Feedback
+  extends: VPOS
+  google_ontology: chilled_water_bypass_valve_percentage_sensor
+  haystack:
+    type:
+      - bypass
+      - chilled
+      - water
+    identification:
+      - id: "CHWBYPVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWBYPVFBK-1, CHWBYPVFBK-2, etc."
+      - navName: "CHWBYPVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWBYPVFBK-1, CHWBYPVFBK-2, etc."
+      - dis: "Chilled Water Bypass Valve Position Feedback or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Chilled Water Bypass Valve Position Feedback-1,
+          Chilled Water Bypass Valve Position Feedback-2, etc."
+CHWISOVCMD:
+  name: Chilled Water Isolation Valve Command
+  extends: VCMD
+  google_ontology: chilled_water_isolation_valve_command
+  google_ontology_full:
+    - chilled_water_isolation_valve_command:
+      - kind: Bool
+    - chilled_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - chilled
+      - isolation
+      - water
+    identification:
+      - id: "CHWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWISOVCMD-1, CHWISOVCMD-2, etc."
+      - navName: "CHWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWISOVCMD-1, CHWISOVCMD-2, etc."
+      - dis: "Chw Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Chw Iso Valve Command-1, Chw Iso Valve Command-2,
+          etc."
+LCHWISOVCMD:
+  name: Leaving Chilled Water Isolation Valve Command
+  extends: VCMD
+  google_ontology: chilled_supply_water_isolation_valve_command
+  google_ontology_full:
+    - chilled_supply_water_isolation_valve_command:
+      - kind: Bool
+    - chilled_supply_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - chilled
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+ECHWISOVCMD:
+  name: Entering Chilled Water Isolation Valve Command
+  extends: VCMD
+  google_ontology: chilled_return_water_isolation_valve_command
+  google_ontology_full:
+    - chilled_return_water_isolation_valve_command:
+      - kind: Bool
+    - chilled_return_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - chilled
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+CHWISOVFBK:
+  name: Chilled Water Isolation Valve Position Feedback
+  extends: VPOS
+  google_ontology: chilled_water_isolation_valve_status
+  google_ontology_full:
+    - chilled_water_isolation_valve_status:
+      - kind: Bool
+    - chilled_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - chilled
+      - isolation
+      - water
+    identification:
+      - id: "CHWISOVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWISOVFBK-1, CHWISOVFBK-2, etc."
+      - navName: "CHWISOVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWISOVFBK-1, CHWISOVFBK-2, etc."
+      - dis: "Chw Iso Valve Feedback or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Chw Iso Valve Feedback-1, Chw Iso Valve Feedback-2,
+          etc."
+LCHWISOVFBK:
+  name: Leaving Chilled Water Isolation Valve Position Feedback
+  extends: VPOS
+  google_ontology: chilled_supply_water_isolation_valve_status
+  google_ontology_full:
+    - chilled_supply_water_isolation_valve_status:
+      - kind: Bool
+    - chilled_supply_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - chilled
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+ECHWISOVFBK:
+  name: Entering Chilled Water Isolation Valve Position Feedback
+  extends: VPOS
+  google_ontology: chilled_return_water_isolation_valve_status
+  google_ontology_full:
+    - chilled_return_water_isolation_valve_status:
+      - kind: Bool
+    - chilled_return_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - chilled
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>  
+CHWVCMD:
+  name: Chilled Water Valve Command
+  extends: VCMD
+  google_ontology: chilled_water_valve_percentage_command
+  google_ontology_full:
+    - chilled_water_valve_percentage_command:
+      - kind: Number
+    - chilled_water_valve_command:
+      - kind: Bool
+    - process_water_valve_percentage_command: 
+      - kind: Number
+  haystack:
+    type:
+      - chilled
+      - cool
+      - water
+    identification:
+      - id: "CHWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWVCMD-1, CHWVCMD-2, etc."
+      - navName: "CHWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWVCMD-1, CHWVCMD-2, etc."
+      - dis: "Chilled Water Valve Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Chilled Water Valve Command-1, Chilled Water
+          Valve Command-2, etc."
+CHWVFBK:
+  name: Chilled Water Valve Position Feedback
+  extends: VPOS
+  google_ontology: chilled_water_valve_percentage_sensor
+  haystack:
+    type:
+      - chilled
+      - cool
+      - water
+    identification:
+      - id: "CHWVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWVFBK-1, CHWVFBK-2, etc."
+      - navName: "CHWVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWVFBK-1, CHWVFBK-2, etc."
+      - dis: "Chilled Water Valve Position Feedback or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Chilled Water Valve Position Feedback-1, Chilled Water
+          Valve Position Feedback-2, etc."
+CLCMD:
+  name: Cooling Command
+  google_ontology: cooling_percentage_command
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+    identification:
+      - id: "CLCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CLCMD-1, CLCMD-2, etc."
+      - navName: "CLCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLCMD-1, CLCMD-2, etc."
+      - dis: "Cooling Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Cooling Command-1, Cooling Command-2, etc."
+      - kind: Number
+      - unit: percentage
+    reference:
+      - equipRef
+CLSTGCT:
+  name: Cooling Stage Count
+  description: Highest number of stages at which equipment is currently operating. 
+  google_ontology: cooling_stage_run_count
+  haystack:
+    type:
+      - point
+      - cool
+      - stage
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - equipRef
+CLSTG1CMD:
+  name: Cooling Stage 1 Command
+  google_ontology: compressor_run_command_1
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 1
+    identification:
+      - id: "CLSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG1CMD-1, CLSTG1CMD-2, etc."
+      - navName: "CLSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG1CMD-1, CLSTG1CMD-2, etc."
+      - dis: "Cooling Stage 1 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 1 Command-1, Cooling Stage 1 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG2CMD:
+  name: Cooling Stage 2 Command
+  google_ontology: compressor_run_command_2
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 2
+    identification:
+      - id: "CLSTG2CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG2CMD-1, CLSTG2CMD-2, etc."
+      - navName: "CLSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG2CMD-1, CLSTG2CMD-2, etc."
+      - dis: "Cooling Stage 2 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 2 Command-1, Cooling Stage 2 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG3CMD:
+  name: Cooling Stage 3 Command
+  google_ontology: compressor_run_command_3
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 3
+    identification:
+      - id: "CLSTG3CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG3CMD-1, CLSTG3CMD-2, etc."
+      - navName: "CLSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG3CMD-1, CLSTG3CMD-2, etc."
+      - dis: "Cooling Stage 3 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 3 Command-1, Cooling Stage 3 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG4CMD:
+  name: Cooling Stage 4 Command
+  google_ontology: compressor_run_command_4
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 4
+    identification:
+      - id: "CLSTG4CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG4CMD-1, CLSTG4CMD-2, etc."
+      - navName: "CLSTG4CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG4CMD-1, CLSTG4CMD-2, etc."
+      - dis: "Cooling Stage 4 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 4 Command-1, Cooling Stage 4 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG5CMD:
+  name: Cooling Stage 5 Command
+  google_ontology: compressor_run_command_5
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 5
+    identification:
+      - id: "CLSTG5CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG5CMD-1, CLSTG5CMD-2, etc."
+      - navName: "CLSTG5CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG5CMD-1, CLSTG5CMD-2, etc."
+      - dis: "Cooling Stage 5 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 5 Command-1, Cooling Stage 5 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG6CMD:
+  name: Cooling Stage 6 Command
+  google_ontology: compressor_run_command_6
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 6
+    identification:
+      - id: "CLSTG6CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG6CMD-1, CLSTG6CMD-2, etc."
+      - navName: "CLSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG6CMD-1, CLSTG6CMD-2, etc."
+      - dis: "Cooling Stage 6 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 6 Command-1, Cooling Stage 6 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG7CMD:
+  name: Cooling Stage 7 Command
+  google_ontology: compressor_run_command_7
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 7
+    identification:
+      - id: "CLSTG7CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG7CMD-1, CLSTG7CMD-2, etc."
+      - navName: "CLSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG7CMD-1, CLSTG7CMD-2, etc."
+      - dis: "Cooling Stage 7 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 7 Command-1, Cooling Stage 7 Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG8CMD:
+  name: Cooling Stage 8 Command  
+  google_ontology: compressor_run_command_8
+  haystack:
+    type:
+      - point
+      - cool
+      - cmd
+      - stage: 8
+    identification:
+      - id: "CLSTG8CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG8CMD-1, CLSTG8CMD-2, etc."
+      - navName: "CLSTG8CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG8CMD-1, CLSTG8CMD-2, etc."
+      - dis: "Cooling Stage 8 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 8 Command-1, Cooling Stage 8
+          Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG1STS:
+  name: Cooling Stage 1 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 1
+    identification:
+      - id: "CLSTG1STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG1STS-1, CLSTG1STS-2, etc."
+      - navName: "CLSTG1STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG1STS-1, CLSTG1STS-2, etc."
+      - dis: "Cooling Stage 1 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 1 Status-1, Cooling Stage 1 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG2STS:
+  name: Cooling Stage 2 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 2
+    identification:
+      - id: "CLSTG2STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG2STS-1, CLSTG2STS-2, etc."
+      - navName: "CLSTG2STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG2STS-1, CLSTG2STS-2, etc."
+      - dis: "Cooling Stage 2 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 2 Status-1, Cooling Stage 2 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG3STS:
+  name: Cooling Stage 3 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 3
+    identification:
+      - id: "CLSTG3STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG3STS-1, CLSTG3STS-2, etc."
+      - navName: "CLSTG3STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG3STS-1, CLSTG3STS-2, etc."
+      - dis: "Cooling Stage 3 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 3 Status-1, Cooling Stage 3 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG4STS:
+  name: Cooling Stage 4 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 4
+    identification:
+      - id: "CLSTG4STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG4STS-1, CLSTG4STS-2, etc."
+      - navName: "CLSTG4STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG4STS-1, CLSTG4STS-2, etc."
+      - dis: "Cooling Stage 4 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 4 Status-1, Cooling Stage 4 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG5STS:
+  name: Cooling Stage 5 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 5
+    identification:
+      - id: "CLSTG5STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG5STS-1, CLSTG5STS-2, etc."
+      - navName: "CLSTG5STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG5STS-1, CLSTG5STS-2, etc."
+      - dis: "Cooling Stage 5 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 5 Status-1, Cooling Stage 5 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG6STS:
+  name: Cooling Stage 6 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 6
+    identification:
+      - id: "CLSTG6STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG6STS-1, CLSTG6STS-2, etc."
+      - navName: "CLSTG6STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG6STS-1, CLSTG6STS-2, etc."
+      - dis: "Cooling Stage 6 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 6 Status-1, Cooling Stage 6 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG7STS:
+  name: Cooling Stage 7 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 7
+    identification:
+      - id: "CLSTG7STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG7STS-1, CLSTG7STS-2, etc."
+      - navName: "CLSTG7STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG7STS-1, CLSTG7STS-2, etc."
+      - dis: "Cooling Stage 7 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 7 Status-1, Cooling Stage 7 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+
+CLSTG8STS:
+  name: Cooling Stage 8 Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+      - stage: 8
+    identification:
+      - id: "CLSTG8STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG8STS-1, CLSTG8STS-2, etc."
+      - navName: "CLSTG8STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLSTG8STS-1, CLSTG8STS-2, etc."
+      - dis: "Cooling Stage 8 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Cooling Stage 8 Status-1, Cooling Stage 8 Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+CLSTS:
+  name: Cooling Status
+  haystack:
+    type:
+      - point
+      - cool
+      - sensor
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+    reference:
+      - equipRef    
+CLDEM:
+  name: Cooling Demand
+  description: The calculated demand for cooling
+  google_ontology: cooling_percentage_sensor
+  extends: LOAD
+  haystack:
+    type:
+      - cooling
+    identification:
+      - id: "CLDEM or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CLDEM-1, CLDEM-2, etc."
+      - navName: "CLDEM or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLDEM-1, CLDEM-2, etc."
+      - dis: "Cooling Demand or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Cooling Demand-1, Cooling Demand-2, etc."
+      - unit: percentage
+CLREQ: 
+  name: Cooling Requests
+  extends: REQ
+  google_ontology: cooling_request_count
+  haystack:
+    type:
+      - cooling
+    identification:
+      - id: "CLREQ or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CLREQ-1, CLREQ-2, etc."
+      - navName: "CLREQ or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CLREQ-1, CLREQ-2, etc."
+      - dis: "Cooling Requests or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Cooling Requests-1, Cooling Requests-2"      
+CWISOVCMD:
+  name: Condenser Water Isolation Valve Command
+  short_name: CW Isolation Valve Cmd
+  extends: VCMD
+  google_ontology: condensing_water_isolation_valve_command
+  google_ontology_full:
+    - condensing_water_isolation_valve_command:
+      - kind: Bool
+    - condensing_water_isolation_valve_percentage_command:
+      - kind: Number
+    - process_water_isolation_valve_command
+  haystack:
+    type:
+      - condenser
+      - isolation
+      - water
+    identification:
+      - id: "CWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWISOVCMD-1, CWISOVCMD-2, etc."
+      - navName: "CWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWISOVCMD-1, CWISOVCMD-2, etc."
+      - dis: "CW Iso Valve Command or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : CW Iso Valve Command-1, CW Iso Valve Command-2, etc."
+LCWISOVCMD:
+  name: Leaving Condenser Water Isolation Valve Command
+  short_name: Leaving CW Isolation Valve Cmd
+  extends: VCMD
+  google_ontology: condensing_return_water_isolation_valve_command
+  google_ontology_full:
+    - condensing_return_water_isolation_valve_command:
+      - kind: Bool
+    - condensing_return_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - condenser
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+ECWISOVCMD:
+  name: Entering Condenser Water Isolation Valve Command
+  short_name: Enterting CW Isolation Valve Cmd
+  extends: VCMD
+  google_ontology: condensing_supply_water_isolation_valve_command
+  google_ontology_full:
+    - condensing_supply_water_isolation_valve_command:
+      - kind: Bool
+    - condensing_supply_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - condenser
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+CWISOVFBK:
+  name: Condenser Water Isolation Valve Position Feedback
+  extends: VPOS
+  google_ontology: condensing_water_isolation_valve_status
+  google_ontology_full:
+    - condensing_water_isolation_valve_status:
+      - kind: Bool
+    - condensing_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - condenser
+      - isolation
+      - water
+    identification:
+      - id: "CWISOVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWISOVFBK-1, CWISOVFBK-2, etc."
+      - navName: "CWISOVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWISOVFBK-1, CWISOVFBK-2, etc."
+      - dis: "CW Iso Valve Feedback or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : CW Iso Valve Feedback-1, CW Iso Valve Feedback-2, etc."
+LCWISOVFBK:
+  name: Leaving Condenser Water Isolation Valve Position Feedback
+  short_name: Leaving CW Isolation Valve Position
+  extends: VPOS
+  google_ontology: condensing_return_water_isolation_valve_status
+  google_ontology_full:
+    - condensing_return_water_isolation_valve_status:
+      - kind: Bool
+    - condensing_return_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - condenser
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+ECWISOVFBK:
+  name: Entering Condenser Water Isolation Valve Position Feedback
+  short_name: Entering CW Isolation Valve Position
+  extends: VPOS
+  google_ontology: condensing_supply_water_isolation_valve_status
+  google_ontology_full:
+    - condensing_supply_water_isolation_valve_status:
+      - kind: Bool
+    - condensing_supply_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - condenser
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>  
+CWVCMD:
+  name: Condenser Water Valve Command
+  short_name: CW Valve Cmd
+  extends: VCMD
+  google_ontology: condensing_water_valve_percentage_command
+  haystack:
+    type:
+      - condenser
+      - water
+    identification:
+      - id: "CWVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CWVCMD-1, CWVCMD-2, etc."
+      - navName: "CWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWVCMD-1, CWVCMD-2, etc."
+      - dis: "Condenser Water Valve Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Condenser Water Valve Command-1, Condenser
+          Water Valve Command-2, etc."
+CWVFBK:
+  name: Condenser Water Valve Position Feedback
+  short_name: CW Valve Position
+  extends: VPOS
+  google_ontology: condensing_water_valve_percentage_sensor
+  haystack:
+    type:
+      - condenser
+      - water
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+    reference:
+      - equipRef    
+        
+DADCMD:
+  name: Discharge Air Damper Command
+  short_name: Discharge Air Damper Cmd
+  extends: DPRCMD
+  google_ontology: discharge_air_damper_command
+  google_ontology_full: 
+    - discharge_air_damper_command
+    - supply_air_damper_command: 
+      - kind: Bool
+    - supply_air_damper_percentage_command: 
+      - kind: Number
+  haystack:
+    type: 
+      - discharge
+    identification:
+      - id: "DADCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DADCMD-1, DADCMD-2, etc."
+      - navName: "DADCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCMD-1, DADCMD-2, etc."
+      - dis: "Discharge Air Damper Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Damper Command-1, Discharge
+          Air Damper Command-2, etc."
+DADCMDOP:
+  name: Discharge Air Damper Command Open
+  short_name: Discharge Air Damper Cmd Open
+  extends: DPRCMDOP
+  haystack:
+    type: 
+      - discharge
+    identification:
+      - id: "DADCMDOP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DADCMDOP-1, DADCMDOP-2, etc."
+      - navName: "DADCMDOP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCMDOP-1, DADCMDOP-2, etc."
+      - dis: "Discharge Air Damper Command Open or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Damper Command Open-1, Discharge
+          Air Damper Command Open-2, etc."
+DADCMDCL:
+  name: Discharge Air Damper Command Closed
+  short_name: Discharge Air Damper Cmd Closed
+  extends: DPRCMDCL
+  haystack:
+    type: 
+      - discharge
+    identification:
+      - id: "DADCMDCL or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DADCMDCL-1, DADCMDCL-2, etc."
+      - navName: "DADCMDCL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCMDCL-1, DADCMDCL-2, etc."
+      - dis: "Discharge Air Damper Command Closed or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Damper Command Closed-1, Discharge
+          Air Damper Command Closed-2, etc."          
+DADFBK:
+  name: Discharge Air Damper Feedback
+  short_name: Discharge Air Damper Fbk
+  extends: ADFBK
+  google_ontology: supply_air_damper_status
+  haystack:
+    type: 
+      - discharge
+    identification:
+      - id: "DADFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DADFBK-1, DADFBK-2, etc."
+      - navName: "DADFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADFBK-1, DADFBK-2, etc."
+      - dis: "Discharge Air Damper Feedback or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Damper Feedback-1, Discharge
+          Air Damper Feedback-2, etc."          
+ADFBK:
+  name: Air Damper Feedback
+  short_name: Air Damper Fbk
+  haystack:
+    identification:
+      - id: "ADFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ADFBK-1, ADFBK-2, etc."
+      - navName: "ADFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ADFBK-1, ADFBK-2, etc."
+      - dis: "Air Damper Feedback or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Air Damper Feedback-1,
+          Air Damper Feedback-2, etc."
+      - kind: Number
+    type:
+      - point
+      - air
+      - damper
+      - sensor
+DADCTSPRSP:
+  name: Discharge Air Duct Static Pressure Setpoint
+  short_name: Discharge Air Duct Static Pressure Sp
+  google_ontology: supply_air_static_pressure_setpoint
+  extends: ADPSP
+  haystack:
+    type:
+      - discharge
+      - effective
+    identification:
+      - id: "DADCTSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCTSPRSP-1, DADCTSPRSP-2, etc."
+      - navName: "DADCTSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCTSPRSP-1, DADCTSPRSP-2, etc."
+      - dis: "Discharge Air Duct Static Pressure Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Duct Static Discharge
+          Pressure Setpoint-1, Duct Static Discharge Pressure Setpoint-2, etc."
+DADCTSPR:
+  name: Discharge Air Duct Static Pressure
+  extends: ADP
+  google_ontology: discharge_air_static_pressure_sensor
+  google_ontology_full: 
+    - discharge_air_static_pressure_sensor
+    - supply_air_static_pressure_sensor
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DADCTSPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCTSPR-1, DADCTSPR-2, etc."
+      - navName: "DADCTSPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DADCTSPR-1, DADCTSPR-2, etc."
+      - dis: "Discharge Air Duct Static Pressure or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Discharge Air Duct Static Pressure-1,
+          Discharge Air Duct Static Pressure-2, etc."
+DPRCMDOP:
+  name: Damper Command Open
+  haystack:
+    type:
+      - point
+      - air
+      - damper
+      - cmd
+      - open
+    identification:
+      - id: "DPRCMDOP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DPRCMDOP-1, DPRCMDOP-2, etc."
+      - navName: "DPRCMDOP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DPRCMDOP-1, DPRCMDOP-2, etc."
+      - dis: "Damper Command Open or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Damper Command Open-1, Damper Command Open-2,
+          etc."
+      - kind: Bool
+DPRCMDCL:
+  name: Damper Command Closed
+  extends: DPRCMD
+  haystack:
+    type:
+      - point
+      - air
+      - damper
+      - cmd
+      - closed
+    identification:
+      - id: "DPRCMDCL or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DPRCMDCL-1, DPRCMDCL-2, etc."
+      - navName: "DPRCMDCL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DPRCMDCL-1, DPRCMDCL-2, etc."
+      - dis: "Damper Command Closed or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Damper Command Closed-1, Damper Command Closed-2,
+          etc."
+      - kind: Bool
+
+
+DPRREQ:
+  name: Damper Requests
+  extends: REQ
+  haystack:
+    type:
+      - damper
+    identification:
+      - id: "DPRREQ or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DPRREQ-1, DPRREQ-2, etc."
+      - navName: "DPRREQ or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DPRREQ-1, DPRREQ-2, etc."
+      - dis: "Damper Requests or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Damper Requests-1, Damper Requests-2,
+          etc."       
+
+EFFDAFLWSP:
+  name: Effective Discharge Air Flow Setpoint
+  short_name: Effective Discharge Air Flow Sp
+  extends: AFLWSP
+  google_ontology: supply_air_flowrate_setpoint
+  haystack:
+    type:
+      - discharge
+      - effective
+    identification:
+      - id: "EFFDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFDAFLWSP-1, EFFDAFLWSP-2, etc."
+      - navName: "EFFDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFDAFLWSP-1, EFFDAFLWSP-2, etc."
+      - dis: "Effective Discharge Air Flow Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Effective Discharge Air Flow
+          Setpoint-1, Effective Discharge Air Flow Setpoint-2, etc."
+
+EFFIAFLWSP:
+  name: Effective Air Flow Setpoint
+  short_name: Effective Air Flow Sp
+  extends: AFLWSP
+  google_ontology: supply_air_flowrate_setpoint
+  brick_ontology: Discharge_Air_Flow_Setpoint
+  haystack:
+    type:
+      - inlet
+      - effective
+    identification:
+      - id: "EFFIAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFIAFLWSP-1, EFFIAFLWSP-2, etc."
+      - navName: "EFFIAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFIAFLWSP-1, EFFIAFLWSP-2, etc."
+      - dis: "Effective Air Flow Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Effective Air Flow
+          Setpoint-1, Effective Air Flow Setpoint-2, etc."
+DADWP:
+  name: Discharge Air Dewpoint
+  extends: AIRDWP
+  haystack:
+    type:
+      - discharge
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>      
+DAFLWSP:
+  name: Discharge Air Flow Setpoint
+  short_name: Discharge Air Flow Sp
+  extends: AFLWSP
+  google_ontology: discharge_air_flowrate_setpoint
+  google_ontology_full: 
+    - discharge_air_flowrate_setpoint
+    - supply_air_flowrate_setpoint
+  brick_ontology: Discharge_Air_Flow_Setpoint
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DAFLWSP-1, DAFLWSP-2, etc."
+      - navName: "DAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DAFLWSP-1, DAFLWSP-2, etc."
+      - dis: "Discharge Air Flow Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Discharge Air Flow Setpoint-1, Discharge Air
+          Flow Setpoint-2, etc."
+
+DATSP:
+  name: Discharge Air Temperature Setpoint
+  short_name: Discharge Air Temp Sp
+  extends: ATSP
+  google_ontology: discharge_air_temperature_setpoint
+  google_ontology_full: 
+    - discharge_air_temperature_setpoint
+    - supply_air_temperature_setpoint
+  brick_ontology: Effective_Discharge_Air_Temperature_Setpoint
+  haystack:
+    type:
+      - discharge
+      - effective
+    identification:
+      - id: "DATSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DATSP-1, DATSP-2, etc."
+      - navName: "DATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DATSP-1, DATSP-2, etc."
+      - dis: "Discharge Air Temperature Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Discharge Air Temperature Setpoint-1,
+          Discharge Air Temperature Setpoint-2, etc."
+DATCLSP:
+  name: Discharge Air Temperature Cooling Setpoint
+  short_name: Discharge Air Temp Cool Sp
+  google_ontology: discharge_air_cooling_temperature_setpoint
+  google_ontology_full: 
+    - discharge_air_cooling_temperature_setpoint
+    - supply_air_cooling_temperature_setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - discharge
+      - effective
+      - cooling
+    identification:
+      - id: "DATCLSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DATCLSP-1, DATCLSP-2, etc."
+      - navName: "DATCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DATCLSP-1, DATCLSP-2, etc."
+      - dis: "Discharge Air Temperature Cooling Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Discharge Air Temperature Cooling Setpoint-1,
+          Discharge Air Temperature Cooling Setpoint-2, etc."
+DATHTSP:
+  name: Discharge Air Temperature Heating Setpoint
+  short_name: Discharge Air Temp Heat Sp
+  google_ontology: discharge_air_heating_temperature_setpoint
+  google_ontology_full: 
+    - discharge_air_heating_temperature_setpoint
+    - supply_air_heating_temperature_setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - discharge
+      - effective
+      - heating
+    identification:
+      - id: "DATHTSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DATHTSP-1, DATHTSP-2, etc."
+      - navName: "DATHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DATHTSP-1, DATHTSP-2, etc."
+      - dis: "Discharge Air Temperature Heating Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Discharge Air Temperature Heating Setpoint-1,
+          Discharge Air Temperature Heating Setpoint-2, etc."
+DARHSP:
+  name: Discharge Air Humidity Setpoint
+  short_name: Discharge Air Humidity Sp
+  extends: RHSP
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DARHSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DARHSP-1, DARHSP-2, etc."
+      - navName: "DARHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DARHSP-1, DARHSP-2, etc."
+      - dis: "Discharge Air Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Discharge Air Humidity Setpoint-1, Discharge Air Humidity Setpoint-2,
+          etc."
+      - kind: Number
+      - unit: percentage
+    reference:
+      - equipRef
+DAHUMRHSP:
+  name: Discharge Air Humidification Relative Humidity Setpoint
+  description: The lower bound of relative humidity that the discharge air is maintained to.
+  google_ontology: supply_air_humidification_relative_humidity_setpoint
+  haystack:
+    type:
+      - point
+      - discharge
+      - air
+      - humidity
+      - humidify
+      - sp
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: percentage
+    reference:
+      - equipRef
+DADHRHSP:
+  name: Discharge Air Dehumidification Relative Humidity Setpoint
+  description: The upper bound of relative humidity that the discharge air is maintained to. 
+  google_ontology: supply_air_dehumidification_relative_humidity_setpoint
+  haystack:
+    type:
+      - point
+      - discharge
+      - air
+      - humidity
+      - dehumidify
+      - sp
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: percentage
+    reference:
+      - equipRef            
+DFCMD:
+  name: Discharge Fan Command
+  short_name: Discharge Fan Cmd
+  extends: FANCMD
+  google_ontology: discharge_fan_run_command
+  google_ontology_full:
+    - discharge_fan_run_command
+    - supply_fan_run_command
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DFCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DFCMD-1, DFCMD-2, etc."
+      - navName: "DFCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DFCMD-1, DFCMD-2, etc."
+      - dis: "Discharge Fan Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Discharge Fan Command-1, Discharge Fan Command-2,
+          etc."
+
+DFOVCMD:
+  name: Discharge Fan Override Command
+  extends: DFCMD
+  haystack:
+    type:
+      - override
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - id:  <CODE> + - + <INTEGER> 
+      - kind: Bool
+      
+DFSPCMD:
+  name: Discharge Fan Speed Command
+  extends: FANSPCMD
+  google_ontology: discharge_fan_speed_percentage_command
+  google_ontology_full:
+    - discharge_fan_speed_percentage_command
+    - supply_fan_speed_percentage_command
+    - low_discharge_fan_speed_command 
+    - medium_discharge_fan_speed_command
+    - high_discharge_fan_speed_command
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: "DFSPCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DFSPCMD-1, DFSPCMD-2, etc."
+      - navName: "DFSPCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DFSPCMD-1, DFSPCMD-2, etc."
+      - dis: "Discharge Fan Speed Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Discharge Fan Speed Command-1, Discharge Fan Speed Command-2,
+          etc."
+DFSPCMDH:
+  name: High Discharge Fan Speed Command
+  extends: DFSPCMD
+  description: High Speed On/Off command for multispeed fans with fixed number of speeds where each speed is controlled by a boolean on/off point. 
+  google_ontology: high_discharge_fan_speed_command
+  haystack:
+    type:
+      - high
+    identification:
+      - kind: Bool   
+DFSPCMDL:
+  name: Low Discharge Fan Speed Command
+  description:  Low Speed On/Off command for multispeed fans with fixed number of speeds where each speed is controlled by a boolean on/off point. 
+  extends: DFSPCMD
+  google_ontology: low_discharge_fan_speed_command
+  haystack:
+    type:
+      - low
+    identification:
+      - kind: Bool             
+DFSPFBK:
+  name: Discharge Fan Speed Feedback
+  extends: FANSPFBK
+  google_ontology: discharge_fan_speed_percentage_sensor
+  google_ontology_full:
+    - discharge_fan_speed_percentage_sensor
+    - supply_fan_speed_percentage_sensor
+  haystack:
+    type:
+      - discharge
+    identification: 
+      - id: "DFSPFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DFSPFBK-1, DFSPFBK-2, etc."
+      - navName: "DFSPFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DFSPFBK-1, DFSPFBK-2, etc."
+      - dis: "Discharge Fan Speed Feedback or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Discharge Fan Speed Feedback-1, Discharge Fan Speed Feedback-2,
+          etc."
+DFFREQ:
+  name: Discharge Fan Frequency Feedback
+  extends: VFDFREQ
+  google_ontology: discharge_fan_speed_frequency_sensor
+  google_ontology_full:
+    - discharge_fan_speed_frequency_sensor
+    - supply_fan_speed_frequency_sensor
+  haystack:
+    type:
+      - discharge
+      - fan
+    identification:
+      - kind: Number
+      - unit: frequency
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+EADCMD:
+  name: Exhaust Air Damper Command
+  extends: DPRCMD
+  google_ontology: exhaust_air_damper_command
+  google_ontology_full:
+    - exhaust_air_damper_percentage_command:
+      - kind: Number
+      - unit: percentage
+  haystack:
+    type:
+      - air
+      - exhaust
+    identification:
+      - id: "EADCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EADCMD-1, EADCMD-2, etc."
+      - navName: "EADCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EADCMD-1, EADCMD-2, etc."
+      - dis: "Exhaust Air Damper Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Exhaust Air Damper Command-1, Exhaust Air
+          Damper Command-2, etc."
+EADFBK:
+  name: Exhaust Air Damper Feedback
+  extends: ADFBK
+  google_ontology: exhaust_air_damper_percentage_sensor
+  haystack:
+    type: 
+      - air
+      - exhaust
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>         
+EAFLWSP:
+  name: Exhaust Air Flow Setpoint
+  extends: AFLWSP
+  google_ontology: exhaust_air_flowrate_setpoint
+  haystack:
+    type:
+      - air
+      - exhaust
+    identification:
+      - id: "EAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EAFLWSP-1, EAFLWSP-2, etc."
+      - navName: "EAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EAFLWSP-1, EAFLWSP-2, etc."
+      - dis: "Exhaust Air Flow Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Exhaust Air Flow Setpoint-1, Exhaust Air
+          Flow Setpoint-2, etc."
+EADCTSPR:
+  name: Exhaust Air Duct Static Pressure
+  extends: ADP
+  google_ontology: exhaust_air_static_pressure_sensor
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EADCTSPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EADCTSPR-1, EADCTSPR-2, etc."
+      - navName: "EADCTSPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EADCTSPR-1, EADCTSPR-2, etc."
+      - dis: "Exhaust Air Duct Static Pressure or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Exhaust Air Duct Static Pressure-1,
+          Exhaust Air Duct Static Pressure-2, etc."
+EADCTSPRSP:
+  name: Exhaust Air Duct Static Pressure Setpoint
+  extends: ADPSP
+  google_ontology: exhaust_air_static_pressure_setpoint
+  haystack:
+    type:
+      - exhaust
+      - effective
+    identification:
+      - id: "EADCTSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EADCTSPRSP-1, EADCTSPRSP-2, etc."
+      - navName: "EADCTSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EADCTSPRSP-1, EADCTSPRSP-2, etc."
+      - dis: "Exhaust Air Duct Static Pressure Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Exhaust Air Duct Static
+          Pressure Setpoint-1, Exhaust Air Duct Static Pressure Setpoint-2, etc."
+ECMDSP:
+  name: Economizer Mode Status
+  google_ontology: economizer_mode
+  haystack:
+    type:
+      - point
+      - economizing
+      - mode
+      - sp
+    identification:
+      - id: "ECMDSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ECMDSP-1, ECMDSP-2, etc."
+      - navName: "ECMDSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECMDSP-1, ECMDSP-2, etc."
+      - dis: "Economizer Mode Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Economizer Mode Status-1, Economizer Mode 
+          Status-2, etc."
+      - kind: Str      
+
+ECCMD:
+  name: Economizer Output Command
+  google_ontology: outside_air_damper_command
+  haystack:
+    type:
+      - point
+      - economizing
+      - outside
+      - air
+      - damper
+      - cmd
+    identification:
+      - id: "ECCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ECCMD-1, ECCMD-2, etc."
+      - navName: "ECCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECCMD-1, ECCMD-2, etc."
+      - dis: "Economizer Output Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Economizer Output Command-1, Economizer
+          Output Command-2, etc."
+      - kind: Bool
+ECENCMD:
+  name: Economizer Enable Command
+  haystack:
+    type:
+      - point
+      - economizing
+      - enable
+      - cmd
+    identification:
+      - id: "ECENCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECENCMD-1, ECENCMD-2, etc."
+      - navName: "ECENCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECENCMD-1, ECENCMD-2, etc."
+      - dis: "Economizer Enable Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Economizer Enable Command-1, Economizer
+          Enable Command-2, etc."
+      - kind: Bool
+ECOALCKTSP:
+  name: Economizer Outside Air Lockout Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - damper
+      - enable
+      - economizing
+      - outside
+    identification:
+      - id: "ECOALCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECOALCKTSP-1, ECOALCKTSP-2, etc."
+      - navName: "ECOALCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECOALCKTSP-1, ECOALCKTSP-2, etc."
+      - dis: "Economizer Outside Air Lockout Temperature Setpoint or if more than 1 in
+          the equip/device, use <NAME> + - + <INTEGER>  : Economizer Outside Air
+          Lockout Temperature Setpoint-1, Economizer Outside Air Lockout
+          Temperature Setpoint-2, etc."
+ECOALCKESP:
+  name: Economizer Outside Air Lockout Enthalpy Setpoint
+  haystack:
+    type:
+      - enthalpy
+      - point
+      - sp
+      - air
+      - damper
+      - enable
+      - economizing
+      - outside
+    identification:
+      - kind: Number
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+
+EFCMD:
+  name: Exhaust Fan Command
+  short_name: Exhaust Fan Cmd
+  extends: FANCMD
+  google_ontology: exhaust_fan_run_command
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EFCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EFCMD-1, EFCMD-2, etc."
+      - navName: "EFCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFCMD-1, EFCMD-2, etc."
+      - dis: "Exhaust Fan Command or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Exhaust Fan Command-1, Exhaust Fan Command-2, etc."
+EVCLCMD:
+  name: Evaporative Cooling Command
+  extends: CLCMD
+  google_ontology: evaporative_cooler_run_command
+  haystack:
+    type:
+      - evaporative 
+    identification:
+      - id: "EVCLCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EVCLCMD-1, EVCLCMD-2, etc."
+      - navName: "EVCLCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EVCLCMD-1, EVCLCMD-2, etc."
+      - dis: "Evaporative Cooling Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Evaporative Cooling Command-1, Evaporative Cooling Command-2, etc."
+EVCLSTS:
+  name: Evaporative Cooling Status
+  extends: CLSTS
+  google_ontology: evaporative_cooler_run_status
+  haystack:
+    type:
+      - evaporative 
+    identification:
+      - id: "EVCLSTS or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EVCLSTS-1, EVCLSTS-2, etc."
+      - navName: "EVCLSTS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EVCLSTS-1, EVCLSTS-2, etc."
+      - dis: "Evaporative Cooling Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Evaporative Cooling Status-1, Evaporative Cooling Status-2, etc."
+EFSPCMD:
+  name: Exhaust Fan Speed Command
+  short_name: Exhaust Fan Speed Cmd
+  extends: FANSPCMD
+  google_ontology: exhaust_fan_speed_percentage_command
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EFSPCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EFSPCMD-1, EFSPCMD-2, etc."
+      - navName: "EFSPCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFSPCMD-1, EFSPCMD-2, etc."
+      - dis: "Exhaust Fan Speed Command or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Exhaust Fan Speed Command-1, Exhaust Fan Speed Command-2, etc."
+EFSPFBK:
+  name: Exhaust Fan Speed Feedback
+  extends: FANSPFBK
+  google_ontology: exhaust_fan_speed_percentage_sensor
+  haystack:
+    type:
+      - exhaust
+    identification:
+      - id: "EFSPFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EFSPFBK-1, EFSPFBK-2, etc."
+      - navName: "EFSPFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFSPFBK-1, EFSPFBK-2, etc."
+      - dis: "Exhaust Fan Speed Feedback or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Exhaust Fan Speed Feedback-1, Exhaust Fan Speed Feedback-2, etc."
+EFFREQ:
+  name: Exhaust Fan Frequency Feedback
+  extends: VFDFREQ
+  google_ontology: exhaust_fan_speed_frequency_sensor
+  haystack:
+    type:
+      - exhaust
+      - fan
+    identification:
+      - kind: Number
+      - unit: frequency
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+EFANI:
+  name: Exhaust Fan Current
+  extends: FANI
+  google_ontology: exhaust_fan_current_sensor
+  haystack:
+    type:
+    - exhaust
+    identification:
+      - id: "EFANI or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EFANI-1, EFANI-2, etc."
+      - navName: "EFANI or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFANI-1, EFANI-2, etc."
+      - dis: "Exhaust Fan Current or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Exhaust Fan Current-1, Exhaust Fan Current-2, etc."
+EFANP: 
+  name: Exhaust Fan Power
+  extends: FANP
+  google_ontology: exhaust_fan_power_sensor
+  haystack:
+    type:
+    - exhaust
+    identification:
+      - id: "EFANP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          EFANP-1, EFANP-2, etc."
+      - navName: "EFANP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFANP-1, EFANP-2, etc."
+      - dis: "Exhaust Fan Power or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Exhaust Fan Power-1, Exhaust Fan Power-2, etc."
+EHTOCMD:
+  name: Electric Heating Output Command
+  google_ontology: heating_percentage_command
+  haystack:
+    type:
+      - point
+      - heat
+      - cmd
+      - elec
+    identification:
+      - id: "EHTOCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHTOCMD-1, EHTOCMD-2, etc."
+      - navName: "EHTOCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHTOCMD-1, EHTOCMD-2, etc."
+      - dis: "Electric Heating Output Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Electric Heating Output Command-1, Electric
+          Heating Output Command-2, etc."
+      - kind: Number
+FLGST:
+  name: Flue Gas Temperature
+  extends: AIRTEMP
+  google_ontology: flue_gas_temperature_sensor
+  haystack:
+    type:
+      - flue
+      - gas
+  identification:
+    - id: <ABBREVIATION> + <INTEGER> - e.g. FLGST1 or FLGST2
+    - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FLGST-1 or FLGST-2
+    - dis: Flue Gas Temperature 1 or FLGST-1
+FLTDPR:
+  name: Filter Differential Pressure
+  extends: ADP
+  google_ontology: filter_differential_pressure_sensor
+  haystack:
+    type:
+      - filter
+    identification:
+      - id: "FLTDPR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          FLTDPR-1, FLTDPR-2, etc."
+      - navName: "FLTDPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : FLTDPR-1, FLTDPR-2, etc."
+      - dis
+EFFHDAFLWSP:
+  name: Effective Hot Deck Air Flow Setpoint
+  extends: AFLWSP
+  google_ontology: heating_air_flowrate_setpoint
+  haystack:
+    type:
+      - effective
+      - hotDeck
+    identification:
+      - id: "EFFHDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFHDAFLWSP-1, EFFHDAFLWSP-2, etc."
+      - navName: "EFFHDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFHDAFLWSP-1, EFFHDAFLWSP-2, etc."
+      - dis: "Effectie Hot Deck Air Flow Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Effective Hot Deck Air Flow
+          Setpoint-1, Effective Hot Deck Air Flow Setpoint-2, etc."
+IGVFBK:
+  name: Inlet Guide Vane Feedback
+  google_ontology: inlet_guidevane_percentage_sensor
+  haystack:
+    type:
+      - inlet
+      - guideVane
+      - sensor
+      - point
+    identification:
+      - id: "IGVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IGVFBK-1, IGVFBK-2, etc."
+      - navName: "IGVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IGVFBK-1, IGVFBK-2, etc."
+      - dis: "Inlet Guide Vane Feedback or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Inlet Guide Vane Feedback-1, Inlet Guide Vane Feedback-2,
+          etc."
+      - kind: Number
+HDDATSP:
+  name: Hot Deck Discharge Air Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - discharge
+      - effective
+      - hotDeck
+    identification:
+      - id: "HDDATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HDDATSP-1, HDDATSP-2, etc."
+      - navName: "HDDATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HDDATSP-1, HDDATSP-2, etc."
+      - dis: "Hot Deck Discharge Air Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Hot Deck Discharge Air
+          Temperature Setpoint-1, Hot Deck Discharge Air Temperature Setpoint-2,
+          etc."
+HDDCMD:
+  name: Hot Deck Damper Command
+  extends: DPRCMD
+  google_ontology: heating_air_damper_percentage_command
+  haystack:
+    type:
+      - hotDeck
+    identification:
+      - id: "HDDCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HDDCMD-1, HDDCMD-2, etc."
+      - navName: "HDDCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HDDCMD-1, HDDCMD-2, etc."
+      - dis: "Hot Deck Damper Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Hot Deck Damper Command-1, Hot Deck Damper
+          Command-2, etc."
+HTCMD:
+  name: Heating Command
+  google_ontology: heater_run_command
+  google_ontology_full: 
+    - heater_run_command:
+      - kind: Bool
+    - heating_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - point
+      - heat
+      - cmd
+    identification:
+      - id: "HTCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HTCMD-1, HTCMD-2, etc."
+      - navName: "HTCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTCMD-1, HTCMD-2, etc."
+      - dis: "Heating Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heating Command-1, Heating Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTGCT:
+  name: Heating Stage Count
+  description: Highest number of stages at which equipment is currently operating. 
+  google_ontology: heating_stage_run_count
+  haystack:
+    type:
+      - point
+      - heat
+      - stage
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - equipRef      
+HTSTS:
+  name: Heating Status
+  google_ontology: heater_run_status
+  haystack:
+    type:
+      - point
+      - heat
+      - sensor
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+    reference:
+      - equipRef      
+     
+HTDEM:
+  name: Heating Demand
+  description: The calculated demand for heating
+  google_ontology: heating_percentage_command
+  extends: LOAD
+  haystack:
+    type:
+      - heating
+    identification:
+      - id: "HTDEM or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HTDEM-1, HTDEM-2, etc."
+      - navName: "HTDEM or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTDEM-1, HTDEM-2, etc."
+      - dis: "Heating Demand or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heating Demand-1, Heating Demand-2, etc."
+      - kind: Number    
+HTREQ: 
+  name: Heating Requests
+  extends: REQ
+  google_ontology: heating_request_count
+  haystack:
+    type:
+      - heating
+    identification:
+      - id: "HTREQ or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HTREQ-1, HTREQ-2, etc."
+      - navName: "HTREQ or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTREQ-1, HTREQ-2, etc."
+      - dis: "Heating Requests or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Heating Requests-1, Heating Requests-2"
+HTGCLGV:
+  name: Htg Clg Valve
+  extends: VCMD
+  haystack:
+    type:
+      - heatCool
+    identification:
+      - id: "HTGCLGV or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGCLGV-1, HTGCLGV-2, etc."
+      - navName: "HTGCLGV or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGCLGV-1, HTGCLGV-2, etc."
+      - dis: "Htg Clg Valve or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Htg Clg Valve-1, Htg Clg Valve-2, etc."
+HTGRHVCMD:
+  name: Hot Gas Reheat Valve Command
+  short_name: Hot Gas Reheat Valve Cmd
+  extends: VCMD
+  haystack:
+    type:
+      - hotGas
+    identification:
+      - id: "HTGRHVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGRHVCMD-1, HTGRHVCMD-2, etc."
+      - navName: "HTGRHVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGRHVCMD-1, HTGRHVCMD-2, etc."
+      - dis: "Hot Gas Reheat Valve Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Hot Gas Reheat Valve Command-1, Hot Gas Reheat Valve Command-2, etc."
+HTGRHSP:
+  name: Hot Gas Reheat Setpoint
+  short_name: Hot Gas Reheat Sp
+  haystack:
+    type:
+      - point
+      - hotGas
+      - reheat
+      - air
+      - temp
+      - sp
+    identification:
+      - id: "HTGRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGRHSP-1, HTGRHSP-2, etc."
+      - navName: "HTGRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGRHSP-1, HTGRHSP-2, etc."
+      - dis: "Hot Gas Reheat Setpoint or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Hot Gas Reheat Setpoint-1, Hot Gas Reheat Setpoint-2, etc."
+      - kind: Number
+HTGRHDBSP:
+  name: Hot Gas Reheat Deadband Setpoint
+  short_name: Hot Gas Reheat Deadband Sp
+  haystack:
+    type:
+      - point
+      - hotGas
+      - reheat
+      - deadband
+      - sp
+    identification:
+      - id: "HTGRHDBSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGRHDBSP-1, HTGRHDBSP-2, etc."
+      - navName: "HTGRHDBSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTGRHDBSP-1, HTGRHDBSP-2, etc."
+      - dis: "Hot Gas Reheat Deadband Setpoint or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Hot Gas Reheat Deadband Setpoint-1, Hot Gas Reheat Deadband Setpoint-2, etc."
+      - kind: Number
+HTSTG1CMD:
+  name: Heating Stage 1 Command
+  short_name: Heating Stage 1 Cmd
+  haystack:
+    type:
+      - point
+      - heat
+      - cmd
+      - stage: 1
+    identification:
+      - id: "HTSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG1CMD-1, HTSTG1CMD-2, etc."
+      - navName: "HTSTG1CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG1CMD-1, HTSTG1CMD-2, etc."
+      - dis: "Heating Stage 1 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 1 Command-1, Heating Stage 1
+          Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG2CMD:
+  name: Heating Stage 2 Command
+  short_name: Heating Stage 2 Cmd
+  haystack:
+    type:
+      - point
+      - heat
+      - cmd
+      - stage: 2
+    identification:
+      - id: "HTSTG2CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG2CMD-1, HTSTG2CMD-2, etc."
+      - navName: "HTSTG2CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG2CMD-1, HTSTG2CMD-2, etc."
+      - dis: "Heating Stage 2 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 2 Command-1, Heating Stage 2
+          Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG3CMD:
+  name: Heating Stage 3 Command
+  short_name: Heating Stage 3 Cmd
+  haystack:
+    type:
+      - point
+      - heat
+      - cmd
+      - stage: 3
+    identification:
+      - id: "HTSTG3CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG3CMD-1, HTSTG3CMD-2, etc."
+      - dis: "Heating Stage 3 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 3 Command-1, Heating Stage 3
+          Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG4CMD:
+  name: Heating Stage 4 Command
+  short_name: Heating Stage 4 Cmd
+  haystack:
+    type:
+      - point
+      - heat
+      - cmd
+      - stage: 4
+    identification:
+      - id: "HTSTG4CMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG4CMD-1, HTSTG4CMD-2, etc."
+      - dis: "Heating Stage 4 Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 4 Command-1, Heating Stage 4
+          Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG1STS:
+  name: Heating Stage 1 Status
+  google_ontology: heater_run_status_1
+  haystack:
+    type:
+      - point
+      - heat
+      - sensor
+      - stage: 1
+    identification:
+      - id: "HTSTG1STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG1STS-1, HTSTG1STS-2, etc."
+      - navName: "HTSTG1STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG1STS-1, HTSTG1STS-2, etc."
+      - dis: "Heating Stage 1 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 1 Status-1, Heating Stage 1
+          Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG2STS:
+  name: Heating Stage 2 Status
+  google_ontology: heater_run_status_2
+  haystack:
+    type:
+      - point
+      - heat
+      - sensor
+      - stage: 2
+    identification:
+      - id: "HTSTG2STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG2STS-1, HTSTG2STS-2, etc."
+      - navName: "HTSTG2STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG2STS-1, HTSTG2STS-2, etc."
+      - dis: "Heating Stage 2 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 2 Status-1, Heating Stage 2
+          Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG3STS:
+  name: Heating Stage 3 Status
+  google_ontology: heater_run_status_3
+  haystack:
+    type:
+      - point
+      - heat
+      - sensor
+      - stage: 3
+    identification:
+      - id: "HTSTG3STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG3STS-1, HTSTG3STS-2, etc."
+      - dis: "Heating Stage 3 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 3 Status-1, Heating Stage 3
+          Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HTSTG4STS:
+  name: Heating Stage 4 Status  
+  google_ontology: heater_run_status_4
+  haystack:
+    type:
+      - point
+      - heat
+      - sensor
+      - stage: 4
+    identification:
+      - id: "HTSTG4STS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HTSTG4STS-1, HTSTG4STS-2, etc."
+      - dis: "Heating Stage 4 Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Heating Stage 4 Status-1, Heating Stage 4
+          Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+HWBYPVCMD:
+  name: Hot Water Bypass Valve Command
+  short_name: HW Bypass Valve Cmd
+  extends: VCMD
+  haystack:
+    type:
+      - bypass
+      - hot
+      - water
+    identification:
+      - id: "HWBYPVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWBYPVCMD-1, HWBYPVCMD-2, etc."
+      - navName: "HWBYPVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWBYPVCMD-1, HWBYPVCMD-2, etc."
+      - dis: "Hot Water Bypass Valve Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Hot Water Bypass Valve Command-1, Hot Water
+          Bypass Valve Command-2, etc."
+HWVCMD:
+  name: Hot Water Valve Command
+  short_name: HW Valve Cmd
+  extends: VCMD
+  google_ontology: heating_water_valve_percentage_command
+  google_ontology_full:
+    - heating_water_valve_percentage_command:
+      - kind: Number
+    - heating_water_valve_command:
+      - kind: Bool
+  brick_ontology: Heating_Command
+  haystack:
+    type:
+      - heat
+      - hot
+      - water
+    identification:
+      - id: "HWVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HWVCMD-1, HWVCMD-2, etc."
+      - navName: "HWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWVCMD-1, HWVCMD-2, etc."
+      - dis: "Hot Water Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Hot Water Valve Command-1, Hot Water Valve
+          Command-2, etc."
+
+IADCMD:
+  name: Inlet Air Damper Command
+  extends: DPRCMD
+  google_ontology: supply_air_damper_percentage_command
+  brick_ontology: Damper_Position_Command
+  haystack:
+    type: 
+      - inlet
+    identification:
+      - id: "IADCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          IADCMD-1, IADCMD-2, etc."
+      - navName: "IADCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IADCMD-1, IADCMD-2, etc."
+      - dis: "Inlet Air Damper Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Inlet Air Damper Command-1, Inlet
+          Air Damper Command-2, etc."
+
+IADCMDOP:
+  name: Inlet Air Damper Command Open
+  extends: DPRCMDOP
+  haystack:
+    type: 
+      - inlet
+    identification:
+      - id: "IADCMDOP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          IADCMDOP-1, IADCMDOP-2, etc."
+      - navName: "IADCMDOP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IADCMDOP-1, IADCMDOP-2, etc."
+      - dis: "Inlet Air Damper Command Open or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Inlet Air Damper Command Open-1, Inlet
+          Air Damper Command Open-2, etc."
+
+IADCMDCL:
+  name: Inlet Air Damper Command Close
+  extends: DPRCMDCL
+  haystack:
+    type: 
+      - inlet
+    identification:
+      - id: "IADCMDCL or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          IADCMDCL-1, IADCMDCL-2, etc."
+      - navName: "IADCMDCL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IADCMDCL-1, IADCMDCL-2, etc."
+      - dis: "Inlet Air Damper Command Close or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Inlet Air Damper Command Close-1, Inlet
+          Air Damper Command Close-2, etc."    
+
+IADFBK:
+  name: Inlet Air Damper Feedback
+  extends: ADFBK
+  google_ontology: supply_air_damper_percentage_sensor
+  haystack:
+    type: 
+      - inlet
+    identification:
+      - id: "IADFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          IADFBK-1, IADFBK-2, etc."
+      - navName: "IADFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IADFBK-1, IADFBK-2, etc."
+      - dis: "Inlet Air Damper Feedback or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Inlet Air Damper Feedback-1, Inlet
+          Air Damper Feedback-2, etc."  
+IAFLWCLMNSP:
+  name:  Cooling Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - min
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+IAFLWCLMXSP:
+  name: Cooling Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - max
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+IAFLWHTMNSP:
+  name: Heating Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - min
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+IAFLWHTMXSP:
+  name: Heating Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - max
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+ISOADCMD:
+  name: Isolation Air Damper Command
+  extends: DPRCMD
+  haystack:
+    type: 
+      - isolation
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+HWVFBK:
+  name: Hot Water Valve Position Feedback
+  extends: VPOS
+  google_ontology: heating_water_valve_percentage_sensor
+  google_ontology_full:
+    - heating_water_valve_percentage_sensor:
+      - kind: Number
+    - heating_water_valve_status:
+      - kind: Bool
+  haystack:
+    type:
+      - heat
+      - hot
+      - water
+    identification:
+      - id: "HWVFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HWVFBK-1, HWVFBK-2, etc."
+      - navName: "HWVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWVFBK-1, HWVFBK-2, etc."
+      - dis: "Hot Water Valve Position Feedback or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Hot Water Valve Position Feedback-1, Hot Water Valve
+          Position Feedback-2, etc."
+    reference:
+      - equipRef
+HWISOVCMD:
+  name: Hot Water Isolation Valve Command
+  extends: VCMD
+  haystack:
+    type:
+      - hot
+      - isolation
+      - water
+    identification:
+      - id: "HWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWISOVCMD-1, HWISOVCMD-2, etc."
+      - navName: "HWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWISOVCMD-1, HWISOVCMD-2, etc."
+      - dis: "Hw Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Hw Iso Valve Command-1, Hw Iso Valve Command-2,
+          etc."
+LHWISOVCMD:
+  name: Leaving Hot Water Isolation Valve Command
+  extends: VCMD
+  google_ontology: heating_supply_water_isolation_valve_command
+  google_ontology_full:
+    - heating_supply_water_isolation_valve_command:
+      - kind: Bool
+    - heating_supply_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - hot
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+EHWISOVCMD:
+  name: Entering Hot Water Isolation Valve Command
+  extends: VCMD
+  google_ontology: heating_return_water_isolation_valve_command
+  google_ontology_full:
+    - heating_return_water_isolation_valve_command:
+      - kind: Bool
+    - heating_return_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - hot
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+HWISOVFBK:
+  name: Hot Water Isolation Valve Position Feedback
+  extends: VPOS
+  haystack:
+    type:
+      - hot
+      - isolation
+      - water
+    identification:
+      - id: "HWISOVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWISOVFBK-1, HWISOVFBK-2, etc."
+      - navName: "HWISOVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWISOVFBK-1, HWISOVFBK-2, etc."
+      - dis: "Hw Iso Valve Feedback or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Hw Iso Valve Feedback-1, Hw Iso Valve Feedback-2,
+          etc."
+LHWISOVFBK:
+  name: Leaving Hot Water Isolation Valve Position Feedback
+  extends: VPOS
+  google_ontology: heating_supply_water_isolation_valve_percentage_sensor
+  haystack:
+    type:
+      - leaving
+      - hot
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+EHWISOVFBK:
+  name: Entering Hot Water Isolation Valve Position Feedback
+  extends: VPOS
+  google_ontology: heating_return_water_isolation_valve_percentage_sensor
+  haystack:
+    type:
+      - entering
+      - hot
+      - isolation
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>  
+ISOVCMD:
+  name: Isolation Valve Command
+  extends: VCMD
+  haystack:
+    type:
+      - isolation
+    identification:
+      - id: "ISOVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ISOVCMD-1, ISOVCMD-2, etc."
+      - navName: "ISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ISOVCMD-1, ISOVCMD-2, etc."
+      - dis: "Isolation Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Isolation Valve Command-1, Isolation Valve
+          Command-2, etc."
+MATSP:
+  name: Mixed Air Temperature Setpoint
+  extends: ATSP
+  google_ontology: mixed_air_temperature_setpoint
+  haystack:
+    type:
+      - mixed
+    identification:
+      - id: "MATSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MATSP-1, MATSP-2, etc."
+      - navName: "MATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MATSP-1, MATSP-2, etc."
+      - dis: "Mixed Air Temperature Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Mixed Air Temperature Setpoint-1, Mixed Air
+          Temperature Setpoint-2, etc."
+NGVCMD:
+  name: Natural Gas Valve Command
+  extends: VCMD
+  haystack:
+    type:
+      - naturalGas
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+    reference:
+      - equipRef
+
+OACLLCKTSP:
+  name: Cooling Lockout Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - cooling
+      - enable
+      - outside
+    identification:
+      - id: "OACLLCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OACLLCKTSP-1, OACLLCKTSP-2, etc."
+      - navName: "OACLLCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OACLLCKTSP-1, OACLLCKTSP-2, etc."
+      - dis: "Cooling Lockout Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Cooling Lockout
+          Temperature Setpoint-1, Cooling Lockout Temperature Setpoint-2, etc."
+OADCMD:
+  name: Outside Air Damper Command
+  extends: DPRCMD
+  google_ontology: outside_air_damper_command
+  google_ontology_full:
+    - ventilation_outside_air_damper_percentage_command
+    - outside_air_damper_command:
+      - kind: bool
+    - outside_air_damper_percentage_command:
+      - kind: Number
+      - unit: percentage
+  haystack:
+    type:
+      - outside
+    identification:
+      - id: "OADCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          OADCMD-1, OADCMD-2, etc."
+      - navName: "OADCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OADCMD-1, OADCMD-2, etc."
+      - dis: "Outside Air Damper Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Outside Air Damper Command-1, Outside Air
+          Damper Command-2, etc."
+OAENTH:
+  name: Outside Air Enthalpy
+  extends: AIRENTH
+  google_ontology: outside_air_specificenthalpy_sensor
+  haystack:
+    type:
+      - outside
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+MNOADSP:
+  name: Minimum Outside Air Damper Setpoint
+  google_ontology: min_outside_air_damper_command
+  haystack:
+    type:
+      - min
+      - damper
+      - sp
+      - point
+      - air
+      - outside
+    identification:
+      - id: "MNOADSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MNOADSP-1, MNOADSP-2, etc."
+      - navName: "MNOADSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MNOADSP-1, MNOADSP-2, etc."
+      - dis: "Minimum Outside Air Damper Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Minimum Outside Air Damper Setpoint-1, Minimum Outside 
+          Air Damper Setpoint-2, etc."
+      - kind: Number
+OADFBK:
+  name: Outside Air Damper Feedback
+  extends: ADFBK
+  google_ontology: outside_air_damper_percentage_sensor
+  haystack:
+    type:
+      - outside
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - equipRef        
+OAFLWMNSP:
+  name: Outside Air Minimum Flow Setpoint
+  extends: AFLWSP
+  google_ontology: ventilation_outside_air_flowrate_setpoint
+  haystack:
+    type:
+      - min
+      - outside
+    identification:
+      - id: "OAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLWMNSP-1, OAFLWMNSP-2, etc."
+      - navName: "OAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLWMNSP-1, OAFLWMNSP-2, etc."
+      - dis: "Outside Air Minimum Flow Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Outside Air Minimum Flow Setpoint-1,
+          Outside Air Minimum Flow Setpoint-2, etc."
+OAFLWSP:
+  name: Outside Air Flow Setpoint
+  extends: AFLWSP
+  google_ontology: outside_air_flowrate_setpoint
+  google_ontology_full: 
+    - outside_air_flowrate_setpoint
+    - ventilation_outside_air_flowrate_setpoint
+  haystack:
+    type:
+      - outside
+    identification:
+      - id: "OAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLWSP-1, OAFLWSP-2, etc."
+      - navName: "OAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAFLWSP-1, OAFLWSP-2, etc."
+      - dis: "Outside Air Flow Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Outside Air Flow Setpoint-1, Outside Air
+          Flow Setpoint-2, etc."
+OAHTLCKTSP:
+  name: Heating Lockout Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - enable
+      - heating
+      - outside
+    identification:
+      - id: "OAHTLCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAHTLCKTSP-1, OAHTLCKTSP-2, etc."
+      - navName: "OAHTLCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAHTLCKTSP-1, OAHTLCKTSP-2, etc."
+      - dis: "Heating Lockout Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Heating Lockout
+          Temperature Setpoint-1, Heating Lockout Temperature Setpoint-2, etc."
+OALCKTSP:
+  name: Outside Air Lockout Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - enable
+      - outside
+    identification:
+      - id: "OALCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OALCKTSP-1, OALCKTSP-2, etc."
+      - navName: "OALCKTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OALCKTSP-1, OALCKTSP-2, etc."
+      - dis: "Outside Air Lockout Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Outside Air Lockout
+          Temperature Setpoint-1, Outside Air Lockout Temperature Setpoint-2,
+          etc."
+
+OCCCDAFLWMNSP:
+  name: Occupied Cold Deck Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - coldDeck
+      - min
+      - occ
+    identification:
+      - id: "OCCCDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCCDAFLWMNSP-1, OCCCDAFLWMNSP-2, etc."
+      - navName: "OCCCDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCCDAFLWMNSP-1, OCCCDAFLWMNSP-2, etc."
+      - dis: "Occupied Cold Deck Air Flow Min Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Cold Deck Air Flow Min Setpoint-1,
+          Occupied Cold Deck Air Flow Min Setpoint-2, etc."
+
+OCCCDAFLWMXSP:
+  name: Occupied Cold Deck Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - coldDeck
+      - max
+      - occ
+    identification:
+      - id: "OCCCDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCCDAFLWMXSP-1, OCCCDAFLWMXSP-2, etc."
+      - navName: "OCCCDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCCDAFLWMXSP-1, OCCCDAFLWMXSP-2, etc."
+      - dis: "Occupied Cold Deck Air Flow Max Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Cold Deck Air Flow Max Setpoint-1,
+          Occupied Cold Deck Air Flow Max Setpoint-2, etc."
+
+OCCIAFLWMNSP:
+  name: Occupied Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - inlet
+      - min
+      - occ
+    identification:
+      - id: "OCCIAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWMNSP-1, OCCIAFLWMNSP-2, etc."
+      - navName: "OCCIAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWMNSP-1, OCCIAFLWMNSP-2, etc."
+      - dis: "Occupied Air Flow Min Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Air Flow Min Setpoint-1, Occupied
+          Air Flow Min Setpoint-2, etc."
+
+OCCIAFLWMXSP:
+  name: Occupied Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - inlet
+      - max
+      - occ
+    identification:
+      - id: "OCCIAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWMXSP-1, OCCIAFLWMXSP-2, etc."
+      - navName: "OCCIAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWMXSP-1, OCCIAFLWMXSP-2, etc."
+      - dis: "Occupied Air Flow Max Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Air Flow Max Setpoint-1, Occupied
+          Air Flow Max Setpoint-2, etc."
+
+OCCIAFLWCLMNSP:
+  name: Occupied Cooling Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - min
+      - occ
+    identification:
+      - id: "OCCIAFLWCLMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWCLMNSP-1, OCCIAFLWCLMNSP-2, etc."
+      - navName: "OCCIAFLWCLMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWCLMNSP-1, OCCIAFLWCLMNSP-2, etc."
+      - dis: "Occupied Cooling Air Flow Min Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Cooling Air Flow Min Setpoint-1, Occupied 
+          Cooling Air Flow Min Setpoint-2, etc."
+
+OCCIAFLWCLMXSP:
+  name: Occupied Cooling Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - max
+      - occ
+    identification:
+      - id: "OCCIAFLWCLMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWCLMXSP-1, OCCIAFLWCLMXSP-2, etc."
+      - navName: "OCCIAFLWCLMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWCLMXSP-1, OCCIAFLWCLMXSP-2, etc."
+      - dis: "Occupied Cooling Air Flow Max Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Cooling Air Flow Max Setpoint-1, Occupied 
+          Cooling Air Flow Max Setpoint-2, etc."
+
+OCCIAFLWHTMNSP:
+  name: Occupied Heating Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - min
+      - occ
+    identification:
+      - id: "OCCIAFLWHTMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWHTMNSP-1, OCCIAFLWHTMNSP-2, etc."
+      - navName: "OCCIAFLWHTMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWHTMNSP-1, OCCIAFLWHTMNSP-2, etc."
+      - dis: "Occupied Heating Air Flow Min Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Occupied Heating Air Flow Min Setpoint-1, Occupied 
+          Heating Air Flow Min Setpoint-2, etc."
+
+OCCIAFLWHTMXSP:
+  name: Occupied Heating Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - max
+      - occ
+    identification:
+      - id: "OCCIAFLWHTMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWHTMXSP-1, OCCIAFLWHTMXSP-2, etc."
+      - navName: "OCCIAFLWHTMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCIAFLWHTMXSP-1, OCCIAFLWHTMXSP-2, etc."
+      - dis: "Occupied Heating Air Flow Max Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Occupied Heating Air Flow Max Setpoint-1, Occupied 
+          Heating Air Flow Max Setpoint-2, etc."
+
+OCCHDAFLWMNSP:
+  name: Occupied Hot Deck Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - hotDeck
+      - min
+      - occ
+    identification:
+      - id: "OCCHDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCHDAFLWMNSP-1, OCCHDAFLWMNSP-2, etc."
+      - navName: "OCCHDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCHDAFLWMNSP-1, OCCHDAFLWMNSP-2, etc."
+      - dis: "Occupied Hot Deck Air Flow Min Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Hot Deck Air Flow Min Setpoint-1,
+          Occupied Hot Deck Air Flow Min Setpoint-2, etc."
+
+OCCHDAFLWMXSP:
+  name: Occupied Hot Deck Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - max
+      - hotDeck
+      - occ
+    identification:
+      - id: "OCCHDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCHDAFLWMXSP-1, OCCHDAFLWMXSP-2, etc."
+      - navName: "OCCHDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCHDAFLWMXSP-1, OCCHDAFLWMXSP-2, etc."
+      - dis: "Occupied Hot Deck Air Flow Max Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Hot Deck Air Flow Max Setpoint-1,
+          Occupied Hot Deck Air Flow Max Setpoint-2, etc."
+
+OCCZRHSP:
+  name: Occupied Zone Relative Humidity Setpoint
+  extends: RHSP
+  haystack:
+    type: 
+      - occ
+      - zone
+    identification:
+      - id: "OCCZRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZRHSP-1, OCCZRHSP-2, etc."
+      - navName: "OCCZRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZRHSP-1, OCCZRHSP-2, etc."
+      - dis: "Occupied Zone Relative Humidity Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Occupied Zone Relative
+          Humidity Setpoint-1, Occupied Zone Relative Humidity Setpoint-2,
+          etc."
+OCCZTCLSP:
+  name: Occupied Zone Temperature Cooling Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - cooling
+      - occ
+      - zone
+    identification:
+      - id: "OCCZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZTCLSP-1, OCCZTCLSP-2, etc."
+      - navName: "OCCZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZTCLSP-1, OCCZTCLSP-2, etc."
+      - dis: "Occupied Zone Temperature Cooling Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Occupied Zone Temperature
+          Cooling Setpoint-1, Occupied Zone Temperature Cooling Setpoint-2,
+          etc."
+OCCZTHTSP:
+  name: Occupied Zone Temperature Heating Setpoint
+  extends: ATSP
+  google_ontology: zone_air_occupied_heating_temperature_setpoint
+  haystack:
+    type:
+      - heating
+      - occ
+      - zone
+    identification:
+      - id: "OCCZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZTHTSP-1, OCCZTHTSP-2, etc."
+      - navName: "OCCZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZTHTSP-1, OCCZTHTSP-2, etc."
+      - dis: "Occupied Zone Temperature Heating Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Occupied Zone Temperature
+          Heating Setpoint-1, Occupied Zone Temperature Heating Setpoint-2,
+          etc."
+OFCMD:
+  name: Outside Air Fan Command
+  extends: FANCMD
+  google_ontology: run_command
+  haystack:
+    type:
+      - outside
+    identification:
+      - id: "OFCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          OFCMD-1, OFCMD-2, etc."
+      - navName: "OFCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OFCMD-1, OFCMD-2, etc."
+      - dis: "Outside Air Fan Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Outside Air Fan Command-1, Outside Air Fan
+          Command-2, etc."
+RACTSP:
+  name: Return Air Cooling Temperature Setpoint
+  extends: ATSP
+  google_ontology: return_air_cooling_temperature_setpoint
+  haystack:
+    type:
+      - return
+      - cooling
+    identification:
+      - id: "RACTSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RACTSP-1, RACTSP-2, etc."
+      - navName: "RACTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RACTSP-1, RACTSP-2, etc."
+      - dis: "Return Air Cooling Temperature Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Return Air Cooling Temperature Setpoint-1, Return
+          Air Cooling Temperature Setpoint-2, etc."
+RADCMD:
+  name: Return Air Damper Command
+  extends: DPRCMD
+  google_ontology: return_air_damper_percentage_command
+  haystack:
+    type:
+      - air
+      - return
+    identification:
+      - id: "RADCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RADCMD-1, RADCMD-2, etc."
+      - navName: "RADCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RADCMD-1, RADCMD-2, etc."
+      - dis: "Return Air Damper Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Return Air Damper Command-1, Return Air
+          Damper Command-2, etc."
+RADFBK:
+  name: Return Air Damper Feedback
+  extends: ADFBK
+  google_ontology: return_air_damper_status
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RADFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RADFBK-1, RADFBK-2, etc."
+      - navName: "RADFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RADFBK-1, RADFBK-2, etc."
+      - dis: "Return Air Damper Feedback or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Return Air Damper Feedback-1, Return Air Damper 
+          Feedback-2, etc."
+RADVCMD:
+  name: Radiator Valve Command
+  extends: VCMD
+  haystack:
+    type:
+      - heat
+      - hot
+      - perimeterHeat
+      - water
+    identification:
+      - id: "RADVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RADVCMD-1, RADVCMD-2, etc."
+      - navName: "RADVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RADVCMD-1, RADVCMD-2, etc."
+      - dis: "Radiator Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Radiator Valve Command-1, Radiator Valve Command-2,
+          etc."
+RAFLWSP:
+  name: Return Air Flow Setpoint
+  extends: AFLWSP
+  google_ontology: return_air_flowrate_setpoint
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAFLWSP-1, RAFLWSP-2, etc."
+      - navName: "RAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAFLWSP-1, RAFLWSP-2, etc."
+      - dis: "Return Air Flow Setpoint or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Return Air Flow Setpoint-1, Return Air Flow
+          Setpoint-2, etc."
+RAHTSP:
+  name: Return Air Heating Temperature Setpoint
+  extends: ATSP
+  google_ontology: return_air_heating_temperature_setpoint
+  haystack:
+    type:
+      - return
+      - heating
+    identification:
+      - id: "RAHTSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RAHTSP-1, RAHTSP-2, etc."
+      - navName: "RAHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAHTSP-1, RAHTSP-2, etc."
+      - dis: "Return Air Heating Temperature Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Return Air Heating Temperature Setpoint-1, Return
+          Air Heating Temperature Setpoint-2, etc."
+RATSP:
+  name: Return Air Temperature Setpoint
+  extends: ATSP
+  google_ontology: return_air_temperature_setpoint
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RATSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RATSP-1, RATSP-2, etc."
+      - navName: "RATSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RATSP-1, RATSP-2, etc."
+      - dis: "Return Air Temperature Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Return Air Temperature Setpoint-1, Return
+          Air Temperature Setpoint-2, etc."
+RARHSP:
+  name: Return Air Humidity Setpoint
+  extends: RHSP
+  google_ontology: return_air_relative_humidity_setpoint
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RARHSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RARHSP-1, RARHSP-2, etc."
+      - navName: "RARHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RARHSP-1, RARHSP-2, etc."
+      - dis: "Return Air Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Return Air Humidity Setpoint-1, Return Air Humidity Setpoint-2,
+          etc."
+      - kind: Number
+      - unit: RH%
+    reference:
+      - equipRef
+RAHRHSP:
+  name: Return Air Humidification Humidity Setpoint
+  extends: RHSP
+  google_ontology: return_air_humidification_relative_humidity_setpoint
+  haystack:
+    type:
+      - return
+      - humidify
+    identification:
+      - id: "RAHRHSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RAHRHSP-1, RAHRHSP-2, etc."
+      - navName: "RAHRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAHRHSP-1, RAHRHSP-2, etc."
+      - dis: "Return Air Humidification Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Return Air Humidification Humidity Setpoint-1, Return Air Humidification Humidity Setpoint-2,
+          etc."
+      - kind: Number
+      - unit: RH%
+    reference:
+      - equipRef
+RADRHSP:
+  name: Return Air Dehumidification Humidity Setpoint
+  extends: RHSP
+  google_ontology: return_air_dehumidification_relative_humidity_setpoint
+  haystack:
+    type:
+      - return
+      - dehumidify
+    identification:
+      - id: "RADRHSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RADRHSP-1, RADRHSP-2, etc."
+      - navName: "RADRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RADRHSP-1, RADRHSP-2, etc."
+      - dis: "Return Air Dehumidification Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Return Air Dehumidification Humidity Setpoint-1, Return Air Dehumidification Humidity Setpoint-2,
+          etc."
+      - kind: Number
+      - unit: RH%
+    reference:
+      - equipRef
+
+RACO2SP:
+  name: Return Air CO2 Setpoint
+  haystack:
+    type:
+      - point
+      - return
+      - air
+      - co2
+      - sp
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - equipRef
+REFCMD:
+  name: Refrig Exhaust Fan
+  extends: FANCMD
+  haystack:
+    type:
+      - exhaust
+      - refrig
+    identification:
+      - id: "REFCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          REFCMD-1, REFCMD-2, etc."
+      - navName: "REFCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REFCMD-1, REFCMD-2, etc."
+      - dis: "Refrig Exhaust Fan or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Refrig Exhaust Fan-1, Refrig Exhaust Fan-2, etc."
+REVVCMD:
+  name: Reversing Valve Command
+  extends: VCMD
+  google_ontology: reversing_valve_command
+  haystack:
+    type:
+      - reversing
+    identification:
+      - id: "REVVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REVVCMD-1, REVVCMD-2, etc."
+      - navName: "REVVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REVVCMD-1, REVVCMD-2, etc."
+      - dis: "Reversing Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Reversing Valve Command-1, Reversing Valve
+          Command-2, etc."
+RFCMD:
+  name: Return Fan Command
+  extends: FANCMD
+  haystack:
+    type:
+      - return
+    identification:
+      - id: "RFCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RFCMD-1, RFCMD-2, etc."
+      - navName: "RFCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RFCMD-1, RFCMD-2, etc."
+      - dis: "Return Fan Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Return Fan Command-1, Return Fan Command-2, etc."
+RFSPCMD:
+  name: Return Fan Speed Command
+  extends: FANSPCMD
+  google_ontology: return_fan_speed_percentage_command
+  haystack:
+    type:
+      - return
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+RFSPFBK:
+  name: Return Fan Speed Feedback
+  extends: FANSPFBK
+  google_ontology: return_fan_speed_percentage_sensor
+  haystack:
+    type:
+      - return
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+RFFREQ:
+  name: Return Fan Frequency Feedback
+  extends: VFDFREQ
+  google_ontology: return_fan_speed_frequency_sensor
+  haystack:
+    type:
+      - return
+      - fan
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef      
+RFDCMD:
+  name: Relief Damper Command
+  extends: DPRCMD
+  haystack:
+    type:
+      - air
+      - relief
+    identification:
+      - id: "RFDCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RFDCMD-1, RFDCMD-2, etc."
+      - navName: "RFDCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RFDCMD-1, RFDCMD-2, etc."
+      - dis: "Relief Damper Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Relief Damper Command-1, Relief Damper Command-2,
+          etc."
+RHV:
+  name: Reheat Valve Position
+  deprecated: true
+  extends: VPOS
+  haystack:
+    type:
+      - reheat
+    identification:
+      - id: "RHV or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RHV-1, RHV-2, etc."
+      - navName: "RHV or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RHV-1, RHV-2, etc."
+      - dis: "Reheat Valve Position or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Reheat Valve Position-1, Reheat Valve Position-2,
+          etc."
+RHVCMD:
+  name: Reheat Valve Command
+  deprecated: true
+  extends: VCMD
+  haystack:
+    type:
+      - reheat
+    identification:
+      - id: "RHVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RHVCMD-1, RHVCMD-2, etc."
+      - navName: "RHVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RHVCMD-1, RHVCMD-2, etc."
+      - dis: "Reheat Valve Command or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Reheat Valve Command-1, Reheat Valve Command-2, etc."
+SBCDAFLWMNSP:
+  name: Standby Cold Deck Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - coldDeck
+      - min
+      - standby
+    identification:
+      - id: "SBCDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBCDAFLWMNSP-1, SBCDAFLWMNSP-2, etc."
+      - navName: "SBCDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBCDAFLWMNSP-1, SBCDAFLWMNSP-2, etc."
+      - dis: "Standby Cold Deck Air Flow Min Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Standby Cold Deck Air Flow
+          Min Setpoint-1, Standby Cold Deck Air Flow Min Setpoint-2, etc."
+
+SBCDAFLWMXSP:
+  name: Standby Cold Deck Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - coldDeck
+      - max
+      - standby
+    identification:
+      - id: "SBCDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBCDAFLWMXSP-1, SBCDAFLWMXSP-2, etc."
+      - navName: "SBCDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBCDAFLWMXSP-1, SBCDAFLWMXSP-2, etc."
+      - dis: "Standby Cold Deck Air Flow Max Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Standby Cold Deck Air Flow
+          Max Setpoint-1, Standby Cold Deck Air Flow Max Setpoint-2, etc."
+
+SBIAFLWMNSP:
+  name: Standby Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - inlet
+      - min
+      - standby
+    identification:
+      - id: "SBIAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWMNSP-1, SBIAFLWMNSP-2, etc."
+      - navName: "SBIAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWMNSP-1, SBIAFLWMNSP-2, etc."
+      - dis: "Standby Air Flow Min Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Standby Air Flow Min Setpoint-1, Standby 
+          Air Flow Min Setpoint-2, etc."
+
+SBIAFLWMXSP:
+  name: Standby Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - inlet
+      - max
+      - standby
+    identification:
+      - id: "SBIAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWMXSP-1, SBIAFLWMXSP-2, etc."
+      - navName: "SBIAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWMXSP-1, SBIAFLWMXSP-2, etc."
+      - dis: "Standby Air Flow Max Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Standby Air Flow Max Setpoint-1, Standby 
+          Air Flow Max Setpoint-2, etc."
+
+SBIAFLWCLMNSP:
+  name: Standby Cooling Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - min
+      - inlet
+      - standby
+      - cooling
+    identification:
+      - id: "SBIAFLWCLMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWCLMNSP-1, SBIAFLWCLMNSP-2, etc."
+      - navName: "SBIAFLWCLMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWCLMNSP-1, SBIAFLWCLMNSP-2, etc."
+      - dis: "Standby Cooling Air Flow Min Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Standby Cooling Air Flow Min Setpoint-1, Standby 
+          Cooling Air Flow Min Setpoint-2, etc."
+
+SBIAFLWCLMXSP:
+  name: Standby Cooling Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - max
+      - standby
+    identification:
+      - id: "SBIAFLWCLMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWCLMXSP-1, SBIAFLWCLMXSP-2, etc."
+      - navName: "SBIAFLWCLMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWCLMXSP-1, SBIAFLWCLMXSP-2, etc."
+      - dis: "Standby Cooling Air Flow Max Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Standby Cooling Air Flow Max Setpoint-1, Standby 
+          Cooling Air Flow Max Setpoint-2, etc."
+
+SBIAFLWHTMNSP:
+  name: Standby Heating Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - min
+      - standby
+    identification:
+      - id: "SBIAFLWHTMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWHTMNSP-1, SBIAFLWHTMNSP-2, etc."
+      - navName: "SBIAFLWHTMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWHTMNSP-1, SBIAFLWHTMNSP-2, etc."
+      - dis: "Standby Heating Air Flow Min Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Standby Heating Air Flow Min Setpoint-1, Standby 
+          Heating Air Flow Min Setpoint-2, etc."
+
+SBIAFLWHTMXSP:
+  name: Standby Heating Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - max
+      - standby
+    identification:
+      - id: "SBIAFLWHTMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWHTMXSP-1, SBIAFLWHTMXSP-2, etc."
+      - navName: "SBIAFLWHTMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBIAFLWHTMXSP-1, SBIAFLWHTMXSP-2, etc."
+      - dis: "Standby Heating Air Flow Max Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Standby Heating Air Flow Max Setpoint-1, Standby 
+          Heating Air Flow Max Setpoint-2, etc."
+
+SBHDAFLWMNSP:
+  name: Standby Hot Deck Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - hotDeck
+      - min
+      - standby
+    identification:
+      - id: "SBHDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBHDAFLWMNSP-1, SBHDAFLWMNSP-2, etc."
+      - navName: "SBHDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBHDAFLWMNSP-1, SBHDAFLWMNSP-2, etc."
+      - dis: "Standby Hot Deck Air Flow Min Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Standby Hot Deck Air
+          Flow Min Setpoint-1, Standby Hot Deck Air Flow Min Setpoint-2, etc."
+SBHDAFLWMXSP:
+  name: Standby Hot Deck Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - hotDeck
+      - max
+      - standby
+    identification:
+      - id: "SBHDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBHDAFLWMXSP-1, SBHDAFLWMXSP-2, etc."
+      - navName: "SBHDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBHDAFLWMXSP-1, SBHDAFLWMXSP-2, etc."
+      - dis: "Standby Hot Deck Air Flow Max Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Standby Hot Deck Air
+          Flow Max Setpoint-1, Standby Hot Deck Air Flow Max Setpoint-2, etc."
+SBZTCLSP:
+  name: Standby Zone Temperature Cooling Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - cooling
+      - standby
+      - zone
+    identification:
+      - id: "SBZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBZTCLSP-1, SBZTCLSP-2, etc."
+      - navName: "SBZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBZTCLSP-1, SBZTCLSP-2, etc."
+      - dis: "Standby Zone Temperature Cooling Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Standby Zone Temperature
+          Cooling Setpoint-1, Standby Zone Temperature Cooling Setpoint-2, etc."
+SBZTHTSP:
+  name: Standby Zone Temperature Heating Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - heating
+      - standby
+      - zone
+    identification:
+      - id: "SBZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBZTHTSP-1, SBZTHTSP-2, etc."
+      - navName: "SBZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SBZTHTSP-1, SBZTHTSP-2, etc."
+      - dis: "Standby Zone Temperature Heating Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Standby Zone Temperature
+          Heating Setpoint-1, Standby Zone Temperature Heating Setpoint-2, etc."
+UOCCDAFLWMNSP:
+  name: Unoccupied Cold Deck Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - coldDeck
+      - min
+      - unocc
+    identification:
+      - id: "UOCCDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCCDAFLWMNSP-1, UOCCDAFLWMNSP-2, etc."
+      - navName: "UOCCDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCCDAFLWMNSP-1, UOCCDAFLWMNSP-2, etc."
+      - dis: "Unoccupied Cold Deck Air Flow Min Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Unoccupied Cold Deck Air
+          Flow Min Setpoint-1, Unoccupied Cold Deck Air Flow Min Setpoint-2, etc."
+
+UOCCDAFLWMXSP:
+  name: Unoccupied Cold Deck Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - coldDeck
+      - max
+      - unocc
+    identification:
+      - id: "UOCCDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCCDAFLWMXSP-1, UOCCDAFLWMXSP-2, etc."
+      - navName: "UOCCDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCCDAFLWMXSP-1, UOCCDAFLWMXSP-2, etc."
+      - dis: "Unoccupied Cold Deck Air Flow Max Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Unoccupied Cold Deck Air
+          Flow Max Setpoint-1, Unoccupied Cold Deck Air Flow Max Setpoint-2, etc."
+          
+UOCIAFLWCLMNSP:
+  name: Unoccupied Cooling Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - min
+      - unocc
+    identification:
+      - id: "UOCIAFLWCLMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWCLMNSP-1, UOCIAFLWCLMNSP-2, etc."
+      - navName: "UOCIAFLWCLMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWCLMNSP-1, UOCIAFLWCLMNSP-2, etc."
+      - dis: "Unoccupied Cooling Air Flow Min Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Unoccupied Cooling Air Flow Min Setpoint-1, Unoccupied 
+          Cooling Air Flow Min Setpoint-2, etc."
+
+UOCIAFLWCLMXSP:
+  name: Unoccupied Cooling Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - cooling
+      - inlet
+      - max
+      - unocc
+    identification:
+      - id: "UOCIAFLWCLMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWCLMXSP-1, UOCIAFLWCLMXSP-2, etc."
+      - navName: "UOCIAFLWCLMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWCLMXSP-1, UOCIAFLWCLMXSP-2, etc."
+      - dis: "Unoccupied Cooling Air Flow Max Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Unoccupied Cooling Air Flow Max Setpoint-1, Unoccupied 
+          Cooling Air Flow Max Setpoint-2, etc."
+
+UOCIAFLWHTMNSP:
+  name: Unoccupied Heating Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - min
+      - unocc
+    identification:
+      - id: "UOCIAFLWHTMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWHTMNSP-1, UOCIAFLWHTMNSP-2, etc."
+      - navName: "UOCIAFLWHTMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWHTMNSP-1, UOCIAFLWHTMNSP-2, etc."
+      - dis: "Unoccupied Heating Air Flow Min Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Unoccupied Heating Air Flow Min Setpoint-1, Unoccupied 
+          Heating Air Flow Min Setpoint-2, etc."
+
+UOCIAFLWHTMXSP:
+  name: Unoccupied Heating Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - heating
+      - inlet
+      - max
+      - unocc
+    identification:
+      - id: "UOCIAFLWHTMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWHTMXSP-1, UOCIAFLWHTMXSP-2, etc."
+      - navName: "UOCIAFLWHTMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWHTMXSP-1, UOCIAFLWHTMXSP-2, etc."
+      - dis: "Unoccupied Heating Air Flow Max Setpoint or if more than 1 in the equip/device, 
+          use <NAME> + - + <INTEGER>  : Unoccupied Heating Air Flow Max Setpoint-1, Unoccupied 
+          Heating Air Flow Max Setpoint-2, etc."
+
+UOCIAFLWMNSP:
+  name: Unoccupied Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - inlet
+      - min
+      - unocc
+    identification:
+      - id: "UOCIAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWMNSP-1, UOCIAFLWMNSP-2, etc."
+      - navName: "UOCIAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWMNSP-1, UOCIAFLWMNSP-2, etc."
+      - dis: "Unoccupied Air Flow Min Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Unoccupied Air Flow Min Setpoint-1, Unoccupied 
+          Air Flow Min Setpoint-2, etc."
+
+UOCIAFLWMXSP:
+  name: Unoccupied Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - inlet
+      - max
+      - unocc
+    identification:
+      - id: "UOCIAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWMXSP-1, UOCIAFLWMXSP-2, etc."
+      - navName: "UOCIAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCIAFLWMXSP-1, UOCIAFLWMXSP-2, etc."
+      - dis: "Unoccupied Air Flow Max Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Unoccupied Air Flow Max Setpoint-1, Unoccupied 
+          Air Flow Max Setpoint-2, etc."
+
+UOCHDAFLWMNSP:
+  name: Unoccupied Hot Deck Air Flow Min Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - hotDeck
+      - min
+      - unocc
+    identification:
+      - id: "UOCHDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCHDAFLWMNSP-1, UOCHDAFLWMNSP-2, etc."
+      - navName: "UOCHDAFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCHDAFLWMNSP-1, UOCHDAFLWMNSP-2, etc."
+      - dis: "Min Unoccupied Hot Deck Air Flow Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Min Unoccupied Hot Deck
+          Air Flow Setpoint-1, Min Unoccupied Hot Deck Air Flow Setpoint-2,
+          etc."
+UOCHDAFLWMXSP:
+  name: Unoccupied Hot Deck Air Flow Max Setpoint
+  extends: AFLWSP
+  haystack:
+    type:
+      - hotDeck
+      - max
+      - unocc
+    identification:
+      - id: "UOCHDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCHDAFLWMXSP-1, UOCHDAFLWMXSP-2, etc."
+      - navName: "UOCHDAFLWMXSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCHDAFLWMXSP-1, UOCHDAFLWMXSP-2, etc."
+      - dis: "Max Unoccupied Hot Deck Air Flow Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Max Unoccupied Hot Deck Air
+          Flow Setpoint-1, Max Unoccupied Hot Deck Air Flow Setpoint-2, etc."
+UOCZTCLSP:
+  name: Unoccupied Zone Temperature Cooling Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - cooling
+      - unocc
+      - zone
+    identification:
+      - id: "UOCZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCZTCLSP-1, UOCZTCLSP-2, etc."
+      - navName: "UOCZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCZTCLSP-1, UOCZTCLSP-2, etc."
+      - dis: "Unoccupied Zone Temperature Cooling Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Unoccupied Zone
+          Temperature Cooling Setpoint-1, Unoccupied Zone Temperature Cooling
+          Setpoint-2, etc."
+UOCZRHSP:
+  name: Unoccupied Zone Relative Humidity Setpoint
+  extends: RHSP
+  haystack:
+    type: 
+      - unocc
+      - zone
+    identification:
+      - id: "UOCZRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCZRHSP-1, UOCZRHSP-2, etc."
+      - navName: "UOCZRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCZRHSP-1, UOCZRHSP-2, etc."
+      - dis: "Unoccupied Zone Relative Humidity Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Unoccupied Zone Relative
+          Humidity Setpoint-1, Unoccupied Zone Relative Humidity Setpoint-2,
+          etc."
+UOCZTHTSP:
+  name: Unoccupied Zone Temperature Heating Setpoint
+  extends: ATSP
+  google_ontology: zone_air_unoccupied_heating_temperature_setpoint
+  haystack:
+    type:
+      - heating
+      - unocc
+      - zone
+    identification:
+      - id: "UOCZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCZTHTSP-1, UOCZTHTSP-2, etc."
+      - navName: "UOCZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : UOCZTHTSP-1, UOCZTHTSP-2, etc."
+      - dis: "Unoccupied Zone Temperature Heating Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Unoccupied Zone
+          Temperature Heating Setpoint-1, Unoccupied Zone Temperature Heating
+          Setpoint-2, etc."
+VCMDOP:
+  name: Valve Command Open
+  haystack:
+    type:
+      - point
+      - valve
+      - cmd
+      - open
+    identification:
+      - id: "VCMDOP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          VCMDOP-1, VCMDOP-2, etc."
+      - navName: "VCMDOP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : VCMDOP-1, VCMDOP-2, etc."
+      - dis: "Valve Command Open or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Valve Command Open-1, Valve Command Open-2, etc."  
+      - kind: Bool
+VCMDCL:
+  name: Valve Command Closed
+  haystack:
+    type:
+      - point
+      - valve
+      - cmd
+      - closed
+    identification:
+      - id: "VMCDCL or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          VMCDCL-1, VMCDCL-2, etc."
+      - navName: "VMCDCL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : VMCDCL-1, VMCDCL-2, etc."
+      - dis: "Valve Command Closed or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Valve Command Closed-1, Valve Command Closed-2, etc." 
+      - kind: Bool                  
+
+ZRHSP:
+  name: Zone Humidity Setpoint
+  google_ontology: zone_air_relative_humidity_setpoint
+  extends: RHSP
+  haystack:
+    type:
+      - zone
+    identification:
+      - id: "ZRHSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZRHSP-1, ZRHSP-2, etc."
+      - navName: "ZRHSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZRHSP-1, ZRHSP-2, etc."
+      - dis: "Zone Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Zone Humidity Setpoint-1, Zone Humidity Setpoint-2,
+          etc."
+      - kind: Number
+      - unit: RH%
+    reference:
+      - equipRef
+ZDHRHSP:
+  name: Zone Air Dehumidification Relative Humidity Setpoint
+  description: The upper bound of relative humidity that the zone air is maintained to. 
+  google_ontology: zone_air_dehumidification_relative_humidity_setpoint
+  extends: ZRHSP
+  haystack:
+    type:
+      - dehumidify
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: RH%
+    reference:
+      - equipRef
+ZHUMRHSP:
+  name: Zone Air Humidification Relative Humidity Setpoint
+  description: The lower bound of relative humidity that the zone air is maintained to. 
+  google_ontology: zone_air_humidification_relative_humidity_setpoint
+  extends: ZRHSP
+  haystack:
+    type:
+      - humidify
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: RH%
+    reference:
+      - equipRef   
+ZDPR:
+  name: Zone Differential Pressure
+  extends: ADP
+  haystack:
+    type:
+      - zone
+      - delta
+    identification:
+      - id: "ZDPR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZDPR-1, ZDPR-2, etc."
+      - navName: "ZDPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZDPR-1, ZDPR-2, etc."
+      - dis: "Zone Differential Pressure or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Zone Differential Pressure-1, Zone Differential Pressure-2, etc."
+ZSPR:
+  name: Zone Static Pressure
+  google_ontology: zone_air_static_pressure_sensor
+  extends: ADP
+  haystack:
+    type:
+      - zone
+    identification:
+      - id: "ZSPR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZSPR-1, ZSPR-2, etc."
+      - navName: "ZSPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZSPR-1, ZSPR-2, etc."
+      - dis: "Zone Static Pressure or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Zone Static Pressure-1, Zone Static Pressure-2, etc."
+ZSPRSP:
+  name: Zone Pressure Setpoint
+  google_ontology: zone_air_static_pressure_setpoint
+  extends: ADPSP
+  haystack:
+    type:
+      - zone
+    identification:
+      - id: "ZSPRSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZSPRSP-1, ZSPRSP-2, etc."
+      - navName: "ZSPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZSPRSP-1, ZSPRSP-2, etc."
+      - dis: "Zone Pressure Setpoint or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Zone Pressure Setpoint-1, Zone Pressure Setpoint-2,
+          etc."
+ZTADJSP:
+  name: Zone Temperature Adjust Setpoint
+  extends: ATSP
+  google_ontology: zone_air_offset_temperature_setpoint
+  haystack:
+    type:
+      - zone
+      - adjust
+    identification:
+      - id: "ZTADJSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZTADJSP-1, ZTADJSP-2, etc."
+      - navName: "ZTADJSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZTADJSP-1, ZTADJSP-2, etc."
+      - dis: "Zone Temperature Adjust Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Zone Temperature Adjust Setpoint-1, Zone
+          Temperature Adjust Setpoint-2, etc."
+
+EFFZTDB:
+  name: Effective Zone Temperature Deadband
+  description: Adjustable difference between heating and cooling setpoints
+  haystack:
+    type:
+      - effective
+      - zone
+      - deadband
+      - point
+      - air
+      - temp
+    identification:
+      - id: "EFFZTDB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTDB-1, EFFZTDB-2, etc."
+      - navName: "EFFZTDB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTDB-1, EFFZTDB-2, etc."
+      - dis: "Effective Zone Temperature Deadband or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Effective Zone Temperature Deadband-1,
+          Effective Zone Temperature Deadband-2, etc."
+      - kind: Number
+EFFZTSP:
+  name: Effective Zone Temperature Setpoint
+  extends: ATSP
+  google_ontology: zone_air_temperature_setpoint
+  haystack:
+    type:
+      - effective
+      - zone
+    identification:
+      - id: "EFFZTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTSP-1, EFFZTSP-2, etc."
+      - navName: "EFFZTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTSP-1, EFFZTSP-2, etc."
+      - dis: "Effective Zone Temperature Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Effective Zone Temperature Setpoint-1,
+          Effective Zone Temperature Setpoint-2, etc."
+EFFZTCLSP:
+  name: Effective Zone Temperature Cooling Setpoint
+  google_ontology: zone_air_cooling_temperature_setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - cooling
+      - effective
+      - zone
+    identification:
+      - id: "EFFZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTCLSP-1, EFFZTCLSP-2, etc."
+      - navName: "EFFZTCLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTCLSP-1, EFFZTCLSP-2, etc."
+      - dis: "Effective Zone Temperature Cooling Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Effective Zone Temperature
+          Cooling Setpoint-1, Effective Zone Temperature Cooling Setpoint-2,
+          etc."
+EFFZTHTSP:
+  name: Effective Zone Temperature Heating Setpoint
+  google_ontology: zone_air_heating_temperature_setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - effective
+      - heating
+      - zone
+    identification:
+      - id: "EFFZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTHTSP-1, EFFZTHTSP-2, etc."
+      - navName: "EFFZTHTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EFFZTHTSP-1, EFFZTHTSP-2, etc."
+      - dis: "Effective Zone Temperature Heating Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Effective Zone Temperature
+          Heating Setpoint-1, Effective Zone Temperature Heating Setpoint-2,
+          etc."
+ZTSP:
+  name: Zone Temperature Base Setpoint
+  description: The zone temperature setpoint that is used to calculate the effective or occupied setpoints
+    when adding a deadband or offset. 
+  extends: ATSP
+  google_ontology: zone_air_temperature_setpoint
+  brick_ontology: Zone_Air_Temperature_Setpoint
+  haystack:
+    type:
+      - zone
+      - base
+    identification:
+      - id: "ZTSP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZTSP-1, ZTSP-2, etc."
+      - navName: "ZTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZTSP-1, ZTSP-2, etc."
+      - dis: "Zone Temperature Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Zone Temperature Setpoint-1, Zone
+          Temperature Setpoint-2, etc."
+
+OCCZCLDB:
+  name: Occupied Zone Cooling Deadband
+  description: Adujstable cooling setpoint offset used by some devices setpoint control
+  haystack:
+    type:
+      - cooling
+      - deadband
+      - occ
+      - point
+      - sp
+      - zone
+      - air
+      - temp
+    identification:
+      - id: "OCCZCLDB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZCLDB-1, OCCZCLDB-2, etc."
+      - navName: "OCCZCLDB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZCLDB-1, OCCZCLDB-2, etc."
+      - dis: "Occupied Zone Cooling Deadband or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Zone Cooling Deadband-1,
+          Occupied Zone Cooling Deadband-2, etc."
+      - kind: Number
+
+OCCZHTDB:
+  name: Occupied Zone Heating Deadband
+  haystack:
+    type:
+      - deadband
+      - heating
+      - occ
+      - point
+      - sp
+      - zone
+      - air
+      - temp
+    identification:
+      - id: "OCCZHTDB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZHTDB-1, OCCZHTDB-2, etc."
+      - navName: "OCCZHTDB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCZHTDB-1, OCCZHTDB-2, etc."
+      - dis: "Occupied Zone Heating Deadband or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Occupied Zone Heating Deadband-1,
+          Occupied Zone Heating Deadband-2, etc."
+      - kind: Number
+OCCZDB:
+  name: Occupied Zone Deadband
+  description: Adjustable difference between heating and cooling setpoints during occupied periods
+  haystack:
+    type:
+      - deadband
+      - occ
+      - point
+      - sp
+      - zone
+      - air 
+      - temp
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+UOCCZDB:
+  name: Unoccupied Zone Deadband
+  description: Adjustable difference between heating and cooling setpoints during unoccupied periods
+  haystack:
+    type:
+      - deadband
+      - unocc
+      - point
+      - sp
+      - zone
+      - air
+      - temp
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number      
+IAT:
+  name: Inlet Air Temperature
+  haystack:
+    type:
+      - entering
+      - air
+      - temp
+      - sensor
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef
+FRZST:
+  name: Freezestat status
+  extends: ST
+  haystack:
+    type:
+      - freezeStat
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef      
+
+

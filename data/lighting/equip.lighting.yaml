@@ -1,0 +1,84 @@
+
+LT:
+  name: Lighting Fixture
+  description: Lighting Fixture
+  haystack:
+    type:
+      - equip
+      - lighting
+      - luminaire
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LT1 or LT186
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g LT-1 or LT-186
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. LT-1 or LT-186
+    reference:
+      - elecRef
+      - equipRef
+      - siteRef
+      - spaceRef
+      - deviceRef
+  functions:
+    - OCC
+  points:
+    - ALRMPT
+    - DLTLVLSP
+    - EFLTLVLSP
+    - ENDLC
+    - ENLDSH
+    - LDSHLTLVLSP
+    - LTCLRT
+    - LTCMD
+    - LTLVLCMD
+    - LTLVL
+    - LTLVLSP
+    - LTPC
+    - LTSC
+    - LTST
+    - OCCSNS
+    - OCCSCHSP
+    - OCCEFFSP
+    - OCLTLVLSP
+    - OLTPC
+    - RLPWR
+    - UOCLTLVLSP
+
+LTCIR:
+  name: Lighting Circuit
+  description: Lighting Circuit, typically controlled in a Lighting Control Panel
+  extends: CIR
+  haystack:
+    type:
+      - equip
+      - lighting
+      - circuit
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LTCIR1 or LTCIR186
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LTCIR-1
+      - dis: Lighting Circuit 1 or LTCIR-1
+    reference:
+      - elecRef
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+  functions: 
+    - OCC
+  points:
+    - ALRMPT
+    - EFLTLVLSP
+    - ENDLC
+    - ENLDSH
+    - DLTLVLSP
+    - LDSHLTLVLSP
+    - LTCLRT
+    - LTCMD
+    - LTLVLCMD
+    - LTCIRCMD
+    - LTLVL
+    - LTPC
+    - LTST
+    - LTSC
+    - OCLTLVLSP
+    - OLTPC
+    - UOCLTLVLSP

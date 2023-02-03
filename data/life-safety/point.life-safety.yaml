@@ -1,0 +1,47 @@
+FAST:
+  name: Fire Alarm Status
+  extends: ST
+  description: The current status of the fire alarm system, either normal or in alarm.
+  haystack:
+    type:
+      - fire
+      - state
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SD1 or SD778
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SD-1 or SD-778
+      - kind: Bool
+    reference:
+      - deviceRef
+      - equipRef
+
+SDST:
+  name: Smoke Detected Status
+  extends: ST
+  description: The current status of a smoke detector, either smoke detected or not. 
+  google_ontology: smoke_alarm
+  haystack:
+    type:
+      - smoke
+      - state
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SD1 or SD778
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SD-1 or SD-778
+      - kind: Bool
+    reference:
+      - deviceRef
+      - equipRef      
+
+DASDST:
+  name: Discharge Air Smoke Detected Status
+  extends: SDST
+  description: The current status of a smoke detector specifically one in a discharge air stream. 
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SD1 or SD778
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SD-1 or SD-778
+      - kind: Bool
+    reference:
+      - deviceRef
+      - equipRef  

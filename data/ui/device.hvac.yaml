@@ -1,0 +1,16 @@
+ACT:
+  parent:
+    - DEV
+    - OTDEV
+VAP:
+  parent:
+    - DEV
+    - CLDEV
+VFD:
+  parent:
+    - DEV
+    - OTDEV
+WDO:
+  parent:
+    - DEV
+    - OTDEV

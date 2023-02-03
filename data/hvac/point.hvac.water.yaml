@@ -1,0 +1,1890 @@
+DT:
+  name: Water Delta Temperature 
+  short_name: Water Delta Temp
+  is_base: true
+  haystack:
+    type:
+      - delta
+      - temp
+      - water
+      - sensor
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+      - unit: °F
+    reference:
+      - deviceRef
+      - equipRef
+DTSP:
+  name:  Water Delta Temperature Setpoint
+  short_name: Water Delta Temp Sp
+  haystack:
+    type:
+      - water
+      - delta
+      - temp
+      - sp
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+      - unit: °F
+    reference:
+      - deviceRef
+      - equipRef
+RWFLW:
+  name: Return Water Flow
+  haystack:
+    type:
+      - leaving
+      - water
+      - flow
+      - sensor
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+      - unit: flow
+    reference:
+      - equipRef
+# Base water point definitions
+WPR:
+  name: Water Pressure (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - water
+      - pressure
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WDIFFPR:
+  name: Water Differential Pressure (Base Definition)
+  is_base: true
+  short_name: Water Diff Pressure
+  google_ontology: differential_pressure
+  haystack:
+    type:
+      - water
+      - delta
+      - pressure
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WDIFFPRSP:
+  name: Water Differential Pressure Setpoint (Base Definition)
+  is_base: true
+  short_name: Water Diff Pressure Sp
+  google_ontology: differential_pressure_setpoint
+  haystack:
+    type:
+      - water
+      - delta
+      - pressure
+      - sp
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WFLOW:
+  name: Water Flow Rate
+  short_name: WFL
+  google_ontology: flowrate_sensor
+  haystack:
+    type:
+      - water
+      - flow
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: volumetric flow
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WFLOWSP:
+  name: Water Flow Setpoint (Base Definition)
+  is_base: true
+  short_name: Water Flow Sp
+  google_ontology: flowrate_setpoint
+  haystack:
+    type:
+      - water
+      - flow
+      - sp
+      - point
+    identification:
+      - kind: Number
+      - unit: volumetric flow
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef      
+WTEMPSP:
+  name: Water Temperature Setpoint (Base Definition)
+  is_base: true
+  short_name: Water Temp Sp
+  haystack:
+    type:
+      - water
+      - temp
+      - sp
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WVOL:
+  name: Total Water Volume
+  description: Cumulative total of water volume measured relative to some baseline
+  google_ontology: water_volume_accumulator
+  haystack:
+    type:
+      - water
+      - volume
+      - sensor
+      - point
+      - total
+    identification:
+      - kind: Number
+      - unit: volume
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+# Standard water point definitions
+BYPCHWFL:
+  name: Bypass Chilled Water Flow
+  short_name: Bypass CHW Flow
+  extends: WFLOW
+  haystack:
+    type:
+      - chilled
+      - bypass
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+BAHTST:
+  name: Basin Heat Status
+  haystack:
+    type:
+      - basin
+      - heat
+      - sensor
+      - point
+    identification:
+      - kind: Bool
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+    reference:
+      - equipRef
+
+CHWDPR:
+  name: Chilled Water Differential Pressure
+  short_name: CHW Diff Pressure
+  extends: WDIFFPR
+  google_ontology: chilled_water_differential_pressure_sensor
+  haystack:
+    type:
+      - chilled
+    identification:
+      - navName: "CHWDPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWDPR-1, CHWDPR-2, etc."
+      - dis: "Chilled Water Differential Pressure or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Chilled Water Differential Pressure-1,
+          Chilled Water Differential Pressure-2, etc."
+PRCHWDPR:
+  name: Primary Loop Chilled Water Differential Pressure
+  short_name: Primary CHW Diff Pressure
+  extends: CHWDPR
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCCHWDPR:
+  name: Secondary Loop Chilled Water Differential Pressure
+  short_name: Secondary CHW Diff Pressure
+  extends: CHWDPR
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRCHWDPR:
+  name: Tertiary Loop Chilled Water Differential Pressure
+  short_name: Tertiary CHW Diff Pressure
+  extends: CHWDPR
+  haystack:
+    type:
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+CHWFLWMNSP:
+  name: Chilled Water Minimum Flow Setpoint
+  short_name: CHW Min Flow Sp
+  extends: WFLOWSP
+  google_ontology: min_chilled_water_flowrate_setpoint
+  haystack:
+    type:
+      - min
+      - chilled
+    identification:
+      - id: "CHWFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWFLWMNSP-1, CHWFLWMNSP-2, etc."
+      - navName: "CHWFLWMNSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWFLWMNSP-1, CHWFLWMNSP-2, etc."
+      - dis: "Chilled Water Minimum Flow Setpoint or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Chilled Water Minimum Flow Setpoint-1,
+          Chilled Water Minimum Flow Setpoint-2, etc."
+LCHWFLOWSP:
+  name: Leaving Chilled Water Flow Setpoint
+  short_name: Leaving CHW Flow Sp
+  extends: WFLOWSP
+  haystack:
+    type:
+      - chilled
+      - leaving
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+CHWDPRSP:
+  name: Chilled Water Differential Pressure Setpoint
+  short_name: CHW Diff Pressure Sp
+  extends: WDIFFPRSP
+  google_ontology: chilled_water_differential_pressure_setpoint
+  haystack:
+    type:
+      - chilled
+    identification:
+      - navName: "CHWDPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWDPRSP-1, CHWDPRSP-2, etc."
+      - dis: "Chilled Water Differential Pressure Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Chilled Water Differential
+          Pressure Setpoint-1, Chilled Water Differential Pressure Setpoint-2,
+          etc."
+PRCHWDPRSP:
+  name: Primary Loop Chilled Water Differential Pressure Setpoint
+  short_name: Primary CHW Diff Pressure Sp
+  extends: CHWDPRSP
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCCHWDPRSP:
+  name: Secondary Loop Chilled Water Differential Pressure Setpoint
+  short_name: Secondary CHW Diff Pressure Sp
+  extends: CHWDPRSP
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRCHWDPRSP:
+  name: Tertiary Loop Chilled Water Differential Pressure Setpoint
+  short_name: Tertiary CHW Diff Pressure Sp
+  extends: CHWDPRSP
+  haystack:
+    type:
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+CTBYPVCMD:
+  name: Cooling Tower Bypass Valve Command
+  short_name: CT Bypass Valve Cmd
+  extends: VCMD
+  haystack:
+    type:
+      - coolingTower
+      - condenser
+      - water
+      - bypass
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+CWBYPVCMD:
+  name: Condenser Water Bypass Valve Command
+  short_name: CW Bypass Valve Cmd
+  extends: VCMD
+  google_ontology: condensing_water_bypass_valve_percentage_command
+  haystack:
+    type:
+      - condenser
+      - water
+      - bypass
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+CWBYPVFBK:
+  name: Condenser Water Bypass Valve Position Feedback
+  short_name: CW Bypass Valve Position
+  extends: VPOS
+  google_ontology: condensing_water_bypass_valve_percentage_sensor
+  haystack:
+    type:
+      - condenser
+      - water
+      - bypass
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>      
+CWDPR:
+  name: Condenser Water Differential Pressure
+  short_name: CW Water Diff Pressure
+  extends: WDIFFPR
+  google_ontology: condensing_water_differential_pressure_sensor
+  google_ontology_full:
+    - condensing_water_differential_pressure_sensor
+    - process_water_differential_pressure_sensor
+  haystack:
+    type:
+      - condenser
+    identification:
+      - navName: "CWDPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWDPR-1, CWDPR-2, etc."
+      - dis: "Condenser Water Differential Pressure or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Condenser Water
+          Differential Pressure-1, Condenser Water Differential Pressure-2,
+          etc."
+CWDPRSP:
+  name: Condenser Water Differential Pressure Setpoint
+  short_name: CW Diff Pressure Sp
+  extends: WDIFFPRSP
+  google_ontology: condensing_water_differential_pressure_setpoint
+  google_ontology_full:
+    - condensing_water_differential_pressure_setpoint
+    - process_water_differential_pressure_setpoint
+  haystack:
+    type:
+      - condenser
+    identification:
+      - navName: "CWDPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CWDPRSP-1, CWDPRSP-2, etc."
+      - dis: "Condenser Water Differential Pressure Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Condenser Water Differential Pressure Setpoint-1, Condenser Water 
+          Differential Pressure Setpoint-2, etc."
+DWPR:
+  name: Domestic Water Pressure
+  extends: WPR
+  haystack:
+    type:
+      - domestic
+    identification:    
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+ECHWFL:
+  name: Entering Chilled Water Flow
+  short_name: Entering CHW Flow
+  extends: WFLOW
+  google_ontology: chilled_water_flowrate_sensor
+  google_ontology_full:
+    - chilled_water_flowrate_sensor
+    - process_water_flowrate_sensor
+  haystack:
+    type:
+      - chilled
+      - entering
+    identification:
+      - navName: "ECHWFL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECHWFL-1, ECHWFL-2, etc."
+      - dis: "Entering Chilled Water Flow or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Entering Chilled Water Flow-1, Entering
+          Chilled Water Flow-2, etc."
+ECHWFLST:
+  name: Entering Chilled Water Flow Status
+  short_name: Entering CHW Flow Status
+  extends: WFLWST
+  google_ontology: chilled_water_flowrate_status
+  haystack:
+    type:
+      - chilled
+      - entering
+    identification:
+      - navName: "ECHWFLST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECHWFLST-1, ECHWFLST-2, etc."
+      - dis: "Entering Chilled Water Flow Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Entering Chilled Water Flow Status-1, Entering
+          Chilled Water Flow Status-2, etc."
+EHWFL:
+  name: Entering Hot Water Flow
+  short_name: Entering HW Flow
+  extends: WFLOW
+  google_ontology: heating_water_flowrate_sensor
+  haystack:
+    type:
+      - entering
+      - hot
+    identification:
+      - navName: "EHWFL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHWFL-1, EHWFL-2, etc."
+      - dis: "Entering Hot Water Flow or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Entering Hot Water Flow-1, Entering Hot Water
+          Flow-2, etc."
+HXISOVCMD:
+  name: Heat Exchanger Isolation Valve Command
+  short_name: HX Isolation Valve Cmd
+  extends: VCMD
+  google_ontology: heat_exchange_isolation_valve_command
+  google_ontology_full:
+    - heat_exchange_isolation_valve_command:
+      - kind: Bool
+    - heat_exchange_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - heatExchanger
+      - isolation
+      - water
+    identification:
+      - id: "HXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HXISOVCMD-1, HXISOVCMD-2, etc."
+      - navName: "HXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HXISOVCMD-1, HXISOVCMD-2, etc."
+      - dis: "Hx Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Hx Iso Valve Command-1, Hx Iso Valve Command-2,
+          etc."
+LHXISOVCMD:
+  name: Leaving Heat Exchanger Isolation Valve Command
+  short_name: Leaving HX Isolation Valve Cmd
+  extends: VCMD
+  google_ontology: heat_exchange_supply_water_isolation_valve_command
+  google_ontology_full:
+    - heat_exchange_supply_water_isolation_valve_command:
+      - kind: Bool
+    - heat_exchange_supply_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - heatExchanger
+      - isolation
+      - water
+    identification:
+      - id: "LHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHXISOVCMD-1, LHXISOVCMD-2, etc."
+      - navName: "LHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHXISOVCMD-1, LHXISOVCMD-2, etc."
+      - dis: "Leaving Hx Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Leaving Hx Iso Valve Command-1, Leaving Hx Iso Valve Command-2,
+          etc."
+LHXISOVFBK:
+  name: Leaving Heat Exchanger Isolation Valve Position Feedback
+  short_name: Leaving HX Isolation Valve Position
+  extends: VPOS
+  google_ontology: heat_exchange_supply_water_isolation_valve_status
+  google_ontology_full:
+    - heat_exchange_supply_water_isolation_valve_status:
+      - kind: Bool
+    - heat_exchange_supply_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - leaving
+      - heatExchanger
+      - isolation
+      - water
+    identification:
+      - id: "LHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHXISOVCMD-1, LHXISOVCMD-2, etc."
+      - navName: "LHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHXISOVCMD-1, LHXISOVCMD-2, etc."
+      - dis: "Leaving Hx Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Leaving Hx Iso Valve Command-1, Leaving Hx Iso Valve Command-2,
+          etc."
+EHXISOVCMD:
+  name: Entering Heat Exchanger Isolation Valve Command
+  short_name: Entering HX Isolation Valve Cmd
+  extends: VCMD
+  google_ontology: heat_exchange_return_water_isolation_valve_command
+  google_ontology_full:
+    - heat_exchange_return_water_isolation_valve_command:
+      - kind: Bool
+    - heat_exchange_return_water_isolation_valve_percentage_command:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - heatExchanger
+      - isolation
+      - water
+    identification:
+      - id: "EHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHXISOVCMD-1, EHXISOVCMD-2, etc."
+      - navName: "EHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHXISOVCMD-1, EHXISOVCMD-2, etc."
+      - dis: "Leaving Hx Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Leaving Hx Iso Valve Command-1, Leaving Hx Iso Valve Command-2,
+          etc."
+EHXISOVFBK:
+  name: Entering Heat Exchanger Isolation Valve Position Feedback
+  short_name: Entering HX Isolation Valve Position
+  extends: VPOS
+  google_ontology: heat_exchange_return_water_isolation_valve_status
+  google_ontology_full:
+    - heat_exchange_return_water_isolation_valve_status:
+      - kind: Bool
+    - heat_exchange_return_water_isolation_valve_percentage_sensor:
+      - kind: Number
+  haystack:
+    type:
+      - entering
+      - heatExchanger
+      - isolation
+      - water
+    identification:
+      - id: "EHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHXISOVCMD-1, EHXISOVCMD-2, etc."
+      - navName: "EHXISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHXISOVCMD-1, EHXISOVCMD-2, etc."
+      - dis: "Leaving Hx Iso Valve Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Leaving Hx Iso Valve Command-1, Leaving Hx Iso Valve Command-2,
+          etc."
+HWDPR:
+  name: Hot Water Differential Pressure
+  short_name: HW Diff Pressure
+  extends: WDIFFPR
+  google_ontology: differential_pressure_sensor
+  haystack:
+    type:
+      - hot
+    identification:
+      - navName: "HWDPR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWDPR-1, HWDPR-2, etc."
+      - dis: "Hot Water Differential Pressure or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Hot Water Differential Pressure-1, Hot Water
+          Differential Pressure-2, etc."
+PRHWDPR:
+  name: Primary Loop Hot Water Differential Pressure
+  short_name: Primary HW Diff Pressure
+  extends: HWDPR
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCHWDPR:
+  name: Secondary Loop Hot Water Differential Pressure
+  short_name: Secondary HW Diff Pressure
+  extends: HWDPR
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRHWDPR:
+  name: Tertiary Loop Hot Water Differential Pressure
+  short_name: Tertiary HW Diff Pressure
+  extends: HWDPR
+  haystack:
+    type:
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+HWDPRSP:
+  name: Hot Water Differential Pressure Setpoint
+  short_name: HW Diff Pressure Sp
+  extends: WDIFFPRSP
+  google_ontology: differential_pressure_setpoint
+  haystack:
+    type:
+      - hot
+    identification:
+      - navName: "HWDPRSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWDPRSP-1, HWDPRSP-2, etc."
+      - dis: "Hot Water Differential Pressure Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Hot Water Differential
+          Pressure Setpoint-1, Hot Water Differential Pressure Setpoint-2, etc."
+PRHWDPRSP:
+  name: Primary Loop Hot Water Differential Pressure Setpoint
+  short_name: Primary HW Diff Pressure Sp
+  extends: HWDPRSP
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCHWDPRSP:
+  name: Secondary Loop Hot Water Differential Pressure Setpoint
+  short_name: Secondary HW Diff Pressure Sp
+  extends: HWDPRSP
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRHWDPRSP:
+  name: Tertiary Loop Hot Water Differential Pressure Setpoint
+  short_name: Tertiary HW Diff Pressure Sp
+  extends: HWDPRSP
+  haystack:
+    type:
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+LCHWFL:
+  name: Leaving Chilled Water Flow
+  short_name: Leaving CHW Flow
+  extends: WFLOW
+  google_ontology: chilled_water_flowrate_sensor
+  google_ontology_full:
+    - chilled_water_flowrate_sensor
+    - process_water_flowrate_sensor
+  haystack:
+    type:
+      - chilled
+      - leaving
+    identification:
+      - navName: "LCHWFL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCHWFL-1, LCHWFL-2, etc."
+      - dis: "Leaving Chilled Water Flow or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Leaving Chilled Water Flow-1, Leaving
+          Chilled Water Flow-2, etc."
+LCHWFLST:
+  name: Leaving Chilled Water Flow Status
+  short_name: Leaving CHW Flow Status
+  extends: WFLWST
+  google_ontology: chilled_water_flowrate_status
+  haystack:
+    type:
+      - chilled
+      - leaving
+    identification:
+      - navName: "LCHWFLST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCHWFLST-1, LCHWFLST-2, etc."
+      - dis: "Leaving Chilled Water Flow Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Leaving Chilled Water Flow Status-1, Leaving
+          Chilled Water Flow Status-2, etc."
+LCHWTSP:
+  name: Leaving Chilled Water Temperature Setpoint
+  short_name: Leaving CHW Temp Sp
+  extends: WTEMPSP
+  google_ontology: chilled_supply_water_temperature_setpoint
+  google_ontology_full:
+    - chilled_supply_water_temperature_setpoint
+    - process_supply_water_temperature_setpoint
+  haystack:
+    type:
+      - chilled
+      - leaving
+    identification:
+      - navName: "LCHWTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCHWTSP-1, LCHWTSP-2, etc."
+      - dis: "Leaving Chilled Water Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Leaving Chilled Water
+          Temperature Setpoint-1, Leaving Chilled Water Temperature Setpoint-2,
+          etc."
+LCWFL:
+  name: Leaving Condenser Water Flow
+  short_name: Leaving CW Flow
+  extends: WFLOW
+  google_ontology: condensing_water_flowrate_sensor
+  google_ontology_full:
+    - condensing_water_flowrate_sensor:
+      - kind: Number
+    - condensing_water_flowrate_status:
+      - kind: Bool
+  haystack:
+    type:
+      - condenser
+      - leaving
+    identification:
+      - navName: "LCWFL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCWFL-1, LCWFL-2, etc."
+      - dis: "Leaving Condenser Water Flow or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Leaving Condenser Water Flow-1, Leaving
+          Condenser Water Flow-2, etc."
+LCWFLSP:
+  name: Leaving Condenser Water Flow Setpoint
+  short_name: Leaving CW Flow Sp
+  extends: WFLOWSP
+  haystack:
+    type:
+      - condenser
+      - leaving
+    identification:
+      - navName: "LCWFLSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCWFLSP-1, LCWFLSP-2, etc."
+      - dis: "Leaving Condenser Water Flow Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Leaving Condenser Water Flow Setpoint-1, Leaving
+          Condenser Water Flow Setpoint-2, etc."
+LCWTSP:
+  name: Leaving Condenser Water Temperature Setpoint
+  short_name: Leaving CW Temp Sp
+  extends: WTEMPSP
+  google_ontology: condensing_supply_water_temperature_setpoint
+  haystack:
+    type:
+      - condenser
+      - leaving
+    identification:
+      - navName: "LCWTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCWTSP-1, LCWTSP-2, etc."
+      - dis: "Leaving Condenser Water Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Leaving Condenser Water
+          Temperature Setpoint-1, Leaving Condenser Water Temperature
+          Setpoint-2, etc."
+LHWFL:
+  name: Leaving Hot Water Flow
+  short_name: Leaving HW FLow
+  extends: WFLOW
+  google_ontology: heating_water_flowrate_sensor
+  haystack:
+    type:
+      - hot
+      - leaving
+    identification:
+      - navName: "LHWFL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHWFL-1, LHWFL-2, etc."
+      - dis: "Leaving Hot Water Flow or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Leaving Hot Water Flow-1, Leaving Hot Water Flow-2,
+          etc."
+LHWFLSP:
+  name: Leaving Hot Water Flow Setpoint
+  short_name: Leaving HW Flow Sp
+  extends: WFLOWSP
+  haystack:
+    type:
+      - hot
+      - leaving
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+LHWTSP:
+  name: Leaving Hot Water Temperature Setpoint
+  short_name: Leaving HW Temp Sp
+  extends: WTEMPSP
+  google_ontology: heating_supply_water_temperature_setpoint
+  haystack:
+    type:
+      - hot
+      - leaving
+    identification:
+      - navName: "LHWTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHWTSP-1, LHWTSP-2, etc."
+      - dis: "Leaving Hot Water Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Leaving Hot Water Temperature 
+          Setpoint-1, Leaving Hot Water Temperature Setpoint-2, etc."
+LWISOVCMD:
+  name: Leaving Water Isolation Valve Command
+  extends: VCMD
+  google_ontology: supply_water_isolation_valve_command
+  haystack:
+    type:
+      - leaving
+      - water
+      - isolation
+    identification:
+      - id: "LWISOVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          LWISOVCMD-1, LWISOVCMD-2, etc."
+      - navName: "LWISOVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LWISOVCMD-1, LWISOVCMD-2, etc."
+      - dis: "Leaving Water Isolation Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Leaving Water Isolation Valve Command-1, Leaving Water Isolation Valve
+          Command-2, etc."
+LWISOVST:
+  name: Leaving Water Isolation Valve Status
+  extends: VST
+  google_ontology: supply_water_isolation_valve_status
+  haystack:
+    type:
+      - leaving
+      - water
+      - isolation
+    identification:
+      - id: "LWISOVST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          LWISOVST-1, LWISOVST-2, etc."
+      - navName: "LWISOVST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LWISOVST-1, LWISOVST-2, etc."
+      - dis: "Leaving Water Isolation Valve Status or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Leaving Water Isolation Valve Status-1, Leaving Water Isolation Valve
+          Status-2, etc."
+PRREQ:
+  name: Pressure Requests
+  extends: REQ
+  google_ontology: pressurization_request_count
+  haystack:
+    type:
+      - pressure
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - equipRef
+MKUPWVCMD:
+  name: Make Up Water Valve Command
+  extends: VCMD
+  google_ontology: makeup_water_valve_percentage_command
+  haystack:
+    type:
+      - makeup
+      - water
+    identification:
+      - id: "MKUPWVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MKUPWVCMD-1, MKUPWVCMD-2, etc."
+      - navName: "MKUPWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MKUPWVCMD-1, MKUPWVCMD-2, etc."
+      - dis: "Make Up Water Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Make Up Water Valve Command-1, Make Up Water Valve Command-2, etc."
+MXWVCMD:
+  name: Mixing Water Valve Command
+  extends: VCMD
+  google_ontology: mixing_valve_percentage_command
+  haystack:
+    type:
+      - mixing
+      - water
+    identification:
+      - id: "MXWVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MXWVCMD-1, MXWVCMD-2, etc."
+      - navName: "MXWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MXWVCMD-1, MXWVCMD-2, etc."
+      - dis: "Mixing Water Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Mixing Water Valve Command-1, Mixing Water Valve Command-2, etc."
+MXWVFBK:
+  name: Mixing Water Valve Position Feedback
+  extends: VPOS
+  google_ontology: mixing_valve_percentage_sensor
+  haystack:
+    type:
+      - mixing
+      - water
+    identification:
+      - id: "MXWVFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          MXWVFBK-1, MXWVFBK-2, etc."
+      - navName: "MXWVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : MXWVFBK-1, MXWVFBK-2, etc."
+      - dis: "Mixing Water Valve Position Feedback or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Mixing Water Valve Position Feedback-1, Mixing Water Valve Position Feedback-2, etc."
+PHWVCMD:
+  name: Preheat Water Valve Command
+  extends: VCMD
+  google_ontology: preheating_water_valve_percentage_command
+  haystack:
+    type:
+      - preheat
+      - water
+    identification:
+      - id: "PHWVCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          PHWVCMD-1, PHWVCMD-2, etc."
+      - navName: "PHWVCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PHWVCMD-1, PHWVCMD-2, etc."
+      - dis: "Preheat Water Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Preheat Water Valve Command-1, Preheat Water Valve Command-2, etc."
+PRLHWTSP:
+  name: Primary Leaving Hot Water Temperature Setpoint
+  short_name: Primary Leaving HW Temp Sp
+  extends: LHWTSP
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - navName: "PRLHWTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PRLHWTSP-1, PRLHWTSP-2, etc."
+      - dis: "Primary Leaving Hot Water Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Primary Leaving Hot Water Temperature 
+          Setpoint-1, Primary Leaving Hot Water Temperature Setpoint-2, etc."
+PRLCHWT:
+  name: Primary Loop Leaving Chilled Water Temperature
+  short_name: Primary Leaving CHW Temp
+  extends: LCHWT
+  haystack:
+    type: 
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+PRLCHWTSP:
+  name: Primary Loop Leaving Chilled Water Temperature Setpoint
+  short_name: Primary Leaving CHW Temp Sp
+  extends: LCHWTSP
+  haystack:
+    type: 
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+PRECHWT:
+  name: Primary Loop Entering Chilled Water Temperature
+  short_name: Primary Entering CHW Temp
+  extends: ECHWT
+  haystack:
+    type: 
+      - primaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+PRLCWT:
+  name: Primary Loop Leaving Condenser Water Temperature
+  short_name: Primary Leaving CW Temp
+  extends: LCWT
+  haystack:
+    type: 
+      - primaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+PRLCWTSP:
+  name: Primary Loop Leaving Condenser Water Temperature Setpoint
+  short_name: Primary Leaving CW Temp Sp
+  extends: LCWTSP
+  haystack:
+    type: 
+      - primaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+PLLCWFLSP:
+  name: Primary Loop Leaving Condenser Water Flow Setpoint
+  short_name: Primary Leaving CW Flow Sp
+  description: The flow rate setpoint of condenser water leaving the the cooling tower on the primary loop.
+  extends: LCWFLSP
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+PLLCWFLOW:
+  name: Primary Loop Leaving Condenser Water Flow
+  short_name: Primary Leaving CW Flow
+  description: The flow rate of condenser water leaving the the cooling tower on the primary loop.
+  extends: LCWFL
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+SLLCWFLSP:
+  name: Secondary Loop Leaving Condenser Water Flow Setpoint
+  short_name: Secondary Leaving CW Flow Sp
+  description: The flow rate setpoint of condenser water leaving the the condenser water plant on the secondary loop.
+  extends: LCWFLSP
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+SLLCWFLOW:
+  name: Secondary Loop Leaving Condenser Water Flow
+  short_name: Secondary Leaving CW Flow
+  description: The flow rate of condenser water leaving the the condenser water plant on the secondary loop.
+  extends: LCWFL
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+PRECWT:
+  name: Primary Loop Entering Condenser Water Temperature
+  short_name: Primary Entering CW Temp
+  extends: ECWT
+  haystack:
+    type: 
+      - primaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+PRLENCMD:
+  name: Primary Loop Enable Command
+  short_name: Primary Enable Cmd
+  extends: ENCMD
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCLENCMD:
+  name: Secondary Loop Enable Command
+  short_name: Secondary Enable Cmd
+  extends: ENCMD
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCLCHWT:
+  name: Secondary Loop Leaving Chilled Water Temperature
+  short_name: Secondary Leaving CHW Temp
+  extends: LCHWT
+  haystack:
+    type: 
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCLCHWTSP:
+  name: Secondary Loop Leaving Chilled Water Temperature Setpoint
+  short_name: Secondary Leaving CHW Temp Sp
+  extends: LCHWTSP
+  haystack:
+    type: 
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCECHWT:
+  name: Secondary Loop Entering Chilled Water Temperature
+  short_name: Secondary Entering CHW Temp
+  extends: ECHWT
+  haystack:
+    type: 
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCLCWT:
+  name: Secondary Loop Leaving Condenser Water Temperature
+  short_name: Secondary Leaving CW Temp
+  extends: LCWT
+  haystack:
+    type: 
+      - secondaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCLCWTSP:
+  name: Secondary Loop Leaving Condenser Water Temperature Setpoint
+  short_name: Secondary Leaving CW Temp Sp
+  extends: LCWTSP
+  haystack:
+    type: 
+      - secondaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCLCWCTSP:
+  name: Secondary Loop Leaving Condenser Water Cooling Temperature Setpoint
+  short_name: Secondary Leaving CW Cool Temp Sp
+  extends: SCLCWTSP
+  haystack:
+    type: 
+      - cooling
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCLCWHTSP:
+  name: Secondary Loop Leaving Condenser Water Heating Temperature Setpoint
+  short_name: Secondary Leaving CW Heat Temp Sp
+  extends: SCLCWTSP
+  haystack:
+    type: 
+      - heating
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCECWT:
+  name: Secondary Loop Entering Condenser Water Temperature
+  short_name: Secondary Entering CW Temp
+  extends: ECWT
+  haystack:
+    type: 
+      - secondaryLoop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+SCCWHXBYPVCMD:
+  name: Secondary Loop Condenser Water Heat Exchanger Bypass Valve Command
+  short_name: Secondary CW HX Bypass Vlv Cmd
+  extends: VCMD
+  haystack:
+    type: 
+      - secondaryLoop
+      - condenser
+      - water
+      - heatExchanger
+      - bypass
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+
+SCHWFL:
+  name: Secondary Chilled Water Flow
+  extends: WFLOW
+  haystack:
+    type:
+      - chilled
+      - secondaryLoop
+    identification:
+      - navName: "SCHWFL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SCHWFL-1, SCHWFL-2, etc."
+      - dis: "Secondary Chilled Water Flow or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Secondary Chilled Water Flow-1, Secondary
+          Chilled Water Flow-2, etc."
+SHWFL:
+  name: Secondary Hot Water Flow
+  extends: WFLOW
+  haystack:
+    type:
+      - hot
+      - secondaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+SCLHWTSP:
+  name: Secondary Leaving Hot Water Temperature Setpoint
+  short_name: Secondary Leaving HW Temp Sp
+  extends: LHWTSP
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - navName: "SCLHWTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SCLHWTSP-1, SCLHWTSP-2, etc."
+      - dis: "Secondary Leaving Hot Water Temperature Setpoint or if more than 1 in the
+          equip/device, use <NAME> + - + <INTEGER>  : Secondary Leaving Hot Water Temperature 
+          Setpoint-1, Secondary Leaving Hot Water Temperature Setpoint-2, etc."
+TRCHWFL:
+  name: Tertiary Chilled Water Flow
+  extends: WFLOW
+  haystack:
+    type:
+      - chilled
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRHWFL:
+  name: Tertiary Hot Water Flow
+  extends: WFLOW
+  haystack:
+    type:
+      - hot
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRLCHWT:
+  name: Tertiary Loop Leaving Chilled Water Temperature
+  short_name: Tertiary Leaving CHW Temp
+  extends: LCHWT
+  haystack:
+    type: 
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRLHWT:
+  name: Tertiary Loop Leaving Hot Water Temperature
+  short_name: Tertiary Leaving HW Temp
+  extends: LHWT
+  haystack:
+    type: 
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TRECHWT:
+  name: Tertiary Loop Entering Chilled Water Temperature
+  short_name: Tertiary Entering CHW Temp
+  extends: ECHWT
+  haystack:
+    type: 
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+TREHWT:
+  name: Tertiary Loop Entering Hot Water Temperature
+  short_name: Tertiary Entering HW Temp
+  extends: EHWT
+  haystack:
+    type: 
+      - tertiaryLoop
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+WCD:
+ name: Water Conductivity Sensor
+ description: A measure of the conductivity of water.
+ haystack:
+  type:
+    - water
+    - conductivity
+    - sensor 
+    - point
+  identification:
+    - navName: <ABBREVIATION> + - + <INTEGER>
+    - dis: <NAME> + - + <INTEGER>    
+    - kind: Number
+    - unit: resistance
+  reference:
+    - equipRef
+  reference_optional:
+    - deviceRef
+WCDSP:
+  name: Water Conductivity Setpoint
+  short_name: Water Conductivity Sp
+  description: The target value for the conductivity of water.
+  haystack:
+    type:
+      - water
+      - conductivity
+      - sp
+      - point
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+      - kind: Number
+      - unit: resistance
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WTLVL:
+  name: Water Level Sensor
+  description: A measure of the water level in units of height, typically in a tank or sump.
+  haystack:
+    type:
+      - water
+      - level
+      - sensor
+      - point
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+      - kind: Number
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WLVLSP:
+  name: Water Level Setpoint
+  short_name: Water Level Sp
+  description: The target value for the water level, typically in a tank or sump.
+  haystack:     
+    type: 
+      - water
+      - level
+      - sp 
+      - point
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER> 
+      - kind: Number
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WLALRMH:
+  name: Water Level Alarm High
+  description: Water level has exceeded a certain threshold and is generating an alarm.
+  extends: ALRMPT
+  haystack:
+    type:
+      - water
+      - level
+      - high
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+WLALRML:
+  name: Water Level Alarm Low
+  description: Water level has gone below a certain threshold and is generating an alarm.
+  extends: ALRMPT
+  haystack:
+    type:
+      - water
+      - level
+      - low
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef      
+WFLWST:
+  name: Water Flow Status
+  description: A digital input which proves water flow.
+  haystack:
+    type:
+      - water
+      - flow
+      - state
+      - sensor
+      - point
+    identification:
+      - kind: Bool
+      - navName: "WFLWST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WFLWST-1, WFLWST-2, etc."
+      - dis: "Water Flow Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Water Flow Status-1, Water Flow Status-2, etc."
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+BCPSSCMD:
+  name: Boiler Circulation Pump Run Command
+  extends: PSSCMD
+  google_ontology: cirulation_pump_run_command
+  haystack:
+    type:
+      - circ
+      - hot
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BCPSSCMD1 or BCPSSCMD270
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BCPSSCMD-1 or BCPSSCMD-270
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BCPSSCMD-1 or BCPSSCMD-272
+BCPSSST:
+  name: Boiler Circulation Pump Run Status
+  extends: PSSST
+  google_ontology: cirulation_pump_run_status
+  haystack:
+    type:
+      - circ
+      - hot
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BCPSSST1 or BCPSSST270
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BCPSSST-1 or BCPSSST-270
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BCPSSST-1 or BCPSSST-272
+DHWTT:
+  name: Domestic Hot Water Tank Temperature
+  short_name: Domestic HW Tank Temp
+  description: The temperature of the water in a domestic hot water storage tank.
+  extends: WTRTEMP
+  haystack:
+    type:
+      - tank
+      - domestic
+      - hot
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Number
+ECHWT:
+  name: Entering Chilled Water Temperature
+  short_name: Entering CHW Temp
+  description: The temperature of the water entering the chiller or Chilled water
+    plant. Commonly referred to as Chilled Water Return Temp (CHWRT).
+  extends: WTRTEMP
+  google_ontology: chilled_return_water_temperature_sensor
+  google_ontology_full:
+    - chilled_return_water_temperature_sensor
+    - process_chilled_return_water_temperature_sensor
+    - process_return_water_temperature_sensor
+  haystack:
+    type:
+      - entering
+      - chilled
+    identification:
+      - navName: "ECHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECHWT-1, ECHWT-2, etc."
+      - dis: "Entering Chilled Water Temperature or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Entering Chilled Water Temperature-1,
+          Entering Chilled Water Temperature-2, etc."
+ECWT:
+  name: Entering Condenser Water Temperature
+  short_name: Entering CW Temp
+  description: The temperature of the water entering the heat exchanger, cooling
+    tower or condenser water plant. Commonly referred to as Condenser Water
+    Return Temp (CWRT).
+  extends: WTRTEMP
+  google_ontology: condensing_return_water_temperature_sensor
+  google_ontology_full:
+    - condensing_return_water_temperature_sensor
+    - process_return_water_temperature_sensor
+  haystack:
+    type:
+      - entering
+      - condenser
+    identification:
+      - navName: "ECWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECWT-1, ECWT-2, etc."
+      - dis: "Condenser Water Supply Temperature or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Condenser Water Supply Temperature-1,
+          Condenser Water Supply Temperature-2, etc."
+EHWT:
+  name: Entering Hot Water Temperature
+  short_name: Entering HW Temp
+  description: The temperature of the water entering (returning to) the boiler or
+    Hot water plant. Commonly referred to as Hot Water Return Temp (HWRT).
+  extends: WTRTEMP
+  google_ontology: heating_return_water_temperature_sensor
+  haystack:
+    type:
+      - entering
+      - hot
+    identification:
+      - navName: "EHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EHWT-1, EHWT-2, etc."
+      - dis: "Entering Hot Water Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Entering Hot Water Temperature-1, Entering
+          Hot Water Temperature-2, etc."
+EDHWT:
+  name: Entering Domestic Hot Water Temperature
+  short_name: Entering Domestic HW Temp
+  description: The temperature of the water entering the domestic hot water heater or plant.
+  google_ontology: potable_hot_return_water_temperature_sensor
+  extends: WTRTEMP
+  haystack:
+    type:
+      - entering
+      - domestic
+      - hot
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Number
+EWTSP:
+  name: Entering Water Temperature Setpoint
+  short_name: Entering Water Temp Sp
+  extends: WTEMPSP
+  google_ontology: return_water_temperature_setpoint
+  haystack:
+    type:
+      - entering
+    identification:
+      - navName: "EWTSP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EWTSP-1, EWTSP-2, etc."
+      - dis: "Entering Water Temperature Setpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Entering Water Temperature Setpoint-1, Entering
+          Water Temperature Setpoint-2, etc."
+LCHWT:
+  name: Leaving Chilled Water Temperature
+  short_name: Leaving CHW Temp
+  description: The tempwerature of the water leaving the chiller or Chilled water
+    plant. Commonly referred to as Chilled Water Supply Temp (CHWST).
+  extends: WTRTEMP
+  google_ontology: chilled_supply_water_temperature_sensor
+  google_ontology_full:
+    - chilled_supply_water_temperature_sensor
+    - process_chilled_supply_water_temperature_sensor
+  haystack:
+    type:
+      - leaving
+      - chilled
+    identification:
+      - navName: "LCHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCHWT-1, LCHWT-2, etc."
+      - dis: "Leaving Chilled Water Temperature or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Leaving Chilled Water Temperature-1,
+          Leaving Chilled Water Temperature-2, etc."
+LCWT:
+  name: Leaving Condenser Water Temperature
+  short_name: Leaving CW Temp
+  description: The temperature of the water leaving the equipment including the heat exchanger,
+    condenser water loop equipment, cooling tower or condenser water plant. Commonly referred
+    to as Condenser Water Supply Temp (CWST).
+  extends: WTRTEMP
+  google_ontology: condensing_supply_water_temperature_sensor
+  google_ontology_full:
+    - condensing_supply_water_temperature_sensor
+    - process_supply_water_temperature_sensor
+  haystack:
+    type:
+      - leaving
+      - condenser
+    identification:
+      - navName: "LCWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCWT-1, LCWT-2, etc."
+      - dis: "Leaving Condenser Water Temperature or if more than 1 in the equip/device,
+          use <NAME> + - + <INTEGER>  : Leaving Condenser Water Temperature-1,
+          Leaving Condenser Water Temperature-2, etc."
+LHWT:
+  name: Leaving Hot Water Temperature
+  short_name: Leaving HW Temp
+  description: The temperature of the water leaving the boiler or Hot water
+    plant. Commonly referred to as Hot Water Supply Temp (HWST).
+  extends: WTRTEMP
+  google_ontology: heating_supply_water_temperature_sensor
+  haystack:
+    type:
+      - leaving
+      - hot
+    identification:
+      - navName: "LHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LHWT-1, LHWT-2, etc."
+      - dis: "Leaving Hot Water Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Leaving Hot Water Temperature-1, Leaving Hot
+          Water Temperature-2, etc."
+LDHWT:
+  name: Leaving Domestic Hot Water Temperature
+  short_name: Leaving Domestic HW Temp
+  description: The temperature of the water leaving the domestic hot water heater 
+    or recirculation pump.
+  google_ontology: potable_hot_supply_water_temperature_sensor
+  extends: WTRTEMP
+  haystack:
+    type:
+      - leaving
+      - domestic
+      - hot
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Number
+LDHWTSP:
+  name: Leaving Domestic Hot Water Temperature Setpoint
+  short_name: Leaving Domestic HW Temp Sp
+  description: The temperature setpoint of the water leaving the domestic hot water heater 
+    or recirculation pump.
+  google_ontology: potable_hot_water_temperature_setpoint
+  extends: WTEMPSP
+  haystack:
+    type:
+      - leaving
+      - domestic
+      - hot
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number         
+PRLHWT:
+  name: Primary Leaving Hot Water Temperature
+  short_name: Primary Leaving HW Temp
+  description: The temperature of the water leaving the Hot water
+    plant. Commonly referred to as Building Hot Water Supply Temp.
+  extends: LHWT
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - navName: "PRLHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PRLHWT-1, PRLHWT-2, etc."
+      - dis: "Primary Leaving Hot Water Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Primary Leaving Hot Water Temperature-1, Primary Leaving Hot
+          Water Temperature-2, etc."
+PREHWT:
+  name: Primary Entering Hot Water Temperature
+  short_name: Primary Entering HW Temp
+  description: The temperature of the water entering the Hot water
+    plant. Commonly referred to as Building Hot Water Supply Temp.
+  extends: EHWT
+  google_ontology: primary_return_water_temperature_sensor
+  haystack:
+    type:
+      - primaryLoop
+    identification:
+      - navName: "PREHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PREHWT-1, PREHWT-2, etc."
+      - dis: "Primary Entering Hot Water Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Primary Entering Hot Water Temperature-1, Primary Entering Hot
+          Water Temperature-2, etc."
+PSSCMD:
+  name: Pump Run Command
+  short_name: Pump Run Cmd
+  extends: CMD
+  google_ontology: run_command
+  haystack:
+    type:
+      - run
+      - pump
+    identification:
+      - navName: "PSSCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PSSCMD-1, PSSCMD-2, etc."
+      - dis: "Pump Run Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Pump Run Command-1, Pump Run Command-2, etc."
+PSSST:
+  name: Pump Run Status
+  extends: SSST
+  google_ontology: run_status
+  haystack:
+    type:
+      - pump
+    identification:
+      - navName: "PSSST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PSSST-1, PSSST-2, etc."
+      - dis: "Pump Run Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Pump Run Status-1, Pump Run Status-2, etc."
+PSPCMD:
+  name: Pump Speed Command 
+  short_name: Pump Speed Cmd
+  google_ontology: speed_percentage_command
+  haystack:
+    type:
+      - point
+      - cmd
+      - speed
+      - pump
+    reference:
+      - equipRef  
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER> 
+      - kind: Number 
+      
+CNPST:
+  name: Condensate Pump Status
+  extends: PSSST
+  haystack:
+    type:
+      - condensate
+    identification:
+      - navName: "CNPST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CNPST-1, CNPST-2, etc."
+      - dis: "Condensate Pump Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Condensate Pump Status-1, Condensate Pump Status-2, etc."
+SCLHWT:
+  name: Secondary Leaving Hot Water Temperature
+  short_name: Secondary Leaving HW Temp
+  description: The temperature of the water leaving the Hot water
+    plant. Commonly referred to as Building Hot Water Supply Temp.
+  extends: LHWT
+  google_ontology: secondary_supply_water_temperature_sensor
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - navName: "SCLHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SCLHWT-1, SCLHWT-2, etc."
+      - dis: "Secondary Leaving Hot Water Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Secondary Leaving Hot Water Temperature-1, Secondary Leaving Hot
+          Water Temperature-2, etc."
+SCEHWT:
+  name: Secondary Entering Hot Water Temperature
+  short_name: Secondary Entering HW Temp
+  description: The temperature of the water entering the Hot water
+    plant. Commonly referred to as Building Hot Water Return Temp.
+  extends: EHWT
+  google_ontology: secondary_return_water_temperature_sensor
+  haystack:
+    type:
+      - secondaryLoop
+    identification:
+      - navName: "SCEHWT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SCEHWT-1, SCEHWT-2, etc."
+      - dis: "Secondary Entering Hot Water Temperature or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Secondary Entering Hot Water Temperature-1, Secondary Entering Hot
+          Water Temperature-2, etc."
+BSWPSSCMD:
+  name: Basin Sweeper Pump Run Command
+  description: Pump located in cooling tower basin used to agitate water in order to limit sediment build up.
+  extends: PSSCMD
+  google_ontology: sweeper_pump_run_command
+  haystack:
+    type:
+      - basinSweeper
+      - separator
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BSWPSSCMD1 or BSWPSSCMD270
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BSWPSSCMD-1 or BSWPSSCMD-270
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BSWPSSCMD-1 or BSWPSSCMD-272
+BSWPSSST:
+  name: Basin Sweeper Pump Run Status
+  description: Pump located in cooling tower basin used to agitate water in order to limit sediment build up.
+  extends: PSSST
+  google_ontology: sweeper_pump_run_status
+  haystack:
+    type:
+      - basinSweeper
+      - separator
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BSWPSSST1 or BSWPSSST270
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BSWPSSST-1 or BSWPSSST-270
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BSWPSSST-1 or BSWPSSST-272
+COVCMD:
+  name: Change Over Valve Command
+  short_name: Change Over Valve Cmd
+  extends: VCMD
+  haystack:
+    type:
+      - changeover
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Bool
+    reference:
+      - equipRef
+COVFBK:
+  name: Change Over Valve Feedback
+  short_name: Change Over Valve Fbk
+  extends: VPOS
+  haystack:
+    type:
+      - changeover
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+    reference:
+      - equipRef
+CHWDT:
+  name: Chilled Water Delta Temperature 
+  short_name: CHW Delta Temp
+  extends: DT
+  haystack:
+    type:
+      - chilled
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+      - unit: °F
+    reference:
+      - deviceRef
+      - equipRef
+LSTT:
+  name: Leaving Steam Temperature
+  haystack:
+    type:
+      - leaving
+      - steam
+      - temp
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+      - unit_type: temperature
+    reference:
+      - equipRef    
+LSTP:
+  name: Leaving Steam Pressure
+  google_ontology: supply_steam_static_pressure_sensor
+  haystack:
+    type:
+      - leaving
+      - steam
+      - pressure
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+      - unit_type: pressure
+    reference:
+      - equipRef          
+WECVCMD:
+  name: Waterside Economizer Valve Command
+  description: Command to a valve that controls a waterside economizer
+  extends: VCMD
+  haystack:
+    type:
+      - water
+      - economizing
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+    reference:
+      - equipRef             
+WECVPOS:
+  name: Waterside Economizer Valve Position
+  description: Position of a waterside economizer control valve
+  extends: VPOS
+  haystack:
+    type:
+      - water
+      - economizing
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+    reference:
+      - equipRef                  

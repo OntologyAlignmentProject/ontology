@@ -1,0 +1,50 @@
+AQM:
+  name: AQM
+  description: Air Quality Monitoring
+  haystack:
+    type:
+      - airQuality
+  points:
+    - ZCO2
+    - ZCO
+    - ZTVOC
+    - ZPM10
+    - ZPM25
+    - ZPM01
+    - ZCH2O
+    - ZNO2
+    - ZO3
+    - ZNH3
+
+TCGM:
+  name: TCGM
+  description: Toxic/Combustible Gas Monitoring
+  points:
+    - ZCO
+    - ZCOALMSP
+    - ZNO2
+    - ZNO2ALMSP
+    - ZCH4
+    - ZCH4ALMSP
+
+# Occupancy or Presence Functions
+
+OCM:
+  name: OCM
+  description: Occupancy or Presence Monitoring
+  points:
+    - OCCSNS
+    - OCCDWTM
+
+LOCM:
+  name: LOCM
+  description: Line, Entry or In/Out Occupancy Monitoring
+  points:
+    - LNIPCNT
+    - LNOPCNT
+
+ZOCM:
+  name: ZOCM
+  description: Zone or Space Occupancy Monitoring
+  points:
+    - ZPCNT

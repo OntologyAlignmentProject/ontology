@@ -1,0 +1,19 @@
+##MISCELLANEOUS SPACES
+PRKSP:
+  name: Parking Space
+  description: "Parking lot gates provide security and control for parking lots
+    and parking garages. "
+  haystack:
+    type:
+      - space
+      - parking
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PRKSP1 or PRKSP157
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PRKSP-1 or PRKSP-157
+      - dis: Parking Space 1 or PRKSP-1
+    reference:
+      - siteRef
+      - spaceRef
+  points:
+    - PRKSPACT
+    - PRKSPST

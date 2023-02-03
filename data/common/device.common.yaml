@@ -1,0 +1,197 @@
+
+CAM:
+  name: Camera
+  description: A camera is an optical instrument used to record images.
+  haystack:
+    type:
+      - device
+      - camera
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CAM-1 or CAM-299
+      - dis: Camera 1 or CAM-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - portRef
+      - spaceRef
+      - systemRef
+  points:
+    - ILLUM
+    - RES
+CNTRL:
+  name: Controller
+  description: A microprocesor Controller on any type of equipment
+  short_name: CTRLR
+  haystack:
+    type:
+      - device
+      - controller
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CNTRL-1 or CNTRL-36
+      - dis: Controller 1 or CNTRL-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CNTRL1 or CNTRL39
+    reference:
+      - siteRef
+      - equipRef
+      - systemRef
+
+DWB:
+  name: Digital Whiteboard
+  description: Digital whiteboards replace traditional dry-erase boards in
+    hospital patient rooms. With information that is up-to-the-minute accurate,
+    the patients, their families and staff can benefit from knowing their
+    pain-level, mobility status, fall risk, plan for the day, etc.
+  haystack:
+    type:
+      - device
+      - whiteboard
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DWB-1 or DWB-80
+      - dis: Digital Whiteboard 1 or DWB-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+
+ETP:
+  name: Ethernet Port
+  description: "A port is a communication endpoint. "
+  haystack:
+    type:
+      - device
+      - port
+      - portNum
+      - ethernet
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ETP-1 or ETP-496
+      - dis: Ethernet Port 1 or ETP-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ETP1 or ETP499
+    reference:
+      - deviceRef
+      - networkRef
+    reference_optional:
+      - connectionRef
+
+HMI:
+  name: Human Machine Interface
+  description: An human-machine interface (HMI) that interfaces machines with
+    physical input hardware such as keyboards, mice, game pads and output
+    hardware such as computer monitors, speakers, and printers.
+  haystack:
+    type:
+      - device
+      - hmi
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HMI-1 or HMI-599
+      - dis: Human Machine Interface 1 or HMI-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HMI1 or HMI602
+    reference:
+      - siteRef
+      - systemRef
+      - networkRef
+
+POEETP:
+  name: Power-over-Ethernet Port
+  description: "A PoE port is a communication endpoint that supplies DC Power to
+    the endpoint. "
+  haystack:
+    type:
+      - device
+      - port
+      - poe
+      - portNum
+      - ethernet
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. POEETP-1 or POEETP-512
+      - dis: Power-over-Ethernet Port 1 or POEETP-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. POEETP1 or POEETP515
+    reference:
+      - deviceRef
+      - networkRef
+    reference_optional:
+      - connectionRef
+
+PTZCAM:
+  name: Pan-Tilt-Zoom Camera
+  description: A camera is an optical instrument used to record images.
+  extends: CAM
+  haystack:
+    type:
+      - device
+      - ptz
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PTZCAM-1 or PTZCAM-335
+      - dis: Pan-Tilt-Zoom Camera 1 or PTZCAM-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - portRef
+      - spaceRef
+      - systemRef
+SAN:
+  name: Storage Area Network
+  description: "A storage area network (SAN) or storage network is a computer
+    network which provides access to consolidated, block-level data storage. "
+  haystack:
+    type:
+      - device
+      - storageMedia
+    type_optional:
+      - san
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SAN-1 or SAN-647
+      - dis: Storage Area Network 1 or SAN-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SAN1 or SAN650
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+
+SDNC:
+  name: Software-Defined Networking Controller
+  description: The SDN Controller is a logically centralized entity in charge of
+    translating the requirements from the SDN Application layer down to the SDN
+    Datapaths and providing the SDN Applications with an abstract view of the
+    network.
+  haystack:
+    type:
+      - device
+      - controller
+      - sdn
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SDNC-1 or SDNC-685
+      - dis: Software-Defined Networking Controller 1 or SDNC-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SDNC1 or SDNC688
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+
+SUPC:
+  name: Supervisory Controller
+  description: A microprocesor Controller whose primary function is to integrate
+    and supervise other controllers
+  extends: CNTRL
+  haystack:
+    type:
+      - supervisor
+    identification:
+      - navName
+      - dis
+      - id
+    reference:
+      - siteRef
+      - equipRef
+      - systemRef
+

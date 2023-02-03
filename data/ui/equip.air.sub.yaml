@@ -1,0 +1,115 @@
+BD:
+  parent:
+    - EQUIPS
+    - MECH
+BYPD:
+  parent:
+    - EQUIPS
+    - MECH
+CDDT:
+  parent:
+    - EQUIPS
+CHWC:
+  parent:
+    - EQUIPS
+CMP:
+  parent:
+    - EQUIPS
+    - MECH
+COIL:
+  name: Coil (Base Definition)
+  parent:
+    - EQUIPS
+CWCOIL:
+  parent:
+    - EQUIPS
+DAD:
+  parent:
+    - EQUIPS
+DADUCT:
+  parent:
+    - EQUIPS
+DAF: 
+  parent:
+    - FAN
+    - EQUIPS
+DMP:
+  parent:
+    - EQUIPS
+DUCT:
+  name: Duct (Base Definition)
+  description: Conduit used to convey air for HVAC
+  parent:
+    - EQUIPS
+DXCOIL:
+  parent:
+    - EQUIPS
+EAD:
+  parent:
+    - EQUIPS
+EADT:
+  parent:
+    - EQUIPS
+EF:
+  parent:
+    - EQUIPS
+EHC:
+  parent:
+    - EQUIPS
+FAN:
+  name: Fan (Base Definition)
+  description: Fan equipment or control point
+  parent:
+    - EQUIPS
+FANW: 
+  parent:
+    - EQUIPS
+    - MECH
+DFANW:
+  parent:
+    - FANW
+EFANW:
+  parent:
+    - FANW
+RFANW:
+  parent:
+    - FANW
+GEF:
+  parent:
+    - EQUIPS
+GHC:
+  parent:
+    - EQUIPS
+HTDT:
+  parent:
+    - EQUIPS
+HWC:
+  parent:
+    - EQUIPS
+MAD:
+  parent:
+    - EQUIPS
+MADUCT:
+  parent:
+    - EQUIPS
+OAD:
+  parent:
+    - EQUIPS
+OADUCT:
+  parent:
+    - EQUIPS
+OF:
+  parent:
+    - EQUIPS
+RAD:
+  parent:
+    - EQUIPS
+RADUCT:
+  parent:
+    - EQUIPS
+RF:
+  parent:
+    - EQUIPS
+SF:
+  parent:
+    - EQUIPS

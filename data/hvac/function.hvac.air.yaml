@@ -1,0 +1,555 @@
+ACR:
+  name: ACR
+  description: Uses air to cool hot refrigerant.
+  haystack:
+    type:
+      - airCooled
+AFC:
+  name: AFC
+  description: Air flow control.
+  points:
+    - OCCIAFLWMNSP
+    - OCCIAFLWMXSP
+    - SBIAFLWMNSP
+    - SBIAFLWMXSP
+    - UOCIAFLWMNSP
+    - UOCIAFLWMXSP
+    - IAFLW
+    - EFFIAFLWSP
+CAFC:
+  name: CAFC
+  description: Cooling air flow control.
+  points:
+    - UOCIAFLWMNSP
+    - UOCIAFLWCLMNSP
+    - UOCIAFLWCLMXSP
+    - SBIAFLWMNSP
+    - SBIAFLWCLMNSP
+    - SBIAFLWCLMXSP
+    - OCCIAFLWMNSP
+    - OCCIAFLWCLMNSP
+    - OCCIAFLWCLMXSP
+    - IAFLW
+    - IAFLWSP
+    - EFFIAFLWSP
+    - CLREQ
+
+
+CHWDC:
+  name: CHWDC
+  description: Chilled water valve control on discharge air side.
+  google_ontology: CHWDC
+  haystack:
+    type:
+      - chilledWaterCooling
+  points:
+    - CHWVCMD
+    - DAT
+    - DATSP
+    - DATCLSP
+CHWZC:
+  name: CHWZC
+  description: Chilled water valve control on zone side.
+  google_ontology: CHWZC
+  haystack:
+    type:
+      - chilledWaterCooling
+      - directZone
+  points:
+    - CHWVCMD
+    - ZT
+    - ZTSP
+    - DAT
+CNM:
+  name: CNM
+  description: Condensate Monitoring
+  points:
+    - CN
+CSP:
+  name: CSP
+  description: Single cooling setpoint control.
+  google_ontology: CSP
+  points:
+    - CLDEM
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCCZTCLSP
+    - UOCZTCLSP
+    - SBZTCLSP
+    - ZT
+    - EFFZTSP
+    - ZTSP
+    - ZTADJSP
+CWLC:
+  name: CWLC
+  description: Condenser water valve control on leaving side.
+  haystack:
+    type:
+      - condenserCooling
+  points:
+    - CWVCMD
+    - CWVFBK
+    - LCWT
+    - LCWTSP
+DD:
+  name: DD
+  description: The base function of a dual duct equipment
+  google_ontology: DD
+  haystack:
+    type:
+      - dualDuct
+  points:
+    - CDDCMD
+    - HDDCMD
+    - DAT
+    - CDDAT
+    - HDDAT
+DFSS:
+  name: DFSS
+  description: Combination of discharge fan run command and status (start/stop).
+  google_ontology: DFSS
+  points:
+    - DFCMD
+    - DFST
+    - DFP
+    - DFI
+DFVDC:
+  name: DFVSC
+  description: Variable speed control for discharge fans.
+  google_ontology: DFVSC
+  haystack:
+    type:
+      - variableAirVolume
+  points:
+    - DFSPCMD
+    - DFCMD
+    - DFST
+DSP:
+  name: DSP
+  description: The dual temperature control function
+  google_ontology: DSP
+  points:
+    - CLDEM
+    - HTDEM
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - SBZTCLSP
+    - SBZTHTSP
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - ZT
+    - EFFZTDB
+    - EFFZTSP
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - ZTSP
+    - ZTADJSP
+DTC:
+  name: DTC
+  description: Discharge Air Temperature Control
+  google_ontology: DTC
+  points:
+    - DAT
+    - DATSP
+DHC:
+  name: DHC
+  description: Discharge Air Humidity Control
+  points:
+    - DARH
+    - DARHSP
+DHWC:
+  name: DHWC
+  description: Domestic Hot Water Control
+  points:
+    - LDHWT
+    - LDHWTSP   
+    - DHWTT  
+DTM:
+  name: DTM
+  description: Discharge Air Temperature Monitoring
+  google_ontology: DTM
+  points:
+    - DAT
+DXZC:
+  name: DXZC
+  description: Compressor run control on zone side.
+  google_ontology: DXZC
+  haystack:
+    type:
+      - dxCooling
+      - directZone
+  points:
+    - ZT
+    - CLCMD
+    - CLSTG1CMD
+    - CLSTG2CMD
+    - CLSTG3CMD
+    - CLSTG4CMD
+    - DAT
+    - RAT
+DXDC:
+  name: DXDC
+  description: Compressor run control on discharge side.
+  google_ontology: DXDC
+  haystack:
+    type:
+      - dxCooling
+  points:
+    - CLCMD
+    - CLSTG1CMD
+    - CLSTG2CMD
+    - CLSTG3CMD
+    - CLSTG4CMD
+    - DAT
+    - CCDAT
+    - DATSP
+    - DATCLSP
+    - RAT
+EAFC:
+  name: EAFC
+  description: Exhaust air flow control.
+  google_ontology: ED
+  points:
+    - EADCMD
+    - EADFBK
+    - EAFLW
+    - EAFLWSP
+ECON:
+  name: ECON
+  description: Economizer control.
+  google_ontology: ECON
+  haystack:
+    type:
+      - economizing
+  points:
+    - ECOALCKTSP
+    - RAT
+    - MAT
+    - OAT
+    - DAT
+    - DATSP
+    - MATSP
+    - ECMODE
+    - OADCMD
+    - OADFBK
+    - RADCMD
+ED:
+  name: ED
+  description: Exhaust air flow control.
+  google_ontology: ED
+  points:
+    - EAFLW
+    - EAFLWSP
+    - EADCMD
+    - EADFBK
+EFSS:
+  name: EFSS
+  description: Combination of exhaust fan run command and status (start/stop).
+  google_ontology: EFSS
+  points:
+    - EFCMD
+    - EFST
+    - EFP
+    - EFI
+EFVSC:
+  name: EFVSC
+  description: Variable speed control for exhaust fans.
+  google_ontology: EFVSC
+  haystack:
+    type:
+      - variableAirVolume
+  points:
+    - EFSPCMD
+    - EFCMD
+    - EFST
+HAFC:
+  name: HAFC
+  description: Heating air flow control.
+  points:
+    - UOCIAFLWMNSP
+    - UOCIAFLWHTMNSP
+    - UOCIAFLWHTMXSP
+    - SBIAFLWMNSP
+    - SBIAFLWHTMNSP
+    - SBIAFLWHTMXSP
+    - OCCIAFLWMNSP
+    - OCCIAFLWHTMNSP
+    - OCCIAFLWHTMXSP
+    - IAFLW
+    - IAFLWSP
+    - EFFIAFLWSP
+    - HTREQ
+HPZC:
+  name: HPZC
+  description: Heat Pump run control on zone side.
+  google_ontology: HPZC
+  haystack:
+    type:
+      - dxCooling
+      - dxHeating
+      - singleDuct
+      - directZone
+  points:
+    - CLCMD
+    - HTCMD
+    - REVVCMD
+    - DAT
+    - RAT
+    - HVACMDSP
+    - HVACMDCMD
+    - CMPST
+HSP:
+  name: HSP
+  description: Single heating setpoint control.
+  points:
+    - HTDEM
+    - OCCZTHTSP
+    - SBZTHTSP
+    - UOCZTHTSP
+    - ZT
+    - EFFZTSP
+    - ZTSP
+    - ZTADJSP
+HTEZC:
+  name: HTEZC
+  description: Electric heater control on zone side (ZC).
+  haystack:
+    type:
+      - elecHeating
+  points:
+    - ZT
+    - HTCMD
+    - HTSTG1CMD
+    - HTSTG2CMD
+    - HTSTG3CMD
+    - HTSTG4CMD
+HTGZC:
+  name: HTGZC
+  description: Gas heater control on zone side (ZC).
+  haystack:
+    type:
+      - gasHeating
+  points:
+    - ZT
+    - HTCMD
+HWZC:
+  name: HWZC
+  description: "Heating water valve monitoring on zone side "
+  google_ontology: HWZC
+  haystack:
+    type:
+      - hotWaterHeating
+  points:
+    - HWVCMD
+    - ZT
+    - ZTSP
+    - HTREQ
+MOAFC:
+  name: MOAFC
+  description: Minimum (ventilation) outside air flow control.
+  google_ontology: MOAFC
+  points:
+    - OADCMD
+    - OADFBK
+    - OAFLW
+    - OAFLWSP
+PDZC:
+  name: PDZC
+  description: Pressure dependent single cooling setpoint control.
+  haystack:
+    type:
+      - pressureDependent
+  points:
+    - DADCMD
+    - DADCMDOP
+    - DADCMDCL
+    - DADFBK
+    - ZT
+PHWSC:
+  name: PHWSC
+  description: Hot water preheat valve control on supply air side.
+  google_ontology: PHWSC
+  haystack:
+    type:
+      - hotWaterHeating
+  points:
+    - HWVCMD
+    - DAT
+    - DATSP
+HWDC:
+  name: HWDC
+  description: Hot water valve control on discharge air side.
+  haystack:
+    type:
+      - hotWaterHeating
+  points:
+    - HWVCMD
+    - HCDAT
+    - DAT
+    - DATSP
+    - DATHTSP
+PVSC:
+  name: PVSC
+  description: Variable speed control for pumps.
+  points:
+    - PSSCMD
+    - PSSST
+    - PSPCMD
+RD:
+  name: RD
+  description: Return air flow control.
+  google_ontology: RD
+  haystack:
+    type:
+      - return
+  points:
+    - RAFLW
+    - RAFLWSP
+    - RADCMD
+RHC:
+  name: RHC
+  description: Return Air Humidity Control
+  points:
+    - RARH
+    - RARHSP
+RTC:
+  name: RTC
+  description: Return Air Temperature Control
+  google_ontology: RTC
+  points:
+    - RAT
+    - RATSP
+RTM:
+  name: RTM
+  description: Return Air Temperature Monitoring
+  google_ontology: RTM
+  points:
+    - RAT
+SD:
+  name: SD
+  description: The base function of a single duct equipment
+  google_ontology: SD
+  haystack:
+    type:
+      - singleDuct
+  points:
+    - DADCMD
+    - DADCMDOP
+    - DADCMDCL
+    - DADFBK
+    - DAT
+    - DATSP
+    - HVACMDSP
+    - HVACMDCMD
+    - DPRREQ
+
+SID:
+  name: SID
+  description: The base function of a single inlet duct equipment
+  google_ontology: SD
+  haystack:
+    type:
+      - singleDuct
+  points:
+    - IADCMD
+    - IADCMDOP
+    - IADCMDCL
+    - IADFBK
+    - DAT
+    - DATSP
+    - HVACMDSP
+    - HVACMDCMD
+    - DPRREQ
+
+WCR:
+  name: WCR
+  description: Uses water to cool hot refrigerant (or heat cold referigerant),
+    basically a refrigerant to condenser water heat exchange process.
+  haystack:
+    type:
+      - waterCooled
+  points:
+    - CWVCMD
+    - ECWT
+    - LCWT
+    
+
+ZCO2C:
+  name: ZCO2C
+  description: Zone CO2 control
+  google_ontology: CO2C
+  points:
+    - ZCO2
+    - ZCO2SP
+
+ZRHC:
+  name: ZRHC
+  description: Zone RH control
+  google_ontology: ZHC
+  points:
+    - ZRH
+    - ZRHSP
+
+ZSPC:
+  name: ZSPC
+  description: Zone static pressure control.
+  google_ontology: ZSPC
+  points:
+    - ZSPR
+    - ZSPRSP
+DSPC:
+  name: DSPC
+  description: Discharge Duct Static Pressure Control
+  points:
+    - DADCTSPR
+    - DADCTSPRSP
+BSPC:
+  name: BSPC
+  description: Building Static Pressure Control
+  points:
+    - BLDSPR
+    - BLDSPRSP
+HRWC:
+  name: HRWC
+  description: Heat Recovery Wheel Control
+  haystack:
+      type:
+      - heatRecovery
+  points:
+    - HRWCMD
+    - HRWST
+    - HRWSPCMD
+    - HRBYPDCMD
+    - HRDAT
+HGRC:
+  name: HGRC
+  description: Hot Gas Reheat Control
+  points:
+    - HTGRHVCMD
+    - HTGRHSP
+    - HTGRHDB
+VRFOUREF:
+  name: VRFOUREF
+  description: VRF Refrigeration Control and Monitoring for Outdoor Units
+  points:
+    - CMPFREQ
+    - CNDRFPR
+    - EVPRFPR
+    - CMPRFET
+    - CMPRFLT
+    - CNDRFLT
+    - SBCRFET
+    - SBCRFLT
+VRFOUAIR:
+  name: VRFOUAIR
+  description: VRF Control and Monitoring for Air-Cooled Outdoor Units
+  points:
+    - CNDFFREQ
+VRFOUWTR:
+  name: VRFOUWTR
+  description: VRF Control and Monitoring for Water-Cooled Outdoor Units
+  points:
+    - ECWT
+    - LCWT

@@ -1,0 +1,41 @@
+ACU:
+  parent:
+    - AHU
+AHU:
+  parent:
+    - EQUIPS
+    - MECH
+  example:
+    - hvac_ahu.md
+    - analytics_ahu.md
+AHUDFVCO:
+  parent:
+    - AHU
+AHUDFVCOEC:
+  parent:
+    - AHUDFVCO
+AHUDFVCOECEFV:
+  parent:
+    - AHUDFVCO
+AHUDFVCOECPH:
+  parent:
+    - AHUDFVCO
+AHUDFVCOECPHEFV:
+  parent:
+    - AHUDFVCO
+CRAC:
+  parent:
+    - EQUIPS
+    - AHU
+CRAH:
+  parent:
+    - EQUIPS
+    - AHU
+DOAS:
+  parent:
+    - EQUIPS
+    - AHU
+RTU:
+  parent:
+    - EQUIPS
+    - AHU

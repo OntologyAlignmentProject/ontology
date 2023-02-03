@@ -1,0 +1,31 @@
+SD:
+  name: Smoke Detector
+  haystack:
+    type:
+      - device
+      - smoke
+      - fireDetection
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SD1 or SD778
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SD-1 or SD-778
+      - dis: Smoke Detector 1 or SD-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef
+HS:
+  name: Horn Strobe
+  haystack:
+    type:
+      - device
+      - fire
+      - horn
+      - strobe
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HS1 or HS1222
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HS-1 or HS-1222
+      - dis: Horn Strobe 1 or HS-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef

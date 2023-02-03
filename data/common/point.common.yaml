@@ -1,0 +1,1131 @@
+# Base point definitions
+
+POINT_GEN:
+  name: Generic Point Definition (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+    reference_optional:
+      - deviceRef
+      - equipRef
+      - spaceRef
+    reference:
+      - siteRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+CMD:
+  name: Command (Base Definition)
+  is_base: true
+  description: The current binary value of a specific BO/DO
+  haystack:
+    type:
+      - point
+      - cmd
+    identification:
+      - id: "CMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CMD-1, CMD-2, etc."
+      - kind: Bool
+    reference:
+      - deviceRef
+      - equipRef
+  alarms:
+    - alarmFunction: Command Failure
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - historyName
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+ST:
+  name: Status (Base Definition)
+  is_base: true
+  description: The current binary value of a specific BI/DI
+  haystack:
+    type:
+      - point
+      - sensor
+    identification:
+      - id: "ST or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ST-1, ST-2, etc."
+      - kind: Bool
+    reference:
+      - deviceRef
+      - equipRef
+
+AIRCO2:
+  name: Carbon Dioxide (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - co2
+      - sensor
+    identification:
+      - kind: Number
+      - unit: ppm
+    reference:
+      - deviceRef
+      - equipRef
+    reference_optional:
+      - dischargeEquipRef
+      - inletEquipRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - historyName
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+AIRFLOW:
+  name: Air Flow (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - flow
+      - sensor
+    identification:
+      - kind: Number
+      - unit: volumetric flow
+    reference:
+      - deviceRef
+      - equipRef
+    reference_optional:
+      - dischargeEquipRef
+      - inletEquipRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+AIRTEMP:
+  name: Air Temperature (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - temp
+      - sensor
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - deviceRef
+      - equipRef
+    reference_optional:
+      - dischargeEquipRef
+      - inletEquipRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - interval
+    - historyName
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+ENLDSH:
+  name: Enable Loadshedding
+  description: Enable loadshedding.
+  haystack:
+    type:
+      - enable
+      - loadshed  
+      - cmd
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+    reference_optional:
+      - deviceRef
+AIRENTH:
+  name: Air Enthalpy (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - enthalpy
+      - sensor
+    identification:
+      - kind: Number
+      - unit: enthalpy
+AIRDWP:
+  name: Air Dewpoint (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - air
+      - dewPoint
+      - sensor
+    identification:
+      - kind: Number
+      - unit: temperature  
+RELHUM:
+  name: Relative Humidity (Base Definition)
+  is_base: true
+  description: Relative humidity (RH) is the ratio of the partial pressure of
+    water vapor to the equilibrium vapor pressure of water at a given
+    temperature. Relative humidity depends on temperature and the pressure of
+    the system of interest.
+  haystack:
+    type:
+      - point
+      - air
+      - humidity
+      - sensor
+    identification:
+      - kind: Number
+      - unit: percentage
+    reference:
+      - deviceRef
+      - equipRef
+    reference_optional:
+      - dischargeEquipRef
+      - inletEquipRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - historyName
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+SPDREF:
+  name: Speed Reference (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - sensor
+      - speed
+    identification:
+      - id
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+
+OUTSPD:
+  name: Output Speed (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - cmd
+      - speed
+    identification:
+      - id
+      - kind: Number
+      - unit: percentage
+    reference:
+      - deviceRef
+      - equipRef
+
+WTRTEMP:
+  name: Water Temperature
+  haystack:
+    type:
+      - point
+      - water
+      - temp
+      - sensor
+    identification:
+      - id: "WTRTEMP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WTRTEMP-1, WTRTEMP-2, etc."
+      - kind: Number
+      - unit: temperature
+    reference:
+      - deviceRef
+      - equipRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - historyName
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+# Standard point definitions
+
+ACSLVL:
+  name: Acoustic Level
+  haystack:
+    type:
+      - acoustic
+      - sensor
+      - point
+    identification:
+      - navName: "ACSLVL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACSLVL-1, ACSLVL-2, etc."
+      - dis: "Acoustic Level Sensor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Acoustic Level Sensor-1, Acoustic Level Sensor-2, etc."
+      - id
+      - kind: Number
+      - unit: db
+    reference:
+      - equipRef
+      - deviceRef
+
+DIMCMD:
+  name: Dimming Command
+  haystack:
+    type:
+      - load
+      - cmd
+      - point
+    identification:
+      - navName: "DIMCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : DIMCMD-1, DIMCMD-2, etc."
+      - dis: "Dimming Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Dimming Command-1, Dimming Command-2, etc."
+      - id
+      - kind: Number
+    reference_optional:
+      - equipRef
+      - deviceRef
+
+EPRTBAND:
+  name: Ethernet Port Bandwidth
+  description: Amount of bandwidth being used by the device connected to the port.
+  short_name: EPRTBAND
+  haystack:
+    type:
+      - point
+      - bandwidth
+    identification:
+      - navName: "EPRTBAND or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EPRTBAND-1, EPRTBAND-2, etc."
+      - dis: "EPRTBAND or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EPRTBAND-1, EPRTBAND-2, etc."
+      - id
+      - kind: Number
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+PRTERR:
+  name: Port Error Status
+  description: Error Status of the ethernet port.
+  short_name: EPRTERR
+  haystack:
+    type:
+      - port
+      - fault
+      - point
+      - sensor
+    identification:
+      - navName: "EPRTERR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EPRTERR-1, EPRTERR-2, etc."
+      - dis: "EPRTERR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : EPRTERR-1, EPRTERR-2, etc."
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+##EPRTST Ethernet Port Connection Status is not needed. It is redundant with Connection Status. 
+
+HOAST:
+  name: Hand Auto Status
+  extends: ST
+  google_ontology: control_mode
+  haystack:
+    type:
+      - inHand
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+MDST:
+  name: Mode Status
+  description: The status or state of a device or equip ex. switched or unswitched; emergency or normal; state a, b or c. 
+  extends: ST
+  haystack:
+    type:
+      - mode
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+    reference:
+      - equipRef
+NGVOL:
+  name: Total Natural Gas Volume
+  description: Cumulative Total natural gas volume relative to some baseline
+  extends: POINT_GEN    
+  google_ontology: gas_volume_accumulator
+  haystack:
+    type:
+      - naturalGas
+      - sensor
+      - volume
+      - total
+    identification:
+      - kind: Number
+      - id: "NGVOL or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          NGVOL-1, NGVOL-2, etc."
+      - navName: "NGVOL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : NGVOL-1, NGVOL-2, etc."
+      - dis: "Total Natural Gas Volume or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Total Natural Gas Volume-1, Total Natural Gas Volume-2, etc."
+      - unit: Volume
+    reference:
+      - equipRef
+      - deviceRef
+NGEN:
+  name: Natural Gas Energy Sensor
+  description: Natural gas energy sensor, often measured in Therms.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - naturalGas
+      - energy
+      - sensor
+    identification:
+      - id: "NGEN or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          NGEN-1, NGEN-2, etc."
+      - navName: "NGEN or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : NGEN-1, NGEN-2, etc."
+      - dis: "Natural Gas Energy Sensor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Natural Gas Energy Sensor-1, Natural Gas Energy Sensor-2, etc."
+      - kind: Number
+      - unit: Energy
+    reference:
+      - equipRef
+      - deviceRef
+NGPWR:
+  name: Natural Gas Power Sensor
+  description: Natural gas usage expressed in units of power. 
+  haystack:
+    type:
+      - naturalGas
+      - power
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef      
+NGFLOW:
+  name: Natural Gas Flow Rate
+  description: Natural gas flow rate
+  extends: POINT_GEN
+  google_ontology: gas_flowrate_sensor
+  haystack:
+    type:
+      - naturalGas
+      - flow
+      - sensor
+    identification:
+      - id: "NGFLOW or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          NGFLOW-1, NGFLOW-2, etc."
+      - navName: "NGFLOW or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : NGFLOW-1, NGFLOW-2, etc."
+      - dis: "Natural Gas Flow or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Natural Gas Flow-1, Natural Gas Flow-2, etc."
+      - kind: Number
+      - unit: Volumetric Flow
+    reference:
+      - equipRef
+      - deviceRef
+NGTEMP:
+  name: Natural Gas Temperature
+  description: Natural Gas Temperature
+  extends: POINT_GEN
+  google_ontology: gas_temperature_sensor
+  haystack: 
+    type: 
+      - naturalGas
+      - temp
+      - sensor
+    identification:
+        - id: "NGTEMP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+            NGTEMP-1, NGTEMP-2, etc."
+        - navName: "NGTEMP or if more than 1 in the equip/device, use <CODE> + - +
+            <INTEGER>  : NGTEMP-1, NGTEMP-2, etc."
+        - dis: "Natural Gas Temperature or if more than 1 in the equip/device, use <NAME> + - +
+            <INTEGER>  : Natural Gas Temperature-1, Natural Gas Temperature-2, etc."
+        - kind: Number
+        - unit: temperature
+    reference:
+      - equipRef
+      - deviceRef
+OCCSNS:
+  name: Occupancy Sensor
+  google_ontology: zone_occupancy_status
+  haystack:
+    type:
+      - occupied
+      - sensor
+      - point
+    identification:
+      - navName: "OCCSNS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCSNS-1, OCCSNS-2, etc."
+      - dis: "Occupancy Sensor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Occupancy Sensor-1, Occupancy Sensor-2, etc."
+      - id
+    reference:
+      - equipRef
+
+OPDIR:
+  name: Operation Direction
+  description: This property represents the direction and speed in which this
+    escalator is presently moving.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - point
+      - sensor
+      - direction
+    identification:
+      - id: "OPDIR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          OPDIR-1, OPDIR-2, etc."
+      - navName: "OPDIR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OPDIR-1, OPDIR-2, etc."
+      - dis: "Operation Direction or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Operation Direction-1, Operation Direction-2, etc."
+    reference:
+      - equipRef
+      - deviceRef
+
+PASALM:
+  name: Passenger Alarm
+  description: This property indicates whether (TRUE) or not (FALSE) the passenger
+    alarm has been activated.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - point
+      - alarm
+      - sensor
+    identification:
+      - id: "PASALM or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          PASALM-1, PASALM-2, etc."
+      - navName: "PASALM or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PASALM-1, PASALM-2, etc."
+      - dis: "Passenger Alarm or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Passenger Alarm-1, Passenger Alarm-2, etc."
+    reference:
+      - equipRef
+      - deviceRef
+POECURR:
+  name: Power-Over-Ethernet Current
+  description: Amount of current being used by the device connected to the port.
+  short_name: POECURR
+  haystack:
+    type:
+      - point
+      - poe
+      - current
+      - dc
+      - sensor
+    identification:
+      - navName: "POECURR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : POECURR-1, POECURR-2, etc."
+      - dis: "POECURR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : POECURR-1, POECURR-2, etc."
+      - id
+      - kind: Number
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+POEPWR:
+  name: Power-Over-Ethernet Power
+  description: Amount of power being used by the device connected to the port.
+  short_name: POEPWR
+  haystack:
+    type:
+      - point
+      - poe
+      - power
+      - dc
+      - sensor
+    identification:
+      - navName: "POEPWR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : POEPWR-1, POEPWR-2, etc."
+      - dis: "POEPWR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : POEPWR-1, POEPWR-2, etc."
+      - id
+      - kind: Number
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+PRKSPACT:
+  name: Parking Space Active
+  description: Indicates when with the parking space is availble to be used.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - parking
+      - active
+      - sensor
+    identification:
+      - id
+      - navName: "PRKSPACT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PRKSPACT-1, PRKSPACT-2, etc."
+      - dis: "Parking Space Active or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Parking Space Active-1, Parking Space Active-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+PRKSPST:
+  name: Parking Space Status
+  description: Indicates when with the parking space is occupied.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - parking
+      - sensor
+      - occ
+    identification:
+      - id
+      - navName: "PRKSPST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PRKSPST-1, PRKSPST-2, etc."
+      - dis: "Parking Space Status or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Parking Space Status-1, Parking Space Status-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+RES:
+  name: Resolution
+  description: A measure of digital quality
+  haystack:
+    type:
+      - sensor
+      - resolution
+      - point
+    identification:
+      - navName: "RES or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RES-1, RES-2, etc."
+      - dis: "Resolution or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Resolution-1, Resolution-2, etc."
+      - id
+      - kind: Number
+    reference_optional:
+      - equipRef
+      - deviceRef
+
+SSCMD:
+  name: Run Command
+  extends: CMD
+  google_ontology: run_command
+  haystack:
+    type:
+      - run
+    identification:
+      - navName: "SSCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SSCMD-1, SSCMD-2, etc."
+      - dis: "Run Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Run Command-1, Run Command-2, etc."
+
+SSST:
+  name: Run Status
+  extends: ST
+  google_ontology: run_status
+  haystack:
+    type:
+      - state
+      - run
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+RNTM:
+  name: Runtime
+  haystack:
+    type:
+      - point
+      - run
+      - duration
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+
+
+# Device Points
+
+DEVPT:
+  name: Device Point (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - id
+    reference:
+      - deviceRef
+
+CMST:
+  name: Communication Status
+  description: The status of communication between a device (deviceRef) and a connection (commRef). 
+    For instance, a supervisory controller may have many communication status points, each with a different
+    commRef pointing to a different device. 
+  extends: DEVPT
+  haystack:
+    type:
+      - comm
+      - state
+      - sensor
+    identification:
+      - kind: Bool
+    reference:
+      - commRef
+
+SDLD:
+  name: Storage Drive Usage
+  extends: POINT_GEN
+  haystack:
+    type:
+      - storageDrive
+      - load
+      - sensor
+    identification:
+      - kind: Number
+      - unit: "%"
+
+CPULD:
+  name: CPU Usage
+  extends: DEVPT
+  haystack:
+    type:
+      - cpu
+      - load
+      - sensor
+    identification:
+      - kind: Number
+      - unit: "%"
+
+PMLD:
+  name: Physical Memory Usage
+  extends: DEVPT
+  haystack:
+    type:
+      - physicalMemory
+      - load
+      - sensor
+    identification:
+      - kind: Number
+      - unit: "%"
+
+TLPM:
+  name: Total Physical Memory Capacity
+  extends: DEVPT
+  haystack:
+    type:
+      - physicalMemory
+      - total
+      - sp
+    identification:
+      - kind: Number
+
+HPLD:
+  name: Heap Memory Usage
+  extends: DEVPT
+  haystack:
+    type:
+      - heap
+      - load
+      - sensor
+    identification:
+      - kind: Number
+      - unit: "%"
+
+TLSD:
+  name: Total Storage Drive Capacity
+  extends: DEVPT
+  haystack:
+    type:
+      - storageDrive
+      - total
+      - sp
+    identification:
+      - kind: Number
+
+BATST:
+  name: Battery Status
+  extends: DEVPT
+  haystack:
+    type:
+      - battery
+      - sensor
+    identification:
+      - kind: Bool
+BATLVL:
+  name: Battery Level Sensor
+  description: The amount of battery charge.
+  google_ontology: battery_charge_percentage_sensor
+  extends: DEVPT
+  haystack:
+   type:
+     - battery
+     - level
+     - sensor
+   identification:
+     - kind: Number
+     - unit: "%"
+BATLLST:
+  name: Battery Level Low Fault Status
+  extends: FLTPT
+  haystack:
+    type:
+      - battery
+      - level
+      - low
+    identification:
+      - kind: Bool      
+OACO2:
+  name: Outside Air CO2
+  short_name: OA CO2
+  description: Total Carbon Dioxide (CO2) measured in the outside air.
+  extends: AIRCO2
+  haystack:
+    type:
+      - outside
+      - concentration
+    identification:
+      - id: "OACO2 or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          OACO2-1, OACO2-2, etc."
+      - navName: "OACO2 or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OACO2-1, OACO2-2, etc."
+      - dis: "Outside Air CO2 or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Outside Air CO2-1, Outside Air CO2-2, etc."
+OATVOC:
+  name: Outside Air TVOC
+  short_name: OATVOC
+  description: Total Volatile Organic Compound (TVOC) measured in the outside air.
+  extends: AIR
+  haystack:
+    type:
+      - outside
+      - tvoc
+    identification:
+      - navName: "OATVOC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OATVOC-1, OATVOC2, etc."
+      - dis: "Outside Air TVOC or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Outside Air TVOC-1, Outside Air
+          TVOCe-2, etc."
+      - unit: µg/m³
+    reference_optional:
+      - weatherStationRef
+    reference:
+      - siteRef
+OADWP:
+  name: Outside Air Dewpoint
+  description: Outside air dewpoint temperature
+  extends: AIRDWP
+  google_ontology: outside_air_dewpoint_temperature_sensor
+  haystack:
+    type:
+      - outside
+    identification:
+      - navName: "OADWP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OADWP-1, OADWP-2, etc."
+      - dis: "Outside Air Dewpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Outside Air Dewpoint-1, Outside Air Dewpoint-2, etc."
+    reference_optional:
+      - weatherStationRef
+    reference:
+      - siteRef
+OARH:
+  name: Outside Air Relative Humidity
+  description: Outside air relative humidity
+  extends: RELHUM
+  google_ontology: outside_air_relative_humidity_sensor
+  haystack:
+    type:
+      - outside
+    identification:
+      - navName: "OARH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OARH-1, OARH-2, etc."
+      - dis: "Outside Air Relative Humidity or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Outside Air Relative Humidity-1, Outside Air
+          Relative Humidity-2, etc."
+    reference_optional:
+      - weatherStationRef
+    reference:
+      - siteRef
+OATEMP:
+  name: Outside Air Temperature
+  short_name: Outside Air Temp
+  extends: AIRTEMP
+  google_ontology: outside_air_temperature_sensor
+  haystack:
+    type:
+      - outside
+    identification:
+      - navName: "OATEMP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OATEMP-1, OATEMP-2, etc."
+      - dis: "Outside Air Temp or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Outside Air Temp-1, Outside Air
+          Temp-2, etc."
+    reference_optional:
+      - weatherStationRef
+    reference:
+      - siteRef
+OAWBTEMP:
+  name: Outside Air Wet Bulb Temperature
+  extends: AIRTEMP
+  google_ontology: outside_air_wetbulb_temperature_sensor
+  haystack:
+    type:
+      - outside
+      - wetBulb
+    identification:
+      - navName: "OAWBTEMP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OAWBTEMP-1, OAWBTEMP-2, etc."
+      - dis: "Outside Air Wet Bulb Temperature or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Outside Air Wet Bulb Temperature-1, Outside Air Wet Bulb 
+          Temperature-2, etc."
+    reference_optional:
+      - weatherStationRef
+    reference:
+      - siteRef
+WNDSPD: 
+  name: Wind Speed (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+      - speed
+      - wind
+      - sensor
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference_optional:
+      - weatherStationRef
+    reference:
+      - siteRef      
+ESTWNDSPD: 
+  name: East Wind Speed
+  description: Measures easterly ( blows from the east) winds
+  extends: WNDSPD
+  google_ontology: east_wind_linearvelocity_sensor
+  haystack:
+    type:
+      - east
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>     
+WSTWNDSPD: 
+  name: West Wind Speed
+  description: Measures westerly ( blows from the west) winds
+  extends: WNDSPD
+  google_ontology: west_wind_linearvelocity_sensor
+  haystack:
+    type:
+      - west
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+
+PRECST: 
+  name: Precipitation Status 
+  description: Provides a current status of atmospheric water vapor fallen including rain, sleet, snow, and hail
+  extends: 
+  haystack:
+    type:
+      - sensor
+      - weather
+      - point
+      - precipitation
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+DWSTS:
+  name: Dishwasher Status
+  description: The run or on/off status of a dishwasher
+  google_ontology: dishwasher_run_status
+  extends: SSST
+  haystack:
+    type:
+      - dishwasher
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+DRSTS:
+  name: Dryer Status
+  description: The run or on/off status of a clothes dryer
+  google_ontology: dryer_run_status
+  extends: SSST
+  haystack:
+    type:
+      - dryer
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>

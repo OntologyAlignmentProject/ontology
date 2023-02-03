@@ -1,0 +1,325 @@
+# Base Meter definitions
+#  EM    WM   NGM   HM
+#  |     |    |     |
+#  ...   DWM  ...   ...
+#        CHWM
+#        HWM
+#        CWM
+#        MUWM
+#        ...
+
+WM:
+  name: Water Meter
+  description: A water meter is a device that measures the amount of water
+    consumed by a residence, a business or equipment.
+  is_base: true
+  google_ontology: WM_STANDARD
+  brick_ontology: Building_Water_Meter
+  ifc_class: ifcFlowMeter
+  ifc_type: WATERMETER
+  haystack:
+    type:
+      - water
+      - equip
+      - meter
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WM1 or WM407
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WM-1 or WM-407
+      - dis: Water Meter 1 or WM-1
+    reference:
+      - siteRef
+    reference_optional:
+      - submeterOf
+      - spaceRef
+  functions:
+    - MTR
+  functions_base:
+    - MTR
+  points:
+    - WFLOW
+    - WVOL
+  points_base:
+    - WFLOW
+    - WVOL
+
+EM:
+  name: Electric Meter
+  description: An electricity meter, electric meter, electrical meter, or energy
+    meter is a device that measures the amount of electric energy consumed by a
+    residence, a business, or an electrically powered device.
+  is_base: true
+  google_ontology: EM_PWM, EM_PWM_PVCM, EM_PWM_AVCM_PLPM_PVCM
+  brick_ontology: Building_Electrical_Meter
+  ifc_class: ifcFlowMeter
+  ifc_type: ENERGYMETER
+  haystack:
+    type:
+      - elec
+      - equip
+      - meter
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EM1 or EM364
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EM-1 or EM-364
+      - dis: Electric Meter 1 or EM-1
+    reference:
+      - siteRef
+    reference_optional:
+      - submeterOf
+      - spaceRef
+  functions:
+    - MTR
+  points:
+    - ALRMPT
+    - ACI
+    - ACIA
+    - ACIAVG
+    - ACIB
+    - ACIC
+    - ACITTL
+    - ACFREQ
+    - ACPF
+    - ACPFA
+    - ACPFB
+    - ACPFC
+    - ACPFAVG
+    - ACV
+    - ACVAVG
+    - ACVAB
+    - ACVBC
+    - ACVCA
+    - ACVA
+    - ACVB
+    - ACVC
+    - APPENE 
+    - APPPWR
+    - DCV
+    - ENERGYIMP
+    - ENERGYEXP
+    - ENERGYNET
+    - PWRDMD
+    - REACPWR
+    - REACENE
+    - RLPWR
+    - RLPWRA
+    - RLPWRB
+    - RLPWRC
+
+NGM:
+  name: Natural Gas Meter
+  description: A natural gas meter is a device that measures the amount of natural 
+    gas consumed by a residence, a business or equipment.
+  is_base: true
+  google_ontology: GM_STANDARD
+  brick_ontology: Building_Gas_Meter
+  ifc_class: ifcFlowMeter
+  ifc_type: GASMETER
+  haystack:
+    type:
+      - naturalGas
+      - equip
+      - meter
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. NGM1 or NGM392
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. NGM-1 or NGM-392
+      - dis: Natural Gas Meter 1 or NGM-1
+    reference:
+      - siteRef
+    reference_optional:
+      - submeterOf
+      - spaceRef
+  functions:
+    - MTR
+  points: 
+    - ALRMPT
+    - NGEN
+    - NGFLOW
+    - NGVOL 
+    - NGPWR
+    - NGTEMP
+    - THRMEN
+    - THRMPWR
+
+HM:
+  name: Heat Meter
+  short_name: BTU Meter
+  description: A heat meter, or thermal meter, is a device that measures the
+    amount of heat energy consumed.
+  is_base: true
+  google_ontology: HM
+  brick_ontology: Thermal_Power_Meter
+  ifc_class: ifcFlowMeter
+  haystack:
+    type:
+      - thermal
+      - equip
+      - meter
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HM1 or HM435
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HM-1 or HM-435
+      - dis: Heat Meter 1 or HM-1
+    reference:
+      - siteRef
+    reference_optional:
+      - submeterOf
+      - spaceRef
+  functions:
+    - MTR
+  points: 
+    - THRMEN
+    - THRMPWR  
+
+SM:
+  name: Steam Meter
+  description: A steam meter is a device that measures the flow rate of steam.
+  is_base: true
+  ifc_class: ifcFlowMeter
+  haystack:
+    type:
+      - steam
+      - equip
+      - meter
+    type_optional:
+      - thermal
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SM1 or SM378
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SM-1 or SM-378
+      - dis: Steam Meter 1 or SM-1
+    reference:
+      - siteRef
+    reference_optional:
+      - submeterOf
+      - spaceRef
+  functions:
+    - MTR
+  points: 
+    - ALRMPT
+    - THRMEN
+    - THRMPWR
+    - STMASS
+    - STVOL 
+    - STFLOW
+    - STMFLOW
+    - STCNMASS
+    - STCNVOL 
+    - STCNFLOW
+    - STCNMFLOW
+    - LSTT
+    - LSTP
+    
+# Water meter types
+
+CHWM:
+  name: Chilled Water Meter
+  description: A chilled water meter is a device that measures the amount of
+    chilled water delivered to a piece of HVAC equipment.
+  extends: WM
+  haystack:
+    type:
+      - chilled
+    type_optional:
+      - thermal
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+
+HWM:
+  name: Hot Water Meter
+  description: A hot water meter is a device that measures the amount of
+    heating hot water delivered to a piece of HVAC equipment.
+  extends: WM
+  haystack:
+    type:
+      - hot
+      - heating
+    type_optional:
+      - thermal
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+
+CWM:
+  name: Condenser Water Meter
+  description: A condenser water meter is a device that measures the amount of
+    condenser water delivered to a piece of HVAC equipment.
+  extends: WM
+  haystack:
+    type:
+      - condenser
+    type_optional:
+      - thermal
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>       
+
+DWM:
+  name: Domestic Water Meter
+  description: A domesctic cold water meter is a device that measures the amount of
+    domestic (cold) water consumed by a residence, a business or equipment.
+  extends: WM
+  haystack:
+    type:
+      - domestic
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+
+DHWM:
+  name: Domestic Hot Water Meter
+  description: A domesctic hot water meter is a device that measures the amount of
+    domestic hot water consumed by a residence, a business or equipment.
+  extends: WM
+  haystack:
+    type:
+      - domestic
+      - hot
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>       
+
+BDWM:
+  name: Blowdown Meter
+  description: A wastewater meter is a device that measures the amount of
+    wastewater generated by a residence, a business, process or equipment.
+  extends: WM
+  google_ontology: WM_STANDARD
+  brick_ontology: Building_Water_Meter
+  ifc_class: ifcFlowMeter
+  ifc_type: WATERMETER
+  haystack:
+    type:
+      - blowdown
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WWM-1 or WWM-421
+      - dis: Wastewater Meter 1 or WWM-1      
+
+MUWM:
+  name: Makeup Water Meter
+  description: A makeup water meter is a device that measures the amount of
+    makeup water (typically domestic water) consumed by an equipment or hydronic system.
+  extends: WM
+  haystack:
+    type:
+      - makeup
+    type_optional:
+      - domestic
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>       
+
+WWM:
+  name: Wastewater Meter
+  description: A wastewater meter is a device that measures the amount of
+    wastewater generated by a residence, a business, process or equipment.
+  extends: WM
+  google_ontology: WM_STANDARD
+  brick_ontology: Building_Water_Meter
+  ifc_class: ifcFlowMeter
+  ifc_type: WATERMETER
+  haystack:
+    type:
+      - wastewater
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WWM-1 or WWM-421
+      - dis: Wastewater Meter 1 or WWM-1

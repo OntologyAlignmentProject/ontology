@@ -1,0 +1,14 @@
+###############################
+##Domains defined in OAP ###
+
+common: 
+  description: General-purpose or multi-disciplinary
+electrical: 
+  description: Relating to electrical systems or equipment
+hvac: 
+  description: Related to heating, ventilation or cooling equipment
+spatial: 
+  description: Related to 2-d or 3-d representation of the built environment
+occupancy: 
+  description: Related to the presence and number of occupants
+  #Could potentially call this "utilization" ?

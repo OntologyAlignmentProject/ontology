@@ -1,0 +1,83 @@
+AP:
+  name: Alarm Panel
+  haystack:
+    type:
+      - equip
+      - alarm
+      - panel
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. AP1 or AP250
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AP-1 or AP-250
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. AP-1 or AP-252  
+  points:
+    - ALRMPT
+PRKG:
+  name: Parking Gate
+  description: Parking lot gates provide security and control for parking lots and
+    parking garages.
+  haystack:
+    type:
+      - equip
+      - parking
+      - gate
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PRKG1 or PRKG61
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PRKG-1 or PRKG-61
+      - dis: Parking Gate 1 or PRKG-1
+    reference:
+      - siteRef
+    reference_optional:
+      - spaceRef
+TK:
+  name: Tank (Base Definition)
+  short_name: tank
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. TK1 or TK1052
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. TK-1 or TK-1052
+      - dis: Tank (Generic) 1 or TK-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+WTK:
+  name: Water Tank (Base Definition)
+  short_name: waterTank
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - tank
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: Water Tank (Generic) 1 or WTK-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+  points:
+    - DHWTT
+TST:
+  name: Thermal Storage Tank
+  extends: WTK
+  haystack:
+    type:
+      - thermal
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. TST1 or TST979
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. TST-1 or TST-979
+      - dis: Thermal Storage Tank 1 or TST-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+

@@ -1,0 +1,66 @@
+OCC:
+  name: OCC  
+  description: Occupancy control and schedule
+  points:
+    - OCCEFFSP
+    - OCCCMD
+    - OCCSCHSP
+    - OCCSNS
+
+SS:
+  name: SS
+  description: Basic run command and status (start/stop).
+  google_ontology: SS
+  points:
+    - SSCMD 
+    - SSST
+
+PSS:
+  name: PSS
+  description: Basic pump run command and status (start/stop).
+  google_ontology: SS
+  points:
+    - PSSCMD 
+    - PSSST
+
+VSC:
+  name: VSC
+  description: Variable speed control
+  google_ontology: VSC
+  points:
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+
+LWTC:
+  name: LWTC
+  description: Leaving water temperature control
+  google_ontology: SWTC
+  points:
+    - EHWT
+    - EHWFL
+    - LHWT
+    - LHWTSP
+
+CWHXTC:
+  name: CWHXTC
+  description: Condenser water heat exchanger temperature control
+  haystack:
+    type:
+      - condenser
+      - water
+  points:
+    - PRLCWT
+    - PRLCWTSP
+    - PRECWT
+    - SCLCWT
+    - SCLCWTSP
+    - SCECWT
+
+LWISOVC:
+  name: LWISOVC
+  description: Leaving water isolation valve control
+  google_ontology: SWISOVM
+  points:
+    - LWISOVCMD
+    - LWISOVST

@@ -1,0 +1,15 @@
+RACK:
+  name: Rack
+  description: Enclosure or chassis used to mount computer and networking gear
+  haystack:
+    type:
+      - equip
+      - rack
+    identification:
+      - navName
+      - dis
+      - id
+    reference:
+      - siteRef
+    reference_optional:
+      - spaceRef

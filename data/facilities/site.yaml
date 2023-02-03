@@ -1,0 +1,354 @@
+SITE:
+  name: Site
+  is_base: true
+  description: A geographic location of the built environment. Typically site maps to one building with its own unique street address.
+  haystack:
+    type:
+      - site
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+    reference_optional:
+      - siteRef
+      - portfolioRef
+      - weatherStationRef
+  kpi:
+    - TEEC
+    - TNGEC
+    - TEC
+    - PKED
+    - SEUI
+    - IAQI
+    - OCCCT
+
+BANKBR:
+  name: Bank Branch
+  description: Bank Branch refers to a commercial banking outlet that offers
+    banking services to walk-in customers.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Bank Branch
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+DATACTR:
+  name: Data Center
+  description: "Data Center refers to buildings specifically designed and equipped
+    to meet the needs of high density computing equipment, such as server racks,
+    used for data storage and processing. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Data Center
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+ENERPWR:
+  name: Energy/Power Station
+  description: Energy/Power Station applies to buildings containing machinery
+    and/or associated equipment for generating electricity or district heat
+    (steam, hot water, or chilled water) from a raw fuel, including fossil fuel
+    power plants, traditional district heat power plants, combined heat and
+    power plants, nuclear reactors, hydroelectric dams, or facilities associated
+    with a solar or wind farm.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Energy/Power Station
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+FINOFF:
+  name: Financial Office
+  description: Financial Office refers to buildings used for financial services
+    such as bank headquarters and securities and brokerage firms.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Financial Office
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+HOSP:
+  name: Hospital 
+  description: "Hospital refers to a general medical and surgical hospital
+    (including critical access hospitals and children’s hospitals). "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Hospital (General Medical & Surgical)
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+K12:
+  name: K-12 School
+  description: "K-12 School refers to buildings or campuses used as a school for
+    Kindergarten through 12th grade students. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: K-12 School
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+LAB:
+  name: Laboratory
+  description: Laboratory refers to buildings that provide controlled conditions
+    in which scientific research, measurement, and experiments are performed or
+    practical science is taught.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Laboratory
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+LSCTR:
+  name: Lifestyle Center
+  description: "Lifestyle Center refers to a mixed use commercial development that
+    includes retail stores and leisure amenities, where individual retail stores
+    typically contain an entrance accessible from the outside and are not
+    connected by internal walkways. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Lifestyle Center
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+MIXUSE:
+  name: Mixed Use Property
+  description: A Mixed Use (or multi use) property is one contains multiple
+    property types, none of which are greater than 50% of the total Gross Floor
+    Area (GFA), including parking GFA.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Mixed Use Property
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+MOB:
+  name: Medical Office
+  description: Medical Office refers to buildings used to provide diagnosis and
+    treatment for medical, dental, or psychiatric outpatient care.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Medical Office
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+OMALL:
+  name: Other - Mall
+  description: Other-Mall refers to buildings containing a collection of stores
+    whose purpose is the sale of goods, but which do not fit into the enclosed
+    mall, lifestyle center, or strip mall property types.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Other - Mall
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+OPRP:
+  name: Outpatient Rehabilitation/Physical Therapy
+  description: Outpatient Rehabilitation/Physical Therapy offices refers to
+    buildings used to provide diagnosis and treatment for rehabilitation and
+    physical therapy.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Outpatient Rehabilitation/Physical Therapy
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+OSPCHOSP:
+  name: Other - Specialty Hospital
+  description: Other - Specialty Hospitals refers to long-term acute care
+    hospitals, inpatient rehabilitation facilities, including Cancer Centers and
+    Psychiatric and Substance Abuse Hospitals/Facilities.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Other - Specialty Hospital
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+OTHOFF:
+  name: Other - Office
+  description: "Other refers to buildings that do not fall within the available
+    property use categories in Portfolio Manager. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Other - Office
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+PARKING:
+  name: Parking
+  description: "Parking refers to buildings and lots used for parking vehicles. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Parking
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+RETST:
+  name: Retail Store
+  description: "Retail Store refers to individual stores used to conduct the
+    retail sale of non-food consumer goods such as clothing, books, toys,
+    sporting goods, office supplies, hardware, and electronics. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Retail Store
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+SHCTR:
+  name: Enclosed Mall
+  description: "Enclosed Mall refers to buildings that house multiple stores,
+    often “anchored” by one or more department stores, and with interior
+    walkways. "
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Enclosed Mall
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+STRMALL:
+  name: Strip Mall
+  description: Strip mall refers to buildings comprising more than one retail
+    store, restaurant, or other business, in an open-air configuration where
+    each establishment has an exterior entrance to the public and there are no
+    internal walkways.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Strip Mall
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+UNIV:
+  name: College/University
+  description: College/University refers to buildings used for the purpose of
+    higher education. This includes public and private colleges and
+    universities.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: College/University
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+URGCLIN:
+  name: Urgent Care/Clinic/Other Outpatient
+  description: Urgent Care Center/Clinic/Other Outpatient Office refers to
+    buildings used to treat patients, usually on an unscheduled, walk-in basis,
+    who have an injury or illness that requires immediate care but is not
+    serious enough to warrant a visit to an emergency department.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Urgent Care/Clinic/Other Outpatient
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+WASTEWTR:
+  name: Wastewater Treatment Plant
+  description: Wastewater Treatment Plant refers to facilities designed to treat
+    municipal wastewater.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Wastewater Treatment Plant
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz
+WORSHIP:
+  name: Worship Facility
+  description: Worship Facility refers to buildings that are used as places of
+    worship. This includes churches, temples, mosques, synagogues,
+    meetinghouses, or any other buildings that primarily function as a place of
+    religious worship.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Worship Facility
+    identification:
+      - navName
+      - dis
+      - id
+    identification_optional:
+      - tz

@@ -1,0 +1,168 @@
+###############################
+##Attribute definitions ###
+
+###Common, non-numerical Attributes ####
+manufacturer: 
+  name: Manufacturer
+  description: Brand, make or manufacturer under which equipment, device or object is sold
+  domain: common
+  haystack:
+    tags: 
+      - attr
+      - manufacturer
+    kind: STRING
+  google_ontology: manufacturer_label
+
+model: 
+  name: Model Name
+  description: Model name or series descriptor
+  domain: common
+  haystack:
+    tags: 
+      - attr
+      - model
+    kind: STRING
+  google_ontology: model_label
+
+modelNumber:
+  name: Model Number
+  description: Alphanumeric Model number
+  domain: common
+  haystack:
+    tags: 
+      - attr
+      - model
+      - number
+    kind: STRING
+  google_ontology: model_label
+
+serialNumber:
+  name: Serial Number
+  description: Unique identication code
+  domain: common
+  haystack:
+    tags: 
+      - attr
+      - serialNumber
+    kind: STRING
+
+###Typical Site & Spatial Attributes ####
+netArea: 
+  name: Net Area
+  domain: spatial
+  description: Area of a space exclusive of walls, utility areas and circulation spaces. 
+  haystack:
+    tags: 
+      - attr
+      - area
+      - net
+    kind: NUMBER
+  unit_type: area
+
+grossArea: 
+  name: Gross Area
+  domain: spatial
+  description: Area of a space exclusive of walls, utility areas and circulation spaces. 
+  haystack:
+    tags: 
+      - attr
+      - area
+      - gross
+    kind: NUMBER
+  unit_type: area
+
+###Typical Occupancy Attributes ###
+ratedOccupancy: 
+  name: Rated Occupancy
+  domain: occupancy
+  description: Amount of occupants a space is allowed to hold from a life-safety or legal perpsective. 
+  haystack:
+    tags: 
+      - attr
+      - occupancy
+      - rated
+    kind: NUMBER
+  unit_type: dimesionless
+
+designOccupancy: 
+  name: Design Occupancy
+  domain: occupancy
+  description: Amount of occupants a space would typically be expected to contain. 
+  haystack:
+    tags: 
+      - attr
+      - occupancy
+      - design
+    kind: NUMBER
+  unit_type: dimesionless
+
+###Electrical ###
+ratedCurrent:
+  name: Rated Current
+  domain: electrical
+  haystack:
+    tags: 
+      - rated
+      - current
+      - attr
+    kind: NUMBER
+  unit_type: electric_current
+
+ratedVoltage:
+  name: Rated Voltage
+  domain: electrical
+  haystack:
+    tags: 
+      - rated
+      - voltage
+      - attr
+    kind: NUMBER
+  unit_type: electric_potential
+
+###Mechanical ###
+designAirPressure: 
+  name: "Design Air Pressure"
+  domain: hvac.air
+  haystack:
+    tags: 
+      - design
+      - air
+      - pressure
+      - attr
+    kind: NUMBER
+  unit_type: pressure
+
+designDischargeAirPressure: 
+  name: "Design Discharge Air Pressure"
+  extends: designAirPressure
+  haystack:
+    tags: 
+      - discharge
+    kind: NUMBER
+  unit_type: pressure
+
+designAirFlow: 
+  name: "Design Airflow"
+  domain: hvac.air
+  haystack:
+    tags: 
+      - design
+      - air
+      - flow
+      - attr
+    kind: NUMBER
+  unit_type: volumetric_flow
+
+designDischargeAirFlow: 
+  name: "Design Discharge Airflow"
+  extends: designAirFlow
+  haystack:
+    tags: 
+      - discharge
+
+designExhaustAirFlow: 
+  name: "Design Exhaust Airflow"
+  extends: designAirFlow
+  haystack:
+    tags: 
+      - exhaust    

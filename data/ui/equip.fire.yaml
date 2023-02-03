@@ -1,0 +1,41 @@
+#Fire Alarm
+
+BGU:
+  parent:
+    - FAS
+FAP:
+  parent:
+    - FAS    
+FD:
+  parent:
+    - MECH
+    - FAS    
+FSD:
+  parent:
+    - FAS
+    - MECH      
+HS:
+  parent:
+    - FAS
+SD:
+  parent:
+    - FAS    
+#Fire Supression
+
+ 
+FE:
+  parent:
+    - FSS
+FP:
+  parent:
+    - FSS
+FWT:
+  parent:
+    - FSS
+FSUP:
+  parent:
+    - FSS
+SPH:
+  parent:
+    - FSS
+

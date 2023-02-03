@@ -1,0 +1,146 @@
+BANK:
+  name: Banking
+  description: Group of Banking related sites
+  icon: AccountBalance
+  parent:
+    - SITES
+BANKBR:
+  icon: AccountBalance
+  parent:
+    - BANK
+DATACTR:
+  icon: DomainDisabled
+  parent:
+    - TECHSCI
+EDUC:
+  name: Education
+  description: Group of Education related sites
+  icon: School
+  parent:
+    - SITES
+ENERPWR:
+  icon: Gesture
+  parent:
+    - UTILITY
+FINOFF:
+  icon: AccountBalance
+  parent:
+    - BANK
+HLTH:
+  name: Healthcare
+  description: Group of Healthcare related sites
+  icon: LocalHospital
+  parent:
+    - SITES
+HOSP:
+  icon: LocalHospital
+  parent:
+    - HLTH
+K12:
+  icon: School
+  parent:
+    - EDUC
+LAB:
+  icon: DomainDisabled
+  parent:
+    - TECHSCI
+LSCTR:
+  icon: LocalMall
+  parent:
+    - RETAIL
+MIXUSE:
+  icon: EmojiTransportation
+  parent:
+    - SITES
+MOB:
+  icon: LocalHospital
+  parent:
+    - OFFBLD
+    - HLTH
+OFFBLD:
+  name: Office Buildings
+  description: Group of Office related sites
+  icon: Business
+  parent:
+    - SITES
+OFFICE:
+  icon: Business
+  parent:
+    - OFFBLD
+OMALL:
+  icon: Healing
+  parent:
+    - OTHER
+    - RETAIL
+OPRP:
+  icon: LocalHospital
+  parent:
+    - HLTH
+OSPCHOSP:
+  icon: Healing
+  parent:
+    - OTHER
+    - HLTH
+OTHER:
+  name: Other
+  description: Group of sites otherwise unclassified
+  icon: Business
+  parent:
+    - SITES
+OTHOFF:
+  icon: Business
+  parent:
+    - OFFBLD
+PARKING:
+  icon: LocalParking
+  parent:
+    - SITES
+RETAIL:
+  name: Retail
+  description: Group of Retail related sites
+  icon: LocalMall
+  parent:
+    - SITES
+RETST:
+  icon: LocalMall
+  parent:
+    - RETAIL
+SHCTR:
+  icon: LocalMall
+  parent:
+    - RETAIL
+SITES:
+  name: Sites
+  description: Site is a geographic location of the built environment
+  icon: LocationCity
+STRMALL:
+  icon: LocalMall
+  parent:
+    - RETAIL
+TECHSCI:
+  name: Technology
+  description: Group of Technology related sites
+  icon: DomainDisabled
+  parent:
+    - SITES
+UNIV:
+  parent:
+    - EDUC
+URGCLIN:
+  icon: LocalHospital
+  parent:
+    - HLTH
+UTILITY:
+  name: Utility
+  description: Group of sites related to Utilities
+  icon: Gesture
+  parent:
+    - SITES
+WASTEWTR:
+  icon: Gesture
+  parent:
+    - UTILITY
+WORSHIP:
+  icon: Deck
+  parent:
+    - SITES

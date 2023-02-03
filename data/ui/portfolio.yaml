@@ -1,0 +1,8 @@
+CAMPUS:
+  icon: LocationCity
+  parent:
+    - PORTFOLIO
+PORTFOLIO:
+  name: Portfolios
+  description: Collection of buildings/sites.
+  icon: Business

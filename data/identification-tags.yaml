@@ -1,0 +1,45 @@
+dis:
+  description: Custom display name for the entity. e.g. "Forrest Hills", "Air
+    Handler 1", etc.
+  type: STRING
+  source: HAY
+disMacro:
+  description: <parent.dis>" "<navName>, e.g. Sales Office - VAV223
+  type: STRING
+  source: OAP
+disMacroFlr:
+  description: <name>" "<floorNum>, e.g. Floor 3
+  type: STRING
+  source: OAP
+id:
+  description: Defines the unique identifier of an entity in system using a Ref value type
+  type: STRING
+  source: HAY
+ifcClass:
+  description: Reference to the IFC Class for BIM
+  type: STRING
+  source: OAP
+ifcType:
+  description: Reference to the IFC Type for BIM
+  type: STRING
+  source: OAP
+navName:
+  description: Abreviation and integer to create unique navigation name in the DB.
+  type: STRING
+  source: HAY
+tz:
+  description: Timezone identifier from standard timezone database
+  type: STRING
+  source: HAY
+unit:
+  description: Unit identifier from standard unit database
+  type: STRING
+  source: HAY
+kind:
+  description: Number, Bool or Str
+  type: STRING
+  source: HAY
+floorNum:
+  description: Unitless integer indicating the floor distance from ground level.
+  type: NUMBER
+  source: HAY

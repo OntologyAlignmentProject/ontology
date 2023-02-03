@@ -1,0 +1,487 @@
+DLTLVLSP:
+  name: Daylighting Light Level Setpoint
+  description: The light level setpoint in percent when daylighting is enabled. 
+  haystack:
+    type:
+      - daylighting
+      - light
+      - level
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+EFLTLVLSP:
+  name: Light Level Setpoint
+  description: The light level setpoint in percent. 
+  haystack:
+    type:
+      - effective
+      - light
+      - level
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+ENDLC:
+  name: Enable Daylighting Control
+  description: Enable daylighting control of light levels.
+  haystack:
+    type:
+      - enable
+      - daylighting  
+      - cmd
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LDSHLTLVLSP:
+  name: Loadshedding Light Level Setpoint
+  description: The light level reduction in percent when loadshedding is active. 
+  haystack:
+    type:
+      - loadshed
+      - light
+      - level
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTCIRCMD:
+  name: Lighting Circuit Command
+  description: Controls the specific lighting circuit.
+  haystack:
+    type:
+      - point
+      - lighting
+      - circuit
+      - cmd
+    identification:
+      - id
+      - navName: "LTCIRCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LTCIRCMD-1, LTCIRCMD-2, etc."
+      - dis: "Lighting Circuit Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Lighting Circuit Command-1, Lighting Circuit
+          Command-2, etc."
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTCLRT:
+  name: Light Color Temperature
+  description: The color temperature of the light.  
+  haystack:
+    type:
+      - light
+      - colorTemperature
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Kelvin
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTCMD:
+  name: Light Command
+  haystack:
+    type:
+      - light
+      - run
+      - cmd
+      - point
+    identification:
+      - navName: "LTCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LTCMD-1, LTCMD-2, etc."
+      - dis: "Light Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Light Command-1, Light Command-2, etc."
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTLVL:
+  name: Light Level Sensor
+  description: A measure of the light level in percent. 
+  haystack:
+    type:
+      - light
+      - level
+      - sensor
+      - point
+    identification:
+      - navName: "LTLVL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LTLVL-1, LTLVL-2, etc."
+      - dis: "Light Level Sensor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Light Level Sensor-1, Light Level Sensor-2, etc."
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTLVLCMD:
+  name: Light Level Command
+  description: Dimming control of a light or group of lights in a lighting zone. 
+  google_ontology: dimmer_percentage_command
+  haystack:
+    type:
+      - light
+      - level
+      - cmd
+      - point
+    identification:
+      - navName: "LTPC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LTPC-1, LTPC-2, etc."
+      - dis: "Light Level Sensor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Light Level Sensor-1, Light Level Sensor-2, etc."
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTOCMODE:
+  name: Lighting Occupancy Control Mode
+  description: The occupancy control mode for a lighting group or zone.  
+  haystack:
+    type:
+      - lighting
+      - occupied
+      - mode
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTPC:
+  name: Light Photocell
+  description: A measure of the illuminance in footcandles.
+  google_ontology: illuminance_sensor
+  google_ontology_full:
+    - illuminance_sensor
+    - east_illuminance_sensor
+    - southeast_illuminance_sensor
+    - southwest_illuminance_sensor
+    - west_illuminance_sensor
+  haystack:
+    type:
+      - light
+      - illuminance
+      - sensor
+      - point
+    identification:
+      - navName: "LTPC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LTPC-1, LTPC-2, etc."
+      - dis: "Light Photocell or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Light Photocell-1, Light Photocell-2, etc."
+      - id
+      - kind: Number
+      - unit: footcandles
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTSC:
+  name: Lighting Scene
+  description: The selected lighting scene.
+  haystack:
+    type:
+      - light
+      - effective
+      - scene
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+LTST:
+  name: Light Status
+  haystack:
+    type:
+      - light
+      - run
+      - sensor
+      - point
+    identification:
+      - navName: "LTST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LTST-1, LTST-2, etc."
+      - dis: "Light Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Light Status-1, Light Status-2, etc."
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+OCLTLVLSP:
+  name: Occupied Light Level Setpoint
+  description: The light level setpoint in percent during the occupied period. 
+  haystack:
+    type:
+      - occ
+      - light
+      - level
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+OLTPC:
+  name: Outdoor Light Photocell
+  description: A measure of the outdoor ambient illuminance in footcandle.
+  extends: LTPC
+  haystack:
+    type:
+      - outside
+    identification:
+      - navName: "OLTPC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OLTPC-1, OLTPC-2, etc."
+      - dis: "Outdoor Light Photocell or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Outdoor Light Photocell-1, Outdoor Light Photocell-2, etc."
+      - id
+      - kind: Number
+      - unit: footcandle
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+UOCLTLVLSP:
+  name: Unoccupied Light Level Setpoint
+  description: The light level setpoint in percent during the unoccupied period. 
+  haystack:
+    type:
+      - unocc
+      - light
+      - level
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - lightingZoneRef
+    reference_optional:
+      - deviceRef
+
+SHPOS:
+  name: Shade Position
+  description: The vertical position of the shades.  
+  haystack:
+    type:
+      - shades
+      - position
+      - sensor
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - shadesZoneRef
+    reference_optional:
+      - deviceRef
+
+SHSC:
+  name: Shade Scene or Preset
+  description: The shade scene or preset.  
+  haystack:
+    type:
+      - shades
+      - scene
+      - sp
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+      - spaceRef
+      - shadesZoneRef
+    reference_optional:
+      - deviceRef
+
+SHDIR:
+  name: Shade Direction
+  description: The direction the shades are moving, opening, closing or stopped.   
+  haystack:
+    type:
+      - shades
+      - direction
+      - sensor
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+      - spaceRef
+      - shadesZoneRef
+    reference_optional:
+      - deviceRef
+
+SHPOSCMD:
+  name: Shade Position Command
+  description:  Extent control of a shade or group of shades in a group. 
+  google_ontology: shade_extent_percentage_command
+  haystack:
+    type:
+      - shades
+      - level
+      - cmd
+      - point
+    identification:
+      - navName: "SHPOSCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SHPOSCMD-1, SHPOSCMD-2, etc."
+      - dis: "Shade or Drape Position Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Shade Position Command-1, Position Command-2, etc."
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - shadesZoneRef
+    reference_optional:
+      - deviceRef
+
+
+SHTLTCMD:
+  name: Shade Tilt Command
+  description:  Tilt control of a shade or group of shades in a group. 
+  google_ontology: shade_tilt_percentage_command
+  haystack:
+    type:
+      - shades
+      - angle
+      - cmd
+      - point
+    identification:
+      - navName: "SHTLTCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : SHTLTCMD-1, SHTLTCMD-2, etc."
+      - dis: "Shade Tilt Command or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Shade Tilt Command-1, Shade Tilt Command-2, etc."
+      - id
+      - kind: Number
+      - unit: Percent
+    reference:
+      - equipRef
+      - spaceRef
+      - shadesZoneRef
+    reference_optional:
+      - deviceRef
+    

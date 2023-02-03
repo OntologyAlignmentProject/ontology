@@ -1,0 +1,341 @@
+# Base Definitions
+
+ELVCALL:
+  name: Elevator Calls (Base Definition)
+  description:  List of calls for an Elevator.
+  is_base: true
+  haystack:
+    type:
+      - call
+      - point
+    indentification: 
+      - kind: List
+    reference:
+      - equipRef
+
+ELVST:
+  name: Elevator Status (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - state
+      - sensor
+      - point
+    identification:
+      - kind: Str
+    reference:
+      - equipRef
+
+# Standard Definitions
+
+ASNLNDCALL:
+  name: Assigned Landing Calls
+  description: This property shall represent the current landing calls and their
+    direction for the lift represented by this object.
+  extends: ELVCALL
+  haystack:
+    type:
+      - landing
+      - cmd
+    identification:
+      - id: "ASNLNDCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ASNLNDCALL-1, ASNLNDCALL-2, etc."
+      - navName: "ASNLNDCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ASNLNDCALL-1, ASNLNDCALL-2, etc."
+      - dis: "Assigned Landing Call or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Assigned Landing Call-1, Assigned Landing Call-2,
+          etc."
+      - kind: Number
+
+CARDIRCMD:
+  name: Car Assigned Direction
+  description: This represents the direction this elevator is assigned to move, based on 
+    curent car calls.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - car
+      - direction
+      - cmd
+    identification:
+      - id: "CARDIRCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CARDIRCMD-1, CARDIRCMD-2, etc."
+      - navName: "CARDIRCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARDIRCMD-1, CARDIRCMD-2, etc."
+      - dis: "Car Assigned Direction or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Car Assigned Direction-1, Car Assigned Direction-2, etc."
+      - kind: Str
+
+CARDIR:
+  name: Car Moving Direction
+  description: This property represents whether or not this lift's car is moving,
+    and if so, in which direction.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - car
+      - direction
+      - sensor
+    identification:
+      - id: "CARDIR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CARDIR-1, CARDIR-2, etc."
+      - navName: "CARDIR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARDIR-1, CARDIR-2, etc."
+      - dis: "Car Moving Direction or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Car Moving Direction-1, Car Moving Direction-2, etc."
+      - kind: Str
+
+CARDRST:
+  name: Car Door Status
+  description: This property indicates the status of the doors on the car.
+  extends: ELVST
+  haystack:
+    type:
+      - car
+      - door
+    identification:
+      - id: "CARDRST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARDRST-1, CARDRST-2, etc."
+      - navName: "CARDRST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARDRST-1, CARDRST-2, etc."
+      - dis: "Car Door Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Car Door Status-1, Car Door Status-2, etc."
+
+CARDRVST:
+  name: Car Drive Status
+  description: This property shall indicate the current status of the lift's motor
+    drive system.
+  extends: ELVST
+  haystack:
+    type:
+      - car
+      - drive
+    identification:
+      - id: "CARDRVST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARDRVST-1, CARDRVST-2, etc."
+      - navName: "CARDRVST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARDRVST-1, CARDRVST-2, etc."
+      - dis: "Car Drive Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Car Drive Status-1, Car Drive Status-2, etc."
+
+CARLD:
+  name: Car Load
+  description: This property indicates the load in the car, both passengers and goods.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - car
+      - load
+      - sensor
+    identification:
+      - id: "CARLD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARLD-1, CARLD-2, etc."
+      - navName: "CARLD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARLD-1, CARLD-2, etc."
+      - dis: "Car Load or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Car Load-1, Car Load-2, etc."
+      - kind: Number
+
+CARMD:
+  name: Car Mode
+  description: This property shall indicate the current operational mode of the car.
+  haystack:
+    type:
+      - car
+      - mode
+      - sp
+      - point
+    identification:
+      - id: "CARMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARMD-1, CARMD-2, etc."
+      - navName: "CARMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARMD-1, CARMD-2, etc."
+      - dis: "Car Mode or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Car Mode-1, Car Mode-2, etc."
+      - kind: Str
+
+CARNXTPOS:
+  name: Next Stopping Floor
+  description: This property indicates the universal floor number where the car
+    will stop next when underway. If the car is not in motion, this property
+    indicates the current universal floor number.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - car
+      - position
+      - next
+      - sensor
+    identification:
+      - id: "CARNXTPOS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARNXTPOS-1, CARNXTPOS-2, etc."
+      - navName: "CARNXTPOS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARNXTPOS-1, CARNXTPOS-2, etc."
+      - dis: "Next Stopping Floor or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Next Stopping Floor-1, Next Stopping Floor-2, etc."
+      - kind: Number
+
+CARPOS:
+  name: Car Position
+  description: This property indicates the universal floor number of this lift's
+    car position.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - car
+      - position
+      - sensor
+    identification:
+      - id: "CARPOS or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CARPOS-1, CARPOS-2, etc."
+      - navName: "CARPOS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CARPOS-1, CARPOS-2, etc."
+      - dis: "Car Position or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Car Position-1, Car Position-2, etc."
+      - kind: Number
+
+ELVOOS:
+  name: Elevator Out of Service
+  description: This property is an indication whether (TRUE) or not (FALSE) the
+    object is decoupled from the lift that this object represents.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - elevator
+      - state
+      - sensor
+    identification:
+      - id: "ELVOOS or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ELVOOS-1, ELVOOS-2, etc."
+      - navName: "ELVOOS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ELVOOS-1, ELVOOS-2, etc."
+      - dis: "Elevator Out of Service or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Elevator Out of Service-1, Elevator Out of Service-2, etc."
+      - kind: Bool
+
+ESCOOS:
+  name: Escalator Out of Service
+  description: This property is an indication whether (TRUE) or not (FALSE) the
+    object is decoupled from the escalator that this object represents.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - escalator
+      - state
+      - sensor
+    identification:
+      - id: "ESCOOS or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ESCOOS-1, ESCOOS-2, etc."
+      - navName: "ESCOOS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ESCOOS-1, ESCOOS-2, etc."
+      - dis: "Escalator Out of Service or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Escalator Out of Service-1, Escalator Out of
+          Service-2, etc."
+      - kind: Bool
+
+MKCARCALL:
+  name: Making Car Calls
+  description: This indicates the last car calls written to this elevator.
+  extends: ELVCALL
+  haystack:
+    type:
+      - car
+      - cmd
+    identification:
+      - id: "REGCARCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REGCARCALL-1, REGCARCALL-2, etc."
+      - navName: "REGCARCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REGCARCALL-1, REGCARCALL-2, etc."
+      - dis: "Registered Car Calls or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Registered Car Calls-1, Registered Car Calls-2, etc."
+      - kind: Str
+LNDCALL:
+  name: Landing Calls
+  description: This contains all of the landing calls within an Elevator Group
+  extends: ELVCALL
+  haystack:
+    type:
+      - group
+      - landing
+    identification:
+      - id: "LNDCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LNDCALL-1, LNDCALL-2, etc."
+      - navName: "LNDCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LNDCALL-1, LNDCALL-2, etc."
+      - dis: "Landing Calls or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Assigned Landing Calls-1, Assigned Landing Calls-2,
+          etc."
+      - kind: Number
+LNDDRST:
+  name: Landing Door Status
+  description: This property indicates the status of the doors on the car.
+  extends: ELVST
+  haystack:
+    type:
+      - landing
+      - door
+    identification:
+      - id: "LNDDRST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LNDDRST-1, LNDDRST-2, etc."
+      - navName: "LNDDRST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LNDDRST-1, LNDDRST-2, etc."
+      - dis: "Landing Door Status or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Landing Door Status-1, Landing Door Status-2, etc."
+      - kind: Str
+
+OPDIR:
+  name: Operation Direction
+  description: This property represents the direction and speed in which this
+    escalator is presently moving.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - point
+      - sensor
+      - direction
+    identification:
+      - id: "OPDIR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          OPDIR-1, OPDIR-2, etc."
+      - navName: "OPDIR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OPDIR-1, OPDIR-2, etc."
+      - dis: "Operation Direction or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Operation Direction-1, Operation Direction-2, etc."
+      - kind: Str
+
+PASALM:
+  name: Passenger Alarm
+  description: This property indicates whether (TRUE) or not (FALSE) the passenger
+    alarm has been activated.
+  extends: POINT_GEN
+  haystack:
+    type:
+      - occupants
+      - alarm
+      - sensor
+    identification:
+      - id: "PASALM or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          PASALM-1, PASALM-2, etc."
+      - navName: "PASALM or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PASALM-1, PASALM-2, etc."
+      - dis: "Passenger Alarm or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Passenger Alarm-1, Passenger Alarm-2, etc."
+      - kind: Bool
+
+REGCARCALL:
+  name: Registered Car Calls
+  description: This property represents the lists of currently registered car
+    calls (requests to stop at particular floors using a particular door) for
+    this lift.
+  extends: ELVCALL
+  haystack:
+    type:
+      - car
+      - sp
+    identification:
+      - id: "REGCARCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REGCARCALL-1, REGCARCALL-2, etc."
+      - navName: "REGCARCALL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REGCARCALL-1, REGCARCALL-2, etc."
+      - dis: "Registered Car Calls or if more than 1 in the equip/device, use <NAME> + -
+          + <INTEGER>  : Registered Car Calls-1, Registered Car Calls-2, etc."
+      - kind: Str

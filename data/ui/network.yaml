@@ -1,0 +1,12 @@
+CLINET:
+  icon: AccountTree
+  parent:
+    - CLS
+COMPNET:
+  icon: AccountTree
+  parent:
+    - ITS
+DEVNET:
+  icon: AccountTree
+  parent:
+    - OTS

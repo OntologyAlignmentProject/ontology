@@ -1,0 +1,243 @@
+AVSYS:
+  name: Audio Visual Systems
+  description: Audiovisual (AV) is electronic media possessing both a sound and a
+    visual component, such as slide-tape presentations, films, television
+    programs, corporate conferencing, church services and live theater
+    productions.
+  icon: Duo
+  parent:
+    - ITS
+BMS:
+  name: Building Management System
+  description: A building management system (BMS), otherwise known as a building
+    automation system (BAS) or Integrated Automation System (IAS), is a
+    computer-based control system installed in buildings that controls and
+    monitors the building's mechanical and electrical equipment such as
+    ventilation, lighting, power systems, fire systems, and security systems. A
+    BMS consists of software and hardware; the software program, usually
+    configured in a hierarchical manner, can be proprietary, using such
+    protocols as N2, C-Bus, Profibus, and so on. Vendors are also producing a
+    BMS that integrates the use of Internet protocols and open standards such as
+    DeviceNet, SOAP, XML, BACnet, LonWorks and Modbus.
+  icon: LocationCity
+  parent:
+    - MGMTS
+CLS:
+  name: Clinical Systems
+  description: Clinical systems (CLS) is the use of computers to store, retrieve,
+    transmit, and manipulate data or information related to patient care in a
+    health care facility.
+  icon: Healing
+DIGSIGN:
+  name: Digital Signage
+  description: "Digital signage use technologies such as LCD, LED, projection and
+    e-paper to display digital images, video, web pages, weather data,
+    restaurant menus, or text. "
+  icon: Dvr
+  parent:
+    - AVSYS
+ENVS:
+  name: Environment Sensing
+  description: The sensors that detect and gather information relating the building
+    environment.  Includes indoor air quality, thermal measurements, people counting,
+  icon: TrackChanges
+  parent:
+    - OTS
+EMS:
+  name: Energy Management System
+  description: An energy management system (EMS) is a system of computer-aided
+    tools used by operators of electric utility grids to monitor, control, and
+    optimize the performance of the generation or transmission system.
+  icon: BrightnessLow
+  parent:
+    - MGMTS
+EPMS:
+  name: Energy / Power Management System
+  description: "An EPMS is a computer-based control system installed in buildings
+    that controls and monitors the building's electrical equipment & power
+    systems. Its task is to make sure that the electrical system is safe and
+    efficient. If the power consumption is larger than the power production
+    capacity, load shedding is used to avoid blackout. "
+  icon: BrightnessHigh
+  parent:
+    - MGMTS
+FAS:
+  name: Fire Alarm System
+  description: "A fire alarm system has a number of devices working together to
+    detect and warn people through visual and audio appliances when smoke, fire,
+    carbon monoxide or other emergencies are present. "
+  icon: Whatshot
+  parent:
+    - LSS
+FSS:
+  name: Fire Supression System
+  description: "A fire supression system is an engineered group of equipment
+    that are built to extinguish fires through the application of a substance (typically water). "
+  icon: Whatshot
+  parent:
+    - LSS
+FIMS:
+  name: Facilities Information Management System
+  description: An enterprise Facilities Information Management System (FIMS) is
+    comprised of multiple interconnected commercial building system technologies
+    including cloud-based and on-premise software applications, physical IT
+    networks, gateways and other computing hardware, and IoT devices that
+    process, store or communicate data. The FIMS will reference the information
+    and complementary network of hardware and software that organizations and
+    their stakeholders use to collect, filter, process, create and distribute
+    data related to the operational technology (OT) and informational technology
+    (IT) systems operating in the building. The FIMS defines the way in which
+    people interact with this technology in support of OT and IT processes.
+  icon: AllInclusive
+  parent:
+    - MGMTS
+FMS:
+  name: Façade Management System
+  description: Façade Management System provides automation for blinds, awnings
+    and external sunscreens
+  icon: LocationCity
+  parent:
+    - MGMTS
+IPAAS:
+  name: Integration Platform as a Service
+  description: iPaaS is a platform that connects otherwise disjointed systems to
+    deliver a unified solution to customers. It acts as a conduit for
+    communication between multiple systems — allowing for integration and data
+    sharing. iPaaS gives platforms unlimited potential, and as we deepen our
+    cloud dependency, iPaaS becomes integral to nearly every business model.
+  icon: Sync
+  parent:
+    - MGMTS
+ITS:
+  name: Information Systems
+  description: Information systems (IS) is the use of computers to store,
+    retrieve, transmit, and manipulate data or information.
+  icon: Share
+LTG:
+  name: Lighting System
+  description: "Lighting or illumination is the deliberate use of light to achieve
+    practical or aesthetic effects. "
+  icon: EmojiObjects
+  parent:
+    - OTS
+LSS:
+  name: Life Safety Systems
+  description: A life safety system is a system whose failure or malfunction may
+    result in death or serious injury to people, loss or severe damage to
+    equipment/property, and/or environmental harm.
+  icon: AddAlert
+MECH:
+  name: Mechanical
+  description: "Heating, ventilation, and air conditioning (HVAC) is the
+    technology of indoor and vehicular environmental comfort. "
+  icon: Toys
+  parent:
+    - OTS
+  example:
+    - hvac_Sys.md
+    - hvac_ahu.md
+MTRG:
+  name: Metering
+  description: The act where a meter is used to automatically measure and record
+    the quantity of something, as of gas, water, miles, or time, when it is
+    activated.
+  icon: SettingsInputSvideo
+  parent:
+    - OTS
+MGMTS:
+  name: Management Systems
+  description: Management systems are the purpose built computer based systems to
+    manage one or more of the operational systems.
+  icon: DeviceHub
+NCS:
+  name: Nurse Call Systems
+  description: Nurse call systems are the communication link between residents or
+    patients and caregivers.
+  icon: CenterFocusStrong
+  parent:
+    - CLS
+OTS:
+  name: Operational Systems
+  description: "Operational Systems (OS) is the use of computers to monitor or
+    alter the physical state of a system, such as the control system for
+    building HVAC, a power station or the control network for a rail system.
+    For examples on modeling the different entities in an OT System, please
+    click on specific sub-system nested under the Operational Systems in the
+    Menu."
+  icon: DeviceHub
+PARKSYS:
+  name: Parking Systems
+  description: Car parking systems automated systems designed to monitor the
+    environemnt, parking stalls, gates, as well as other parking related systems
+    in a car parking lot or parking structure. Automated Car Parking Systems,
+    although less common, would also fall into this category.
+  icon: LocalParking
+  parent:
+    - OTS
+PHYSSEC:
+  name: Physical Security
+  description: Physical security describes security measures that are designed to
+    deny unauthorized access to facilities, equipment and resources and to
+    protect personnel and property from damage or harm. Physical security
+    involves the use of multiple layers of interdependent systems that can
+    include CCTV surveillance, locks, access control, perimeter intrusion
+    detection, deterrent systems, fire protection, and other systems designed to
+    protect persons and property.
+  icon: Security
+  parent:
+    - OTS
+PLBG:
+  name: Plumbing / Public Health
+  icon: Grain
+  parent:
+    - OTS
+ELEC:
+  name: Electrical Power Distribution
+  description: "Electric power distribution is the final stage in the delivery of
+    electric power; it carries electricity from the transmission system to
+    individual building loads and tenants. "
+  icon: FlashOn
+  parent:
+    - OTS
+RR:
+  name: Restrooms
+  icon: Bathtub
+  parent:
+    - OTS
+TRANS:
+  name: Transport
+  description: Any type of automated transit system designed to
+    move people or material within the built environment or campus. This term can be used to
+    describe equips and systems serving relatively small areas such as airports,
+    downtown districts or theme parks.
+  icon: TransferWithinAStation
+  parent:
+    - OTS
+PROCESS:
+  name: Process
+  description: Process engineering focuses on the design, operation, control,
+    optimization and intensification of chemical, physical, and biological
+    processes. Process engineering encompasses a vast range of industries, such
+    as agriculture, automotive, biotechnical, chemical, food, material
+    development, mining, nuclear, petrochemical, pharmaceutical, and software
+    development. The application of systematic computer-based methods to process
+    engineering is "process systems engineering".
+  icon: Build
+  parent:
+    - OTS
+RTLS:
+  name: Real-Time Location Services
+  description: "Real-Time Location Services (RTLS) is a system used to provide
+    immediate or real-time tracking and management of medical equipment, staff
+    and patients within all types of patient care environments. "
+  icon: LocationSearching
+  parent:
+    - CLS
+WASTE:
+  name: Waste Management
+  description: Waste management includes the activities and actions required to
+    manage waste from its inception to its final disposal. This includes the
+    collection, transport, treatment and disposal of waste.
+  icon: RestoreFromTrash
+  parent:
+    - OTS

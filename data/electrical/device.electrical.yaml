@@ -1,0 +1,63 @@
+
+CB:
+  name: Circuit Breaker
+  description: "A circuit breaker is an automatically operated electrical switch
+    designed to protect an electrical circuit from damage caused by excess
+    current from an overload or short circuit. "
+  haystack:
+    type:
+      - equip
+      - elec
+      - breaker
+      - power
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CB1 or CB480
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CB-1 or CB-480
+      - dis: Circuit Breaker 1 or CB-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+UPS:
+  name: Uninteruptible Power Supply
+  short_name: UPS
+  description: An electrical apparatus that provides emergency power to a load
+    when the input power source or mains power fails.
+  ifc_class: ifcElectricFlowStorageDevice
+  haystack:
+    type:
+      - equip
+      - ups
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. UPS1 or UPS450
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. UPS-1 or UPS-450
+      - dis: No Match 1 or UPS-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+  points:
+    - ACI
+    - ACIA
+    - ACIB
+    - ACIC
+    - ACV
+    - ACVAB
+    - ACVBC
+    - ACVCA
+    - ACVA
+    - ACVB
+    - ACVC
+    - APPENE
+    - APPPWR
+    - DCV
+    - ENERGY
+    - RAPWR
+    - REACENE
+    - RLPWR
+    - RLPWRA
+    - RLPWRB
+    - RLPWRC

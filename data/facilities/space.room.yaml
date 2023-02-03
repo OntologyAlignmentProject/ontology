@@ -1,0 +1,361 @@
+##BASE Room Type, All Other rooms should extend this type
+ROOM:
+  name: Room
+  description: A generic enclosed space within a building
+  kpi: 
+    - IAQI
+    - OCCCT
+  haystack:
+    type:
+      - space
+      - room
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ROOM-1 or ROOM-141
+      - dis: Room 1 or ROOM-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ROOM1 or ROOM144
+    reference:
+      - siteRef
+    reference_optional:
+      - spaceRef
+      - airRef
+      - hvacZoneRef
+      - domesticHotWaterMeterRef
+      - domesticWaterMeterRef      
+
+## RealEstateCore standard reference https://github.com/RealEstateCore/rec/blob/master/ontology/building.rdf
+##Room Categories (directly extends:ROOM)
+BREAKRM:
+  name: Break Room
+  description: A room set aside to use during a break from work for the purpose of relaxing, socializing or eating.
+  extends: ROOM
+  realestatecore_ontology:
+    name: StaffRoom
+    url: https://w3id.org/rec/building/StaffRoom
+  haystack:
+    type:
+      - breakRoom
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+CIRCULATION:
+  name: Cirulation
+  description: A space used by people to move throughout a building - hallways, stair.
+  extends: ROOM
+  haystack:
+    type:
+      - circulation
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+CONRM:
+  name: Conference Room
+  description: A room provided for singular events such as business conferences
+    and meetings.
+  extends: ROOM
+  realestatecore_ontology:
+    name: ConferenceRoom
+    url: https://w3id.org/rec/building/ConferenceRoom
+  haystack:
+    type:
+      - conferenceRoom
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CONRM1 or CONRM229
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CONRM-1 or CONRM-229
+      - dis: Conference Room 1 or CONRM-1
+DATAHALL:
+  name: Data Hall
+  description: A room used for storing servers, storage, and communication
+    equipment in a facility.
+  extends: ROOM
+  haystack:
+    type:
+      - dataHall
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+EDRM:
+  name: Educational Room
+  description: A room for providing or gaining knowledge
+  is_base: true
+  extends: ROOM
+  realestatecore_ontology:
+    name: EducationalRoom
+    url: https://w3id.org/rec/building/EducationalRoom
+  haystack:
+    type:
+      - educational
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+FTNSRM:
+  name: Fitness Room
+  description: A general class of space types used for sports, working out and exercise
+  extends: ROOM
+  haystack:
+    type:
+      - fitness
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>      
+HEALTHCARERM:
+  name: Healthcare Room
+  description: A class for rooms for the maintaining and restoration of health by the treatment
+    and prevention of disease.
+  is_base: true
+  extends: ROOM
+  realestatecore_ontology:
+    name: Healthcare room
+    url: https://w3id.org/rec/building/HealthcareRoom
+  haystack:
+    type:
+      - healthCare
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+LABROOM:
+  name: Laboratory
+  description: A room used for research within a facility
+  extends: ROOM
+  realestatecore_ontology:
+    name: Laboratory
+    url: https://w3id.org/rec/building/Laboratory
+  haystack:
+    type:
+      - laboratory
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+LOBBY:
+  name: Lobby
+  description: "An entranceway or foyer in a building "
+  extends: ROOM
+  realestatecore_ontology:
+    name: Entrance
+    url: https://w3id.org/rec/building/Entrance
+  haystack:
+    type:
+      - lobby
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LOBBY1 or LOBBY241
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LOBBY-1 or LOBBY-241
+      - dis: Lobby 1 or LOBBY-1
+LCKRROOM:
+  name: Locker Room
+  description: A room containing lockers for the storage of personal belongings and typically bathing and restroom facilities,
+    especially in schools or gymnasiums.
+  extends: ROOM
+  haystack:
+    type:
+      - lockerRoom
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+OFFICE:
+  name: Office
+  description: "A room or other area where an organization's employees perform
+    administrative work in order to support and realize objects and goals of the
+    organization. "
+  extends: ROOM  
+  haystack:
+    type:
+      - office
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OFFICE1 or OFFICE217
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OFFICE-1 or OFFICE-217
+      - dis: Office 1 or OFFICE-1
+PERHYGIENE:
+  name: Personal Hygiene
+  description: A general class of space types used to maintain cleanliness of one's body 
+    and clothing to preserve overall health and well-being.
+  is_base: true
+  extends: ROOM
+  realestatecore_ontology:
+    name: PersonalHygiene
+    url: https://w3id.org/rec/building/PersonalHygiene
+  haystack:
+    type:
+      - personalHygiene
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+RESIDENCE:
+  name: Residence
+  is_base: true
+  description: An individaul space (Dormitory Room) or collection of rooms(Bedroom, Living Room, etc) 
+    providing sleeping and living quarters.
+  extends: ROOM
+  haystack:
+    type:
+      - residence
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+RETAILRM:
+  name: Retail
+  description: A general class of space types used for the sale of goods to the public
+  extends: ROOM  
+  realestatecore_ontology:
+    name: RetailRoom
+    url: https://w3id.org/rec/building/RetailRoom
+  haystack:
+    type:
+      - retail
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>    
+STRGRM:
+  name: Storage Room
+  description: A room for holding goods or supplies for future use.
+  extends: ROOM
+  realestatecore_ontology:
+    name: Storage
+    url: https://w3id.org/rec/building/Storage
+  haystack:
+    type:
+      - storage
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+UTILRM:
+  name: Utility Room
+  is_base: true
+  description: A room not intended for prolonged human occupancy or material storage. 
+  extends: ROOM
+  realestatecore_ontology:
+    name: UtilitiesRoom
+    url: https://w3id.org/rec/building/UtilitiesRoom
+  haystack:
+    type:
+      - utility
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+
+##Room Types (extends a Room Category)
+CLASSRM:
+  name: Classroom
+  description: A room for formal instructor led learning. 
+  extends: EDRM
+  realestatecore_ontology:
+    name: Classroom
+    url: https://w3id.org/rec/building/Classroom
+  haystack:
+    type:
+      - classroom
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+DORMRM:
+  name: Dormitory Room
+  description: A room providing sleeping and residential quarters for students at a school.
+  extends: RESIDENCE
+  haystack:
+    type:
+      - dormitory
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+ELECRM:
+  name: Electrical Room
+  description: A room or space dedicated to the electrical equipment for managing power distribution.
+    not intended for prolonged human occupancy or material storage.
+  extends: UTILRM
+  realestatecore_ontology:
+    name: ElectricityRoom
+    url: https://w3id.org/rec/building/ElectricityRoom
+  haystack:
+    type:
+      - elec
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+MECHRM:
+  name: Mechanical Room
+  description: A room or space dedicated to the equipment for managing environmental quality, lighting and life safety equipment,
+    not intended for prolonged human occupancy or material storage.
+  extends: UTILRM
+  realestatecore_ontology:
+    name: ClimateControlRoom
+    url: https://w3id.org/rec/building/ClimateControlRoom
+  haystack:
+    type:
+      - mechanical
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+MORTUARY:
+  name: Mortuary
+  description: A room where dead bodies are kept in preporation for burial or cremation, 
+    or in the case of a hospital or school, for study and examination. 
+  extends: HEALTHCARERM
+  realestatecore_ontology:
+    name: Morgue
+    url: https://w3id.org/rec/building/Morgue
+  haystack:
+    type:
+      - mortuary
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+RESTROOM:
+  name: Restroom
+  description: A room in a public space providing toilets and lavatories, 
+    a public bathroom
+  extends: PERHYGIENE  
+  realestatecore_ontology:
+    name: Toilet
+    url: https://w3id.org/rec/building/Toilet 
+  haystack:
+    type:
+      - restroom
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+SRVROOM:
+  name: Server Room
+  description: Space used to house computer and networking gear. Includes MDF (Main Distribution Frame), IDF(Intermediate Distribution Frame), 
+    Telecom Rooms, and IT Closets.
+  extends: UTILRM
+  realestatecore_ontology:
+    name: DataServerRoom
+    url: https://w3id.org/rec/building/DataServerRoom
+  haystack:
+    type:
+      - serverRoom
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+STUDYRM:
+  name: Study Room
+  description: A room for small group or self-directed study. 
+  extends: EDRM
+  realestatecore_ontology:
+    name: SmallStudyRoom
+    url: https://w3id.org/rec/building/SmallStudyRoom
+  haystack:
+    type:
+      - studyRoom
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 

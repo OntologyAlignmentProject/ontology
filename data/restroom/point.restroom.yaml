@@ -1,0 +1,63 @@
+LVLLFLT:
+  name: Level Low Fault
+  description: Level has gone below a certain threshold and is generating a fault.
+  extends: FLTPT
+  haystack:
+    type:
+      - level
+      - low
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+LVLHFLT:
+  name: Level High Fault
+  description: Level has gone above a certain threshold and is generating a fault.
+  extends: FLTPT
+  haystack:
+    type:
+      - level
+      - high
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef     
+LKFLT:
+  name: Leak Fault
+  description: Equipment is indicating a leak fault.
+  extends: FLTPT
+  haystack:
+    type:
+      - leak
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef        
+JMFLT:
+  name: Jam Fault
+  description: Equipment is indicating a jam or stuck in position fault.
+  extends: FLTPT
+  haystack:
+    type:
+      - jam
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef  

@@ -1,0 +1,108 @@
+##ZONES - BASE
+ZONE:
+  name: Zone
+  description: Related to spaces from a system perspective
+  is_base: true
+  haystack:
+    type:
+      - space
+      - zone
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ZONE-1 or ZONE-57
+      - dis: Zone 1 or ZONE-1
+      - id
+    reference:
+      - siteRef
+    reference_optional:
+      - spaceRef
+##ZONES - TYPES
+SHZONE:
+  name: Shades Zone
+  description: Related to spaces from a shading system perspective
+  extends: ZONE
+  haystack:
+    type:
+      - shades
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <NAME> + - + <INTEGER> 
+      - id
+  points:
+    - SHPOS
+    - SHSC
+    - SHDIR
+FIREZONE:
+  name: Fire Zone
+  description: Related to spaces from a system perspective
+  extends: ZONE
+  haystack:
+    type:
+      - fireDetection
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FIREZONE-1 or FIREZONE-93
+      - dis: Fire  Zone 1 or FIREZONE-1
+      - id
+HVACZONE:
+  name: HVAC Zone
+  description: Related to spaces from a system perspective
+  extends: ZONE
+  haystack:
+    type:
+      - hvac
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HVACZONE-1 or HVACZONE-69
+      - dis: HVAC Zone 1 or HVACZONE-1
+      - id
+IAQZONE:
+  name: Indoor Air Quality Zone
+  description: Related to spaces from a system perspective
+  extends: ZONE
+  haystack:
+    type:
+      - iaq
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. IAQZONE-1 or IAQZONE-129
+      - dis: Indoor Air Quality Zone 1 or IAQZONE-1
+      - id
+LTGZONE:
+  name: Lighting Zone
+  description: Related to spaces from a system perspective
+  extends: ZONE
+  haystack:
+    type:
+      - lighting
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LTGZONE-1 or LTGZONE-81
+      - dis: Lighting Zone 1 or LTGZONE-1
+      - id
+  functions:
+    - OCC
+  points:
+    - LTPC
+    - OLTPC
+    - LTLVLCMD
+    - LTCMD
+    - LTLVL
+    - LTLVLSP
+    - LTST
+    - ENLDSH
+    - RLPWR
+    - DLTLVLSP
+    - EFLTLVLSP
+    - ENDLC
+    - LDSHLTLVLSP
+    - LTCLRT
+    - LTSC
+    - OCLTLVLSP
+    - UOCLTLVLSP
+OCCZONE:
+  name: Occupancy Zone
+  description: Related to spaces from a system perspective
+  extends: ZONE
+  haystack:
+    type:
+      - occupancy
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OCCZONE-1 or OCCZONE-117
+      - dis: Occupancy Zone 1 or OCCZONE-1
+      - id

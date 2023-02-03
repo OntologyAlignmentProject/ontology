@@ -1,0 +1,1923 @@
+absorption:
+  description: Cooling process using energy from heat source such as hot water
+  type: MARKER
+  source: HAY
+ac:
+  description: Relating to alternating current electricity
+  type: MARKER
+  source: HAY
+accumulate:
+  description: Accumulate the tag's value during inheritance and defx
+  type: MARKER
+  source: HAY
+acoustic:
+  description: Relating to acoustic levels
+  type: MARKER
+  source: OAP
+active:
+  description: Working, operative, effective
+  type: MARKER
+  source: HAY
+actuator:
+  description: Equipment to move or control a mechanism
+  type: MARKER
+  source: HAY
+ahu:
+  description: Air Handling Unit
+  type: MARKER
+  source: HAY
+ahuZoneDeliveryType:
+  description: AHU delivery method of conditioned air to the zone
+  type: MARKER
+  source: HAY
+adjust:
+  description: The amount of offset for a setpoint for a process.
+  type: MARKER
+  source: OAP
+air:
+  description: The mixture of gases which surrounds the earth
+  type: MARKER
+  source: HAY
+airCooled:
+  description: Indicates an equip which uses air to cool the hot refrigerant.
+  type: MARKER
+  source: HAY3
+airCooling:
+  description: Cooling by dissipating heat into the surrounding air
+  type: MARKER
+  source: HAY
+airHandlingEquip:
+  description: HVAC equipment that conditions and delivers air via one or more fans
+  type: MARKER
+  source: HAY
+airQuality:
+  description: Measurement of contaminants in the air
+  type: MARKER
+  source: HAY
+airTerminalUnit:
+  description: Equipment in air distribution systems which terminate at the space
+  type: MARKER
+  source: HAY
+alarm:
+  description: An audible, visual or other form of signal about a problem or condition.
+  type: MARKER
+  source: OAP
+angle:
+  description: Measurement of the relative difference in direction between two
+    vectors or phasors
+  type: MARKER
+  source: HAY
+ap:
+  description: Access Point
+  type: MARKER
+  source: OAP
+apparent:
+  description: Perceived quantity
+  type: MARKER
+  source: HAY
+area:
+  description: Area of a shape or floor space
+  type: NUMBER
+  source: HAY
+atmospheric:
+  description: Related to the atmosphere of the earth
+  type: MARKER
+  source: HAY
+avg:
+  description: Average
+  type: MARKER
+  source: HAY
+bacnet:
+  description: ASHRAE building automation and control protocol
+  type: MARKER
+  source: HAY
+bandwidth:
+  description: The rate of data transfer, bit rate or throughput, measured in bits
+    per second (bit/s)
+  type: MARKER
+  source: OAP
+balancing:
+  description: The concept and the practice of tuning relationships or air, liquid
+    or gas in a process.
+  type: MARKER
+  source: OAP
+barometric:
+  description: Relating atmospheric pressure
+  type: MARKER
+  source: HAY
+base:
+  description: Applied to a setpoint that is used to calculate an effective setpoint by 
+    adding a deadband or offset. 
+  type: MARKER
+  source: OAP
+battery:
+  description: Equipment used to store electric energy
+  type: MARKER
+  source: HAY
+blinds:
+  description: Window coverings, usually made out of wood, vinyl, or metal
+  type: MARKER
+  source: OAP
+blowdown:
+  description: Removal from container or pipe
+  type: MARKER
+  source: HAY
+bluetooth:
+  description: Short range wireless communication protocol
+  type: MARKER
+  source: HAY
+boiler:
+  description: Equipment to generate hot water or steam for heating
+  type: MARKER
+  source: HAY
+booster:
+  description: Boosters may be used for increasing gas pressure, transferring high
+    pressure gas, charging gas cylinders and scavenging.
+  type: MARKER
+  source: OAP
+branch:
+  description: Designates a section of duct, piping, or pneumatic tubing which connects directly to final destination of the medium it contains.
+  type: MARKER
+  source: OAP
+branchSelector:
+  description: An integral part of a VRF system, the branch selector box will send
+    either hot gas (Heating mode) or Low pressure liquid (Cooling mode) to the
+    indoor fan coil.
+  type: MARKER
+  source: OAP
+bypass:
+  description: Pipe used to bypass an equipment
+  type: MARKER
+  source: HAY
+call:
+  description: A stop for an elevator
+  type: MARKER
+  source: OAP
+campus:
+  description: A campus is a collection of two or more buildings that function as
+    a single property. They are generally owned and operated by the same party.
+  type: MARKER
+  source: OAP
+car:
+  description: Relating to the car within an elevator system
+  type: MARKER
+  source: OAP
+cav:
+  description: Constant air volume terminal unit
+  type: MARKER
+  source: HAY
+centrifugal:
+  description: Compression via a continuous flow of fluid through an impeller
+  type: MARKER
+  source: HAY
+ch2o:
+  description: Formaldehyde (CH₂O)
+  type: MARKER
+  source: HAY
+ch4:
+  description: Methane (CH₄)
+  type: MARKER
+  source: HAY
+changeover:
+  description: Used for a reversal of modes. 
+  type: MARKER
+  source: OAP
+chilled:
+  description: Substance is cooled using cooling process
+  type: MARKER
+  source: HAY
+chilledBeam:
+  description: Conditions a space using a heat exchanger integrated into the ceiling
+  type: MARKER
+  source: HAY
+chilledBeamZone:
+  description: AHU supplies air to chilled beam terminal units
+  type: MARKER
+  source: HAY
+chilledWaterCooling:
+  description: Cooling using transfer of heat to chilled water
+  type: MARKER
+  source: HAY
+chiller:
+  description: Equipment to remove heat from a liquid
+  type: MARKER
+  source: HAY
+chillerMechanismType:
+  description: Primary mechanism of chiller
+  type: MARKER
+  source: HAY
+circ:
+  description: Pipe used to circulate fluid through an equipment or system
+  type: MARKER
+  source: HAY
+circuit:
+  description: An electric circuit.
+  type: MARKER
+  source: OAP
+closed:
+  description: Describes a position or a command of an object such as a valve, damper, window as closed.
+  type: MARKER
+  source: OAP    
+closedLoop:
+  description: Working fluid is kept separate from fluid used for heat transfer
+    into the atmosphere
+  type: MARKER
+  source: HAY
+cloudage:
+  description: Percentage of sky obscurred by clouds
+  type: MARKER
+  source: HAY
+cmd:
+  description: Point is a command, actuator, AO/BO
+  type: MARKER
+  source: HAY
+co:
+  description: Carbon monoxide (CO)
+  type: MARKER
+  source: HAY
+co2:
+  description: Carbon dioxide (CO₂)
+  type: MARKER
+  source: HAY
+coap:
+  description: Constrained Application Protocol
+  type: MARKER
+  source: HAY
+coil:
+  description: Heat exchanger used to heat or cool air
+  type: MARKER
+  source: HAY
+coldAisle:
+  description:  Cool or cold supply air side of a rack of servers
+  type: MARKER
+  source: OAP   
+coldDeck:
+  description: Duct carries air for cooling
+  type: MARKER
+  source: HAY
+comm: 
+  description: Communication between two devices
+  type: MARKER
+  source: OAP
+colorTemperature:
+  description: Color Temperature of a light emited from a fixture.
+  type: MARKER
+  source: OAP
+compressor:
+  description: "A mechanical device that increases the pressure of a gas by
+    reducing its volume. "
+  type: MARKER
+  source: OAP
+computed:
+  description: Indicates a definition which is computed
+  type: MARKER
+  source: HAY
+concentration:
+  description: Abundance of substance in the total volume of a mixture
+  type: MARKER
+  source: HAY
+condensate:
+  description: Liquid phase produced by the condensation of steam or other gas
+  type: MARKER
+  source: HAY
+condenser:
+  description: Device or related to process of condensation
+  type: MARKER
+  source: HAY
+condenserCooling:
+  description: Removal of heat through the process of water condensation
+  type: MARKER
+  source: HAY
+conductivity: 
+  description: The degree to which a specified material conducts electricity
+  type: MARKER
+  source: OAP
+conduit:
+  description: Duct, pipe, or cable to convey a substance or phenomenon
+  type: MARKER
+  source: HAY
+config:
+  description: A defined set of points, sequence and stpoints with certain properties
+  type: MARKER
+  source: OAP
+constantAirVolume:
+  description: Delivers a constant volume of air flow. Typically this means
+    equipment with a single speed fan.
+  type: MARKER
+  source: HAY
+controller:
+  description: Microprocessor based device used in a control system
+  type: MARKER
+  source: HAY
+controls:
+  description: Associated with the control system for an industrial process
+  type: MARKER
+  source: HAY
+cool:
+  description: Point used to command equipment cooling
+  type: MARKER
+  source: HAY
+cooling:
+  description: Cooling mode or process
+  type: MARKER
+  source: HAY
+coolingCoil:
+  description: Coil used to cool air
+  type: MARKER
+  source: HAY
+coolingLoop:
+  description: Open or closed loop
+  type: MARKER
+  source: HAY
+coolingOnly:
+  description: Device without heating
+  type: MARKER
+  source: HAY
+coolingProcessType:
+  description: Processed used to cool a substance
+  type: MARKER
+  source: HAY
+coolingTower:
+  description: Equipment to transfer waste heat into the atmosphere
+  type: MARKER
+  source: HAY
+crac:
+  description: Computer Room Air Conditioner
+  type: MARKER
+  source: HAY
+cur:
+  description: Supports current value
+  type: MARKER
+  source: HAY
+current:
+  description: Movement of fluid or electricity
+  type: MARKER
+  source: HAY
+dali:
+  description: Digital Addressable Lighting Interface protocol for lighting
+  type: MARKER
+  source: HAY
+damper:
+  description: Damper equipment or control point
+  type: MARKER
+  source: HAY
+dataCenter:
+  description: Space used to house computer and networking gear
+  type: MARKER
+  source: HAY
+daylighting:
+  description: Relating to daylighting control of lights.
+  type: MARKER
+  source: OAP
+dayTank:
+  description: A tank specifically designed to deliver 1 day of fuel during an emergency
+  type: MARKER
+  source: OAP
+daytime:
+  description: Time between sunrise and sunset
+  type: MARKER
+  source: HAY
+dc:
+  description: Relating to direct current electricity
+  type: MARKER
+  source: HAY
+dcon:
+  description: The process of cleansing an object or substance to remove
+    contaminants such as micro-organisms or hazardous materials, including
+    chemicals, radioactive substances, and infectious diseases.
+  type: MARKER
+  source: OAP
+deadband:
+  description: The range in a process where no changes to output are made.
+  type: MARKER
+  source: OAP
+dehumidify:
+  description: Process of removing water vapor from air.
+  type: MARKER
+  source: OAP
+delta:
+  description: Differential of fluid between entering and leaving sensors
+  type: MARKER
+  source: HAY
+device:
+  description: Microprocessor based hardware device
+  type: MARKER
+  source: HAY
+dewPoint:
+  description: Dew point temperature at which water vapor will form dew
+  type: MARKER
+  source: HAY
+direction:
+  description: Compass direction measured in degrees
+  type: MARKER
+  source: HAY
+directZone:
+  description: AHU supplies air directly to the zone
+  type: MARKER
+  source: HAY
+disable:
+  description: Secondary off point of an equip
+  type: MARKER
+  source: OAP
+discharge:
+  description: Duct with air leaving an equipment
+  type: MARKER
+  source: HAY
+dishwasher: 
+  description: Machine used for washing dishes
+  type: MARKER
+  source: OAP
+dispenser: 
+  description:  Machine or container which is designed to release a specific amount of its content.
+  type: MARKER
+  source: OAP  
+docSection:
+  description: This tag is documented with its own section
+  type: MARKER
+  source: HAY
+docTaxonomy:
+  description: Generate a taxonomy tree for this term in the documentation index
+  type: MARKER
+  source: HAY
+domestic:
+  description: For human use
+  type: MARKER
+  source: HAY
+door:
+  description: Barrier to a building, room or elevator
+  type: MARKER
+  source: OAP
+drive:
+  description: Related to the drive control of a motor
+  type: MARKER
+  source: HAY
+dryer:
+  description: Machine used to dry clothing. 
+  type: MARKER
+  source: OAP  
+dualDuct:
+  description: Two ducts
+  type: MARKER
+  source: HAY
+duct:
+  description: Conduit used to convey air for HVAC
+  type: MARKER
+  source: HAY
+ductArea:
+  description: Config point on a vav for duct area measured in ft² or m²
+  type: MARKER
+  source: HAY
+ductConfigType:
+  description: Ductwork configuration
+  type: MARKER
+  source: HAY
+ductDeckType:
+  description: Cold, hot, or neutral deck
+  type: MARKER
+  source: HAY
+ductSectionType:
+  description: Equipment section of ductwork
+  type: MARKER
+  source: HAY
+duration:
+  description: Number with a unit of time
+  type: MARKER
+  source: HAY
+dxCooling:
+  description: Cooling using direct expansion of a refrigerant vapar
+  type: MARKER
+  source: HAY
+dxHeating:
+  description: Heating using direct expansion of a refrigerant vapar
+  type: MARKER
+  source: OAP
+east:
+  description: the direction toward the point of the horizon where the sun rises at the equinoxes, on the right-hand side of a person facing north
+  type: MARKER
+  source: OAP  
+eav:
+  description: Exhaust Air VAV eqiup
+  type: MARKER
+  source: OAP
+economizing:
+  description: Energy reduction mode which augments heating/cooling with outside air.
+  type: MARKER
+  source: HAY
+effective:
+  description: Current control setpoint in effect taking into account other factors
+  type: MARKER
+  source: HAY
+efficiency:
+  description: Efficiency point of a chiller measured in "COP" or "kW/ton"
+  type: MARKER
+  source: HAY
+elec:
+  description: Associated with electricity, electric charge
+  type: MARKER
+  source: HAY
+elecHeating:
+  description: Heating by the conversion of electrical energy
+  type: MARKER
+  source: HAY
+elevator:
+  description: Enclosure used to move people between floors
+  type: MARKER
+  source: HAY
+emergency:
+  description: A device, equip or point related to a situation that poses an
+    immediate risk to health, life, property, or environment.
+  type: MARKER
+  source: OAP
+enable:
+  description: Secondary on/off point of an equip especially used with a vfd
+  type: MARKER
+  source: HAY
+energy:
+  description: Measure of ability to do work
+  type: MARKER
+  source: HAY
+entering:
+  description: Pipe conveys fluid into an equipment
+  type: MARKER
+  source: HAY
+entity:
+  description: Top-level dicts with a unique identifier
+  type: MARKER
+  source: HAY
+enthalpy:
+  description: Total heat content of a system 
+  type: MARKER
+  source: OAP  
+environment:
+  description: Encompassing all aspects of a defined area (air, lighting, acoustic, etc)
+  type: MARKER
+  source: OAP
+equip:
+  description: Equipment asset
+  type: MARKER
+  source: HAY
+escalator:
+  description: Moving staircase used to move people between floors
+  type: MARKER
+  source: HAY
+ethernet:
+  description: A family of computer networking technologies commonly used in local
+    area networks (LAN), metropolitan area networks (MAN) and wide area networks
+    (WAN)
+  type: MARKER
+  source: OAP
+evaporator:
+  description: Mechanism used to convert a refrigerant from its liquid to gaseous state
+  type: MARKER
+  source: HAY
+evaporative:
+  description: Describes the evaporation process of a liquid, typically water, for a cooling application.
+  type: MARKER
+  source: OAP
+exhaust:
+  description: Duct used to expel air back outside
+  type: MARKER
+  source: HAY
+export:
+  description: Supplied out of a system
+  type: MARKER
+  source: HAY
+faceBypass:
+  description: Point of an ahu indicating air flow is by-passing the heating/cooling coils
+  type: MARKER
+  source: HAY
+fan:
+  description: Fan equipment or control point
+  type: MARKER
+  source: HAY
+fanPowered:
+  description: Device with a fan
+  type: MARKER
+  source: HAY
+fault:
+  description: A fault or error
+  type: MARKER
+  source: OAP
+fcu:
+  description: Fan Coil Unit
+  type: MARKER
+  source: HAY
+feelsLike:
+  description: Apparent temperature perceived when considering humidity, wind
+    chill, and heat index
+  type: MARKER
+  source: HAY
+filter:
+  description: A device composed of fibrous materials which removes solid
+    particulates such as dust, pollen, mold, and bacteria from the air
+  type: MARKER
+  source: OAP
+fire:
+  description: Combustion or burning, in which substances combine chemically with 
+    oxygen from the air and typically give out bright light, heat, and smoke.
+  type: MARKER
+  source: OAP  
+fireDetection:
+  description: Involves one or more of sensor products or phenomena resulting from
+    fire, such as smoke, heat, infrared and/or ultraviolet light radiation, or
+    gas.
+  type: MARKER
+  source: OAP
+fireExtinguisher:
+  description: Active fire protection device used to extinguish or 
+    control small fires, often in emergency situations.
+  type: MARKER
+  source: OAP  
+fireSuppression:
+  description: An engineered group of units that are built to extinguish
+    fires through the application of a substance.
+  type: MARKER
+  source: OAP  
+floor:
+  description: Storey of a building
+  type: MARKER
+  source: HAY
+flow:
+  description: Measure of volumetric flow of fluid
+  type: MARKER
+  source: HAY
+flue:
+  description: Duct for exhausting combustion
+  type: MARKER
+  source: HAY
+fluid:
+  description: Liquid or gas
+  type: MARKER
+  source: HAY
+flux:
+  description: Measurement through a given surface
+  type: MARKER
+  source: HAY
+freezeStat:
+  description: A boolean point of an ahu indicating a freezing condition
+  type: MARKER
+  source: HAY
+freq:
+  description: Occurrences per unit time
+  type: MARKER
+  source: HAY
+ftp:
+  description: File Transfer Protocol
+  type: MARKER
+  source: HAY
+fuelOil:
+  description: Petroleum based oil burned for energy
+  type: MARKER
+  source: HAY
+fumeHood:
+  description: Ventilation equipment to limit exposure to hazardous fumes
+  type: MARKER
+  source: HAY
+gas:
+  description: Substance with neither definite volume nor shape
+  type: MARKER
+  source: HAY
+gasHeating:
+  description: Heating by the combustion of natural gas
+  type: MARKER
+  source: HAY
+gasoline:
+  description: Petroleum derived liquid used as a fuel source
+  type: MARKER
+  source: HAY
+gateway:
+  description: A device or computer that sits between different networks or applications
+  type: MARKER
+  source: OAP
+geoAddr:
+  description: Free form street address. Best practice is to follow local norms for a postal address. 
+    Typically this string includes the geoStreet, geoCity, geoState (in US), and geoPostalCode.
+  type: STRING
+  source: HAY
+geoCity:
+  description: Geographic city or locality name
+  type: STRING
+  source: HAY
+geoCoord:
+  description: Geographic coordinate as C(latitude,longitude)
+  type: COORD
+  source: HAY
+geoCountry:
+  description: Geographic country as ISO 3166-1 two letter code
+  type: STRING
+  source: HAY
+geoCounty:
+  description: Geographic subdivision of US state
+  type: STRING
+  source: HAY
+geoElevation:
+  description: Elevation above sea-level of the location
+  type: NUMBER
+  source: HAY
+geoPlace:
+  description: Geographic place
+  type: MARKER
+  source: HAY
+geoPostalCode:
+  description: Geographic postal code; for US this is a five digit zip geoPostalCode.
+  type: STRING
+  source: HAY
+geoState:
+  description: State or province name; for US this is two letter state code. 
+    May be used in other countries to model administrative area between the geoCity and geoCountry level.
+  type: STRING
+  source: HAY
+geoStreet:
+  description: Geographic street address and name
+  type: STRING
+  source: HAY
+grease:
+  description: Any petroleum product or fat (including cooking fat) that is a soft
+    solid at room temperature
+  type: MARKER
+  source: OAP
+group:
+  description: Indicating a collection of similar entities
+  type: MARKER
+  source: OAP
+ground:
+  description: Related to the surface of the earth
+  type: MARKER
+  source: HAY
+guideVane:
+  description: Airfoils that direct air, gas, or water
+  type: MARKER
+  source: OAP
+haystack:
+  description: Haystack HTTP protocol for exchanging tagged data
+  type: MARKER
+  source: HAY
+header:
+  description: Pipe used as central connection or manifold for other piping runs
+  type: MARKER
+  source: HAY
+heat:
+  description: Point used to command equipment heating
+  type: MARKER
+  source: HAY
+heatExchanger:
+  description: Equipment to transfer heat between two working fluids
+  type: MARKER
+  source: HAY
+heating:
+  description: Heating mode or process
+  type: MARKER
+  source: HAY
+heatingCoil:
+  description: Coil used to heat air
+  type: MARKER
+  source: HAY
+heatingOnly:
+  description: Device without cooling
+  type: MARKER
+  source: OAP
+heatingProcessType:
+  description: Processed used to heat a substance
+  type: MARKER
+  source: HAY
+heatPump:
+  description: Heat pumps move thermal energy in the opposite direction of
+    spontaneous heat transfer, by absorbing heat from a cold space and releasing
+    it to a warmer one.
+  type: MARKER
+  source: HAY
+heatRecovery:
+  description: Heat recovery is a method to reduce the heating and cooling demands
+    ( and thus energy costs ) of buildings.
+  type: MARKER
+  source: OAP
+heatWheel:
+  description: Boolean point indicating command state of AHU's heat wheel
+  type: MARKER
+  source: HAY
+heater:
+  description: Equipment used to heat a substance typically water.
+  type: MARKER
+  source: OAP
+high: 
+  description: Above a threshold
+  type: MARKER
+  source: OAP
+highVoltage:
+  description: An equip designed to operate at voltages higher than the standard 120/208/240 for example 277/480 or 347/600
+  type: MARKER
+  source: OAP  
+his:
+  description: Supports historization of data
+  type: MARKER
+  source: HAY
+hisTotalized:
+  description: Indicates values which are a continuous stream of totalization
+  type: MARKER
+  source: HAY
+hmi:
+  description: Human Machine Interface
+  type: MARKER
+  source: OAP
+hot:
+  description: Having high degree of heat
+  type: MARKER
+  source: HAY
+hotAisle:
+  description:  Hot or warm return air side of a rack of servers
+  type: MARKER
+  source: OAP 
+hotDeck:
+  description: Duct carries air for heating
+  type: MARKER
+  source: HAY
+hotGas:
+  description: High temperature refrigerant vapor which is redirected to a separate condenser coil for purposes of reheating air. 
+  type: MARKER
+  source: OAP
+hotWaterHeating:
+  description: Heating using energy of hot water
+  type: MARKER
+  source: HAY
+http:
+  description: Hypertext Transfer Protocol which is foundation of the web
+  type: MARKER
+  source: HAY
+hub: 
+  description: Network hardware device for connecting multiple devices 
+    together and making them act as a single network segment
+  type: MARKER
+  source: OAP  
+humidity:
+  description: Percent relative humidity
+  type: MARKER
+  source: HAY
+humidify:
+  description: Process of increasing water vapor content in air.
+  type: MARKER
+  source: OAP  
+hvacMode:
+  description: Mode of a piece of HVAC equipment
+  type: MARKER
+  source: OAP
+iaq:
+  description: Relating to indoor air quality
+  type: MARKER
+  source: OAP
+ice:
+  description: Water in its solid form
+  type: MARKER
+  source: HAY
+illuminance:
+  description: Luminous flux hitting the inside of the sphere at a specific point
+  type: MARKER
+  source: HAY
+imap:
+  description: Internet Message Access Protocol for retreiving email
+  type: MARKER
+  source: HAY
+imbalance:
+  description: Lacking balance
+  type: MARKER
+  source: HAY
+import:
+  description: Received into a system
+  type: MARKER
+  source: HAY
+indoorUnit:
+  description: The indoor unit of a VRF System, often referred to as fan coils
+  type: MARKER
+  source: OAP
+inHand:
+  description: Indicates device is locally controlled 
+  type: MARKER
+  source: OAP  
+inlet:
+  description: Duct with air entering an equipment
+  type: MARKER
+  source: HAY
+intensity:
+  description: Measure of an electromagnetic field
+  type: MARKER
+  source: HAY
+interceptor:
+  description: A device meant to intercept oils, gases or particle before entering
+    a disposal system
+  type: MARKER
+  source: OAP
+inverter:
+  description: A power inverter, or inverter, is a power electronic device or
+    circuitry that changes direct current (DC) to alternating current (AC).
+  type: MARKER
+  source: OAP
+ips:
+  description: Integrated power switchboards combine circuit breakers, chassis,
+    and transformers, as well as other electrical products
+  type: MARKER
+  source: OAP
+irradiance:
+  description: Energy received at a surface by area
+  type: MARKER
+  source: HAY
+isolation:
+  description: Actuator used to isolate an equipment from a pipe or ductwork system
+  type: MARKER
+  source: HAY
+jam: 
+  description: Be fixed in a particular position or unable to move or be moved.
+  type: MARKER
+  source: OAP
+knx:
+  description: KNX protocol commonly used for lighting systems
+  type: MARKER
+  source: HAY
+landing:
+  description: A stop for an elevator or lift
+  type: MARKER
+  source: OAP
+leak:
+  description: Accidentally lose or admit contents, especially liquid or gas, through a hole or crack
+  type: MARKER
+  source: OAP
+leaving:
+  description: Pipe conveys fluid out of an equipment
+  type: MARKER
+  source: HAY
+level:
+  description: Fill level of a vessel containing a fluid where 0% is empty and
+    100% is filled
+  type: MARKER
+  source: HAY
+light:
+  description: Electromagnetic radiation in the visibile spectrum
+  type: MARKER
+  source: HAY
+lighting:
+  description: Systems associated with illumination in the built environment
+  type: MARKER
+  source: HAY
+line:
+  description: Measures or detects across a line as opposed to an area or zone.
+  type: MARKER
+  source: OAP
+liquid:
+  description: Substance with definite volume but takes the shape of its container
+  type: MARKER
+  source: HAY
+load:
+  description: Chiller point to command or measure the chiller's load as a
+    percentage from "0%" to "100%"
+  type: MARKER
+  source: HAY
+loadshed:
+  description: Relating to loadshedding logic.
+  type: MARKER
+  source: OAP
+loadType:
+  desciption: Primary load type served by an entity (typically an electrical panel)
+  enum: 
+    - lighting
+    - hvac
+    - plumbing
+    - receptacles
+    - refrigeration
+  type: ENUM
+  source: OAP  
+low: 
+  description: Below a threshold
+  type: MARKER
+  source: OAP
+lowTemp:
+  description: An equip designed to operate a process below 32 deg F.
+  type: MARKER
+  source: OAP
+lowVoltage:
+  description: An equip designed to operate at 120/208/240V.
+  type: MARKER
+  source: OAP
+lora:
+  description: LoRa (Long Range) is a proprietary low-power wide-area network modulation technique.
+  type: MARKER
+  source: OAP  
+luminaire:
+  description: Light fixture using electricity to provide illumination
+  type: MARKER
+  source: HAY
+luminance:
+  description: Energy of light in a given direction
+  type: MARKER
+  source: HAY
+luminous:
+  description: Relating to light as perceived by the eye
+  type: MARKER
+  source: HAY
+magnitude:
+  description: Size or extent
+  type: MARKER
+  source: HAY
+makeup:
+  description: Restore soemthing missed or lost
+  type: MARKER
+  source: HAY
+mandatory:
+  description: Requires that the marker be applied to dicts which use the marker's subtypes
+  type: MARKER
+  source: HAY
+mass:
+  description: Measure of mass 
+  type: MARKER
+  source: BIOT
+massFlow:
+  description: Measure of mass flow of fluid
+  type: MARKER
+  source: BIOT
+mau:
+  description: Makeup Air Unit
+  type: MARKER
+  source: HAY
+max:
+  description: Maximum Value
+  type: MARKER
+  source: HAY3
+medical:
+  description: Classifies a device or equip used in the medical facility or has
+    medical grade certification
+  type: MARKER
+  source: OAP
+meter:
+  description: Equipment to meter a substance or phenomenon
+  type: MARKER
+  source: HAY
+meterScopeType:
+  description: Classifies a meter as a main site meter or submeter
+  type: MARKER
+  source: HAY
+min:
+  description: Minimum value.
+  type: MARKER
+  source: HAY3
+mixed:
+  description: Duct where fresh outside and return air is mixed together
+  type: MARKER
+  source: HAY
+mixing:
+  description: Three way valve which inputs two pipes and outputs a mixture
+    between the two to a single output pipe
+  type: MARKER
+  source: HAY
+mobile:
+  description: Relating to mobile phones, handheld computers, and similar technology
+  type: MARKER
+  source: HAY
+modbus:
+  description: Register based communication protocol used with industrial devices
+  type: MARKER
+  source: HAY
+mode:
+  description: Method of operation.
+  type: MARKER
+  source: OAP
+motor:
+  description: Equipment that converts electrical energy into mechanical energy
+  type: MARKER
+  source: HAY
+movingWalkway:
+  description: Conveyor to move people across a horizontal or inclined plane
+  type: MARKER
+  source: HAY
+mqtt:
+  description: Message Queuing Telemetry Transport publish/subscribe protocol
+  type: MARKER
+  source: HAY
+multiFunction:
+  description: Device or equipment performs multiple functions (e.q. IAQ sensor and thermal sensor)
+  type: MARKER
+  source: OAP
+multiZone:
+  description: AHU discharge air is split into a duct per zone
+  type: MARKER
+  source: HAY
+naturalGas:
+  description: Fossil fuel energy source consisting largely of methane and other
+    hydrocarbons
+  type: MARKER
+  source: HAY
+net:
+  description: Difference between import and export
+  type: MARKER
+  source: HAY
+network:
+  description: Logical communications network between two or more devices
+  type: MARKER
+  source: HAY
+networking:
+  description: Related to data communication networks
+  type: MARKER
+  source: HAY
+neutralDeck:
+  description: Duct carries air which by-passes both heating and cooling coils
+  type: MARKER
+  source: HAY
+nh3:
+  description: Ammonia (NH₃)
+  type: MARKER
+  source: OAP
+no2:
+  description: Nitrogen dioxide (NO₂)
+  type: MARKER
+  source: OAP
+notInherited:
+  description: Marker applied to a def to indicate that is not inherited into
+    subtype definitions
+  type: MARKER
+  source: HAY
+o2:
+  description: Oxygen (O₂) - the common dioxygen allotrope in the air
+  type: MARKER
+  source: OAP
+o3:
+  description: Ozone (O₃)
+  type: MARKER
+  source: OAP
+obix:
+  description: XML based Open Building Information eXchange protocol
+  type: MARKER
+  source: HAY
+occ:
+  description: Occupied mode of a space
+  type: MARKER
+  source: HAY
+occupancy:
+  description: Number of occupants in a space
+  type: MARKER
+  source: HAY
+occupants:
+  description: People who use the built environment
+  type: MARKER
+  source: HAY
+occupied:
+  description: Setpoint or sensor indicating occupancy of a space
+  type: MARKER
+  source: HAY
+oil:
+  description: An oil is any nonpolar chemical substance that is a viscous liquid
+    at ambient temperatures and is both hydrophobic and lipophilic
+  type: MARKER
+  source: OAP
+oilHeating:
+  description: Heating by the combustion of fuel oil
+  type: MARKER
+  source: HAY
+open:
+  description: Describes a position or a command of an object such as a valve, damper, window as open.
+  type: MARKER
+  source: OAP  
+openLoop:
+  description: Uses working fluid itself for evaporation into the atmosphere
+  type: MARKER
+  source: HAY
+opticalFiber:
+  description: Optical fibers are used most often as a means to transmit light
+    between the two ends of the fiber and find wide usage in fiber-optic
+    communications
+  type: MARKER
+  source: OAP
+outdoorUnit:
+  description: The outdoor unit of a VRF System, comprising one or multiple compressors
+  type: MARKER
+  source: OAP
+outside:
+  description: Duct to access fresh outside air
+  type: MARKER
+  source: HAY
+override: 
+  description: An action that interrupts, cancels, or changes the current action or status.
+  type: MARKER
+  source: OAP
+panel:
+  description: Enclosure for electrical and control equipment
+  type: MARKER
+  source: HAY
+parallel:
+  description: Circuit with multiple paths of flow
+  type: MARKER
+  source: HAY
+parking:
+  description: Related to the stopping or standing of vehicles
+  type: MARKER
+  source: OAP  
+perimeterHeat:
+  description: Auxiliary heating points associated with a vav
+  type: MARKER
+  source: HAY
+penthouse: 
+  description: The top floor of a tall building, typically home to either a luxury apartment or mechanical equipment
+  type: MARKER
+  source: HAY
+pf:
+  description: Electrical power factor
+  type: MARKER
+  source: HAY
+phase:
+  description: Phase measurement in a three-phase electrical system
+  type: STRING
+  source: HAY
+singlePhase:
+  description: Single-phase AC electrical power. Power is provided by a single AC voltage source.
+  type: MARKER
+  source: HAY
+threePhase:
+  description: Three-phase AC electrical power. Power is provided by three AC voltage sources, each separated from the others by a 120-degree phase angle.
+  type: MARKER
+  source: HAY
+phenomenon:
+  description: Aspect of scientific interest with measurable quantities
+  type: MARKER
+  source: HAY
+phone:
+  description: Telephone used for voice telecommunication
+  type: MARKER
+  source: HAY
+pipe:
+  description: Conduit used to convey a fluid
+  type: MARKER
+  source: HAY
+pipeSectionType:
+  description: Equipment section of piping
+  type: MARKER
+  source: HAY
+plant:
+  description: Central plant used to generate a substance for a process
+  type: MARKER
+  source: HAY
+pm10:
+  description: Particulate Matter 10
+  type: MARKER
+  source: HAY
+pm25:
+  description: Particulate Matter 2.5
+  type: MARKER
+  source: HAY
+pm01:
+  description: Particulate Matter 0.1
+  type: MARKER
+  source: OAP
+pneumatic:
+  description: Compressed air used to control devices.
+  type: MARKER
+  source: OAP
+poe:
+  description: Power-over-Ethernet
+  type: MARKER
+  source: OAP
+point:
+  description: Data point such as a sensor or actuator
+  type: MARKER
+  source: HAY
+pointFunctionType:
+  description: Classifies the point as a sensor, command, or setpoint
+  type: MARKER
+  source: HAY
+pop3:
+  description: Post Office Protocol version 3 for retreiving email
+  type: MARKER
+  source: HAY
+port:
+  description: Communication endpoint
+  type: MARKER
+  source: OAP
+portfolio:
+  description: A collection of sites owned or managed by a single entity
+  type: MARKER
+  source: OAP
+portNum:
+  description: Port number of switch by which the port is contained
+  type: MARKER
+  source: OAP
+position:
+  description: The amount of open or level for the effected equip or device
+  type: MARKER
+  source: OAP
+power:
+  description: Energy consumed per unit time
+  type: MARKER
+  source: HAY
+precipitation:
+  description: Amount of atmospheric water vapor fallen including rain, sleet,
+    snow, and hail
+  type: MARKER
+  source: HAY
+preheat:
+  description: To heat before using or before subjecting to some further process
+  type: MARKER
+  source: OAP
+pressure:
+  description: Measure of force applied
+  type: MARKER
+  source: HAY
+pressureDependent:
+  description: VAV damper modulates to control space temp
+  type: MARKER
+  source: HAY
+pressureIndependent:
+  description: VAV damper or a control valve that modulates to maintain desired
+    flow setpoint
+  type: MARKER
+  source: HAY
+primaryLoop:
+  description: Indicates equipment and points which are associated with a chiller,
+    boiler or heat pump plant's primary loop - the pipework within the central plant.
+  type: MARKER
+  source: HAY3
+process:
+  description: Industrial or HVAC process
+  type: MARKER
+  source: HAY
+protocol:
+  description: Communication protocol used for devices on a network
+  type: MARKER
+  source: HAY
+pump:
+  description: An equip that moves fluids (liquids or gases), or sometimes
+    slurries, by mechanical action, typically converted from electrical energy
+    into Hydraulic energy.
+  type: MARKER
+  source: HAY
+quality:
+  description: Quantity measured against standard metric
+  type: MARKER
+  source: HAY
+quantity:
+  description: Measurable property of a substance or phenomenon
+  type: MARKER
+  source: HAY
+rack:
+  description: Enclosure or chassis used to mount computer and networking gear
+  type: MARKER
+  source: HAY
+radiantEquip:
+  description: HVAC equipment that conditions a space without forced air
+  type: MARKER
+  source: HAY
+radiantFloor:
+  description: Heats a space using pipes or cables embedded beneath floor
+  type: MARKER
+  source: HAY
+radiator:
+  description: Heats a space using exposed pipes or coils
+  type: MARKER
+  source: HAY
+rainwater: 
+  description:  Related to rainwater/precipitation collection (for purposes of onsite reuse) in a building, typically only water that falls on a roof, not the site.
+  type: MARKER
+  source: OAP
+rav:
+  description: Return Air VAV eqiup
+  type: MARKER
+  source: OAP
+reactive:
+  description: Relating to reactance
+  type: MARKER
+  source: HAY
+reciprocal:
+  description: Piston compressor driven by a crankshaft
+  type: MARKER
+  source: HAY
+refrig:
+  description: Fluid used in refrigeration and heat exchange
+  type: MARKER
+  source: HAY
+reheat:
+  description: Command point for reheats process
+  type: MARKER
+  source: HAY
+relief:
+  description: The partial or total release of pressure in an air, liquid, or gas process
+  type: MARKER
+  source: OAP
+reset:
+  description: The return to normal condition
+  type: MARKER
+  source: OAP  
+return:
+  description: Duct returning air back to equipment
+  type: MARKER
+  source: HAY
+request:
+  description: Ask of one device to another 
+  type: MARKER
+  source: OAP
+reverseOsmosis:
+  description: A process, commonly referred to as RO, where you demineralize or deionize water
+    by pushing it through a semi-permeable membrane.
+  type: MARKER
+  source: OAP
+rla: 
+  description: Rated Load Amps (amount of amperage a machine such as a chiller should pull when fully loaded). 
+    Occaisonally called "FLA" (full load amps), but this is older terminology.
+  type: MARKER
+  source: OAP
+roof:
+  description: Envelope covering the top of a building
+  type: MARKER
+  source: HAY
+rotaryScrew:
+  description: Rotary screw compression
+  type: MARKER
+  source: HAY
+router:
+  description: Device used to route data packets
+  type: MARKER
+  source: HAY
+rtu:
+  description: Roof Top Unit
+  type: MARKER
+  source: HAY
+run:
+  description: Primary on/off point of an equip especially used with a vfd
+  type: MARKER
+  source: HAY
+sand:
+  description: "Sand is a granular material composed of finely divided rock and
+    mineral particles. "
+  type: MARKER
+  source: OAP
+saturated:
+  description: Boiling point at which liquid transitions to vapor. 
+  type: MARKER
+  source: OAP  
+sav:
+  description: Supply Air VAV equip
+  type: MARKER
+  source: OAP
+scene:
+  description: The lighting scene for a room
+  type: MARKER
+  source: OAP
+schedulePoint:
+  description: Indicates that a point is driven by a schedule
+  type: MARKER
+  source: OAP
+secondaryLoop:
+  description: Indicates equipment and points which are associated with a chiller,
+    boiler or heat pump plant's secondary loop - the pipework from the central plant to
+    the building.
+  type: MARKER
+  source: HAY3
+sectionalizer:
+  description: A protective device that automatically isolates a faulted section
+    of line from the rest of the distribution system.
+  type: MARKER
+  source: OAP
+seismic:
+  description: Indicates a device or point that responds to seismic activity
+  type: MARKER
+  source: OAP
+sensor:
+  description: Point is a sensor, input, AI/BI
+  type: MARKER
+  source: HAY
+series:
+  description: Circuit with single path of flow
+  type: MARKER
+  source: HAY
+server:
+  description: General purpose computer
+  type: MARKER
+  source: HAY
+sewageEjector:
+  description: An ejector create a vacuum feed connection for sewage systems
+  type: MARKER
+  source: OAP
+sewage:
+  description: Wastewater produced by a community of people
+  type: MARKER
+  source: OAP
+shades:
+  description: Window converings, usually created with a large swath of soft fabric material
+  type: MARKER
+  source: OAP
+singleDuct:
+  description: One single duct
+  type: MARKER
+  source: HAY
+site:
+  description: Site is a geographic location of the built environment
+  type: MARKER
+  source: HAY
+siteMeter:
+  description: Main meter for the associated site
+  type: MARKER
+  source: HAY
+sixWay:
+  description: Indicates a valve with 6 ports for control of heating and cooling changeover. 
+  type: MARKER
+  source: OAP  
+smtp:
+  description: Simple Mail Transfer Protocol for sending email
+  type: MARKER
+  source: HAY
+smoke: 
+  description: Collection of airborne particulates and gases emitted when a material undergoes combustion together with the quantity of air that is entrained or otherwise mixed in
+  type: MARKER
+  source: OAP
+snmp:
+  description: Simple Network Management Protocol for managing IP devices
+  type: MARKER
+  source: HAY
+soap:
+  description: Substance used with water for washing and cleaning
+  type: MARKER
+  source: OAP  
+solar:
+  description: Relating to energy from the sun
+  type: MARKER
+  source: HAY
+solid:
+  description: Substance with definite shape and volume
+  type: MARKER
+  source: HAY
+sox:
+  description: Sedona Framework UDP based communication protocol
+  type: MARKER
+  source: HAY
+sp:
+  description: Point is a setpoint, soft point, internal control variable, schedule
+  type: MARKER
+  source: HAY
+space:
+  description: Space is a three-dimensional volume in the built environment
+  type: MARKER
+  source: HAY
+speed:
+  description: Distance per unit time
+  type: MARKER
+  source: HAY
+sprinklerHead:
+  description: Component of a fire sprinkler system that discharges water when the effects of a fire have been detected
+  type: MARKER
+  source: OAP  
+stage:
+  description: Stage number of staged equipment operation such as coil or pump.
+  type: NUMBER
+  source: HAY
+standby:
+  description: Readiness mode of a space
+  type: MARKER
+  source: HAY
+state:
+  description: Software, hardware, or process control status
+  type: MARKER
+  source: HAY
+stateQuantity:
+  description: What is sensed or controlled of software, hardware, or process state
+  type: MARKER
+  source: HAY
+steam:
+  description: Water in its gas form
+  type: MARKER
+  source: HAY
+steamHeating:
+  description: Heating using energy of steam
+  type: MARKER
+  source: HAY
+stormwater: 
+  description: All precipitation collected on a site for offsite treatment and disposal. 
+  type: MARKER
+  source: OAP  
+subcooler:
+  description: Heat exchanger through which refrigerant flows to be subcooled
+  type: MARKER
+  source: OAP  
+submeter:
+  description: Submeters measure usage of a sub-system or equipment within a site
+  type: MARKER
+  source: HAY
+substance:
+  description: Matter in one the three states solid, liquid, or gas
+  type: MARKER
+  source: HAY
+substation:
+  description: Substations transform voltage from high to low, or the reverse, or
+    perform any of several other important functions.
+  type: MARKER
+  source: OAP
+subterranean:
+  description: Below the surface of the earth
+  type: MARKER
+  source: HAY
+sump:
+  description: "A sump is a low space that collects often undesirable liquids such
+    as water or chemicals. "
+  type: MARKER
+  source: OAP
+supply:
+  description: Associated with the the supply air serving downstream equip like
+    and AHU or VAV.
+  type: MARKER
+  source: OAP
+surface: 
+  description: Relating to or occurring on the upper or outer part of something.
+  type: MARKER
+  source: OAP  
+basinSweeper: 
+  description: Action performed in a cooling tower basin to prevent sediment build-up via water turbulence
+  type: MARKER
+  source: OAP
+switch:
+  description: Device for toggling state or routing data
+  type: MARKER
+  source: HAY
+switchboard:
+  description: Component of an electrical distribution system which divides an electrical power feed 
+    into branch circuits while providing a protective circuit breaker or fuse for each circuit in a common enclosure
+  type: MARKER
+  source: OAP  
+system:
+  description: A system is a group of interacting or interrelated entities that
+    form a unified whole.
+  type: MARKER
+  source: OAP
+tablet:
+  description: Mobile device with touch screen for user input
+  type: MARKER
+  source: HAY
+tank:
+  description: Tank used to store a substance for temporary holding
+  type: MARKER
+  source: HAY
+temp:
+  description: Temperature - measure of hot and cold
+  type: MARKER
+  source: HAY
+tertiaryLoop:
+  description: Indicates equipment and points which are associated with a chiller,
+    boiler or heat pump plant's tertiary loop - the pipework which circulates within a building.
+  type: MARKER
+  source: HAY3
+text:
+  description: Indicates that point contains string-type information as a message or code
+  type: MARKER
+  source: OAP    
+thd:
+  description: Total harmonic distortion
+  type: MARKER
+  source: HAY
+thermal:
+  description: Related to energy of heat
+  type: MARKER
+  source: HAY
+thermalSource:
+  description: Related to the upstream production of heating and cooling
+  type: MARKER
+  source: OAP
+thermostat:
+  description: Senses and controls temperature of space in HVAC system
+  type: MARKER
+  source: HAY
+thermostatic:
+  description: Typically associated with a valve, it closes as the temperature of
+    the surrounding area increases
+  type: MARKER
+  source: OAP
+thread:
+  description: Low power wireless IoT protocol
+  type: MARKER
+  source: HAY
+toiletPaper:
+  description: Toilet tissue
+  type: MARKER
+  source: OAP  
+total:
+  description: Complete or absolute
+  type: MARKER
+  source: HAY
+towelPaper:
+  description: Disposable paper for drying hands
+  type: MARKER
+  source: OAP    
+transformer:
+  description: In an electric power system, a passive electrical device that transfers 
+    electrical energy from one electrical circuit to another in order to increase or decrease the voltage.
+  type: MARKER
+  source: OAP
+transient:
+  description: Indicates a value tag which should not be persisted
+  type: MARKER
+  source: HAY
+transitive:
+  description: This marker is applied to a relationship to indicate it is transitive
+  type: MARKER
+  source: HAY
+tripleDuct:
+  description: Three ducts
+  type: MARKER
+  source: HAY
+tvoc:
+  description: Total volatile organic compound (TVOC)
+  type: MARKER
+  source: HAY
+unitVent:
+  description: Unit Ventilator
+  type: MARKER
+  source: HAY
+unocc:
+  description: Unoccupied mode of a space
+  type: MARKER
+  source: HAY
+ups:
+  description: An electrical apparatus that provides emergency power to a load
+    when the input power source or mains power fails.
+  type: MARKER
+  source: OAP
+utilityMeter:
+  description: Meter that measures a direct feed from a Utility
+  type: MARKER
+  source: OAP
+vacuum:
+  description: Refers to any space in which the pressure is considerably lower
+    than atmospheric pressure.
+  type: MARKER
+  source: OAP
+valve:
+  description: Valve equipment or control point
+  type: MARKER
+  source: HAY
+vaporizer:
+  description: A device used to extract for inhalation the active ingredients of
+    chemicals or plant materials
+  type: MARKER
+  source: OAP
+variableAirVolume:
+  description: Delivers a variable volume of air flow. Most variable volume
+    systems are powered by a VFD fan. However other techniques such as inlet
+    vanes may be used in older systems.
+  type: MARKER
+  source: HAY
+vav:
+  description: Variable air volume terminal unit
+  type: MARKER
+  source: HAY
+vavAirCircuitType:
+  description: How does the VAV pull in air
+  type: MARKER
+  source: HAY
+vavModulationType:
+  description: How does VAV modulate the temp based on duct pressure
+  type: MARKER
+  source: HAY
+vavZone:
+  description: AHU supplies air to VAV terminal units
+  type: MARKER
+  source: HAY
+ventilationOnly:
+  description: Equipment that is only used to provide fresh air to spaces(no other heating or cooling)
+  type: MARKER
+  source: OAP
+verticalTransport:
+  description: Equipment to move humans and materials
+  type: MARKER
+  source: HAY
+vfd:
+  description: Motor with variable frequency drive
+  type: MARKER
+  source: HAY
+virtual:
+  description: Indicates that it is not a physical entity, but is derived from other entities
+  type: MARKER
+  source: OAP
+visibility:
+  description: Distance at which light can be clearly discerned
+  type: MARKER
+  source: HAY
+volt:
+  description: Electrical voltage, potential difference
+  type: MARKER
+  source: HAY
+vrf:
+  description: Indicates that the entity is part of a vrf system
+  type: MARKER
+  source: OAP
+wastewater:
+  description: "Wastewater (or waste water) is any water that has been
+    contaminated by human use. "
+  type: MARKER
+  source: OAP
+water:
+  description: Water in its liquid form
+  type: MARKER
+  source: HAY
+waterCooled:
+  description: Indicates an equip which uses water to cool the hot refrigerant.
+  type: MARKER
+  source: HAY3
+waterSoftener:
+  description: A device that removes calcium, magnesium, and certain other metal
+    cations in hard water.
+  type: MARKER
+  source: OAP
+weather:
+  description: Associated with atmospheric air or phenomenon
+  type: MARKER
+  source: HAY
+weatherCond:
+  description: Enumeration of weather conditions
+  type: MARKER
+  source: HAY
+weatherStation:
+  description: Logical weather station and its measurement points
+  type: MARKER
+  source: HAY
+west:
+  description: the direction toward the point of the horizon where the sun sets at the equinoxes, on the left-hand side of a person facing north
+  type: MARKER
+  source: OAP    
+wetBulb:
+  description: Wet bulb air temperature
+  type: MARKER
+  source: HAY
+wifi:
+  description: A family of wireless networking technologies, based on the IEEE
+    802.11 family of standards, which are commonly used for local area
+    networking of devices and Internet access.
+  type: MARKER
+  source: OAP
+wind:
+  description: Flow of air on surface of the Earth
+  type: MARKER
+  source: HAY
+window:
+  description: A window is an opening in a wall, door, roof or vehicle that allows
+    the passage of light, sound, and sometimes air
+  type: MARKER
+  source: OAP
+wire:
+  description: Cabling used to convey electricity or data
+  type: MARKER
+  source: HAY
+wireless:
+  description: RF network communication
+  type: MARKER
+  source: OAP  
+writable:
+  description: Supports writing data
+  type: MARKER
+  source: HAY
+yearBuilt:
+  description: Original year of construction as four digit year such as 1980
+  type: NUMBER
+  source: HAY
+zigbee:
+  description: Low power wireless communication protocol for home automation
+  type: MARKER
+  source: HAY
+zone:
+  description: Related to spaces from a system perspective
+  type: MARKER
+  source: HAY
+zwave:
+  description: Low power wireless communication protocol for home automation
+  type: MARKER
+  source: HAY
+
+
+
+####################
+### MetaData (Attributes)  ##
+####################
+
+###############################
+##Marker Tags added to support attributes ###
+## All attributes should have the marker tag "attr"
+attr: 
+  description: Numerical or descriptive characteristic of an entity, spec. 
+  type: MARKER
+  source: OAP
+
+## Attribute descriptors
+design: 
+  description: Data related to intended design and operating conditions. This includes sizing and other data specified by design engineers and engineered drawings. 
+  type: MARKER
+  source: HAY
+rated:
+  description:  Data specified by a manufacturer or rating organization. Typically this information is from the equipment data plate or cut sheet. 
+  type: MARKER
+  source: HAY  
+
+manufacturer: 
+  description: Brand, make or manufacturer under which equipment, device or object is sold
+  type: MARKER
+  source: OAP
+model: 
+  description: Specific model name or series descriptor of an item.
+  type: MARKER
+  source: OAP  
+serialNumber: 
+  description: Unique identifying number
+  type: MARKER
+  source: OAP    
+
+gross: 
+    description: Consisting of an overall total exclusive of deductions
+    type: MARKER
+    source: OAP    

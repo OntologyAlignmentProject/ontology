@@ -1,0 +1,361 @@
+# KPI Definition Structure
+#
+# KPICODE:
+#   name: <common name or title for the KPI>
+#   short_name: <optional shorter name that can contain common abbreviations or acronyms>
+#   description: <a description of the KPI>
+#   is_base: <boolean designation that this KPI is extended by others, default is "false">
+#   extends: <code of the KPI that this KPI is extending>
+#   inputs: <list of other KPIs that input into the calculation of this KPI>
+#   range: <list of allowable range types (from field.calculation.yaml)>
+#   rollup_interval: <list of allowed rollup intervals (from field.calculation.yaml)>
+#   rollup_calculation: <list of possible calculation types (from field.calculation.yaml)>
+#   normalization: <list of possible data normalizations (from field.calculation.yaml)>
+#   comparison: <list of the comparison methods typical used for the KPI (from field.calculation.yaml)>
+#   unit_type: <a single unit type from (units.yaml)>
+#   unit: <list of possible units of measure (from units.yaml)>
+#   class: cateogry or grouping of KPI, KPI can belong to more than one category such as energy and cost
+# Usage Rules:
+#  - range=date means a start and end date needs to be provided to get a historty
+#  - rollup_interval is a single select only
+#  - rollup_interval=range means that a single value is returned for the entire range specified
+#  - rollup_calculation is single select only
+#  - normalization can be multi select
+
+# How to apply KPI to entity, e.g.:
+# SITE:
+#   kpi:
+#     - TEEC
+#     - TNGEC
+#     - PKED
+
+# Energy KPIs
+
+EC:
+  name: Energy Consumption
+  description: Base definition of a general energy consumption KPI
+  is_base: true
+  range:
+    - date
+  rollup_interval:
+    - day
+    - month
+    - range
+  rollup_calculation:
+    - sum
+  normalization:
+    - area
+    - degreeDays
+  comparison: 
+    - previous_month
+    - previous_year
+    - portfolio_average
+    - forecast
+  unit_type: energy
+  class:
+    - energy
+
+TEEC:
+  name: Total Electric Energy Consumption
+  description: Total electric energy consumed by an entity from an external source.
+  extends: EC
+  unit:
+    - kilowatt_hour
+    - megawatt_hour
+
+TNGEC:
+  name: Total Natural Gas Consumption
+  description: Total energy from natural gas consumed by an entity from an external source.
+  extends: EC
+  unit: 
+    - kilobtu
+    - megabtu
+    - therm
+
+TCHWEC:
+  name: Total Chilled Water Energy Consumption
+  description: Total energy from chilled water consumed by an entity from an external source.
+  extends: EC
+  unit: 
+    - kilobtu
+    - megabtu
+    - kilowatt_hour
+
+THWEC:
+  name: Total Hot Water Energy Consumption
+  description: Total energy from hot water consumed by an entity from an external source.
+  extends: EC
+  unit: 
+    - kilobtu
+    - megabtu
+    - kilowatt_hour
+
+TSTEC:
+  name: Total Steam Energy Consumption
+  description: Total energy from steam consumed by an entity from an external source.
+  extends: EC
+  unit: 
+    - kilobtu
+    - megabtu    
+
+TEC:
+  name: Total Energy Consumption
+  description: The total energy consumed by an entity from various external sources such as fuel, electricity, hot water, chilled water and steam.
+  extends: EC
+  inputs:
+    - TEEC
+    - TNGEC
+    - TCHWEC
+    - THWEC
+    - TSTEC
+  unit: 
+    - kilobtu
+    - megabtu
+
+UE:
+  name: Utility Expenditure
+  description: Base type 
+  is_base: true
+  range:
+    - date
+  rollup_interval:
+    - day
+    - month
+    - range
+  rollup_calculation:
+    - sum
+  normalization:
+    - area
+  comparison: 
+    - previous_month
+    - previous_year
+    - forecast
+  unit_type: currency
+  unit:
+    - us_dollar
+    - canadian_dollar
+    - pound_sterling
+    - euro
+    - australian_dollar
+  class:
+    - cost       
+
+TUE:
+  name: Total Expenditure for Utilties
+  description: Total amount of expenditure in currency for all utilities.
+  extends: UE
+  inputs: 
+      - TEEEC
+      - TENGEC
+      - TEWC
+ 
+TEEEC:
+  name: Total Expenditure for Electric Energy Consumption
+  description: Total amount of expenditure in currency for electric energy consumed by an entity from an external source.
+  extends: UE
+  class:
+    - cost    
+
+TENGEC:
+  name: Total Expenditure for Natural Gas Energy Consumption
+  description: Total amount of expenditure in currency for natural gas energy consumed by an entity from an external source.
+  extends: UE
+  class:
+    - cost   
+
+TEWC:
+  name: Total Expenditure for Water Consumption
+  description: Total amount of expenditure in currency for water consumed by an entity from an external source.
+  extends: UE
+
+PKD:
+  name: Peak Demand
+  description: Base definition of a general peak demand KPI.
+  is_base: true
+  range:
+    - date
+  rollup_interval:
+    - day
+    - month
+    - range
+  rollup_calculation:
+    - max
+
+PKED:
+  name: Peak Electric Demand
+  description: Peak electric power demand at a site.
+  extends: PKD
+  comparison:
+    - previous_month
+    - previous_year
+  normalization:
+    - area
+    - oat
+  unit_type: power
+  unit:
+    - kilowatt
+    - megawatt
+  class:
+    - energy 
+
+DPRFL:
+  name:  Demand Profile
+  description: The typical demand profile for the profile window.
+  is_base: true
+  range:
+    - date
+  range_filter: 
+    - days 
+  profile_window:  
+    - week
+    - day
+  rollup_calculation: 
+    - avg
+  rollup_interval:
+    - fifteen_min
+    - thirty_min
+    - hour
+  comparison:
+    - previous_month
+    - previous_year
+  normalization:
+    - area
+    - oat   
+
+ELDPRFL:
+  name:  Electrical Power Demand Profile
+  description: The typical electricity demand profile for the profile window.
+  extends: DPRFL
+  unit_type: power
+  unit:
+    - kilowatt
+    - megawatt
+  class:
+    - energy 
+
+NGDPRFL:
+  name:  Natural Gas Demand Profile
+  description: The typical natural gas demand profile for the profile window.
+  extends: DPRFL
+  unit_type: power
+  unit:
+    - therms_per_hour
+    - btus_per_hour
+  class:
+    - energy 
+
+CHWDPRFL:
+  name:  Chilled Water Demand Profile
+  description: The typical chilled water demand profile for the profile window.
+  extends: DPRFL
+  unit_type: power
+  unit:
+    - tons_refrigeration
+  class:
+    - energy 
+
+HWDPRFL:
+  name:  Hot Water Demand Profile
+  description: The typical hot water demand profile for the profile window.
+  extends: DPRFL
+  unit_type: power
+  unit:
+    - btus_per_hour
+  class:
+    - energy      
+
+STDPRFL:
+  name:  Steam Demand Profile
+  description: The typical steam demand profile for the profile window.
+  extends: DPRFL
+  unit_type: mass_flow
+  unit:
+    - pounds_per_hour
+    - kilograms_per_hour
+  class:
+    - energy          
+
+SEUI: 
+  name: Site Energy Use Intensity
+  short_name: Site EUI
+  description: Total energy consumed in a building in a year normalized by area.
+  range: 
+    - date
+  rollup_interval:
+    - year
+  rollup_calculation: 
+    - sum  
+  normalization: 
+    - oat 
+  comparison:
+    - portfolio_average
+    - previous_month
+    - previous_year
+  unit_type: energy_by_area
+  unit:
+    - kilobtu_per_square_foot
+  class:
+    - energy    
+
+# Other KPIs
+
+IAQI:
+  name: Indoor Air Quality Index
+  short_name: Indoor AQI
+  description: The indoor air quality index for the entity.
+  range:
+    - current
+    - date
+  rollup_interval:
+    - fifteen_min
+    - thirty_min
+    - hour
+    - day
+  rollup_calculation:
+    - avg
+  unit:
+    - percent
+  class:
+    - health  
+
+OCCCT:
+  name: Occupancy Count
+  description: The number of occupants in a space over the rollup interval
+  range:
+    - current
+    - date
+  rollup_interval:
+    - fifteen_min
+    - thirty_min
+    - hour
+    - day
+  rollup_calculation:
+    - sum
+  normalization:
+    - area
+  class: 
+    - utilizition
+
+# Other KPIs to add
+# Water Consumption
+# NZE KPIs
+# Total Electric Energy Generation 
+# Total Electric Energy Net Consumption 
+# Total GHG Emissions (Metric Tons CO2e)
+# Total GHG Emissions Intensity (kgCO2e/ft²)
+# Maintenance Cost
+# ENERGY STAR Score
+# Source EUI (kBtu/ft²)
+# Site EUI (kBtu/ft²)
+# Weather Normalized Site EUI (kBtu/ft²)
+# Weather Normalized Source EUI (kBtu/ft²)
+# Water/Wastewater Site EUI (kBtu/gpd)
+# Water/Wastewater Source EUI (kBtu/gpd)
+# Source Energy Use (kBtu)
+# Water Use (All Water Sources) (kgal)
+# Total Waste (Disposed and Diverted) (Tons)
+# Energy Cost ($)
+# Total Water Cost (All Water Sources) ($)
+# Total Waste (Disposed and Diverted) - Cost ($)
+# Utilization
+# Parking Utilization

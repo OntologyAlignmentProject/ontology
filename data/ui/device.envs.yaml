@@ -1,0 +1,71 @@
+ATPS:
+  icon: Waves
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+AHMS:
+  icon: Waves
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+AQS:
+  icon: BlurCircular
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+EQS:
+  icon: BlurCircular
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+GDS:
+  icon: CloudCircle
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+MOS:
+  icon: Loop
+  parent:
+    - DEV
+    - OTDEV
+    - LTG
+    - ENVS
+OCCS:
+  icon: AccountCircle
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+OCCPS:
+  icon: AccountCircle
+  parent:
+    - OCCS
+LNPCS:
+  icon: RecentActors
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+SDC:
+  icon: RecentActors
+  parent:
+    - CNTRL
+    - DEV
+    - OTDEV
+ZPCS:
+  icon: SupervisedUserCircle
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS
+WDS:
+  icon: Opacity
+  parent:
+    - DEV
+    - OTDEV
+    - ENVS

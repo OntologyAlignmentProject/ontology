@@ -1,0 +1,109 @@
+STMASS:
+  name:  Steam Mass
+  haystack:
+    type:
+      - steam
+      - mass
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit_type: mass
+    reference:
+      - deviceRef
+      - equipRef
+STVOL:
+  name:  Steam Volume
+  haystack:
+    type:
+      - steam
+      - volume
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit_type: volume
+    reference:
+      - deviceRef
+      - equipRef      
+STFLOW:
+  name:  Steam Flow Rate
+  description: Volumetric flow rate of steam
+  haystack:
+    type:
+      - steam
+      - flow
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit_type: volumetric_flow
+    reference:
+      - deviceRef
+      - equipRef       
+STMFLOW:
+  name:  Steam Mass Flow Rate
+  description: Mass flow rate of steam
+  haystack:
+    type:
+      - steam
+      - massFlow
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit_type: mass_flow
+    reference:
+      - deviceRef
+      - equipRef           
+
+STCNMASS:
+  name:  Steam Condensate Mass
+  extends: STMASS
+  haystack:
+    type:
+      - condensate
+    identification:
+      - kind: Number
+      - unit_type: mass
+    reference:
+      - deviceRef
+      - equipRef
+STCNVOL:
+  name:  Steam Condensate Volume
+  extends: STVOL
+  haystack:
+    type:
+      - condensate
+    identification:
+      - kind: Number
+      - unit_type: volume
+    reference:
+      - deviceRef
+      - equipRef      
+STCNFLOW:
+  name:  Steam Condensate Flow Rate
+  description: Volumetric flow rate of steam
+  extends: STFLOW
+  haystack:
+    type:
+      - condensate
+    identification:
+      - kind: Number
+      - unit_type: volumetric_flow
+    reference:
+      - deviceRef
+      - equipRef       
+STCNMFLOW:
+  name:  Steam Condensate Mass Flow Rate
+  description: Mass flow rate of steam
+  extends: STMFLOW
+  haystack:
+    type:
+      - condensate
+    identification:
+      - kind: Number
+      - unit_type: mass_flow
+    reference:
+      - deviceRef
+      - equipRef           

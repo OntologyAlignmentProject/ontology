@@ -1,0 +1,64 @@
+##FLOORS - BASE
+FLOOR:
+  name: Floor
+  description: Any level part of a building with a floor used by people
+  kpi: 
+    - TEEC
+    - IAQI
+    - OCCCT
+  haystack:
+    type:
+      - floor
+      - space
+    identification:
+      - navName
+      - dis
+      - disMacroFlr
+      - id
+      - floorNum
+    reference:
+      - siteRef
+    reference_optional:
+      - airRef
+      - domesticHotWaterMeterRef
+      - domesticWaterMeterRef
+##FLOORS - Types
+BSMNT:
+  name: Basement
+  description: Subterranean floor, also known as a basement or cellar is one or more floors of a building that are
+    completely or partly below the ground level.
+  extends: FLOOR  
+  haystack:
+    type:
+      - subterranean
+    identification:
+      - navName
+      - dis
+      - disMacroFlr
+      - id
+      - floorNum
+PENT:
+  name: Penthouse
+  description: A floor, typically located directly under a flat-roof, that houses
+    mechanical equipment
+  extends: FLOOR  
+  haystack:
+    type:
+      - penthouse
+    identification:
+      - navName
+      - dis
+      - id
+      - floorNum
+
+PRKLVL:
+  name: Parking Level
+  description: A floor or level on which parking takes place.
+  extends: FLOOR
+  haystack:
+    type:
+      - parking
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PRKLVL1 or PRKLVL170
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PRKLVL-1 or PRKLVL-170
+      - dis: Parking Level 1 or PRKLVL-1

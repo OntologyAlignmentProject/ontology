@@ -1,0 +1,65 @@
+EM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - MTRG
+WM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - MTRG
+NGM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - MTRG
+HM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - MTRG
+SM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - MTRG
+BDWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM    
+CWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM
+CHWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM    
+HWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM    
+DWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM    
+DHWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM
+WWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM
+MUWM:
+  icon: SettingsInputSvideo
+  parent:
+    - DEV
+    - WM

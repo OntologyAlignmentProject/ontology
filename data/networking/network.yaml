@@ -1,0 +1,40 @@
+NET:
+  name: Network
+  description: A digital telecommunications network which llows nodes to share resources.
+  haystack:
+    type:
+      - network
+    identification:
+      - navName
+      - dis
+      - id
+    reference:
+      - siteRef
+
+CLINET:
+  name: Clinical Network
+  description: A computer and device network is a digital telecommunications
+    network, specifically segmented to the clinical systems in a healthcare
+    facility,  which allows nodes to share resources.
+  extends: NET
+  haystack:
+    type:
+      - clinical
+
+COMPNET:
+  name: Computer Network
+  description: A computer network is a digital telecommunications network which
+    allows nodes to share resources.
+  extends: NET
+  haystack:
+    type:
+      - computer
+
+DEVNET:
+  name: Device Network
+  description: A device network is a digital telecommunications network which
+    allows nodes to share resources.
+  extends: NET
+  haystack:
+    type:
+      - device

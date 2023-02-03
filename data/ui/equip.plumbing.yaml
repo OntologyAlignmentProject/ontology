@@ -1,0 +1,125 @@
+ACP:
+  parent:
+    - EQUIPS
+    - PLBG
+AP:
+  parent:
+    - EQUIPS
+    - PLBG
+BSP:
+  parent:
+    - PUMP
+    - PLBG
+DEWH:
+  parent:
+    - EQUIPS
+    - PLBG
+DGWH:
+  parent:
+    - EQUIPS
+    - PLBG    
+DHWST:
+  parent:
+    - EQUIPS
+    - PLBG
+DHWHT:
+  parent: 
+    - EQUIPS
+    - PLBG   
+DWS: 
+  parent:
+    -  PLBG
+DHWPL: 
+  parent: 
+    - PLBG
+    - EQUIPS    
+DHWS: 
+  parent: 
+    - PLBG
+EST:
+  parent:
+    - EQUIPS
+    - PLBG
+EWT:
+  parent:
+    - EQUIPS
+    - PLBG
+FODT:
+  parent:
+    - EQUIPS
+    - PLBG
+FOP:
+  parent:
+    - EQUIPS
+    - PLBG
+FOST:
+  parent:
+    - EQUIPS
+    - PLBG
+GI:
+  parent:
+    - INT
+MDAP:
+  parent:
+    - EQUIPS
+    - PLBG
+MDVCP:
+  parent:
+    - EQUIPS
+    - PLBG
+MGZVB:
+  parent:
+    - EQUIPS
+    - PLBG  
+OI:
+  parent:
+    - INT
+OXT:
+  parent:
+    - EQUIPS
+    - PLBG
+RCP:
+  parent:
+    - PUMP
+    - PLBG
+RWS: 
+  parent: 
+    - PLBG
+RWST: 
+  parent: 
+    - PLBG
+    - EQUIPS
+SANS: 
+  parent: 
+    - PLBG
+SEP:
+  parent:
+    - EQUIPS
+    - PLBG
+SGV:
+  parent:
+    - EQUIPS
+    - PLBG
+SMPP:
+  parent:
+    - EQUIPS
+    - PLBG
+SOI:
+  parent:
+    - INT
+ 
+STRMS: 
+  parent: 
+    - PLBG
+TMV:
+  parent:
+    - EQUIPS
+    - PLBG
+VCP:
+  parent:
+    - EQUIPS
+    - PLBG  
+WSO:
+  parent:
+    - EQUIPS
+    - PLBG

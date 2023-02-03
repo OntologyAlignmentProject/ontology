@@ -1,0 +1,320 @@
+# Base Environment Sensor definitions
+# Sensors are categorized in to five main type:
+#   - Occupancy Sensors (OCCS)
+#   - Air Sensors (AIRS)
+#   - Light Sensors (LTS)
+#   - Surface Sensors (SURS)
+#   - Multi Sensors (MTS)
+
+OCCS:
+  name: Occupancy Sensor
+  description: Any device that senses or detects the occupancy information within a space.
+  is_base: true
+  haystack:
+    type:
+      - device
+      - environment
+      - sensor
+      - occupancy
+    reference:
+      - siteRef
+      - spaceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+      - hvacZoneRef
+      - lightingZoneRef
+  points_base:
+    - DVST
+    - BATST
+    - BATLVL
+    - OCCSNS
+    - LNIPCNT
+    - LNOPCNT 
+    - ZPCNT 
+
+AIRS:
+  name: Air Sensor
+  description: A device that meausures or detects information about the air around it.
+  is_base: true
+  haystack:
+    type:
+      - air
+      - device
+      - environment
+      - sensor
+    reference:
+      - siteRef
+      - spaceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+      - hvacZoneRef
+  points_base:
+    - ALRMPT
+    - DVST
+    - BATST
+    - BATLVL
+    - ZCO
+    - ZCO2
+    - ZCO2SP
+    - ZRF 
+    - ZRFSP 
+    - ZTVOCSP 
+    - ZCH4 
+    - ZCH4ALMSP 
+    - ZCOSP 
+    - ZCOALMSP 
+
+SURS:
+  name: Surface Sensor
+  description: A device that meausures or detects things on a surface
+  is_base: true
+  haystack:
+    type:
+      - device
+      - environment
+      - sensor
+      - surface
+    reference:
+      - siteRef
+      - spaceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+  points_base:
+    - ALRMPT
+    - DVST
+    - BATST
+    - BATLVL
+
+MTS:
+  name: Multi Sensor
+  description: A multi-functional sensor that is a combination of several sensor types
+  is_base: true
+  haystack:
+    type:
+      - device
+      - multiFunction
+      - environment
+      - sensor
+    reference:
+      - siteRef
+      - spaceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+      - hvacZoneRef
+  points_base:
+    - ALRMPT
+    - ACSLVL
+    - DVST
+    - BATST
+    - BATLVL
+    - LTLVL
+    - LNIPCNT
+    - LNOPCNT 
+    - OCCSNS
+    - ZCO
+    - ZCO2
+    - ZCO2SP
+    - ZRF 
+    - ZRFSP 
+    - ZTVOCSP 
+    - ZCH4 
+    - ZCH4ALMSP
+    - ZCOSP 
+    - ZCOALMSP
+
+# Occupancy Sensors
+
+MOS:
+  name: Motion Sensor
+  description: Motion Sensor
+  extends: OCCS
+  ifc_class: ifcSensor
+  ifc_type: MOVEMENTSENSOR
+  haystack:
+    type:
+      - motion
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MOS-1 or MOS-171
+      - dis: Motion Sensor 1 or MOS-1
+
+OCCPS:
+  name: Occupancy Presence Sensor
+  description: A device that detects the presence of people in a given space
+  extends: OCCS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - occupied
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OCCPS-1 or OCCPS-187
+      - dis: Occupancy Presence Sensor 1 or OCCPS-1
+  functions:
+    - OCM
+
+LNPCS:
+  name: Line People Counting Sensor
+  description: A device that measure in and out people traffice across a line, such as entrance
+    to a space.  Also called a In Out People Sensor
+  extends: OCCS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - line
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LNPCS-1 or LNPCS-65
+      - dis: Line People Counting Sensor 1 or LNPCS-1
+  functions:
+    - LOCM
+
+ZPCS:
+  name: Zone People Counting Sensor
+  description: A device that measures the number of people within a space or zone
+  extends: OCCS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - zone
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ZPCS-1 or ZPCS-65
+      - dis: Zone People Counting Sensor 1 or ZPCS-1
+  functions:
+    - ZOCM
+
+# Air Sensor Types
+
+ATPS:
+  name: Air Temperature Sensor
+  description: A device that measures the temperature of the air around it
+  extends: AIRS
+  ifc_class: ifcSensor
+  ifc_type: TEMPERATURESENSOR
+  haystack:
+    type:
+      - temp
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ATPS-1 or ATPS-187
+      - dis: Air Temperature Sensor 1 or ATPS-1
+  points:
+    - ZT
+
+AHMS:
+  name: Air Humidity Sensor
+  description: A device that measures the humidity of the air around it
+  extends: AIRS
+  ifc_class: ifcSensor
+  ifc_type: HUMIDITYSENSOR
+  haystack:
+    type:
+      - humidity
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AHMS-1 or AHMS-187
+      - dis: Air Humidity Sensor 1 or AHMS-1
+  points:
+    - ZRH
+
+AQS:
+  name: Air Quality Sensor
+  description: A device that monitors air quality in a defined area
+  extends: AIRS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - airQuality
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AQS-1 or AQS-187
+      - dis: Air Quality Sensor 1 or AQS-1
+  functions:
+    - AQM
+
+GDS:
+  name: Gas Detector
+  description: A Gas Detector (or Gas Detection Sensor, Gas Monitor) monitors toxic or combustible gases in the air 
+    within a defined area
+  extends: AIRS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - gas
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. GDS-1 or GDS-187
+      - dis: Gas Detector 1 or GDS-1
+  functions:
+    - TCGM
+
+# Surface Sensor Types
+
+WDS:
+  name: Water Detection Sensor
+  description: A sensor device that detects the presence of water
+  extends: SURS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - water
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WDS-1 or WDS-187
+      - dis: Water Detection Sensor 1 or WDS-1
+
+# Multi Sensors
+
+EQS:
+  name: Environmment Quality Sensor
+  description: A device that monitors environment quality (including air quality) in a defined area
+  extends: MTS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - airQuality
+    type_optional:
+      - occupied
+      - lighting
+      - acoustic
+      - thermal
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EQS-1 or EQS-187
+      - dis: Environment Quality Sensor 1 or EQS-1
+  functions:
+    - AQM
+  points:
+    - ZT
+    - ZRH
+    - OCCSNS
+
+OAS:
+  name: Outdoor Air Sensor
+  description: A device that monitors outdoor air in it's various states and patterns, i.e. weather sensor
+  extends: MTS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - weather
+      - outside
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OAS1 or OAS186
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OAS-1 or OAS-187
+      - dis: Outdoor Air Sensor 1 or OAS-1
+  points:
+    - OAC02
+    - OATVOC
+    - OADWP
+    - OARH
+    - OATEMP
+    - OAWBTEMP
+    - WNDSPD
+    - ESTWNDSPD
+    - WSTWNDSPD
+    - PRECST

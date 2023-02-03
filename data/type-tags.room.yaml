@@ -1,0 +1,111 @@
+##############
+room:
+  description: Enclosed room of a building
+  type: MARKER
+  source: HAY
+
+#############room tags
+circulation:
+  description: A space used by people to move throughout a building.  
+    Examples include halls, stairs.
+  type: MARKER
+  source: OAP
+classroom:
+  description: A room for formal instructor led learning.
+  type: MARKER
+  source: OAP
+conferenceRoom:
+  description: A room provided for singular events such as business conferences
+    and meetings.
+  type: MARKER
+  source: OAP
+breakRoom:
+  description: A room set aside to use during a break from work for the purposes of relaxing, socializing or eating.
+  type: MARKER
+  source: OAP
+dataHall:
+  description: Room within a Data Center used to house cages of computers and
+    networking gear
+  type: MARKER
+  source: OAP
+dormitory:
+  description: A room providing sleeping and residential quarters for students at a school.
+  type: MARKER
+  source: OAP
+educational:
+  description: A room for providing or gaining knowledge.
+  type: MARKER
+  source: OAP
+fitness:
+  description: A general class of space types used for sports and exercise
+  type: MARKER
+  source: OAP  
+healthCare:
+  description: A class for rooms for the maintaining and restoration of health by the treatment
+    and prevention of disease.
+  type: MARKER
+  source: OAP
+laboratory:
+  description: A room used for research within a facility or building
+  type: MARKER
+  source: OAP
+lobby:
+  description: A room or area used as an entranceway or foyer in a building 
+  type: MARKER
+  source: OAP  
+lockerRoom: 
+  description: A room containing lockers for the storage of personal belongings and typically bathing and restroom facilities,
+    especially in schools or gymnasiums.
+  type: MARKER
+  source: OAP  
+mechanical:
+  description: A room or space dedicated to the equipment for managing environmental quality, lighting and life safety equipment,
+    not intended for prolonged human occupancy or material storage.
+  type: MARKER
+  source: OAP
+mortuary:
+  description: A room where dead bodies are kept in preporation for burial or cremation, 
+    or in the case of a hospital or school, for study and examination.
+  type: MARKER
+  source: OAP
+office:
+  description: A room or other area where an organization's employees perform
+    administrative work in order to support and realize objects and goals of the
+    organization. 
+  type: MARKER
+  source: OAP 
+personalHygiene:
+  description: A general class of space types used to maintain cleanliness of one's body 
+    and clothing to preserve overall health and well-being.
+  type: MARKER
+  source: OAP
+residence:
+  description: An individaul space (Dormitory Room) or collection of rooms(Bedroom, Living Room, etc) 
+    providing sleeping and living quarters.
+  type: MARKER
+  source: OAP
+restroom:
+  description: A room in a public space providing toilets and lavatories, 
+    a public bathroom
+  type: MARKER
+  source: OAP    
+retail:
+  description: A general class of space types used for the sale of goods to the public
+  type: MARKER
+  source: OAP
+serverRoom:
+  description: A room used for housing servers within a facility or building
+  type: MARKER
+  source: OAP
+storage:
+  description: A room for holding goods or supplies for future use.
+  type: MARKER
+  source: OAP
+studyRoom:
+  description: A room for small group or self-directed study.
+  type: MARKER
+  source: OAP
+utility:
+  description: A room not intended for prolonged human occupancy or material storage.
+  type: MARKER
+  source: OAP

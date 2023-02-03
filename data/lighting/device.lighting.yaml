@@ -1,0 +1,142 @@
+LCM:
+  name: Lighting Controller
+  description: Digital controller with embedded software for lighting controls.
+  extends: CNTRL
+  ifc_class: ifcController
+  haystack:
+    type:
+      - lighting
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LCM-1 or LCM-105
+      - dis: Lighting Control Module 1 or LCM-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+  functions:
+    - OCC
+  points:
+    - LTPC
+    - OLTPC
+    - LTLVLCMD
+    - LTCMD
+    - LTLVL
+    - LTLVLSP
+    - LTST
+    - ENLDSH
+    - RLPWR
+    - DLTLVLSP
+    - EFLTLVLSP
+    - ENDLC
+    - LDSHLTLVLSP
+    - LTCLRT
+    - LTSC
+    - OCLTLVLSP
+    - UOCLTLVLSP
+
+LCP:
+  name: Lighting Control Panel
+  description: Lighting Panels typically house relays and other analog devices for control of light fixtures.
+  ifc_class: ifcUnitaryControlEquipment
+  haystack:
+    type:
+      - device
+      - lighting
+      - panel
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LCP-1 or LCP-156
+      - dis: Lighting Control Panel 1 or LCP-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+  functions: 
+    - OCC
+  points:
+    - ALRMPT
+    - EFLTLVLSP
+    - ENDLC
+    - ENLDSH
+    - DLTLVLSP
+    - LDSHLTLVLSP
+    - LTCLRT
+    - LTCMD
+    - LTLVLCMD
+    - LTCIRCMD
+    - LTLVL
+    - LTPC
+    - LTST
+    - LTSC
+    - OCCSNS
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCLTLVLSP
+    - OLTPC
+    - UOCLTLVLSP
+
+LPS:
+  name: Light Photocell Sensor
+  description: Intelligent Connected Light Photocell Device
+  ifc_class: ifcSensorType
+  ifc_type: LIGHTSENSOR
+  haystack:
+    type:
+      - device
+      - luminance
+      - lighting
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LPS-1 or LPS-122
+      - dis: Light Photocell Sensor 1 or LPS-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+  points:
+    - LTPC
+
+LTGW:
+  name: Lighting Gateway
+  extends: GW
+  description: Lighting Gateway
+  ifc_class: ifcCommunicationsAppliance
+  haystack:
+    type:
+      - lighting
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LTGW-1 or LTGW-139
+      - dis: Lighting Gateway 1 or LTGW-1
+    reference:
+      - siteRef
+      - deviceRef
+    reference_optional:
+      - networkRef
+      - systemRef
+SDC:
+  name: Shade and Drape Controller
+  description: A device that controls a variety of motorized window treatments as
+    well as motorized doors, sunroofs, lifts and projection screens.
+  extends: CNTRL
+  haystack:
+    type:
+      - shades
+      - window
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SDC-1 or SDC-735
+      - dis: Shade and Drape Controller 1 or SDC-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SDC1 or SDC738
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+    

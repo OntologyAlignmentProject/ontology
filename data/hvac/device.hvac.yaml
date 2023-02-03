@@ -1,0 +1,74 @@
+ACT:
+  name: Actuator
+  description: An actuator is a device that is responsible for moving and
+    controlling a mechanism or system, for example by opening a valve.
+  haystack:
+    type:
+      - equip
+      - actuator
+    identification:
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. ACT-1 or ACT-32
+      - id
+    reference:
+      - siteRef
+      - equipRef
+VAP:
+  name: Vaporizer
+  description: "A vaporizer or vaporiser is a device used to vaporize substances
+    for inhalation. "
+  haystack:
+    type:
+      - equip
+      - vaporizer
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VAP1 or VAP43
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VAP-1 or VAP-43
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VAP-1 or VAP-45
+    reference:
+      - siteRef
+      - equipRef
+VFD:
+  name: Variable Frequency Drive
+  description: Device that varies the frequency output to a motor
+  haystack:
+    type:
+      - device
+      - vfd
+    identification:
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VFD-1 or VFD-9
+      - id
+    reference:
+      - siteRef
+      - equipRef
+  points:
+    - DVST
+    - ALRMPT
+    - ALRMPTCD
+    - VFDFREQ
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+    - SSST
+    - HOAST
+
+WDO:
+  name: Window Operator
+  description: A device that provides the means to open and close a window to allow ventilation
+  haystack:
+    type:
+      - device
+      - actuator
+      - window
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: Window Operator 1 or WDO-1
+      - id: <ABBREVIATION> + <INTEGER>
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+  points: 
+    - BATLLST
+    - WDST
+    - WDCMD

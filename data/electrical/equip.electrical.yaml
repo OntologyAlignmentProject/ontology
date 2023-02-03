@@ -1,0 +1,543 @@
+
+ATS:
+  name: Automatic Transfer Switch
+  description: "A transfer switch is an electrical switch that switches a load
+    between two sources. "
+  ifc_class: ifcProtectiveDevice
+  ifc_type: NOTDEFINED
+  haystack:
+    type:
+      - equip
+      - ats
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ATS1 or ATS249
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ATS-1 or ATS-249
+      - dis: Automatic Transfer Switch 1 or ATS-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+  points: 
+    - ALRMPT
+    - MDST      
+
+CIR:
+  name: Circuit
+  description: A circuit or electrical circuit supplies electricity to an area or sub-system within a building.
+  haystack:
+    type:
+      - equip
+      - circuit
+      - elec        
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. C1 or C480
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. C-1 or C-480
+      - dis: Circuit <Area/System> 1
+    reference:
+      - siteRef
+      - elecRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+    type_optional: 
+      - ratedVoltage
+      - ratedCurrent    
+  points:
+    - ALRMPT
+    - ACI
+    - ACIA
+    - ACIAVG
+    - ACIB
+    - ACIC
+    - ACITTL
+    - ACFREQ
+    - ACPF
+    - ACPFA
+    - ACPFB
+    - ACPFC
+    - ACPFAVG
+    - ACV
+    - ACVAVG
+    - ACVAB
+    - ACVBC
+    - ACVCA
+    - ACVA
+    - ACVB
+    - ACVC
+    - APPENE 
+    - APPPWR
+    - DCV
+    - ENERGYIMP
+    - ENERGYEXP
+    - ENERGYNET
+    - PWRDMD
+    - REACPWR
+    - REACENE
+    - RLPWR
+    - RLPWRA
+    - RLPWRB
+    - RLPWRC
+
+EDP:
+  name: Electrical Distribution Panel
+  description: An electrical distribution panel or electrical panel is a central part of the electrical
+    supply system in a building that divides an electrical power feed into subsidiary circuits
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: DISTRIBUTIONBOARD
+  haystack:
+    type:
+      - equip
+      - elec
+      - panel
+    type_optional:
+      - singlePhase
+      - threePhase
+      - ratedVoltage
+      - ratedCurrent
+      - loadType
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HVDP1 or HVDP207
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HVDP-1 or HVDP-207
+      - dis: High Voltage Distribution Panel 1 or HVDP-1
+    reference:
+      - siteRef
+      - elecRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+  points:
+    - ALRMPT
+    - ACI
+    - ACIA
+    - ACIAVG
+    - ACIB
+    - ACIC
+    - ACITTL
+    - ACFREQ
+    - ACPF
+    - ACPFA
+    - ACPFB
+    - ACPFC
+    - ACPFAVG
+    - ACV
+    - ACVAVG
+    - ACVAB
+    - ACVBC
+    - ACVCA
+    - ACVA
+    - ACVB
+    - ACVC
+    - APPENE 
+    - APPPWR
+    - DCV
+    - ENERGYIMP
+    - ENERGYEXP
+    - ENERGYNET
+    - PWRDMD
+    - REACPWR
+    - REACENE
+    - RLPWR
+    - RLPWRA
+    - RLPWRB
+    - RLPWRC
+  
+ESB:
+  name: Electrical Switchboard
+  description: A component of an electricity supply
+    system that directs electricity from one or more sources of supply to
+    several smaller regions of usage.
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: SWITCHBOARD
+  haystack:
+    type:
+      - equip
+      - switchboard
+      - elec
+      - threePhase
+    type_optional:
+      - ratedVoltage
+      - ratedCurrent
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ESB1 or ESB137
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ESB-1 or ESB-137
+      - dis: Electrical Switchboard 1 or ESB-1
+    reference:
+      - siteRef
+      - elecRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+  points:
+    - ALRMPT
+    - ACI
+    - ACIA
+    - ACIAVG
+    - ACIB
+    - ACIC
+    - ACITTL
+    - ACFREQ
+    - ACPF
+    - ACPFA
+    - ACPFB
+    - ACPFC
+    - ACPFAVG
+    - ACV
+    - ACVAVG
+    - ACVAB
+    - ACVBC
+    - ACVCA
+    - ACVA
+    - ACVB
+    - ACVC
+    - APPENE 
+    - APPPWR
+    - DCV
+    - ENERGYIMP
+    - ENERGYEXP
+    - ENERGYNET
+    - PWRDMD
+    - REACPWR
+    - REACENE
+    - RLPWR
+    - RLPWRA
+    - RLPWRB
+    - RLPWRC
+
+COGEN:
+  name: Cogenerator
+  description: A Cogenerator is a combined heat and power (CHP) system that contains 
+    an electrical generator and a heat recovery system that provides hot water that 
+    can be utilized by the building. 
+  extends: GEN
+  haystack:
+    type:
+      - heatRecovery
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. COGEN1 or COGEN124
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. COGEN-1 or COGEN-124
+      - dis: Cogenerator 1 or COGEN-1
+GEN:
+  name: Generator
+  description: An Electric Generator is a component of an electricity supply
+    system that converts motive power (mechanical energy) into electrical power
+    for use in an external circuit.
+  ifc_class: ifcElectricGenerator
+  haystack:
+    type:
+      - equip
+      - generator
+    type_optional:
+      - emergency
+      - naturalGas
+      - fuelOil
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. GEN1 or GEN124
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. GEN-1 or GEN-124
+      - dis: Generator 1 or GEN-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+  points: 
+    - ALRMPT
+    - SSST
+    - RNTM
+    - MDST 
+
+HVDP:
+  name: High Voltage Distribution Panel
+  deprecated: true
+  description: "A high voltage distribution panel is a component of an
+    electricity supply system that divides an electrical power feed into
+    subsidiary circuits, while providing a protective fuse or circuit breaker
+    for each circuit in a common enclosure. "
+  extends: EDP
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: DISTRIBUTIONBOARD
+  haystack:
+    type:
+      - highVoltage
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HVDP1 or HVDP207
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HVDP-1 or HVDP-207
+      - dis: High Voltage Distribution Panel 1 or HVDP-1
+
+HVSB:
+  name: High Voltage Switchboard
+  deprecated: true
+  description: "A High Voltage Switchboard is a component of an electricity supply
+    system that directs electricity from one or more sources of supply to
+    several smaller regions of usage. "
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: SWITCHBOARD
+  haystack:
+    type:
+      - equip
+      - switchboard
+      - highVoltage
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HVSB1 or HVSB179
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HVSB-1 or HVSB-179
+      - dis: High Voltage Switchboard 1 or HVSB-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+IPS:
+  name: Integrated Power Switchboard
+  deprecated: true
+  description: Integrated Power switchboards combine circuit breakers, chassis,
+    and transformers, as well as other electrical products.
+  haystack:
+    type:
+      - equip
+      - ips
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. IPS1 or IPS1175
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. IPS-1 or IPS-1175
+      - dis: Integrated Power Switchboard 1 or IPS-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+LI:
+  name: Lighting Inverter
+  description: Lighting inverters maintain crucial AC Power to operate all
+    emergency lighting at “full light” output, providing superior dependability
+    and security to any office, commercial or industrial environment.
+  haystack:
+    type:
+      - equip
+      - inverter
+      - lighting
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LI1 or LI1190
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LI-1 or LI-1190
+      - dis: Lighting Inverter 1 or LI-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef
+  points:
+      - LTST
+      - ALRMPT
+      - DLTLVLSP
+      - EFLTLVLSP
+      - ENDLC
+      - ENLDSH
+      - LDSHLTLVLSP
+      - LTCLRT
+      - LTCMD
+      - LTLVL
+      - LTLVLCMD
+      - LTPC
+      - LTSC
+      - OCCSNS
+      - OCLTLVLSP
+      - OLTPC
+      - UOCLTLVLSP
+
+LVDP:
+  name: Low Voltage Distribution Panel
+  deprecated: true
+  description: "A low voltage  distribution panel is a component of an
+    electricity supply system that divides an electrical power feed into
+    subsidiary circuits, while providing a protective fuse or circuit breaker
+    for each circuit in a common enclosure."
+  extends: EDP
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: DISTRIBUTIONBOARD
+  haystack:
+    type:
+      - lowVoltage
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LVDP1 or LVDP193
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LVDP-1 or LVDP-193
+      - dis: Low Voltage Distribution Panel 1 or LVDP-1
+
+LVSB:
+  name: Low Voltage Switchboard
+  deprecated: true
+  description: "A Low Voltage Switchboard is a component of an electricity supply
+    system that directs electricity from one or more sources of supply to
+    several smaller regions of usage. "
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: SWITCHBOARD
+  haystack:
+    type:
+      - equip
+      - switchboard
+      - lowVoltage
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LVSB1 or LVSB151
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LVSB-1 or LVSB-151
+      - dis: Low Voltage Switchboard 1 or LVSB-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+MDU:
+  name: Mains Distribution Unit
+  short_name: MDU
+  description: A mains distribution unit (MDU) is a device fitted with multiple
+    outputs designed to distribute electric power, especially to racks of
+    computers and networking equipment located within a data center.
+  haystack:
+    type:
+      - equip
+      - mdu
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MDU1 or MDU100
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MDU-1 or MDU-100
+      - dis: Mains Distribution Unit 1 or MDU-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+MSB:
+  name: Mains Switchboard
+  deprecated: true
+  description: "A Mains Switchboard  is a component of an electricity supply
+    system that directs electricity from one or more sources of supply to
+    several smaller regions of usage. "
+  ifc_class: ifcElectricDistributionBoard
+  ifc_type: SWITCHBOARD
+  haystack:
+    type:
+      - equip
+      - switchboard
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MSB1 or MSB137
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MSB-1 or MSB-137
+      - dis: Mains Switchboard 1 or MSB-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+PDU:
+  name: Power Distribution Unit
+  short_name: PDU
+  description: A power distribution unit (PDU) is a device fitted with multiple
+    outputs designed to distribute electric power, especially to racks of
+    computers and networking equipment located within a data center.
+  haystack:
+    type:
+      - equip
+      - pdu
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PDU1 or PDU87
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PDU-1 or PDU-87
+      - dis: Power Distribution Unit 1 or PDU-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+  points:
+    - ACI
+    - ACIA
+    - ACIB
+    - ACIC
+    - ACV
+    - ACVAB
+    - ACVBC
+    - ACVCA
+    - ACVA
+    - ACVB
+    - ACVC
+    - APPENE
+    - APPPWR
+    - DCV
+    - ENERGY
+    - RAPWR
+    - REACENE
+    - RLPWR
+    - RLPWRA
+    - RLPWRB
+    - RLPWRC
+
+SCS:
+  name: Sectionalizer Switch
+  description: A sectionalizer is a protective device that automatically isolates
+    a faulted section of line from the rest of the distribution system.
+  haystack:
+    type:
+      - equip
+      - sectionalizer
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SCS1 or SCS1147
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SCS-1 or SCS-1147
+      - dis: Sectionalizer Switch 1 or SCS-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+SSTN:
+  name: Substation
+  description: Substations transform voltage from high to low, or the reverse, or
+    perform any of several other important functions.
+  haystack:
+    type:
+      - equip
+      - substation
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SSTN1 or SSTN1161
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SSTN-1 or SSTN-1161
+      - dis: Substation 1 or SSTN-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+
+SWGR:
+  name: Switchgear
+  description: "In an electric power system, switchgear is composed of electrical
+    disconnect switches, fuses or circuit breakers used to control, protect and
+    isolate electrical equipment. "
+  brick_ontology: Switchgear
+  haystack:
+    type:
+      - equip
+      - substation
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SWGR1 or SWGR112
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SWGR-1 or SWGR-112
+      - dis: Switchgear 1 or SWGR-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+XFMR:
+  name: Transformer
+  description: In an electric power system, a passive electrical device that transfers 
+    electrical energy from one electrical circuit to another in order to increase or decrease the voltage.
+  brick_ontology: Transformer
+  haystack:
+    type:
+      - equip
+      - transformer
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SWGR1 or SWGR112
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SWGR-1 or SWGR-112
+      - dis: Switchgear 1 or SWGR-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef

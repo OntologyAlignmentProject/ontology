@@ -1,0 +1,439 @@
+AIR:
+  name: Air Concentration for the purposes of Air Quality (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - air
+      - concentration
+      - sensor
+      - point
+    identification:
+      - id
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - deviceRef  
+    reference_optional:
+      - equipRef
+AIRSP:
+  name: Air Concentration Setpoint (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - air
+      - concentration
+      - sp
+      - point
+    identification:
+      - id
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - equipRef
+ZCO:
+  name: Zone CO
+  short_name: CO
+  description: Carbon Monoxide (CO) measured in in the air within a space
+  extends: AIR
+  google_ontology: zone_air_co_concentration_sensor
+  brick_ontology: CO_Level_Sensor
+  haystack:
+    type:
+      - co
+      - zone
+    identification:
+      - unit: ppm
+ZCO2:
+  name: Zone CO2
+  short_name: CO₂
+  extends: AIRCO2
+  google_ontology: zone_air_co2_concentration_sensor
+  brick_ontology: CO2_Level_Sensor
+  haystack:
+    type:
+      - zone
+      - concentration
+    identification:
+      - id: "ZCO2 or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZCO2-1, ZCO2-2, etc."
+      - navName: "ZCO2 or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZCO2-1, ZCO2-2, etc."
+      - dis: "Zone CO2 or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone CO2-1, Zone CO2-2, etc."
+    reference:
+      - spaceRef
+ZTVOC:
+  name: Zone TVOC
+  short_name: TVOC
+  description: Total Volatile Organic Compound (TVOC) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_voc_concentration_sensor
+  brick_ontology: TVOC_Level_Sensor
+  haystack:
+    type:
+      - tvoc
+      - zone
+    identification:
+      - unit: µg/m³
+
+ZPM10:
+  name: Zone PM 10
+  short_name: PM₁₀
+  description: Particulate Matter 10 (PM 10) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_pm10_concentration_sensor
+  brick_ontology: PM10_Level_Sensor
+  haystack:
+    type:
+      - pm10
+      - zone
+    identification:
+      - unit: µg/m³
+
+ZPM25:
+  name: Zone PM 2.5
+  short_name: PM₂₅
+  description: Particulate Matter 2.5 (PM 2.5) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_pm25_concentration_sensor
+  brick_ontology: PM2.5_Level_Sensor
+  haystack:
+    type:
+      - pm25
+      - zone
+    identification:
+      - unit: µg/m³
+
+ZPM01:
+  name: Zone PM 0.1
+  short_name: PM₀₁
+  description: Particulate Matter 0.1 (PM 0.1) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_pm01_concentration_sensor
+  brick_ontology: PM1_Sensor
+  haystack:
+    type:
+      - pm01
+      - zone
+    identification:
+      - unit: µg/m³
+
+ZCH2O:
+  name: Zone CH2O
+  short_name: CH₂O
+  description: Formaldehyde (CH2O) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_hcho_concentration_sensor
+  brick_ontology: Formaldehyde_Sensor
+  haystack:
+    type:
+      - ch2o
+      - zone
+    identification:
+      - unit: ppb
+
+ZNO2:
+  name: Zone NO2
+  short_name: NO₂
+  description: Nitrogen Dioxide (NO2) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_no2_concentration_sensor
+  haystack:
+    type:
+      - no2
+      - zone
+    identification:
+      - unit: µg/m³
+
+ZO3:
+  name: Zone O3
+  short_name: Ozone
+  description: Ozone (O3) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_o3_concentration_sensor
+  haystack:
+    type:
+      - o3
+      - zone
+    identification:
+      - unit: ppb
+
+ZNH3:
+  name: Zone NH3
+  short_name: NH₃
+  description: Ammonia (NH3) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_nh3_concentration_sensor
+  haystack:
+    type:
+      - nh3
+      - zone
+    identification:
+      - unit: ppb
+ZRF:
+  name: Zone Air Refrigerant Concentration
+  description: Refrigerant concentration measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_refrigerant_concentration_sensor
+  haystack:
+    type:
+      - refrig
+      - zone
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>
+      - unit: ppm      
+ZCO2SP:
+  name: Zone CO2 Setpoint
+  google_ontology: zone_air_co2_concentration_setpoint
+  extends: AIRSP
+  haystack:
+    type:
+      - co2
+      - zone
+    identification:
+      - id: "ZCO2SP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZCO2SP-1, ZCO2SP-2, etc."
+      - navName: "ZCO2SP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZCO2SP-1, ZCO2SP-2, etc."
+      - dis: "Zone CO2 Setpoint or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone CO2 Setpoint-1, Zone CO2 Setpoint-2, etc."
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - equipRef
+ZCOSP:
+  name: Zone CO (Carbon Monoxide) Setpoint
+  google_ontology: zone_air_co_concentration_setpoint
+  extends: AIRSP
+  haystack:
+    type:
+      - co
+      - zone
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - equipRef      
+ZRFSP:
+  name: Zone Air Refrigerant Concentration Setpoint
+  google_ontology: zone_air_refrigerant_concentration_setpoint
+  extends: AIRSP
+  haystack:
+    type:
+      - refrig
+      - zone
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - equipRef            
+ZTVOCSP:
+  name: Zone Air Total VOC Setpoint
+  google_ontology: zone_air_voc_concentration_setpoint
+  extends: AIRSP
+  haystack:
+    type:
+      - tvoc
+      - zone
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: concentration (ppm, ...)
+    reference:
+      - equipRef          
+RFALRMH:
+  name: Refrigerant Concentration Level Alarm High
+  description: Refrigerant concentration level has exceeded a certain threshold and 
+    is generating an alarm.
+  extends: ALRMPT
+  haystack:
+    type:
+      - refrig
+      - concentration
+      - high
+    identification:
+      - kind: Bool
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef      
+ZPCNT:
+  name: Zone People Count
+  description: The number of people detected in an area or zone
+  haystack:
+    type:
+      - zone
+      - occupancy
+      - sensor
+      - point
+    identification:
+      - id: "ZPCNT or if more than 1 in the device, use <CODE> + - + <INTEGER>  :
+          ZPCNT-1, ZPCNT-2, etc."
+      - navName: "ZPCNT or if more than 1 in the device, use <CODE> + - +
+          <INTEGER>  : ZPCNT-1, ZPCNT-2, etc."
+      - dis: "Zone People Count or if more than 1 in the device, use <NAME> + - +
+          <INTEGER>  : Zone People Count-1, Zone People Count-2, etc."
+      - kind: Number
+    reference:
+      - spaceRef
+      - deviceRef
+
+LNIPCNT:
+  name: Line In People Count
+  description: The number of people detected crossing a line from the in direction
+  haystack:
+    type:
+      - line
+      - entering
+      - occupancy
+      - sensor
+      - point
+    identification:
+      - id: "LNIPCNT or if more than 1 in the device, use <CODE> + - + <INTEGER>  :
+          LNIPCNT-1, LNIPCNT-2, etc."
+      - navName: "LNIPCNT or if more than 1 in the device, use <CODE> + - +
+          <INTEGER>  : LNIPCNT-1, LNIPCNT-2, etc."
+      - dis: "Zone People Count or if more than 1 in the device, use <NAME> + - +
+          <INTEGER>  : Line In People Count-1, Line Out People Count-2, etc."
+      - kind: Number
+    reference:
+      - spaceRef
+      - deviceRef
+
+LNOPCNT:
+  name: Line Out People Count
+  description: The number of people detected crossing a line from the out direction
+  haystack:
+    type:
+      - line
+      - leaving
+      - occupancy
+      - sensor
+      - point
+    identification:
+      - id: "LNOPCNT or if more than 1 in the device, use <CODE> + - + <INTEGER>  :
+          LNOPCNT-1, LNOPCNT-2, etc."
+      - navName: "LNOPCNT or if more than 1 in the device, use <CODE> + - +
+          <INTEGER>  : LNOPCNT-1, LNOPCNT-2, etc."
+      - dis: "Zone People Count or if more than 1 in the device, use <NAME> + - +
+          <INTEGER>  : Line In People Count-1, Line Out People Count-2, etc."
+      - kind: Number
+    reference:
+      - spaceRef
+      - deviceRef
+
+OCCDWTM:
+  name: Dwell Time
+  description: The duration (in units of time) a space or sensor senses occupancy
+  haystack:
+    type:
+      - occupied
+      - duration
+      - sensor
+      - point
+    identification:
+      - id: "OCCDWTM or if more than 1 in the device, use <CODE> + - + <INTEGER>  :
+          OCCDWTM-1, OCCDWTM-2, etc."
+      - navName: "OCCDWTM or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : OCCDWTM-1, OCCDWTM-2, etc."
+      - dis: "Dwell Time or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Dwell Time-1, Dwell Time-2, etc."
+      - kind: Number
+    reference:
+      - spaceRef
+      - deviceRef
+ZALMSP:
+  name: Zone Alarm Setpoint (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - zone
+      - air
+      - concentration
+      - alarm
+      - sp
+      - point
+    identification:
+      - id
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - spaceRef
+      - deviceRef
+    reference_optional:
+      - equipRef
+
+ZCH4:
+  name: Zone CH4
+  short_name: CH₄
+  description: Methane (CH₄) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_ch4_concentration_sensor
+  haystack:
+    type:
+      - ch4
+      - zone
+    identification:
+      - unit: "%LEL"
+
+ZCH4ALMSP:
+  name: Zone CH4 Alarm Setpoint
+  short_name: CH₄ Alarm
+  description: The concentration of methane (CH₄) in the air at which an alarm condition will be activated
+  extends: ZALMSP
+  haystack:
+    type:
+      - ch4
+    identification:
+      - unit: "%LEL"
+
+ZCOALMSP:
+  name: Zone CO Alarm Setpoint
+  short_name: CO Alarm
+  description: The concentration of carbon monoxide (CO) in the air at which an alarm condition will be activated
+  extends: ZALMSP
+  haystack:
+    type:
+      - co
+    identification:
+      - unit: ppm
+
+ZNO2ALMSP:
+  name: Zone NO2 Alarm Setpoint
+  short_name: NO₂ Alarm
+  description: The concentration of nitrogen dioxide (NO2) in the air at which an alarm condition will be activated
+  extends: ZALMSP
+  haystack:
+    type:
+      - no2
+    identification:
+      - unit: µg/m³
+
+MOST:
+  name: Motion Sensor Status
+  short_name: Motion Status
+  description: Motion Sensor Status
+  haystack:
+    type:
+      - motion
+      - sensor
+      - point 
+    identification:
+      - id
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+ 

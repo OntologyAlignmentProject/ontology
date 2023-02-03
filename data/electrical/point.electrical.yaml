@@ -1,0 +1,890 @@
+# Base electrical point definition
+
+POINT_GEN_PWR:
+  name: Generic Power Point Definition (Base Definition)
+  is_base: true
+  haystack:
+    type:
+      - point
+    identification:
+      - kind: Number
+    reference_optional:
+      - deviceRef
+      - equipRef
+      - spaceRef
+    reference:
+      - siteRef
+  alarms:
+    - alarmFunction
+    - alarmEnable
+    - alarmClass
+    - autoAcknowledge
+    - inhibitTime
+    - autoAcknowledge
+    - aboveSetpoint
+    - belowSetpoint
+    - escalationRequired
+    - sourceName
+    - timeDelay
+    - timeDelayToNormal
+  history:
+    - interval
+    - intervalMode
+    - cov
+    - covMin
+    - covToleranceMode
+    - covTolerance
+    - archive
+    - writeOnDeactivated
+    - timeStored
+    - recordCountController
+    - recordCountServer
+    - localTimeZone
+
+# Standard electrical point definitions
+
+ACI:
+  name: Single Phase AC Current Sensor
+  description: Any generic single phase AC current sensor
+  extends: POINT_GEN_PWR
+  google_ontology: phase_line_current_sensor
+  haystack:
+    type:
+      - ac
+      - current
+      - elec
+      - magnitude
+      - sensor
+    identification:
+      - id: "ACI or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACI-1, ACI-2, etc."
+      - navName: "ACI or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACI-1, ACI-2, etc."
+      - dis: "AC Current or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Current-1, AC Current-2, etc."
+      - unit: Electric Current
+    reference:
+      - equipRef
+      - deviceRef
+
+ACIA:
+  name: AC Current Phase A
+  description: AC Current Phase A
+  extends: POINT_GEN_PWR
+  google_ontology: phase1_line_current_sensor
+  haystack:
+    type:
+      - ac
+      - current
+      - elec
+      - magnitude
+      - phase: A
+      - sensor
+    identification:
+      - id: "ACIA or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACIA-1, ACIA-2, etc."
+      - navName: "ACIA or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACIA-1, ACIA-2, etc."
+      - dis: "AC Current Phase A or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Current Phase A-1, AC Current Phase A-2, etc."
+      - unit: Electric Current
+    reference:
+      - equipRef
+      - deviceRef
+
+ACIAVG:
+  name: Average AC Current
+  description: Any averaging single or multi-phase AC current reading
+  extends: POINT_GEN_PWR
+  google_ontology: average_line_current_sensor
+  google_ontology_full: 
+    - current_sensor
+  haystack:
+    type:
+      - ac
+      - avg
+      - current
+      - elec
+      - magnitude
+      - sensor
+    identification:
+      - id: "ACIAVG or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACIAVG-1, ACIAVG-2, etc."
+      - navName: "ACIAVG or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACIAVG-1, ACIAVG-2, etc."
+      - dis: "Average AC Current or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Average AC Current-1, Average AC Current-2, etc."
+      - unit: Electric Current
+    reference:
+      - equipRef
+      - deviceRef
+
+ACIB:
+  name: AC Current Phase B
+  description: AC Current Phase B
+  extends: POINT_GEN_PWR
+  google_ontology: phase2_line_current_sensor
+  haystack:
+    type:
+      - ac
+      - current
+      - elec
+      - magnitude
+      - phase: B
+      - sensor
+    identification:
+      - id: "ACIB or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACIB-1, ACIB-2, etc."
+      - navName: "ACIB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACIB-1, ACIB-2, etc."
+      - dis: "AC Current Phase B or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Current Phase B-1, AC Current Phase B-2, etc."
+      - unit: Electric Current
+    reference:
+      - equipRef
+      - deviceRef
+
+ACIC:
+  name: AC Current Phase C
+  description: AC Current Phase C
+  extends: POINT_GEN_PWR
+  google_ontology: phase3_line_current_sensor
+  haystack:
+    type:
+      - ac
+      - current
+      - elec
+      - magnitude
+      - phase: C
+      - sensor
+    identification:
+      - id: "ACIC or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACIC-1, ACIC-2, etc."
+      - navName: "ACIC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACIC-1, ACIC-2, etc."
+      - dis: "AC Current Phase C or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Current Phase C-1, AC Current Phase C-2, etc."
+      - unit: Electric Current
+    reference:
+      - equipRef
+      - deviceRef
+
+ACITTL:
+  name: Total Multi-Phase AC Current
+  description: Any summed AC current reading, typically total multi-phase current
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - current
+      - elec
+      - magnitude
+      - sensor
+      - total
+    identification:
+      - id: "ACITTL or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACITTL-1, ACITTL-2, etc."
+      - navName: "ACITTL or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACITTL-1, ACITTL-2, etc."
+      - dis: "Total AC Current or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Total AC Current-1, Total AC Current-2, etc."
+      - unit: Electric Current
+    reference:
+      - equipRef
+      - deviceRef
+
+ACFREQ:
+  name: AC Frequency
+  description: AC Input Frequency
+  extends: POINT_GEN_PWR
+  google_ontology: line_frequency_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - freq
+      - sensor
+    identification:
+      - id: "ACFREQ or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACFREQ-1, ACFREQ-2, etc."
+      - navName: "ACFREQ or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACFREQ-1, ACFREQ-2, etc."
+      - dis: "AC Frequency or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Frequency-1, AC Frequency-2, etc."
+      - unit: Frequency
+    reference:
+      - equipRef
+      - deviceRef
+
+ACPF:
+  name: Power Factor
+  description: Single phase power factor sensor
+  extends: POINT_GEN_PWR
+  google_ontology: powerfactor_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - pf
+      - sensor
+    identification:
+      - id: "ACPF or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACPF-1, ACPF-2, etc."
+      - navName: "ACPF or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACPF-1, ACPF-2, etc."
+      - dis: "Power Factor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Power Factor-1, Power Factor-2, etc."
+      - unit: Power Factor
+    reference:
+      - equipRef
+      - deviceRef
+
+ACPFA:
+  name: Power Factor Phase A
+  description: Power Factor Phase A
+  google_ontology: phase1_powerfactor_sensor
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - elec
+      - pf
+      - phase: A
+      - sensor
+    identification:
+      - id: "ACPFA or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACPFA-1, ACPFA-2, etc."
+      - navName: "ACPFA or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACPFA-1, ACPFA-2, etc."
+      - dis: "Power Factor Phase A or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Power Factor Phase A-1, Power Factor Phase A-2, etc."
+      - unit: Power Factor
+    reference:
+      - equipRef
+      - deviceRef
+
+ACPFB:
+  name: Power Factor Phase B
+  description: Power Factor Phase B
+  extends: POINT_GEN_PWR
+  google_ontology: phase2_powerfactor_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - pf
+      - phase: B
+      - sensor
+    identification:
+      - id: "ACPFB or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACPFB-1, ACPFB-2, etc."
+      - navName: "ACPFB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACPFB-1, ACPFB-2, etc."
+      - dis: "Power Factor Phase B or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Power Factor Phase B-1, Power Factor Phase B-2, etc."
+      - unit: Power Factor
+    reference:
+      - equipRef
+      - deviceRef
+
+ACPFC:
+  name: Power Factor Phase C
+  description: Power Factor Phase C
+  extends: POINT_GEN_PWR
+  google_ontology: phase3_powerfactor_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - pf
+      - phase: C
+      - sensor
+    identification:
+      - id: "ACPFC or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACPFC-1, ACPFC-2, etc."
+      - navName: "ACPFC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACPFC-1, ACPFC-2, etc."
+      - dis: "Power Factor Phase C or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Power Factor Phase C-1, Power Factor Phase C-2, etc."
+      - unit: Power Factor
+    reference:
+      - equipRef
+      - deviceRef
+
+ACPFAVG:
+  name: Average Multi-Phase Power Factor
+  description: Multi-phase average power factor
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - elec
+      - avg
+      - pf
+      - sensor
+    identification:
+      - id: "ACPFAVG or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACPFAVG-1, ACPFAVG-2, etc."
+      - navName: "ACPFAVG or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACPFAVG-1, ACPFAVG-2, etc."
+      - dis: "Average Power Factor or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Average Power Factor-1, Average Power Factor-2, etc."
+      - unit: Power Factor
+    reference:
+      - equipRef
+      - deviceRef
+
+ACV:
+  name: Single Phase AC Voltage Sensor
+  description: Any generic single phase AC voltage sensor
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - elec
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACV or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACV-1, ACV-2, etc."
+      - navName: "ACV or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACV-1, ACV-2, etc."
+      - dis: "AC Voltage or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage-1, AC Voltage-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVAB:
+  name: AC Voltage Phase AB
+  description: AC Voltage Phase AB
+  extends: POINT_GEN_PWR
+  google_ontology:  phase1_phase2_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - phase: AB
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVAB or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVAB-1, ACVAB-2, etc."
+      - navName: "ACVAB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVAB-1, ACVAB-2, etc."
+      - dis: "AC Voltage Phase AB or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage Phase AB-1, AC Voltage Phase AB-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVA:
+  name: AC Voltage Phase A
+  description: AC Voltage Phase A
+  extends: POINT_GEN_PWR
+  google_ontology: phase1_neutral_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - phase: A
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVA or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVA-1, ACVA-2, etc."
+      - navName: "ACVA or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVA-1, ACVA-2, etc."
+      - dis: "AC Voltage Phase A or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage Phase A-1, AC Voltage Phase A-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVAVG:
+  name: Average AC Voltage
+  description: Any averaging single or multi-phase AC voltage reading
+  extends: POINT_GEN_PWR
+  google_ontology: average_inter_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - avg
+      - elec
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVAVG or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVAVG-1, ACVAVG-2, etc."
+      - navName: "ACVAVG or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVAVG-1, ACVAVG-2, etc."
+      - dis: "Average AC Voltage or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Average AC Voltage-1, Average AC Voltage-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVBC:
+  name: AC Voltage Phase BC
+  description: AC Voltage Phase BC
+  extends: POINT_GEN_PWR
+  google_ontology: phase2_phase3_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - phase: BC
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVBC or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVBC-1, ACVBC-2, etc."
+      - navName: "ACVBC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVBC-1, ACVBC-2, etc."
+      - dis: "AC Voltage Phase BC or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage Phase BC-1, AC Voltage Phase BC-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+
+ACVB:
+  name: AC Voltage Phase B
+  description: AC Voltage Phase B
+  extends: POINT_GEN_PWR
+  google_ontology: phase2_neutral_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - phase: B
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVB or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVB-1, ACVB-2, etc."
+      - navName: "ACVB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVB-1, ACVB-2, etc."
+      - dis: "AC Voltage Phase B or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage Phase B-1, AC Voltage Phase B-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVCA:
+  name: AC Voltage Phase CA
+  description: AC Voltage Phase CA
+  extends: POINT_GEN_PWR
+  google_ontology: phase1_phase3_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - phase: CA
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVCA or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVCA-1, ACVCA-2, etc."
+      - navName: "ACVCA or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVCA-1, ACVCA-2, etc."
+      - dis: "AC Voltage Phase CA or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage Phase CA-1, AC Voltage Phase CA-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVC:
+  name: AC Voltage Phase C
+  description: AC Voltage Phase C
+  extends: POINT_GEN_PWR
+  google_ontology: phase3_neutral_line_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - phase: C
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "ACVC or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ACVC-1, ACVC-2, etc."
+      - navName: "ACVC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ACVC-1, ACVC-2, etc."
+      - dis: "AC Voltage Phase C or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : AC Voltage Phase C-1, AC Voltage Phase C-2, etc."
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+APPENE:
+  name: Apparent Energy
+  description: Totalized (import + export) apparent energy
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - apparent
+      - elec
+      - energy
+      - sensor
+      - total
+    identification:
+      - id: "APPENE or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          APPENE-1, APPENE-2, etc."
+      - navName: "APPENE or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : APPENE-1, APPENE-2, etc."
+      - dis: "Apparent Energy or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Apparent Energy-1, Apparent Energy-2, etc."
+      - unit: Apparent Energy
+    reference:
+      - equipRef
+      - deviceRef
+
+APPPWR:
+  name: Apparent Power
+  description: Total Apparent Power
+  extends: POINT_GEN_PWR
+  google_ontology: apparent_power_sensor
+  haystack:
+    type:
+      - ac
+      - apparent
+      - elec
+      - power
+      - sensor
+      - total
+    identification:
+      - id: "APPPWR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          APPPWR-1, APPPWR-2, etc."
+      - navName: "APPPWR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : APPPWR-1, APPPWR-2, etc."
+      - dis: "Apparent Power or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Apparent Power-1, Apparent Power-2, etc."
+      - unit: Apparent Power
+    reference:
+      - equipRef
+      - deviceRef
+
+DCV:
+  name: DC Voltage
+  description: DC Voltage
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - dc
+      - elec
+      - magnitude
+      - sensor
+      - volt
+    identification:
+      - id: "DCV or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          DCV-1, DCV-2, etc."
+      - navName: DCV
+      - dis: DC Voltage
+      - unit: Electric Potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ENERGYNET:
+  name: Net Active Energy
+  description: Total net active energy
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - energy
+      - net
+      - sensor
+      - total
+    identification:
+      - id: "ENERGYNET or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ENERGYNET-1, ENERGYNET-2, etc."
+      - navName: "ENERGYNET or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ENERGYNET-1, ENERGYNET-2, etc."
+      - dis: "Net Active Energy or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Net Active Energy-1, Net Active Energy-2, etc."
+      - unit: Energy
+    reference:
+      - equipRef
+      - deviceRef
+
+ENERGYIMP:
+  name: Imported Active Energy
+  description: Total imported (aka consumed) active energy. Imported is typically power in.
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - energy
+      - import
+      - sensor
+      - total
+    identification:
+      - id: "ENERGYIMP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ENERGYIMP-1, ENERGYIMP-2, etc."
+      - navName: "ENERGYIMP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ENERGYIMP-1, ENERGYIMP-2, etc."
+      - dis: "Imported Active Energy or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Imported Active Energy-1, Imported Active Energy-2, etc."
+      - unit: Energy
+    reference:
+      - equipRef
+      - deviceRef
+
+ENERGYEXP:
+  name: Exported Active Energy
+  description: Total exported (aka generated) active energy. Exported is typically power out.
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - energy
+      - export
+      - sensor
+      - total
+    identification:
+      - id: "ENERGYEXP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ENERGYEXP-1, ENERGYEXP-2, etc."
+      - navName: "ENERGYEXP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ENERGYEXP-1, ENERGYEXP-2, etc."
+      - dis: "Exported Active Energy or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Exported Active Energy-1, Exported Active Energy-2, etc."
+      - unit: Energy
+    reference:
+      - equipRef
+      - deviceRef
+PHANG:
+  name: Phase Angle
+  short_name: Phase Angle
+  description: Electrical degrees of lag or lead between the voltage and current waveforms in an ac circuit.
+  haystack:
+    type:
+      - avg
+      - ac
+      - elec
+      - current
+      - angle
+      - sensor
+      - point
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+
+PWRDMD:
+  name: Power Demand
+  description: Total power demand
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - demand
+      - elec
+      - sensor
+      - total
+    identification:
+      - id: "PWRDMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          PWRDMD-1, PWRDMD-2, etc."
+      - navName: "PWRDMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PWRDMD-1, PWRDMD-2, etc."
+      - dis: "Power Demand or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Power Demand-1, Power Demand-2, etc."
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef
+PWREXP:
+  name: Exported Active Power
+  description: Exported (aka generated) active power. Exported is typically power out.
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - power
+      - export
+      - sensor
+    identification:
+      - id: "PWREXP or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          PWREXP-1, PWREXP-2, etc."
+      - navName: "PWREXP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PWREXP-1, PWREXP-2, etc."
+      - dis: "Exported Active Power or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Exported Active Power-1, Exported Active Power-2, etc."
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef
+REACENE:
+  name: Total Reactive Energy
+  description: Totalized (import + export) reactive energy
+  extends: POINT_GEN_PWR
+  haystack:
+    type:
+      - ac
+      - elec
+      - energy
+      - reactive
+      - sensor
+      - total
+    identification:
+      - id: "REACENE or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REACENE-1, REACENE-2, etc."
+      - navName: "REACENE or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REACENE-1, REACENE-2, etc."
+      - dis: "Total Reactive Energy or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Total Reactive Energy-1, Total Reactive Energy-2, etc."
+      - unit: Reactive Energy
+    reference:
+      - equipRef
+      - deviceRef
+
+REACPWR:
+  name: Reactive Power
+  description: Total reactive power of system
+  extends: POINT_GEN_PWR
+  google_ontology: reactive_power_sensor
+  haystack:
+    type:
+      - ac
+      - elec
+      - power
+      - reactive
+      - sensor
+      - total
+    identification:
+      - id: "RAPWR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RAPWR-1, RAPWR-2, etc."
+      - navName: "RAPWR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RAPWR-1, RAPWR-2, etc."
+      - dis: "Reactive Power or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Reactive Power-1, Reactive Power-2, etc."
+      - unit: Reactive Power
+    reference:
+      - equipRef
+      - deviceRef
+
+RLPWR:
+  name: Real Power
+  description: Total real power of system
+  extends: POINT_GEN_PWR
+  google_ontology: power_sensor
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - power
+      - sensor
+      - total
+    identification:
+      - id: "RLPWR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RLPWR-1, RLPWR-2, etc."
+      - navName: "RLPWR or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RLPWR-1, RLPWR-2, etc."
+      - dis: "Real Power or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Real Power-1, Real Power-2, etc."
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef
+
+RLPWRA:
+  name: Real Power Phase A
+  description: Real Power Phase A
+  extends: POINT_GEN_PWR
+  google_ontology: phase1_power_sensor
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - phase: A
+      - power
+      - sensor
+    identification:
+      - id: "RLPWRA or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RLPWRA-1, RLPWRA-2, etc."
+      - navName: "RLPWRA or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RLPWRA-1, RLPWRA-2, etc."
+      - dis: "Real Power Phase A or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Real Power Phase A-1, Real Power Phase A-2, etc."
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef
+
+RLPWRB:
+  name: Real Power Phase B
+  description: Real Power Phase B
+  extends: POINT_GEN_PWR
+  google_ontology: phase2_power_sensor
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - phase: B
+      - power
+      - sensor
+    identification:
+      - id: "RLPWRB or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RLPWRB-1, RLPWRB-2, etc."
+      - navName: "RLPWRB or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RLPWRB-1, RLPWRB-2, etc."
+      - dis: "Real Power Phase B or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Real Power Phase B-1, Real Power Phase B-2, etc."
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef
+
+RLPWRC:
+  name: Real Power Phase C
+  description: Real Power Phase C
+  extends: POINT_GEN_PWR
+  google_ontology: phase3_power_sensor
+  haystack:
+    type:
+      - ac
+      - active
+      - elec
+      - phase: C
+      - power
+      - sensor
+    identification:
+      - id: "RLPWRC or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          RLPWRC-1, RLPWRC-2, etc."
+      - navName: "RLPWRC or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : RLPWRC-1, RLPWRC-2, etc."
+      - dis: "Real Power Phase C or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Real Power Phase C-1, Real Power Phase C-2, etc."
+      - unit: Power
+    reference:
+      - equipRef
+      - deviceRef

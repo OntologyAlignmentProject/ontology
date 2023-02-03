@@ -1,0 +1,44 @@
+# Enumerated fields used in calculation definitons
+
+interval:
+  five_min: "Five minutes"
+  fifteen_min: "Fifteen minutes"
+  thirty_min: "Thirty minutes"
+  hour: "One hour"
+  day: "One day"
+  week: "One week or seven days"
+  month: "By calendar month"
+  year: "By calendar year or 365 days"
+  billing_period: "By utility billing period"
+  range: "For the entire range specified"
+calculation:
+  avg: "The average value within a set of values"
+  max: "The maximum value within a set of values"
+  min: "The minimum value within a set of values"
+  sum: "The sum of a set of values"
+normalization:
+  area: "The area of a space, site or group of sites"
+  cdd: "Cooling Degree Days"
+  hdd: "Heating Degree Days"
+  degreeDays: "Total heating and cooling degree days"
+  oat: "Outdoor Air Temperature"
+range:
+  current: "The current reading or value"
+  date: "Values over a specified start and end date"
+range_filter: 
+  days: "A list of days that should be used to filter the range."
+comparison:
+  benchmark: "Compare to a industry benchmark or standard"
+  forecast: "Compare to a forecasted or predicted value"
+  portfolio_average: "Compare to all other assets within the portfolio" 
+  previous_month: "Compare to the data in this range from last month"
+  previous_year: "Compare to the data in this range from last year"
+class: 
+  energy: "Related to energy"
+  cost: "Related to cost"
+  productivity: "Related to productivity or efficiency"
+  maintenance: "Related to productivity or maintenance and operations"
+  health: "Related to health and wellness"
+  comfort: "Related to comfort"
+  sustainability: "Related to reducing a building's impact on the environment"
+  utiliziation: "Related to how much a space or entity is used by occupants"

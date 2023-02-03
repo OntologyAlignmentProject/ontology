@@ -1,0 +1,30 @@
+aboveSetpoint:
+  description: Value above active setpoint to trigger an alarm.(+5% of Setpoint.
+    e.g. Setpoint = 20 C, High Alarm set to 20 * 1.05 = 21 C)
+alarmFunction:
+  description: Out of Range
+alarmEnable:
+  description: to Offnormal and to Fault
+alarmClass:
+  description: defined per User Required alarm classes
+autoAcknowledge:
+  description: Automatically acknowledge alarm when Return to Normal. (False)
+belowSetpoint:
+  description: Value below active setpoint to trigger an alarm. ( -5% of Setpoint.
+    e.g. Setpoint = 20 C, High Alarm set to 20 * 0.95 = 19 C)
+escalationRequired:
+  description: Is escalation required after a period if the alarm remains
+    unacknowledged. (False)
+inhibitBy:
+  description: This alarm is inhibited by this this point or alarm condition.
+inhibitTime:
+  description: "Continuous time the alarm condition must be true before annunciation. "
+sourceName:
+  description: This defines the naming convention for the alarm record.
+    (EquipName_PointName, ex. AHU1_MAT)
+timeDelay:
+  description: Amount of time to delay annuciating the alarm once the alarm
+    condition is true (0 seconds)
+timeDelayToNormal:
+  description: Amount of time to delay annuciating the alarm once the alarm
+    condition returned to Normal (0 seconds)

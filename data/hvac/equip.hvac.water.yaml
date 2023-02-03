@@ -1,0 +1,1348 @@
+CHWC:
+  name: Chilled Water Coil
+  description: Heat exchanger used to cool air using chilled water as the source.
+    Coils are sub-components of HVAC equipment such as airHandlingEquip.
+  extends: COIL
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CHWC1 or CHWC85
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CHWC-1 or CHWC-85
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CHWC-1 or CHWC-87
+    type:
+      - coolingCoil
+      - chilledWaterCooling
+CWCOIL:
+  name: Condenser Water Coil
+  description: Heat exchanger used to heat or cool air using ccondenser water as
+    the source. Coils are sub-components of HVAC equipment such as
+    airHandlingEquip.
+  extends: COIL
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CWCOIL1 or CWCOIL75
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CWCOIL-1 or CWCOIL-75
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CWCOIL-1 or CWCOIL-77
+    type:
+      - coolingCoil
+      - condenserCooling
+HWC:
+  name: Hot Water Coil
+  description: Heat exchanger used to heat air using hot water as the source.
+    Coils are sub-components of HVAC equipment such as airHandlingEquip.
+  extends: COIL
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HWC1 or HWC95
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HWC-1 or HWC-95
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HWC-1 or HWC-97
+    type:
+      - heatingCoil
+      - hotWaterHeating
+BLR:
+  name: Boiler (Base Definition)
+  is_base: true
+  short_name: BLR
+  description: "A boiler is a closed vessel in which fluid (generally water) is heated. "
+  kpi:
+    - TEEC
+    - TNGEC
+  haystack:
+    type:
+      - equip
+      - boiler
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BLR-1 or BLR-53
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BLR-1 or BLR-55
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BLR1 or BLR56
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - hotWaterRef
+  points_base:
+    - ALRMPT
+    - ALRMPTCD
+    - BCPSSCMD
+    - BCPSSST    
+    - EHWISOVCMD
+    - EHWISOVFBK
+    - EHXISOVCMD
+    - EHXISOVFBK
+    - EHWT
+    - ENCMD
+    - FLGST    
+    - HTSTGCT
+    - HTTHRMPWR
+    - HXISOVCMD
+    - LHWT
+  points:
+    - LHXISOVCMD 
+    - LHXISOVFBK
+    - LHWISOVCMD
+    - LHWISOVFBK
+    - LHWTSP 
+    - LWISOVCMD 
+    - LWISOVST
+    - MXWVCMD
+    - MXWVFBK
+  functions_base:
+    - SS
+HWB:
+  name: Hot Water Boiler
+  short_name: HWBLR
+  description: "Simple hot water boiler with start/stop and leaving temperature control"
+  extends: BLR
+  google_ontology: BLR_SS_SWTC
+  brick_ontology: Boiler
+  ifc_class: ifcBoiler
+  ifc_type: WATER
+  haystack:
+    type:
+      - hot
+      - water
+  functions:
+    - SS
+    - LWTC
+  points:
+    - WFLWST
+    - HTDEM
+    - NGVCMD
+HWBISOV:
+  name: Hot Water Boiler with Isolation
+  short_name: HWBLR
+  description: "Simple hot water boiler with leaving control and leaving isolation"
+  extends: BLR
+  google_ontology: BLR_SS_SWTC_SWISOVM
+  haystack:
+    type:
+      - hot
+      - water
+      - isolation
+  functions:
+    - SS
+    - LWTC
+    - LWISOVC
+  points:
+    - WFLWST
+    - HTDEM
+    - NGVCMD
+SB:
+  name: Steam Boiler
+  short_name: STMBLR
+  description: "A steam boiler is a closed vessel in which fluid (generally water)
+    is heated to steam. "
+  extends: BLR
+  haystack:
+    type:
+      - steam
+  points: 
+    - STMASS
+    - STVOL 
+    - STFLOW
+    - STMFLOW
+    - STCNMASS
+    - STCNVOL 
+    - STCNFLOW
+    - STCNMFLOW  
+    - FOMFL     
+    - LSTT
+    - LSTP
+CSG:
+  name: Clean Steam Generator
+  short_name: CSTMGEN
+  description: Clean steam generators are used to produce pure and clean steam,
+    free of any harmful substances and impurities. Applications include
+    pharmacies and hospitals, as well as food and cosmetic industries.
+  extends: BLR
+  haystack:
+    type:
+      - steam
+PUMP:
+  name: Pump (Base Definition)
+  is_base: true
+  short_name: PUMP
+  description: Machine for imparting energy to a fluid, causing it to do work,
+    drawing a fluid into itself through an entrance port, and forcing the fluid
+    out through an exhaust port.
+  google_ontology: PMP
+  kpi:
+    - TEEC
+  haystack:
+    type:
+      - equip
+      - pump
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - deviceRef
+      - elecRef
+      - elecMeterRef
+  functions_base: 
+    - PVSC   
+    - PSS 
+  points_base: 
+    - ALRMPT
+    - HOAST
+  points:
+    - DHWTT
+    - MXWVCMD
+    - MXWVFBK
+    - VFDSPREF
+    - WLALRMH
+BCP:
+  name: Boiler Circulation Pump
+  description: A specific type of pump used to circulate water within a boiler.
+  extends: PUMP
+  haystack:
+    type:
+      - circ
+      - hot
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BCP1 or BCP270
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BCP-1 or BCP-270
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BCP-1 or BCP-272
+    reference_optional:
+      - hotWaterRef   
+      - hotWaterMeterRef
+BFWP:
+  name: Boiler Feedwater Pump
+  description: A specific type of pump used to pump feedwater into a steam boiler.
+  extends: PUMP
+  haystack:
+    type:
+      - feedwater
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BFWP1 or BFWP279
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BFWP-1 or BFWP-279
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BFWP-1 or BFWP-281
+    reference_optional:
+      - hotWaterRef 
+      - hotWaterMeterRef
+CWP:
+  name: Condenser Water Pump
+  short_name: CWP
+  description: Pump that moves Condenser Water
+  extends: PUMP
+  google_ontology: PMP_SS_VSC
+  brick_ontology: Condenser_Water_Pump
+  haystack:
+    type:
+      - condenser
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CWP1 or CWP34
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CWP-1 or CWP-34
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CWP-1 or CWP-36
+    reference_optional:
+      - condenserWaterRef
+      - condenserWaterMeterRef 
+PCWP:
+  name: Primary Condenser Water Pump
+  short_name: PCWP
+  description: Pump that moves Condenser Water
+  extends: PUMP
+  haystack:
+    type:
+      - condenser
+      - water
+      - primaryLoop
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PCWP1 or PCWP47
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PCWP-1 or PCWP-47
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. PCWP-1 or PCWP-49
+    reference_optional:
+      - condenserWaterRef
+      - condenserWaterMeterRef 
+SCWP:
+  name: Secondary Condenser Water Pump
+  short_name: SCWP
+  description: Pump that moves Condenser Water
+  extends: PUMP
+  haystack:
+    type:
+      - condenser
+      - water
+      - secondaryLoop
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SCWP1 or SCWP60
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SCWP-1 or SCWP-60
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SCWP-1 or SCWP-62
+    reference_optional:
+      - condenserWaterRef
+      - condenserWaterMeterRef 
+CHWP:
+  name: Chilled Water Pump
+  short_name: CHWP
+  description: Pump that moves Chilled Water
+  extends: PUMP
+  haystack:
+    type:
+      - chilled
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CHWP1 or CHWP72
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CHWP-1 or CHWP-72
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CHWP-1 or CHWP-74
+    reference_optional:
+      - chilledWaterRef
+      - chilledWaterMeterRef 
+PCHWP:
+  name: Primary Chilled Water Pump
+  description: Pump that moves Chilled Water through chiller
+  extends: PUMP
+  haystack:
+    type:
+      - primaryLoop
+      - chilled
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PCHWP1 or PCHWP122
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PCHWP-1 or PCHWP-122
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. PCHWP-1 or PCHWP-124
+    reference_optional:
+      - chilledWaterRef
+      - chilledWaterMeterRef 
+SCHWP:
+  name: Secondary Chilled Water Pump
+  description: Pump that moves Chilled Water from a Chilled Water Plant to 
+    the load
+  extends: PUMP
+  haystack:
+    type:
+      - secondaryLoop
+      - chilled
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SCHWP1 or SCHWP136
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SCHWP-1 or SCHWP-136
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SCHWP-1 or SCHWP-138
+    reference_optional:
+      - chilledWaterRef
+      - chilledWaterMeterRef 
+TCHWP:
+  name: Tertiary Chilled Water Pump
+  description: Pump that moves Chilled Water within the buidlings to 
+    the load
+  extends: PUMP
+  haystack:
+    type:
+      - tertiaryLoop
+      - chilled
+      - water
+    identification:
+      - id: <CODE> + - + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+    reference_optional:
+      - chilledWaterRef
+      - chilledWaterMeterRef 
+CNP:
+  name: Condensate Pump
+  description: Pump that moves/lifts condensate 
+  extends: PUMP
+  haystack:
+    type:
+      - condensate
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CNP1 or CNP22
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CNP-1 or CNP-22
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CNP-1 or CNP-24
+CP:
+  name: Circulation Pump
+  description: "A circulator pump or circulating pump is a specific type of pump
+    used to circulate gases, liquids, or slurries in a closed circuit. "
+  extends: PUMP
+  haystack:
+    type:
+      - circ
+      - water
+    type_optional:
+      - hot
+      - condenser
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CP1 or CP216
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CP-1 or CP-216
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CP-1 or CP-218
+HWP:
+  name: Hot Water Pump
+  short_name: HWP
+  description: Pump that moves Hot Water
+  extends: PUMP
+  haystack:
+    type:
+      - hot
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HWP1 or HWP84
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HWP-1 or HWP-84
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HWP-1 or HWP-86
+    reference_optional:
+      - hotWaterRef 
+      - hotWaterMeterRef
+PHWP:
+  name: Primary Hot Water Pump
+  description: Pump that moves Hot Water
+  extends: PUMP
+  haystack:
+    type:
+      - hot
+      - water
+      - primaryLoop
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PHWP1 or PHWP148
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PHWP-1 or PHWP-148
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. PHWP-1 or PHWP-150
+    reference_optional:
+      - hotWaterRef 
+      - hotWaterMeterRef
+SHWP:
+  name: Secondary Hot Water Pump
+  description: Pump that moves Hot Water
+  extends: PUMP
+  haystack:
+    type:
+      - hot
+      - water
+      - secondaryLoop
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SHWP1 or SHWP160
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SHWP-1 or SHWP-160
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SHWP-1 or SHWP-162
+    reference_optional:
+      - hotWaterRef 
+      - hotWaterMeterRef
+THWP:
+  name: Tertiary Hot Water Pump
+  description: Pump that moves Hot Water
+  extends: PUMP
+  haystack:
+    type:
+      - hot
+      - water
+      - tertiaryLoop
+    identification:
+      - id: <CODE> + - + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+    reference_optional:
+      - hotWaterRef 
+      - hotWaterMeterRef
+SEPP:
+  name: Separator Pump
+  extends: PUMP
+  haystack:
+    type:
+      - water
+      - separator
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SEPP-1 or SEPP-152
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SEPP-1 or SEPP-156
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SEPP1 or SEPP157
+BYPV:
+  name: Bypass Valve
+  extends: VLV
+  haystack:
+    type:
+      - bypass
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BYPV1 or BYPV630
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BYPV-1 or BYPV-630
+      - dis: Bypass Valve 1 or BYPV-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+CHWV:
+  name: Chilled Water Valve
+  extends: VLV
+  haystack:
+    type:
+      - chilled
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CHWV1 or CHWV1105
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CHWV-1 or CHWV-1105
+      - dis: Chilled Water Valve 1 or CHWV-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+CWV:
+  name: Condenser Water Valve
+  extends: VLV
+  haystack:
+    type:
+      - condenser
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CWV1 or CWV1119
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CWV-1 or CWV-1119
+      - dis: Condenser Water Valve 1 or CWV-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+ENV:
+  name: Energy Valve
+  description: A pressure independent valve utilizing advanced cloud-based
+    analytics to leverage captured system data to its full potential providing
+    savings and the most efficient operation.
+  haystack:
+    type:
+      - equip
+      - valve
+      - energy
+    identification:
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. ENV-1 or ENV-21
+      - id
+    reference:
+      - siteRef
+      - equipRef
+  points:
+    - WFLOW
+    - WFLOWSP
+    - THRMPWR
+    - THRMEN
+    - ALRMPT
+    - CNTMDCFG
+    - DT
+    - DTSP
+    - ECHWT
+    - EHWT
+    - LCHWT
+    - LHWT
+    - GLYCON
+    - VCMD
+    - VPOS      
+HWV:
+  name: Hot Water Valve
+  extends: VLV
+  haystack:
+    type:
+      - hot
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HWV1 or HWV1133
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HWV-1 or HWV-1133
+      - dis: Hot Water Valve 1 or HWV-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef      
+MUV:
+  name: Make Up Water Valve
+  extends: VLV
+  haystack:
+    type:
+      - makeup
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MUV1 or MUV817
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MUV-1 or MUV-817
+      - dis: Make Up Water Valve 1 or MUV-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef       
+VLV:
+  name: Valve (Base Definition)
+  short_name: valve
+  is_base: true
+  description: "A valve is a device that regulates, directs or controls the flow
+    of a fluid (gases, liquids, fluidized solids, or slurries) by opening,
+    closing, or partially obstructing various passageways. "
+  haystack:
+    type:
+      - equip
+      - valve
+    reference:
+      - equipRef
+CH:
+  name: Chiller
+  is_base: true
+  short_name: CH
+  description: A chiller is a machine that removes heat from a liquid via a
+    vapor-compression or absorption refrigeration cycle.
+  kpi:
+    - TEEC
+  haystack:
+    type:
+      - equip
+      - chiller
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CH-1 or CH-9
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CH-1 or CH-11
+      - id
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - deviceRef
+      - elecRef
+      - elecMeterRef
+      - chilledWaterRef
+      - chilledWaterMeterRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+  points:
+    - ALRMPT
+    - CHWBYPVCMD
+    - CHWBYPVFBK
+    - CHWDPR
+    - CHWDPRSP
+    - CHWFLWMNSP
+    - CHWISOVCMD
+    - CHWISOVFBK
+    - CLDEM
+    - CLTHRMPWR
+    - CMPSSCMD
+    - CMPST
+    - CWBYPVFBK
+    - CWDPR
+    - CWISOVCMD
+    - CWISOVFBK
+    - CWVFBK
+    - ECHWFLST
+    - ECHWISOVCMD
+    - ECHWISOVFBK
+    - ECHWT
+    - ECWISOVCMD
+    - ECWISOVFBK
+    - ECWT
+    - HOAST
+    - IGVFBK
+    - LCHWFL
+    - LCHWFLST
+    - LCHWT
+    - LCHWTSP
+    - LCWT
+    - LCHWISOVCMD 
+    - LCHWISOVFBK
+    - LCWISOVCMD
+    - LCWISOVFBK 
+
+CHWPL:
+  name: Chilled Water Plant
+  is_base: true
+  short_name: CHWPL
+  description: A chilled water plant containing equipment and piping to deliver
+    chilled water to a building, process, or equipment.
+  kpi:
+    - TEEC
+  haystack:
+    type:
+      - equip
+      - chilled
+      - plant
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - deviceRef
+      - elecRef
+      - elecMeterRef
+      - chilledWaterRef
+      - chilledWaterMeterRef
+      - hotWaterRef
+      - hotWaterMeterRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - domesticWaterRef
+      - domesticWaterMeterRef
+  contains:
+    - CH
+    - CT
+    - CWP
+    - LTCH
+    - HXW
+    - CHWP
+    - DEA
+    - PCHWP
+    - SCHWP
+  points:
+    - ALRMPT
+    - BYPCHWFL
+    - CHWBYPVCMD
+    - CHWBYPVFBK
+    - CHWDPR
+    - CHWDPRSP
+    - CHWDT
+    - CHWISOVFBK
+    - CLDEM
+    - CLTHRMPWR
+    - CTBYPVCMD
+    - CWBYPVFBK
+    - CWDPR
+    - CWISOVFBK
+    - CWVFBK
+    - ECHWFL
+    - ECHWFLST
+    - ECHWISOVCMD
+    - ECHWISOVFBK
+    - ECHWT
+    - ECWISOVCMD
+    - ECWISOVFBK
+    - ECWT
+    - EHXISOVCMD
+    - EHXISOVFBK
+    - ENCMD
+    - EWTSP
+    - LCHWFL
+    - LCHWFLOWSP
+    - LCHWFLST
+    - LCHWT
+    - LCHWTSP
+    - LCWFL
+    - LCWTSP
+    - LCHWISOVCMD 
+    - LCHWISOVFBK
+    - LCWISOVCMD
+    - LCWISOVFBK 
+    - LCWT 
+    - LHXISOVCMD 
+    - LHXISOVFBK
+    - LWISOVCMD 
+    - LWISOVST 
+    - MKUPWVCMD
+    - PRCHWDPR
+    - PRCHWDPRSP
+    - PRECHWT
+    - PRLCHWT
+    - PRLCHWTSP
+    - REFCMD
+    - SCHWFL
+    - SCCHWDPR
+    - SCCHWDPRSP
+    - SCECHWT
+    - SCLCHWT
+    - SCLCHWTSP
+    - TRCHWFL 
+    - TRCHWDPR 
+    - TRCHWDPRSP 
+    - TRECHWT 
+    - TRLCHWT 
+
+CHWHWPL:
+  name: Chilled and Hot Water Plant
+  description: A chilled and heating hot water plant containing equipment and piping to deliver both
+    chilled and heating hot water to a building, process, or equipment.
+  haystack:
+    type:
+      - equip
+      - chilled
+      - hot 
+      - plant
+      - water
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - deviceRef
+      - elecRef
+      - elecMeterRef
+      - chilledWaterRef
+      - chilledWaterMeterRef
+      - hotWaterRef
+      - hotWaterMeterRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - domesticWaterRef
+      - domesticWaterMeterRef
+  contains:
+    - CH
+    - CT
+    - CWP
+    - ATWHP
+    - WTWHP
+    - LTCH
+    - HXW
+    - CHWP
+    - HWP
+    - DEA
+  points:
+    - CHWBYPVCMD
+    - REFCMD
+    - ECHWT
+    - LCHWT
+    - CHWDPRSP
+    - CWDPR
+    - ECHWFL
+    - LCHWFL
+    - LCHWTSP
+    - LCWFL
+    - LCWTSP
+    - SCHWFL    
+    - WECVCMD
+    - WECVPOS
+
+CNR:
+  name: Condensate Receiver
+  description: A condensate receiver, also called a condensate tank, captures it
+    and sends it back to the boiler room so it can be reused.
+  haystack:
+    type:
+      - equip
+      - condensate
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CNR1 or CNR299
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CNR-1 or CNR-299
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CNR-1 or CNR-301
+    reference_optional:
+      - equipRef
+
+CT:
+  name: Cooling Tower
+  short_name: CT
+  description: "A cooling tower is a heat rejection device that rejects waste heat
+    to the atmosphere through the cooling of a water stream to a lower
+    temperature. "
+  google_ontology: CT_SS_SWTC, CT_SS_VSC_SWTC
+  brick_ontology: Cooling_Tower
+  ifc_class: ifcCoolingTower
+  haystack:
+    type:
+      - equip
+      - coolingTower
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CT-1 or CT-37
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CT-1 or CT-39
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CT1 or CT40
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - domesticWaterRef
+      - domesticWaterMeterRef
+      - blowdownWaterMeterRef
+  contains:
+    - CTF
+  points:
+    - ALRMPT
+    - FANST
+    - FANCMD
+    - FANSPCMD
+    - CTBYPVCMD
+    - CWISOVCMD
+    - ECWT
+    - LCWT
+    - LCWFL
+    - LCWTSP
+    - BAHTST
+    - BSWPSSCMD
+    - BSWPSSST
+
+CTF:
+  name: Cooling Tower Fan
+  extends: FAN
+  haystack:
+    type:
+      - coolingTower
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CTF-1 or CTF-93
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CTF-1 or CTF-96
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CTF1 or CTF97
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+  points:
+    - FANST
+    - FANCMD
+    - FANSPCMD
+
+CTFS:
+  name: Cooling Tower Filtration System
+  haystack:
+    type:
+      - equip
+      - coolingTower
+      - filtration
+      - system
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CTFS-1 or CTFS-109
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CTFS-1 or CTFS-113
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CTFS1 or CTFS114
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+
+CTSFLT:
+  name: Cooling Tower Sand Filter
+  haystack:
+    type:
+      - equip
+      - coolingTower
+      - sandFilter
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CTSFLT-1 or CTSFLT-126
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CTSFLT-1 or CTSFLT-129
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CTSFLT1 or CTSFLT130
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+CTSEP:
+  name: Cooling Tower Separator
+  haystack:
+    type:
+      - equip
+      - separator
+      - coolingTower
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CTSEP-1 or CTSEP-140
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CTSEP-1 or CTSEP-142
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CTSEP1 or CTSEP143
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+
+CWPL:
+  name: Condenser Water Plant
+  short_name: CW Plant
+  description: A condenser water plant containg equipment and piping to deliver
+    condenser water to a building, process, or equipment.
+  haystack:
+    type:
+      - equip
+      - condenser
+      - plant
+      - water
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - elecMeterRef
+      - deviceRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - domesticWaterRef
+      - domesticWaterMeterRef
+      - blowdownWaterMeterRef
+  contains:
+    - CT
+    - HXW
+    - CWP
+  points:
+    - ALRMPT
+    - BSWPSSCMD
+    - BSWPSSST
+    - CLTHRMPWR
+    - COVCMD
+    - COVFBK
+    - CTBYPVCMD
+    - CWBYPVCMD
+    - CWBYPVFBK 
+    - CWDPR
+    - CWDPRSP
+    - CWISOVFBK
+    - ECWISOVCMD
+    - CWVFBK
+    - ECWISOVFBK
+    - EHXISOVCMD
+    - EHXISOVFBK
+    - EWTSP
+    - HWVCMD
+    - HWVFBK
+    - HXISOVCMD
+    - LCWISOVCMD
+    - LCWISOVFBK
+    - LHXISOVCMD 
+    - LHXISOVFBK 
+    - LWISOVCMD 
+    - LWISOVST 
+    - MKUPWVCMD
+    - PRLCWT
+    - PRLCWTSP
+    - PRECWT
+    - PLLCWFLSP
+    - PLLCWFLOW
+    - PRLENCMD
+    - SCLENCMD
+    - SCLCWT
+    - SCLCWTSP
+    - SCLCWCTSP
+    - SCLCWHTSP
+    - SCECWT
+    - SLLCWFLSP
+    - SLLCWFLOW
+    - SCCWHXBYPVCMD
+    - TRCHWFL 
+    - TRHWFL 
+    - TRCHWDPR 
+    - TRCHWDPRSP 
+    - TRECHWT 
+    - TREHWT 
+    - TRHWDPR 
+    - TRHWDPRSP 
+    - TRLCHWT 
+    - TRLHWT 
+    - WECVCMD
+    - WECVPOS
+
+DEA:
+  name: Deaerator
+  description: A deaerator reduces dissolved gases, particularly oxygen, to a low
+    level and improve a plant's thermal efficiency by raising the water
+    temperature. In addition, deaerators provide feedwater storage and proper
+    suction conditions for boiler feedwater pumps.
+  haystack:
+    type:
+      - equip
+      - deaerator
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DEA1 or DEA346
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DEA-1 or DEA-346
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DEA-1 or DEA-348
+    reference_optional:
+      - chilledWaterPlantRef
+
+DH:
+  name: Duct Heater
+  haystack:
+    type:
+      - equip
+      - heater
+      - duct
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DH1 or DH404
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DH-1 or DH-404
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DH-1 or DH-406
+    reference_optional:
+      - hotWaterPlantRef
+
+DHUM:
+  name: Dehumidifier
+  haystack:
+    type:
+      - equip
+      - dehumidify
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DHUM1 or DHUM359
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DHUM-1 or DHUM-359
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DHUM-1 or DHUM-361
+    reference_optional:
+      - chilledWaterPlantRef
+
+HC:
+  name: Heating Coil
+  haystack:
+    type:
+      - equip
+      - heatingCoil
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HC1 or HC456
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HC-1 or HC-456
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HC-1 or HC-458
+    reference_optional:
+      - hotWaterPlantRef
+      - equipRef
+
+HRU:
+  name: Heat Recovery Unit
+  haystack:
+    type:
+      - equip
+      - heatRecovery
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HRU1 or HRU430
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HRU-1 or HRU-430
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HRU-1 or HRU-432
+    reference_optional:
+      - equipRef
+
+HUM:
+  name: Humidifier
+  haystack:
+    type:
+      - equip
+      - humidifier
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HUM1 or HUM443
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HUM-1 or HUM-443
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HUM-1 or HUM-445
+    reference_optional:
+      - equipRef
+
+HWPL:
+  name: Hot Water Plant
+  is_base: true
+  short_name: HWPL
+  description: A hot water plant contains equipment and piping to deliver hot
+    water to a building, process, or equipment.
+  haystack:
+    type:
+      - equip
+      - hot
+      - plant
+      - water
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - elecMeterRef
+      - deviceRef
+      - hotWaterRef
+      - hotWaterMeterRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - domesticWaterRef
+      - domesticWaterMeterRef
+  contains:
+    - HWB
+    - BLR
+    - SB
+    - HXW
+    - HWP
+    - BCP
+    - BFWP
+    - CNR
+    - PRV
+    - PHWP
+    - SHWP
+  points:
+    - ALRMPT
+    - BCPSSCMD
+    - BCPSSST
+    - EHWISOVCMD
+    - EHWISOVFBK
+    - EHWT
+    - EHXISOVCMD
+    - EHXISOVFBK    
+    - ENCMD
+    - EWTSP
+    - FLGST
+    - HWBPVCMD
+    - HTSTGCT
+    - HTTHRMPWR
+    - HWBYPVCMD
+    - OALCKTSP
+    - PREHWT
+    - PRLHWT
+    - SCEHWT
+    - SCLHWT
+    - HWDPR
+    - HWDPRSP
+    - LHWFL
+    - LHWT
+    - PRLHWTSP
+    - SCLHWTSP
+    - LHXISOVCMD 
+    - LHXISOVFBK
+    - LHWISOVCMD
+    - LHWISOVFBK
+    - LHWTSP 
+    - LWISOVCMD 
+    - LWISOVST
+    - MKUPWVCMD
+    - PRHWDPR
+    - PRHWDPRSP
+    - SHWFL
+    - SCHWDPR
+    - SCHWDPRSP
+    - TRHWFL 
+    - TREHWT 
+    - TRHWDPR 
+    - TRHWDPRSP 
+    - TRLHWT 
+
+HXW:
+  name: Water to Water Heat Exchanger
+  description: A water heat exchanger is an equip which transfers heat between two water flows. 
+  haystack:
+    type:
+      - equip
+      - heatExchanger
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HX1 or HX311
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HX-1 or HX-311
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HX-1 or HX-313
+    reference_optional:
+      - equipRef
+      - systemRef
+  functions:
+    - CWHXTC
+
+LTCH:
+  name: Low Temperature Chiller
+  description: Chillers that can cool process fluids in temperatures as low as -40°F
+  extends: CH
+  haystack:
+    type:
+      - lowTemp
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LTCH1 or LTCH25
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LTCH-1 or LTCH-25
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. LTCH-1 or LTCH-27
+  contains:
+    - CHWCOIL
+    - CWCOIL
+
+PRV:
+  name: Pressure Reducing Valve
+  description: "A PRV lowers the pressure for safety and efficiency, and to match
+    the requirements of the application. "
+  haystack:
+    type:
+      - equip
+      - prv
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. PRV1 or PRV322
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. PRV-1 or PRV-322
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. PRV-1 or PRV-324
+    reference_optional:
+      - equipRef
+
+
+
+SPL:
+  name: Steam Plant
+  description: A steam plant containing equipment and piping to deliver steam to a
+    building, process, or equipment.
+  haystack:
+    type:
+      - equip
+      - steam
+      - plant
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - elecMeterRef
+      - deviceRef
+  contains:
+    - SB
+    - HXW
+    - HWP
+    - PRV
+    - SPRV
+  points:
+    - ALRMPT
+    - STMASS
+    - STVOL 
+    - STFLOW
+    - STMFLOW
+    - STCNMASS
+    - STCNVOL 
+    - STCNFLOW
+    - STCNMFLOW  
+    - LSTT
+    - LSTP
+
+
+SPRV:
+  name: Steam Pressure Reducing Valve
+  description: "A PRV lowers the steam pressure for safety and efficiency, and to
+    match the requirements of the application. "
+  extends: PRV
+  haystack:
+    type:
+      - steam
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SPRV1 or SPRV333
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SPRV-1 or SPRV-333
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SPRV-1 or SPRV-335
+
+
+TWHP:
+  name: Hydronic Heat Pump 
+  is_base: true
+  description: A hydronic heat pump,  also known as a "reversible chiller", is a machine that removes heat from
+    or adds heat to a liquid via avapor-compression or absorption refrigeration cycle. 
+  haystack:
+    type:
+      - equip
+      - heatPump
+      - chiller
+      - boiler
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - deviceRef
+      - elecRef
+      - elecMeterRef
+      - chilledWaterRef
+      - chilledWaterMeterRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - hotWaterMeterRef
+      - hotWaterRef
+
+ATWHP:
+  name: Air to Water Heat Pump
+  description: An air to water heat pump is a machine that removes heat from or adds heat to a liquid via a
+    vapor-compression or absorption refrigeration cycle that then absorbs/rejects heat from the air.
+    It is similar to an air-cooled chiller except it can make hot water, chilled water, or sometimes both simultaneously. 
+  extends: TWHP
+  haystack:
+    type:
+      - airCooled
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id
+
+WTWHP:
+  name: Water to Water Heat Pump
+  description: A water to water heat pump is a machine that removes heat from or adds heat to a liquid via a
+    vapor-compression or absorption refrigeration cycle. It is similar to an water-cooled chiller except it can make
+    hot water, chilled water, or sometimes both simultaneously. 
+  extends: TWHP
+  haystack:
+    type:
+      - waterCooled
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id

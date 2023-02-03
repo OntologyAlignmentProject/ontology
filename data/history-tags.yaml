@@ -1,0 +1,29 @@
+archive:
+  description: Archive this to a remote server (True)
+cov:
+  description: Boolean to enable COV (True)
+covMin:
+  description: Minimum time between COV value records (1 Minutes)
+covTolerance:
+  description: Value dependent based on COV Tolerance Mode (0.1 or 10%)
+covToleranceMode:
+  description: "% change or absolute change amount to record a value (Percent)"
+fullPolicy:
+  description: This defines what to do when the Record Count is reached (Roll)
+historyName:
+  description: This defines the naming convention for the history record.
+    (EquipName_PointName, ex. AHU1_MAT)
+interval:
+  description: Interval at which a record will be recorded (5 Minutes)
+intervalMode:
+  description: Snapshot or Average over Time (Snapshot)
+localTimeZone:
+  description: Defines whether to store the local timezone. (True)
+recordCountController:
+  description: Number of records to store in the Supervisory Controller (1,500)
+recordCountServer:
+  description: Number of records to store in the Server (320,000)
+timeStored:
+  description: The length of time to store the historical records (3 Years)
+writeOnDeactivated:
+  description: Write on Deactivated (False)

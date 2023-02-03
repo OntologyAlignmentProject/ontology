@@ -1,0 +1,300 @@
+# Computers and Servers
+
+DTC:
+  name: Desktop Computer
+  description: "A desktop computer is a personal computer designed for regular use
+    at a single location on or near a desk or table due to its size and power
+    requirements. "
+  haystack:
+    type:
+      - device
+      - desktop
+      - computer
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DTC-1 or DTC-569
+      - dis: Desktop Computer 1 or DTC-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DTC1 or DTC572
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+
+LTC:
+  name: Laptop Computer
+  description: 'A laptop computer, often called a laptop or notebook, is a small,
+    portable personal computer with a "clamshell" form factor, typically having
+    a thin LCD or LED computer screen mounted on the inside of the upper lid of
+    the clamshell and an alphanumeric keyboard on the inside of the lower lid. '
+  haystack:
+    type:
+      - device
+      - computer
+      - laptop
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. LTC-1 or LTC-556
+      - dis: Laptop Computer 1 or LTC-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. LTC1 or LTC559
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+
+SRV:
+  name: Server
+  description: A computer program or a device that provides functionality for
+    other programs or devices, called "clients".
+  haystack:
+    type:
+      - device
+      - computer
+      - server
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SRV-1 or SRV-543
+      - dis: Server 1 or SRV-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SRV1 or SRV546
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+
+# Network Hubs
+
+HUB:
+  name: Network hub
+  description: Network hardware device for connecting multiple devices 
+    together and making them act as a single network segment
+  haystack:
+    type:
+      - device
+      - networking
+      - hub
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - systemRef
+      - networkRef
+    reference_optional:
+      - commRef
+      - spaceRef
+  points_base: 
+    - CMST
+
+WLHUB:
+  name: Wireless Network hub
+  description: Network hardware device for connecting wireless multiple devices 
+    together and making them act as a single network segment
+  extends: HUB
+  haystack:
+    type:
+      - wireless
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+
+# Network Switches
+
+ETS:
+  name: Ethernet Switch
+  description: Networking hardware that connects devices on a computer network by
+    using packet switching to receive and forward data to the destination
+    device.
+  haystack:
+    type:
+      - device
+      - networking
+      - switch
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ETS-1 or ETS-585
+      - dis: Ethernet Switch 1 or ETS-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ETS1 or ETS588
+    reference:
+      - siteRef
+      - systemRef
+      - networkRef
+    reference_optional:
+      - spaceRef
+      - commRef
+
+POEETS:
+  name: Power-over-Ethernet Network Switch
+  description: An Ethernet Switch is networking hardware that connects devices on
+    a computer network by using packet switching to receive and forward data to
+    the destination device and is capable of supplying power via the Ethernet
+    Ports.
+  haystack:
+    type:
+      - device
+      - poe
+      - networking
+      - ethernet
+      - switch
+    type_optional:
+      - opticalFiber
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. POEETS-1 or POEETS-530
+      - dis: Power-over-Ethernet Network Switch 1 or POEETS-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. POEETS1 or POEETS533
+    reference:
+      - siteRef
+      - systemRef
+      - networkRef
+    reference_optional:
+      - spaceRef
+      - commRef
+
+# Firewalls
+
+FW:
+  name: Network Firewall
+  description: A firewall is a network security system that monitors and controls
+    incoming and outgoing network traffic based on predetermined security rules.
+    A firewall typically establishes a barrier between a trusted internal
+    network and untrusted external network, such as the Internet.
+  haystack:
+    type:
+      - device
+      - networking
+      - firewall
+    type_optional:
+      - router
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FW-1 or FW-632
+      - dis: Network Firewall 1 or FW-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FW1 or FW635
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - commRef
+
+# Gateways
+
+GW:
+  name: Gateway
+  description: A device that connects 2 disparate networks.
+  haystack:
+    type:
+      - device
+      - networking
+      - gateway
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - systemRef
+      - networkRef
+    reference_optional:
+      - spaceRef
+  points_base: 
+    - CMST
+
+LWGW:
+  name: LoraWAN Gateway
+  description: A device that connects 2 disparate networks, one of which is LoRaWAN.
+  extends: GW
+  haystack:
+    type:
+      - lora
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+
+# Routers
+
+RTR:
+  name: IT Network Router
+  description: A networking device that forwards data packets between computer networks.
+  haystack:
+    type:
+      - device
+      - networking
+      - router
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RTR-1 or RTR-615
+      - dis: IT Network Router 1 or RTR-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RTR1 or RTR618
+    reference:
+      - siteRef
+      - systemRef
+      - networkRef
+    reference_optional:
+      - spaceRef
+  points_base: 
+    - CMST
+
+WIFIRTR:
+  name: Wi-Fi Router
+  description: A Wi-Fi router is a device that performs the functions of a router
+    and also includes the functions of a Wi-Fi access point.
+  extends: RTR
+  haystack:
+    type:
+      - wifi
+    type_optional:
+      - switch
+      - controller
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WIFIRTR-1 or WIFIRTR-703
+      - dis: Wi-Fi Router 1 or WIFIRTR-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WIFIRTR1 or WIFIRTR706
+
+# Other networking devices
+
+ANT:
+  name: Antenna
+  description: A transducer designed to transmit or receive electromagnetic (e.g.,
+    TV or radio) waves.
+  haystack:
+    type:
+      - device
+      - antenna
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ANT-1 or ANT-662
+      - dis: Antenna 1 or ANT-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ANT1 or ANT665
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+
+WIFIANT:
+  name: Wi-Fi Antenna
+  description: An access point compliant with either 802.11b, 802.11g, or 802.11ac.
+  extends: ANT
+  haystack:
+    type:
+      - wifi
+
+WIFIAP:
+  name: Wi-Fi Access Point
+  description: A wireless access point (WAP), or more generally just access point
+    (AP), is a networking hardware device that allows other Wi-Fi devices to
+    connect to a wired network.
+  haystack:
+    type:
+      - device
+      - wifi
+      - ap
+    type_optional:
+      - switch
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WIFIAP-1 or WIFIAP-720
+      - dis: Wi-Fi Access Point 1 or WIFIAP-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WIFIAP1 or WIFIAP723
+    reference:
+      - siteRef
+      - networkRef
+    reference_optional:
+      - systemRef
+      - commRef

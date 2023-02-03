@@ -1,0 +1,208 @@
+airRef:
+  description: Air flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+blowdownWaterRef:
+  description: Blowdown water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+blowdownWaterMeterRef:
+  description:  Reference to water meter which monitors blowdown water generation by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP  
+chilledWaterRef:
+  description: Chilled water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+chilledWaterMeterRef:
+  description:  Reference to water meter which monitors chilled water consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP    
+commRef:
+  description: Reference to a device which communicates with client 
+  type: REF
+  source: OAP
+condensateRef:
+  description: Condensate flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+condenserWaterRef:
+  description: Condenser water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+condenserWaterMeterRef:
+  description:  Reference to water meter which monitors condenser water consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP  
+connectionRef:
+  description: Reference to port or device to which this port or device is connected
+  type: REF
+  source: OAP
+deviceRef:
+  description: Reference to device which controls or monitors this entity
+  type: REF
+  source: OAP
+dischargeEquipRef:
+  description: Reference to equip to which the air is being measured by the sensor
+  type: REF
+  source: OAP
+domesticWaterRef:
+  description: Domestic (cold) water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+domesticWaterMeterRef:
+  description:  Reference to water meter which monitors domestic (cold) water consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP     
+domesticHotWaterRef:
+  description: Domestic hot water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: OAP
+domesticHotWaterMeterRef:
+  description:  Reference to water meter which monitors domestic hot water consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP  
+elecMeterRef:
+  description: Reference to electric meter which monitors power for this entity
+  type: REF
+  subtype: MEASURE
+  source: HAY3
+elecRef:
+  description: Electricity flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+equipRef:
+  description: Reference to equip which contains this entity
+  type: REF
+  subtype: CONTAIN
+  source: HAY
+fireZoneRef:
+  description: Reference to the Fire Detection Zone that is serving a space
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+fuelOilRef:
+  description: Fuel oil flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+gasolineRef:
+  description: Gasoline flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+hotWaterRef:
+  description: Hot water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+hotWaterMeterRef:
+  description:  Reference to water meter which monitors hot water consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP    
+hvacZoneRef:
+  description: Reference to the HVAC Zone that is serving a space
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+iaqZoneRef:
+  description: Reference to the IAQ Zone that is serving a space
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+inletEquipRef:
+  description: Reference to equip to which the air is being measured by the sensor
+  type: REF
+  source: OAP
+lightingZoneRef:
+  description: Reference to the Lighting Zone that is serving a space
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+makeupWaterRef:
+  description: Makeup water flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+naturalGasRef:
+  description: Natural gas flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+naturalGasMeterRef:
+  description: Reference to meter which monitors natural gas use for this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP
+networkRef:
+  description: Reference to network which contains this entity
+  type: REF
+  source: HAY3
+occZoneRef:
+  description: Reference to the Occupancy Zone that is serving a space
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+portfolioRef:
+  description: Reference to the portfolio which contains this entity.
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+refrigRef:
+  description: Refrigerant flows from the the referent to this entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+securityZoneRef:
+  description: Reference to the Security Zone that is serving a space
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+siteRef:
+  description: Reference to site which contains this entity
+  type: REF
+  subtype: CONTAIN
+  source: HAY
+spaceRef:
+  description: Reference to space which contains this entity
+  type: REF
+  subtype: CONTAIN
+  source: HAY
+steamRef:
+  description: Plant which supplies steam to the entity
+  type: REF
+  subtype: FLOW
+  source: HAY
+submeterOf:
+  description: Reference to parent meter which is immediately upstream of this meter
+  type: REF
+  subtype: CONTAIN
+  source: HAY
+systemRef:
+  description: Reference to system to which this entity belongs
+  type: REF
+  subtype: CONTAIN
+  source: OAP
+wasteWaterMeterRef:
+  description: Reference to water meter which monitors wastewater water generation by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP
+weatherStationRef:
+  description: Reference to weather station for to use this entity
+  type: REF
+  source: HAY

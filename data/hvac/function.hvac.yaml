@@ -1,0 +1,9 @@
+CHBZC:
+  name: CHBZC
+  description: Chilled Beam with Chilled Water Cooling and Hot water Heating (zone control)
+  points:
+    - ZT
+    - CLCMD
+    - HTCMD
+    - CHWVCMD
+    - HWVCMD

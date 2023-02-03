@@ -1,0 +1,85 @@
+CMP:
+  name: Compressor
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CMP1 or CMP290
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CMP-1 or CMP-290
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CMP-1 or CMP-292
+    type:
+      - equip
+      - compressor
+    reference:
+      - equipRef
+DXCOIL:
+  name: DX Coil
+  description: A DX Coil uses direct-expansion of refrigerants for heating and cooling.
+  extends: COIL
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DXCOIL1 or DXCOIL125
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DXCOIL-1 or DXCOIL-125
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DXCOIL-1 or DXCOIL-127
+    type:
+      - dx
+      - dxCooling
+      - dxHeating
+      - coolingCoil
+HX:
+  name: Heat Exchanger
+  is_base: true
+  description: A heat exchanger is a system used to transfer heat between two or
+    more fluids. Heat exchangers are used in both cooling and heating processes.
+  haystack:
+    type:
+      - equip
+      - heatExchanger
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HX1 or HX109
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HX-1 or HX-109
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HX-1 or HX-111
+    reference:
+      - equipRef
+      - siteRef
+      - systemRef
+      - deviceRef
+  points:
+    - ALRMPT
+    - HWVCMD
+RADF:
+  name: Radiant Floor (Base Definition)
+  is_base: true
+  short_name: RADF
+  description: Heats a space using pipes or cables embedded beneath floor.
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RADF1 or RADF122
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RADF-1 or RADF-122
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RADF-1 or RADF-124
+    type:
+      - equip
+      - radiantFloor
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - hvacZoneRef
+  points:
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCCSNS
+RADFE:
+  name: Radiant Floor - Electric Heating
+  short_name: RADFE
+  description: Heats a space using pipes or cables embedded beneath floor.
+  extends: RADF
+  haystack:
+    type:
+      - elecHeating
+      - heatingOnly
+  functions:
+    - ALRMPT
+    - HSP
+    - HTEZC
+    - OCC

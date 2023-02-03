@@ -1,0 +1,69 @@
+TPDSP:
+  name: Toilet Paper Dispenser
+  haystack:
+    type:
+      - equip
+      - dispenser
+      - toiletPaper
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER>
+    reference:
+      - siteRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - commRef
+  points: 
+    - CMST
+    - LVLLFLT
+    - JMFLT
+    - BATLLST
+
+PTDSP:
+  name: Paper Towel Dispenser
+  haystack:
+    type:
+      - equip
+      - dispenser
+      - towelPaper
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER>       
+    reference:
+      - siteRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - commRef
+  points: 
+    - CMST
+    - LVLLFLT
+    - JMFLT
+    - BATLLST    
+
+SPDSP:
+  name: Soap Dispenser
+  haystack:
+    type:
+      - equip
+      - dispenser
+      - soap
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER>       
+    reference:
+      - siteRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - commRef
+  points: 
+    - CMST
+    - LVLLFLT
+    - LKFLT
+    - JMFLT
+    - BATLLST

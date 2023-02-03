@@ -1,0 +1,26 @@
+PORTFOLIO:
+  name: Portfolio
+  description: Collection of buildings/sites.
+  haystack:
+    type:
+      - portfolio
+    identification:
+      - dis
+      - id
+CAMPUS:
+  name: Campus
+  description: A campus is a collection of two or more buildings that function as
+    a single property. They are generally owned and operated by the same party.
+  extends: PORTFOLIO
+  haystack:
+    type:
+      - campus
+    identification:
+      - navName
+      - dis
+      - id
+    reference:
+      - portfolioRef
+  points:
+    - OARH
+    - OATEMP

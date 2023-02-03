@@ -1,0 +1,955 @@
+BRPR:
+  name: Pneumatic Branch Pressure
+  description: Air pressure used to control terminal equipment.
+  extends: ADP
+  haystack:
+   type:
+     - pneumatic
+     - branch
+   identification:
+     - kind: Number
+VFDSPCMD:
+  name: VFD Output Speed
+  extends: OUTSPD
+  google_ontology: speed_percentage_command
+  haystack:
+    type: 
+      - vfd
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+
+VFDSPREF:
+  name: VFD Speed Reference
+  extends: SPDREF
+  google_ontology: speed_percentage_sensor
+  haystack:
+    type: 
+      - vfd
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+VFDSSCMD:
+  name: VFD Start/Stop Command
+  extends: CMD
+  google_ontology: run_command
+  haystack:
+    type:
+      - run
+      - vfd
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+VFDFREQ:
+  name: VFD Frequency Feedback
+  google_ontology: speed_frequency_sensor
+  haystack:
+    type:
+      - vfd
+      - freq
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: frequency
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - deviceRef
+    reference_optional:
+      - equipRef
+EFF:
+  name: Efficiency (Base Definition)
+  description: Units of useful work out divided by units of useful work in. 
+    Typically a calculated or virtual point. 
+  is_base: true
+  haystack:
+    type:
+      - efficiency
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER> 
+      - kind: Number
+    reference:
+      - equipRef
+THERMEFF:
+  name: Thermal Efficiency
+  description: Units of useful heat or coolth produced divided by units of useful work in (typically electricity).
+     Typically a calculated or virtual point. Usually measured as COP(unitless) or kw/ton. 
+  extends: EFF
+  haystack:
+    type:
+      - thermal
+    reference:
+      - equipRef
+RLAPCT:
+  name: Percent RLA
+  description: Ratio of real time current draw to RLA (rated load amps). This is almost always a percentage.  
+  haystack:
+    type:
+      - current
+      - sensor
+      - rla
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER> 
+      - kind: Number     
+      - unit: percentage
+    reference:
+      - equipRef      
+CN:
+  name: Condensate Status
+  description: Presence of condensate water.
+  haystack:
+    type:
+      - condensate
+      - sensor
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - deviceRef
+CMPSSCMD:
+  name: Compressor Run Command
+  extends: SSCMD
+  google_ontology: compressor_run_command
+  haystack:
+    type:
+      - compressor
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Bool
+    reference:
+      - equipRef
+CMPST:
+  name: Compressor Status
+  google_ontology: compressor_run_status
+  extends: SSST
+  haystack:
+    type:
+      - compressor
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Bool
+    reference:
+      - equipRef
+CMPSPCMD:
+  name: Compressor Speed Command
+  google_ontology: compressor_speed_percentage_command
+  haystack:
+    type:
+      - point
+      - cmd
+      - speed
+      - compressor
+    identification:
+      - kind: Number      
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>  
+    reference:
+      - equipRef   
+CMPSPFBK:
+  name: Compressor Speed Feedback
+  google_ontology: compressor_speed_percentage_sensor
+  haystack:
+    type:
+      - point
+      - speed
+      - compressor
+      - sensor
+    identification:
+      - kind: Number      
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+    reference: 
+      - equipRef      
+CMPFREQ:
+  name: Compressor Frequency
+  haystack:
+    type:
+      - compressor
+      - sensor
+      - point
+      - freq
+    identification:
+      - kind: Number      
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+    reference:
+      - equipRef      
+CMPRFLT:
+  name: Compressor Discharge Temperature
+  description: Abbreviated as Compressor Refrigerant Leaving Temperature 
+  google_ontology: refrigerant_discharge_temperature_sensor
+  haystack:
+    type:
+      - compressor
+      - leaving
+      - temp
+      - refrig
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef
+CMPRFET:
+  name: Compressor Suction Temperature
+  description: Abbreviated as Compressor Refrigerant Entering Temperature
+  haystack:
+    type:
+      - compressor
+      - entering
+      - temp
+      - refrig
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef
+CNDFFREQ:
+  name: Condenser Fan Frequency 
+  description: For an air-cooled condenser fan 
+  haystack:
+    type:
+      - condenser
+      - fan 
+      - freq
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: frequency
+    reference:
+      - equipRef
+CNDFSPCMD:
+  name: Condenser Fan Speed Command
+  extends: FANSPCMD
+  description: Speed for an air-cooled condenser fan 
+  google_ontology: condensing_fan_speed_percentage_command
+  haystack:
+    type:
+      - condenser
+CNDRFPR:
+  name: Condenser Refrigerant Pressure 
+  description: Also called Liquid Refrigerant Pressure or "high side pressure"
+  google_ontology: refrigerant_condenser_pressure_sensor
+  haystack:
+    type:
+      - refrig
+      - condenser
+      - pressure
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+CNDRFLT:
+  name: Condenser Refrigerant Leaving Temperature 
+  description: Also called Liquid Line Temperature. 
+  haystack:
+    type:
+      - refrig
+      - condenser
+      - leaving
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef      
+CNDRFSTT:
+  name: Condenser Refrigerant Saturation Temperature 
+  description: Temperature at which refrigerant is fully saturated (transitioned from vapor to liquid) for a corresponding saturation pressure in the condenser. 
+  google_ontology: refrigerant_condenser_saturation_temperature_sensor
+  haystack:
+    type:
+      - refrig
+      - condenser
+      - saturated
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef          
+SBCRFET:
+  name: Subcooler Refrigerant Entering Temperature 
+  haystack:
+    type:
+      - refrig
+      - subcooler
+      - entering
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef        
+SBCRFLT:
+  name: Subcooler Refrigerant Leaving Temperature 
+  haystack:
+    type:
+      - refrig
+      - subcooler
+      - leaving
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef         
+EVPRFPR:
+  name: Evaporator Refrigerant Pressure 
+  description: Also called Suction Refrigerant Pressure or "low side pressure"
+  google_ontology: refrigerant_evaporator_pressure_sensor
+  haystack:
+    type:
+      - refrig
+      - evaporator
+      - pressure
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef
+EVPRFET:
+  name: Evaporator Refrigerant Entering Temperature 
+  description: Refrigerant temperature entering evaporator (or indoor coil)
+  haystack:
+    type:
+      - refrig
+      - evaporator
+      - entering
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef      
+EVPRFLT:
+  name: Evaporator Refrigerant Leaving Temperature 
+  description: Refrigerant temperature leaving evaporator (or indoor coil)
+  haystack:
+    type:
+      - refrig
+      - evaporator
+      - leaving
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: temperature
+    reference:
+      - equipRef
+EVPRFSTT:
+  name: Evaporator Refrigerant Saturation Temperature 
+  description: Temperature at which refrigerant is fully saturated (transitioned from liquid to vapor) for a corresponding saturation pressure in the evaporator. 
+  google_ontology: refrigerant_evaporator_saturation_temperature_sensor
+  haystack:
+    type:
+      - refrig
+      - evaporator
+      - saturated
+      - temp
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: pressure
+    reference:
+      - equipRef          
+ALRMPT:
+  name: Alarm Point
+  description: Generic alarm point indicating a critical malfunction with a piece of equipment
+  google_ontology: failed_alarm
+  haystack:
+    type:
+      - alarm
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool 
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+ALRMPTCD:
+  name: Alarm Point Code
+  description: Alarm code or message point indicating the source of the alarm.
+  haystack:
+    type:
+      - alarm
+      - point
+      - text
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Str
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+FLTCD:
+  name: Fault Code
+  description: Fault or error code/message point indicating the source of the fault or error.
+  haystack:
+    type:
+      - fault
+      - point
+      - text
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Str
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+FLTPT:
+  name: Fault Point
+  description: Generic fault point indicating a minor or non-critical malfunction with a piece of equipment
+  haystack:
+    type:
+      - fault
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef      
+ENCMD:
+  name: Enable Command
+  google_ontology: supervisor_control_mode
+  extends: CMD
+  haystack:
+    type:
+      - enable
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENCMD-1
+
+THRMEN:
+  name: Thermal Energy 
+  description: energy associated with heating or cooling, measured in units such as kBtu or kJ
+  haystack:
+    type:
+      - energy
+      - sensor
+      - thermal
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+      - unit: kBtu
+    reference:
+      - deviceRef
+      - equipRef
+THRMPWR:
+  name: Thermal Power
+  description: Power associated with heating or cooling, measured in units such as kBTU/h or Watts
+  haystack:
+    type:
+      - power
+      - sensor
+      - thermal
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: kBTU/h
+    reference:
+      - deviceRef
+      - equipRef
+CLTHRMPWR:
+  name: Cooling Thermal Power
+  description: Power associated with cooling, measured in units such as kBTU/h or Watts
+  google_ontology: cooling_thermal_power_sensor
+  google_ontology_full:
+    - cooling_thermal_power_sensor
+    - process_cooling_thermal_power_sensor
+  extends: THRMPWR
+  haystack:
+    type:
+      - cooling
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: kBTU/h
+    reference:
+      - deviceRef
+      - equipRef      
+HTTHRMPWR:
+  name: Heating Thermal Power
+  description: Power associated with heating, measured in units such as kBTU/h or Watts
+  google_ontology: heating_thermal_power_sensor
+  extends: THRMPWR
+  haystack:
+    type:
+      - heating
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: kBTU/h
+    reference:
+      - deviceRef
+      - equipRef         
+CNTMDCFG:
+  name: Control Mode Configuration
+  haystack:
+    type:
+      - mode
+      - config
+      - sp
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Str
+    reference:
+      - deviceRef
+      - equipRef
+EMOVC: 
+  name: Emergency Mode Override Command
+  haystack:
+    type:
+      - hvacMode
+      - emergency
+      - cmd
+      - point
+      - override
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+CMLC:
+  name: Cooling Mode Lockout Command
+  haystack:
+    type:
+      - cooling
+      - cmd
+      - disable
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+HMLC:
+  name: Heating Mode Lockout Command
+  haystack:
+    type:
+      - heating
+      - cmd
+      - disable
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+GLYCON:
+  name:  Glycol Concentration Sensor
+  haystack:
+    type:
+      - glycol
+      - concentration
+      - sensor
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+      - unit: percentage
+    reference:
+      - deviceRef
+      - equipRef
+
+
+
+
+OCCCMD:
+  name: Occupancy Command
+  haystack:
+    type:
+      - occupied
+      - point
+      - cmd
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool 
+    reference:
+      - equipRef
+OCCSNS:
+  name: Occupancy Sensor
+  haystack:
+    type:
+      - occupied
+      - point
+      - sensor
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+OCCEFFSP:
+  name: Occupancy Status
+  google_ontology: zone_occupancy_status
+  haystack:
+    type:
+      - occupied
+      - point
+      - effective
+      - sp
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool 
+    reference:
+      - equipRef
+OCCSCHSP:
+  name: Occupancy Schedule 
+  google_ontology: schedule_run_command
+  haystack:
+    type:
+      - occupied
+      - point
+      - schedulePoint
+      - sp
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+
+SXWVCMD:
+  name: 6-way Valve Command
+  extends: VCMD
+  haystack:
+    type:
+      - sixWay
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - id
+      - kind: Number
+    reference:
+      - equipRef
+SXWVFB:
+  name: 6-way Valve Feedback
+  extends: VPOS
+  haystack:
+    type:
+      - sixWay
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - id
+      - kind: Number
+    reference:
+      - equipRef
+WDST:
+  name: Window Status
+  description: The status of window(s) that can be commanded open to allow ventilation
+  haystack:
+    type:
+      - window
+      - sensor
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+ZDWP:
+  name: Zone Dew Point
+  extends: AIRDWP
+  haystack:
+    type:
+      - zone
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+    reference:
+      - equipRef
+ZOVCMD:
+  name: Zone Override
+  haystack:
+    type:
+      - zone
+      - occupied
+      - override
+      - cmd
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+
+TSTATLCK:
+  name: Thermostat Lockout 
+  description: Disables thermostat for users. 
+  haystack:
+    type:
+      - thermostat
+      - cmd
+      - point
+      - disable
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+
+TSTATMDLCK:
+  name: Thermostat Mode Lockout 
+  description: Disables users from adjusting mode setting on local thermostat.
+  haystack:
+    type:
+      - thermostat
+      - cmd
+      - point
+      - disable
+      - hvacMode
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+
+TSTATFLCK:
+  name: Thermostat Fan Lockout 
+  description: Disables users from adjusting fan setting on local thermostat.
+  haystack:
+    type:
+      - thermostat
+      - cmd
+      - point
+      - disable
+      - fan
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+
+TSTATTLCK:
+  name: Thermostat Temperature Lockout 
+  description: Disables users from adjusting temperature setting on local thermostat.
+  haystack:
+    type:
+      - thermostat
+      - cmd
+      - point
+      - disable
+      - temp
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Bool
+    reference:
+      - equipRef    
+
+WDCMD:
+  name: Window Command
+  description: Command a window or group of windows open to create ventilation in the space
+  haystack:
+    type:
+      - window
+      - cmd
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Bool
+    reference:
+      - spaceRef
+    reference_optional:
+      - deviceRef
+      - equipRef
+      - lightingZoneRef
+
+THRMSRCPWR:
+  name: Thermal Source Electrical Power
+  description: Electric Power consumed by equipment attributed only to heating or cooling. 
+    For example, power consumed by the compressor & condenser of an AC unit, but not indoor/discharge fans.
+    Another example, power consumed by the outdoor unit of a VRF system attributed to each individual indoor unit. 
+    Another example, power consumed by the chilled water plant attributed to a chilled water fan coil unit.
+    This is typically not an actual sensor but a "virtual" or calculated sensor point.
+  haystack:
+    type:
+      - point
+      - elec
+      - power
+      - sensor
+      - thermalSource
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: power
+    reference:
+      - equipRef
+
+THRMSRCEN:
+  name: Thermal Source Electrical Energy
+  description: Electric Energy consumed by equipment attributed only to heating or cooling. 
+    For example, energy consumed by the compressor & condenser of an AC unit, but not indoor/discharge fans.
+    Another example, energy consumed by the outdoor unit of a VRF system attributed to each individual indoor unit. 
+    Another example, energy consumed by the chilled water plant attributed to a chilled water fan coil unit.
+    This is typically not an actual sensor but a "virtual" or calculated sensor point.
+  haystack:
+    type:
+      - point
+      - elec
+      - energy
+      - sensor
+      - thermalSource
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Number
+      - unit: energy
+    reference:
+      - equipRef      
+
+RESET:
+  name: Generic reset point
+  haystack:
+    type:
+      - point
+      - reset
+      - cmd
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Str
+    reference:
+      - equipRef
+
+ALRMRESET:
+  name: Alarm Reset
+  extends: RESET
+  haystack:
+    type:
+      - alarm
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Str
+    reference:
+      - equipRef
+FOMFL:
+  name: Fuel Oil Mass Flow
+  description: Flow of fuel oil in units of mass flowrate
+  haystack:
+    type:
+      - fuelOil
+      - massFlow
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+      - unit_type: mass_flow
+    reference:
+      - equipRef      

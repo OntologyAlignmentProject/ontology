@@ -1,0 +1,103 @@
+AW:
+  name: Autowalk
+  description: An Autowalk is a moving walkway that transports people across a
+    horizontal or inclined plane over a short to medium distance.
+  haystack:
+    type:
+      - equip
+      - movingWalkway
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. AW1 or AW47
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AW-1 or AW-47
+      - dis: Autowalk 1 or AW-1
+    reference:
+      - siteRef
+      - spaceRef
+
+ELV:
+  name: Elevator
+  description: An elevator (US and Canada) or lift (UK, Ireland and Australia) is
+    a type of vertical transportation machine that moves people or freight
+    between floors, levels, or decks of a building, vessel, or other structure.
+  haystack:
+    type:
+      - equip
+      - elevator
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ELV1 or ELV21
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ELV-1 or ELV-21
+      - dis: Elevator 1 or ELV-1
+    reference:
+      - siteRef
+    reference_optional:
+      - equipRef: The elevator group that this elevator belongs to
+  points:
+    - ALRMPT
+    - CARPOS
+    - CARNXTPOS
+    - CARDIR
+    - CARDIRCMD
+    - CARMD
+    - CARLD
+    - ASNLNDCALL
+    - MKCARCALL
+    - REGCARCALL
+    - CARDRST
+    - CARDRVST
+    - LNDCALL
+    - LNDDRST
+    - ELVOOS
+    - PASALM
+
+ELVGRP:
+  name: Elevator Group
+  description: A set of elevators that are grouped under the same controller.
+  haystack:
+    type:
+      - equip
+      - elevator
+      - group
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ELVGRP1 or ELVGRP21
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ELVGRP-1 or ELVGRP-21
+      - dis: Elevator Group 1 or ELVGRP-1
+    reference:
+      - siteRef
+  points:
+    - LNDCALL
+
+ELVLND:
+  name: Elevator Landing
+  description: A floor stop for an elevator (or lift).
+  haystack:
+    type:
+      - equip
+      - elevator
+      - landing
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ELVLND1 or ELVLND21
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ELVLND-1 or ELVLND-21
+      - dis: Landing 1 or ELVLND-1
+    reference:
+      - siteRef
+      - equipRef: The elevator that this landing is a stop for
+      - spaceRef: The floor or room where the landing is located
+
+ESC:
+  name: Escalator
+  description: An escalator is a moving staircase which carries people between
+    floors of a building.
+  haystack:
+    type:
+      - equip
+      - escalator
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ESC1 or ESC34
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ESC-1 or ESC-34
+      - dis: Escalator 1 or ESC-1
+    reference:
+      - siteRef
+      - spaceRef
+  points:
+    - ESCOOS
+    - PASALM

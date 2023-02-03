@@ -1,0 +1,136 @@
+FAP:
+  name: Fire Alarm Panel
+  extends: AP
+  haystack:
+    type:
+      - fire
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. AP1 or AP250
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AP-1 or AP-250
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. AP-1 or AP-252
+  points:
+    - ALRMPT
+    - FAST
+BGU:
+  name: Break Glass Unit
+  haystack:
+    type:
+      - equip
+      - fire
+      - breakGlass
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BGU1 or BGU1253
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BGU-1 or BGU-1253
+      - dis: Break Glass Unit 1 or BGU-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef
+FD:
+  name: Fire Damper
+  extends: DMP
+  haystack:
+    type:
+      - fire
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FD1 or FD417
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FD-1 or FD-417
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. FD-1 or FD-419
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef     
+FSD:
+  name: Fire Smoke Damper
+  extends: DMP
+  haystack:
+    type:
+      - fire
+      - smoke
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: Fire Smoke Damper 1 or FSD-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef      
+
+FE:
+  name: Fire Extinguisher
+  haystack:
+    type:
+      - equip
+      - fire
+      - fireExtinguisher
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FE1 or FE1285
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FE-1 or FE-1285
+      - dis: Fire Extinguisher 1 or FE-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef
+FP:
+  name: Fire Pump
+  description: A fire pump increases pressure as part of a fire sprinkler system's water supply. 
+    The pump provides water flow at a higher pressure to the sprinkler system risers and hose standpipes.
+  extends: PUMP
+  haystack:
+    type:
+      - fire
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FHP1 or FHP1206
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FHP-1 or FHP-1206
+      - dis: Fire Hydrant Pump 1 or FHP-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef
+FSUP:
+  name: Fire Suppression System
+  description: Fire suppression systems are used to extinguish or prevent the
+    spread of fire in a building.
+  haystack:
+    type:
+      - equip
+      - fire
+      - fireSuppression
+      - system
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FSUP1 or FSUP1316
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FSUP-1 or FSUP-1316
+      - dis: Fire Suppression System 1 or FSUP-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef
+FWT:
+  name: Fire Water Tank
+  extends: WTK
+  haystack:
+    type:
+      - fire
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: Fire Water Tank 1 or FWT-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef      
+SPH:
+  name: Sprinkler Head
+  haystack:
+    type:
+      - equip
+      - fire
+      - sprinklerHead
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SPH1 or SPH1331
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SPH-1 or SPH-1331
+      - dis: Sprinkler Head 1 or SPH-1
+    reference:
+      - siteRef
+      - equipRef
+      - spaceRef

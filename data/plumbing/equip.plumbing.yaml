@@ -1,0 +1,553 @@
+ACP:
+  name: Air Compressor
+  haystack:
+    type:
+      - equip
+      - air
+      - compressor
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ACP1 or ACP57
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ACP-1 or ACP-57
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. ACP-1 or ACP-59
+BSP:
+  name: Booster Pump
+  extends: PUMP
+  haystack:
+    type:
+      - booster
+    type_optional:
+      - domestic
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BSP1 or BSP95
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BSP-1 or BSP-95
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BSP-1 or BSP-97
+  functions:
+    - PSS   
+  points: 
+    - DWPR   
+
+DHWST:
+  name: Domestic Hot Water Storage Tank
+  description: Equipment used to store domestic hot water. 
+  extends: WTK
+  haystack:
+    type:
+      - domestic
+      - hot
+    identification:
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+  functions: 
+    - DHWC
+DHWHT:  
+  name:  Domestic Hot Water Heater
+  description: Equipment used to heat domestic hot water.
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - domestic
+      - hot
+      - water
+      - heater
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+    reference_optional:
+      - elecMeterRef 
+  functions_base: 
+    - DHWC
+DEWH:
+  name: Electric-resistance Domestic Hot Water Heater
+  extends: DHWHT
+  haystack:
+    type:
+      - elec
+    type_optional:
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DEWH1 or DEWH375
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DEWH-1 or DEWH-375
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DEWH-1 or DEWH-377
+DHPWH:
+  name: Heat Pump Domestic Hot Water Heater
+  extends: DHWHT
+  haystack:
+    type:
+      - heatPump
+    type_optional:
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER>    
+DGWH:
+  name: Gas Domestic Hot Water Heater
+  extends: DHWHT
+  haystack:
+    type:
+      - gas
+    type_optional:
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DGWH1 or DGWH391
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DGWH-1 or DGWH-391
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DGWH-1 or DGWH-393
+DHXWH:
+  name: Indirect Domestic Hot Water Heater
+  description: This is a water heater that uses hot water through a heat exchanger to heat domestic hot water. 
+  extends: DHWHT
+  haystack:
+    type:
+      - heatExchanger
+    type_optional:
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER>        
+EST:
+  name: Emergency Sewer Tank
+  extends: TK
+  haystack:
+    type:
+      - emergency
+      - sewage
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EST1 or EST181
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EST-1 or EST-181
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EST-1 or EST-183
+EWT:
+  name: Emergency Water Tank
+  extends: WTK
+  haystack:
+    type:
+      - equip
+      - emergency
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EWT1 or EWT158
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EWT-1 or EWT-158
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EWT-1 or EWT-160
+FODT:
+  name: Fuel Oil Day Tank
+  haystack:
+    type:
+      - equip
+      - fuelOil
+      - dayTank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FODT1 or FODT228
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FODT-1 or FODT-228
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. FODT-1 or FODT-230
+FOP:
+  name: Fuel Oil Pump
+  haystack:
+    type:
+      - equip
+      - fuelOil
+      - pump
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FOP1 or FOP239
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FOP-1 or FOP-239
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. FOP-1 or FOP-241
+FOST:
+  name: Fuel Oil Storage Tank
+  haystack:
+    type:
+      - equip
+      - fuelOil
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FOST1 or FOST217
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FOST-1 or FOST-217
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. FOST-1 or FOST-219
+
+GI:
+  name: Grease Interceptor
+  extends: INT
+  description: "A grease interceptor (also known as grease trap, grease recovery
+    device, grease capsule and grease converter) is a plumbing device (a type of
+    trap) designed to intercept most greases and solids before they enter a
+    wastewater disposal system. "
+  haystack:
+    type:
+      - grease
+    reference:
+      - siteRef
+    reference_optional:
+      - spaceRef    
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. GI1 or GI100
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. GI-1 or GI-100
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. GI-1 or GI-102
+
+INT:
+  name: Interceptor
+  is_base: true
+  description: Generic class of plumbing sanitary waste interceptor devices. 
+  haystack:
+    type:
+      - equip
+      - interceptor
+    reference:
+      - siteRef
+    reference_optional:
+      - spaceRef    
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. GI1 or GI100
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. GI-1 or GI-100
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. GI-1 or GI-102      
+MDAP:
+  name: Medical Air Pump
+  haystack:
+    type:
+      - equip
+      - air
+      - pump
+      - medical
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MDAP1 or MDAP34
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MDAP-1 or MDAP-34
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MDAP-1 or MDAP-36
+MDVCP:
+  name: Medical Vacuum Pump
+  description: A medical vacuum pump is a meical grade device that removes gas
+    molecules from a sealed volume in order to leave behind a partial vacuum.
+  haystack:
+    type:
+      - equip
+      - vacuum
+      - pump
+      - medical
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MDVCP1 or MDVCP11
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MDVCP-1 or MDVCP-11
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MDVCP-1 or MDVCP-13
+MGZVB:
+  name: Medical Gas Zone Valve Box
+  haystack:
+    type:
+      - equip
+      - medical
+      - gas
+      - zone
+      - valve
+      - panel
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MGZVB1 or MGZVB195
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MGZVB-1 or MGZVB-195
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MGZVB-1 or MGZVB-197
+OI:
+  name: Oil Interceptor
+  extends: INT
+  description: "An oil interceptor  is a plumbing device (a type of trap) designed
+    to intercept most oils before they enter a wastewater disposal system. "
+  haystack:
+    type:
+      - oil
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OI1 or OI111
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OI-1 or OI-111
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. OI-1 or OI-113
+OXT:
+  name: Oxygen Tank
+  haystack:
+    type:
+      - equip
+      - o2
+      - tank
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OXT1 or OXT206
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OXT-1 or OXT-206
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. OXT-1 or OXT-208
+RWST:
+  name: Rainwater Storage Tank
+  description: Tank used to store collected rainwater. 
+  extends: WTK
+  haystack:
+    type:
+      - rainwater
+    identification:
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+    points: 
+      - WTLVL
+RCP:
+  name: Recirculation Pump
+  extends: PUMP
+  haystack:
+    type:
+      - circ
+      - water
+    type_optional:
+      - domestic
+      - hot
+      - water
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RCP1 or RCP202
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RCP-1 or RCP-202
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RCP-1 or RCP-204
+  functions:
+    - PSS
+    - DHWC
+RO:
+  name: Reverse Osmosis System
+  description: A system that removes contaminants from unfiltered water when pressure forces it through a semi-permeable membrane.
+  haystack:
+    type:
+      - equip
+      - reverseOsmosis
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RO1 or RO925
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RO-1 or RO-925
+      - dis: Reverse Osmosis System 1 or RO-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef
+    points:
+      - WTLVL
+      - WLVLSP
+      - WCD
+      - WCDSP
+      - WLALRML
+    
+SEP:
+  name: Sewage Ejector Pump
+  description: A pump that is used to remove sewage 
+    that has collected in a basin. Similar to a sump pump, but specifically
+    for sanitary waste.
+  extends: PUMP
+  functions:
+    - PSS  
+  points:
+    - WLALRMH
+  haystack:
+    type:
+      - sewageEjector
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SEP1 or SEP78
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SEP-1 or SEP-78
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SEP-1 or SEP-80
+SGV:
+  name: Seismic Gas Valve
+  haystack:
+    type:
+      - equip
+      - seismic
+      - valve
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SGV1 or SGV146
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SGV-1 or SGV-146
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SGV-1 or SGV-148
+SMPP:
+  name: Sump Pump
+  description: A pump used to remove water that has accumulated in a
+    water-collecting sump basin
+  extends: PUMP  
+  functions:
+    - PSS
+  points:
+    - WLALRMH  
+  haystack:
+    type:
+      - sump
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SMPP1 or SMPP89
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SMPP-1 or SMPP-89
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SMPP-1 or SMPP-91
+SOI:
+  name: Sand Oil Interceptor
+  extends: INT
+  description: "A sand oil interceptor  is a plumbing device (a type of trap)
+    designed to intercept most sand and oils before they enter a wastewater
+    disposal system. "
+  haystack:
+    type:
+      - oil
+      - sand
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SOI1 or SOI123
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SOI-1 or SOI-123
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SOI-1 or SOI-125
+TMV:
+  name: Thermostatic Mixing Valve
+  haystack:
+    type:
+      - equip
+      - thermostatic
+      - mixing
+      - valve
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. TMV1 or TMV135
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. TMV-1 or TMV-135
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. TMV-1 or TMV-137
+VCP:
+  name: Vacuum Pump
+  description: A vacuum pump is a device that removes gas molecules from a sealed
+    volume in order to leave behind a partial vacuum.
+  haystack:
+    type:
+      - equip
+      - vacuum
+      - pump
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VCP1 or VCP22
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VCP-1 or VCP-22
+WSO:
+  name: Water Softener
+  description: A device that removes calcium, magnesium, and certain other metal
+    cations in hard water.
+  haystack:
+    type:
+      - equip
+      - water
+      - waterSoftener
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WSO1 or WSO261
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WSO-1 or WSO-261
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. WSO-1 or WSO-263
+DWS:
+  name: Domestic Water System
+  description: A collection of entities related to the domestic water in a building such as booster pumps,
+    sensors, water treatment or softeners, or filtration. Domestic water is also commonly called "Domestic Cold Water"
+    or potable water. All elements in the domestic water system should be interconnected thorugh the domestic Water
+    distribution piping. 
+  haystack:
+    type:
+      - equip
+      - domestic
+      - water
+      - system
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - spaceRef
+      - systemRef
+  contains: 
+    - BSP
+  points: 
+    - DWPR
+DHWS:
+  name: Domestic Hot Water System
+  description: A collection of entities related to the domestic hot water in a building such as hot water heaters, tanks, recirculation pumps,
+    sensors, water treatment or softeners, or filtration. Domestic hot water is sometimes referred to as "hot water", but it is distinct
+    from "heating hot water" which is non-potable. All elements in the domestic hot water system are interconnected through the domestic Water
+    distribution piping. 
+  haystack:
+    type:
+      - equip
+      - domestic
+      - hot
+      - water
+      - system
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - spaceRef
+      - systemRef
+  contains: 
+    - DHWPL
+
+DHWPL:
+  name: Domestic Hot Water Plant
+  description: A domestic hot water plant contains equipment and piping that produces (heats)
+    domestic hot water for a building. 
+  haystack:
+    type:
+      - equip
+      - domestic
+      - hot
+      - plant
+      - water
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - elecMeterRef
+      - deviceRef
+  contains:
+    - RCP
+    - DHWST
+    - DGWH
+    - DEHW
+
+RWS:
+  name: Rainwater System
+  description: A collection of entities related to the rainwater collection (for purposes of onsite reuse) in a building 
+    such as tanks, pumps, water treatment, or filtration. All elements in the rainwater system are interconnected through the raiwater or stormwater piping.
+  haystack:
+    type:
+      - equip
+      - rainwater
+      - system
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - spaceRef
+      - systemRef
+  contains: 
+    - RWST
+      
+SANS:
+  name: Sanitary Waste System
+  description: A collection of entities related to the disposal of sanitary wastewater in a building. Sanitary water is sometimes
+    called "sewage". All elements in the sanitary waste system are interconnected through waste and vent piping.
+  haystack:
+    type:
+      - equip
+      - sewage
+      - wastewater
+      - system
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - spaceRef
+      - systemRef
+
+STRMS:
+  name: Stormwater System
+  description: A collection of entities related to the disposal of onsite storm water on a site. Stormwater is distinct from rainwater
+    in that it is not intended for onsite reuse. All elements in the stromwater system are interconnected through stormwater piping.
+  haystack:
+    type:
+      - equip
+      - stormwater
+      - wastewater
+      - system
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER> 
+    reference:
+      - siteRef
+      - spaceRef
+      - systemRef

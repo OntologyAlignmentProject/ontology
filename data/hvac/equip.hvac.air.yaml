@@ -1,0 +1,2051 @@
+ACU:
+  name: Air Conditioning Unit
+  short_name: ACU
+  description: "Air Conditioning Unit: An AHU than uses DX Cooling and Gas Heating."
+  extends: AHU
+  haystack:
+    type:
+      - constantAirVolume
+      - directZone
+      - dxCooling
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. ACU1 or ACU105
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ACU-1 or ACU-105
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. ACU-1 or ACU-107
+      - id
+  functions:
+    - SD
+    - DFSS
+    - HTGZC
+    - ECON
+    - DXZC
+  contains:
+    - DADUCT
+    - DAF
+    - DXCOIL
+    - GHCOIL
+    - MADUCT
+    - OADUCT
+    - RADUCT
+    - CNTRL
+  points:
+    - DACO2
+    - DARH
+    - DAT
+    - MACO2
+    - MARH
+    - RARH
+    - RAT
+    - BLDSPR
+    - BLDSPRSP
+    - CLCMD
+    - DADCTSPRSP
+    - DADCTSPR
+    - EFFDAFLWSP
+    - DAFLWSP
+    - DFCMD
+    - EADCMD
+    - EADFBK
+    - EFCMD
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - FLTDPR
+    - FRZST
+    - MAT
+    - MATSP
+    - OACLLCKTSP
+    - OADCMD
+    - OADFBK
+    - OAFLWMNSP
+    - OAFLWSP
+    - OAHTLCKTSP
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - OFCMD
+    - RADCMD
+    - RAFLWSP
+    - RATSP
+    - REVVCMD
+    - RFCMD
+    - RFDCMD
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - EFFZTSP
+    - OCCCMD
+    - OCCST
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+    - ZCO2
+    - ZRH
+    - ZT
+    - ZTSP
+    - ZCO2SP
+    - ZRHSP
+    - ZSPR
+    - ZSPRSP
+
+AHU:
+  name: Air Handling Unit
+  short_name: AHU
+  is_base: true
+  description: "Air Handling Unit: An enclosure with a fan that delivers air to a
+    space via ductwork and performs one or more of the functions of cleaning,
+    heating, cooling, humidifying, dehumidifying, ventilating or circulating the
+    air."
+  brick_ontology: Air_Handling_Unit
+  ifc_class: IfcUnitaryEquipment
+  ifc_type: AIRHANDLER
+  kpi:
+    - TEEC
+    - TNGEC
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. AHU1 or AHU8
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AHU-1 or AHU-8
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. AHU-1 or AHU-10
+      - dwgId: The ID on the design drawing.
+    type:
+      - equip
+      - ahu
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - deviceRef
+    reference_optional:
+      - elecRef
+      - elecMeterRef
+      - chilledWaterRef
+      - chilledWaterMeterRef
+      - hotWaterRef
+      - hotWaterMeterRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+  contains:
+    - DADUCT
+    - DAF
+    - MADUCT
+    - OADUCT
+    - RADUCT
+    - CNTRL
+  points_base:
+    - DASDST  
+  points:
+    - ALRMPT
+    - BLDSPR
+    - BLDSPRSP
+    - BYPDCMD
+    - CDDCMD
+    - CHWVCMD
+    - CLDEM
+    - CLREQ
+    - CLSTG1STS
+    - CLSTG1CMD
+    - CLSTG2STS
+    - CLSTG2CMD
+    - CLSTG3STS
+    - CLSTG3CMD
+    - CLSTG4STS
+    - CLSTG4CMD
+    - CLSTG5CMD
+    - CLSTG5STS
+    - CLSTG6CMD
+    - CLSTG6STS
+    - CLSTG7CMD
+    - CLSTG7STS
+    - CLSTG8CMD
+    - CLSTG8STS
+    - CLSTGCT
+    - CMPSPCMD
+    - CMPSPFBK
+    - CMPSSCMD
+    - CMPST
+    - CNDRFSTT
+    - CWVCMD
+    - CWVFBK
+    - DACO2
+    - DADCMD
+    - DADCTSPR
+    - DADCTSPRSP
+    - DADFBK
+    - DADHRHSP
+    - DAFLW
+    - DAFLWSP
+    - DAHUMRHSP
+    - DARH
+    - DAT
+    - DATSP
+    - DFCMD
+    - DFFREQ
+    - DFMDSP
+    - DFSPCMDH
+    - DFSPCMDL
+    - DFSPFBK
+    - DFST
+    - DHWTT
+    - EADCMD
+    - EADCTSPR
+    - EADCTSPRSP
+    - EADFBK
+    - EAFLW
+    - EAFLWSP
+    - EARH
+    - ECCMD
+    - ECENCMD
+    - ECMDSP
+    - ECOALCKESP
+    - ECWT
+    - EFANI
+    - EFANP
+    - EFCMD
+    - EFFDAFLWSP
+    - EFFREQ
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - EFFZTSP
+    - EFSPFBK
+    - EFST
+    - EHTOCMD
+    - EVCLCMD
+    - EVCLSTS
+    - EVPRFSTT
+    - FANSPMD
+    - FANST
+    - FLTDPR
+    - FRZST
+    - HDDCMD
+    - HMCMD
+    - HOAST
+    - HTGCLGV
+    - HTREQ
+    - HTSTS
+    - HWVCMD
+    - HWVFBK
+    - LCWT
+    - MACO2
+    - MAFLTST
+    - MAFLW
+    - MARH
+    - MAT
+    - MATSP
+    - OACLLCKTSP
+    - OADCMD
+    - OADFBK
+    - OAFLTST
+    - OAFLW
+    - OAFLWMNSP
+    - OAFLWSP
+    - OAHTLCKTSP
+    - OAWBTEMP
+    - OCCCMD
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCCSNS
+    - OCCST
+    - OCCZRHSP
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - OFCMD
+    - PHWVCMD
+    - PRREQ
+    - RACO2
+    - RACO2SP
+    - RACTSP
+    - RADCMD
+    - RADFBK
+    - RADRHSP
+    - RADWP
+    - RAENTH
+    - RAFLW
+    - RAFLWSP
+    - RAHRHSP
+    - RAHTSP
+    - RARH
+    - RAT
+    - RATSP
+    - REVVCMD
+    - RFCMD
+    - RFSPCMD
+    - RFSPFBK
+    - RFFREQ
+    - RFDCMD
+    - RFST
+    - RNTM
+    - SSCMD
+    - UOCZRHSP
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+    - ZCH4ALMSP
+    - ZCO
+    - ZCO2
+    - ZCO2SP
+    - ZCOALMSP
+    - ZDHRHSP
+    - ZHUMRHSP
+    - ZPCNT
+    - ZRH
+    - ZRHSP
+    - ZSPR
+    - ZSPRSP
+    - ZT
+    - ZTCA
+    - ZTHA
+    - ZTSP
+AHUDFVCO:
+  name: VAV AHU, CHW Cooling
+  description: "VAV Air Handlers are ideal for providing cool conditioned air to
+    zones in a commercial building. "
+  extends: AHU
+  google_ontology: AHU_SD_DFSS_DFVDC_CHWDC
+  haystack: 
+    type: 
+      - variableAirVolume
+      - chilledWaterCooling
+  functions:
+    - SD
+    - DFSS
+    - DFVDC
+    - CHWDC
+AHUDFVCOEC:
+  name: VAV AHU, CHW Cooling & Econ
+  description: VAV Air Handlers w/ Economizer
+  extends: AHU
+  google_ontology: AHU_SD_DFSS_DFVDC_CHWDC_ECON
+  haystack: 
+    type: 
+      - variableAirVolume
+      - chilledWaterCooling
+      - economizing
+  functions:
+    - SD
+    - DFSS
+    - DFVDC
+    - CHWDC
+    - ECON
+AHUDFVCOECEFV:
+  name: VAV AHU, CHW Cooling, Econ & Var. Spd. EF
+  description: VAV Air Handlers w/ Economizer and Variable Exhaust Fan
+  extends: AHU
+  google_ontology: AHU_SD_DFSS_DFVDC_CHWDC_ECON_EFSS_EFVSC
+  haystack: 
+    type: 
+      - variableAirVolume
+      - chilledWaterCooling
+      - economizing
+  functions:
+    - SD
+    - DFSS
+    - DFVDC
+    - CHWDC
+    - EFSS
+    - EFVSC
+    - ECON
+AHUDFVCOECPH:
+  name: VAV AHU, CHW Cooling, Econ & HW Preheat
+  description: VAV Air Handlers w/ Economizer and Hot Water Preheat
+  extends: AHU
+  google_ontology: AHU_SD_DFSS_DFVDC_CHWDC_ECON_PHWSC
+  haystack: 
+    type: 
+      - variableAirVolume
+      - chilledWaterCooling
+      - economizing
+      - hotWaterHeating
+  functions:
+    - SD
+    - DFSS
+    - DFVDC
+    - CHWDC
+    - ECON
+    - PHWSC
+AHUDFVCOECPHEFV:
+  name: VAV AHU, CHW Cooling, Econ, HW Preheat & Var. Spd. EF
+  description: VAV Air Handler w/ Economizer, Hot Water Preheat, & Variable Exhaust Fan
+  extends: AHU
+  google_ontology: AHU_SD_DFSS_DFVDC_CHWDC_ECON_PHWSC_EFSS_EFVSC
+  haystack: 
+    type: 
+      - variableAirVolume
+      - chilledWaterCooling
+      - economizing
+      - hotWaterHeating
+  functions:
+    - SD
+    - DFSS
+    - DFVDC
+    - CHWDC
+    - EFSS
+    - EFVSC
+    - ECON
+    - PHWSC
+AHUWSHPDZ:
+  name: Single Zone Water Source Heat Pump Air Handling Unit 
+  description: A single-zone air handling equipment that is a water-to-air heat pump using liquid 
+    circulating in a neutral temperature loop functioning as a heat source/heat sink. 
+  extends: HP
+  haystack:
+    type: 
+      - ahu
+      - waterCooled
+      - directZone
+      - dxCooling
+      - dxHeating
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WSHP1 or WSHP186
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WSHP-1 or WSHP-186
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. WSHP-1 or WSHP-188
+    reference:
+      - hvacZoneRef
+  functions:
+    - WCR 
+    - HPZC
+    - DSP
+    - DFSS
+    - ZCO2C
+    - ZRHC
+    - OCC
+  contains:
+    - CMP
+    - DAF
+    - CWCOIL
+    - DXCOIL
+    - DADUCT
+    - MADUCT
+    - OADUCT
+    - RADUCT
+    - CNTRL
+  points:
+    - FLTDPR
+    - DFMDSP
+AHUWSHP:
+  name: Multi-Zone Water Source Heat Pump Air Handling Unit
+  description: An air handling equipment that is a water-to-air heat pump using liquid 
+    circulating in a neutral temperature loop functioning as a heat source/heat sink that serves 2 or more zones. 
+  extends: HP
+  haystack:
+    type: 
+      - ahu
+      - waterCooled
+      - dxCooling
+      - dxHeating
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WSHP1 or WSHP186
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WSHP-1 or WSHP-186
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. WSHP-1 or WSHP-188
+  functions:
+    - WCR 
+    - HPZC
+    - DSP
+    - DFSS
+    - ZCO2C
+    - ZRHC
+    - OCC
+  contains:
+    - CMP
+    - DAF
+    - CWCOIL
+    - DXCOIL
+    - DADUCT
+    - MADUCT
+    - OADUCT
+    - RADUCT
+    - CNTRL
+  points:
+    - FLTDPR
+    - DFMDSP
+CRAC:
+  name: Computer Room Air Conditioning Unit
+  short_name: CRAC
+  description: "Computer Room Air Conditioner: An FCU designed to condition a
+    computer room."
+  extends: FCU
+  haystack:
+    type:
+      - crac
+      - dxCooling
+      - directZone
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CRAC1 or CRAC147
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CRAC-1 or CRAC-147
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CRAC-1 or CRAC-149
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - hvacZoneRef
+  points:
+    - DACO2
+    - DARH
+    - DAT
+    - RARH
+    - RAT
+    - ZCO2
+    - ZRH
+    - ZT
+CRAH:
+  name: Computer Room Air Handling Unit
+  short_name: CRAH
+  description: "Computer Room Air Conditioner: An AHU designed to condition a
+    computer room."
+  extends: FCU
+  haystack:
+    type:
+      - equip
+      - crac
+      - chilledWaterCooling
+      - hotWaterHeating
+      - directZone
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CRAH1 or CRAH166
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CRAH-1 or CRAH-166
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CRAH-1 or CRAH-168
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - chilledWaterRef
+      - hvacZoneRef
+  points:
+    - DACO2
+    - DARH
+    - DAT
+    - MACO2
+    - MARH
+    - OAFLTST
+    - RARH
+    - RAT
+    - ZCO2
+    - ZRH
+    - ZT
+    - DATSP
+DOAS:
+  name: Dedicated Outside Air System
+  short_name: DOAS
+  description: "Dedicated Outside Air System: An AHU that brings in 100% outside
+    air and no recirculated air in order to provide ventilation to spaces."
+  extends: AHU
+  haystack:
+    type:
+      - doas
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DOAS1 or DOAS184
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DOAS-1 or DOAS-184
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DOAS-1 or DOAS-186
+    reference:
+      - siteRef
+      - systemRef
+    reference_optional:
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - chilledWaterRef
+      - hotWaterRef
+  functions:
+    - DXDC
+    - DFVSC
+    - DSPC
+    - DHC
+    - HWDC
+    - MOAFC
+    - EAFC
+    - BSPC
+    - EFVSC
+    - HRWC
+    - HGRC
+    - RHC
+    - WCR
+  points: 
+    - HVACMDSP
+    - HVACMDCMD
+    - FLTDPR
+    - FLTST
+    - OATEMP
+    - OARH
+    - EAT
+    - EARH
+    - RADCMD 
+    - DAT  
+    - CNDRFPR 
+    - EVPRFPR
+    - CMPRFLT 
+    - CMPST
+RTU:
+  name: Roof Top Unit
+  short_name: RTU
+  description: "Roof Top Unit: A unitary AHU that is weatherized for outdoor use."
+  extends: AHU
+  haystack:
+    type:
+      - equip
+      - rtu
+      - dxCooling
+      - gasHeating
+      - ahu
+      - singleDuct
+      - constantAirVolume
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RTU1 or RTU132
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RTU-1 or RTU-132
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RTU-1 or RTU-134
+  contains:
+    - GHC
+    - DXCOIL
+    - CNTRL
+  points:
+    - DACO2
+    - DARH
+    - DAT
+    - DFST
+    - EFST
+    - MACO2
+    - MAFLTST
+    - MAFLW
+    - MARH
+    - OAFLTST
+    - OAFLW
+    - RAFLW
+    - RARH
+    - RAT
+    - RFST
+    - ZCO2
+    - ZRH
+    - ZT
+    - BLDSPR
+    - BLDSPRSP
+    - BYPDCMD
+    - CHWVCMD
+    - CLCMD
+    - CWVCMD
+    - CWVFBK
+    - DADCTSPRSP
+    - DADCTSPR
+    - EFFDAFLWSP
+    - DAFLWSP
+    - DATSP
+    - DFCMD
+    - EADCMD
+    - EADFBK
+    - EFCMD
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - FLTDPR
+    - HTGCLGV
+    - HWVCMD
+    - MATSP
+    - OACLLCKTSP
+    - OADCMD
+    - OADFBK
+    - OAFLWMNSP
+    - OAFLWSP
+    - OAHTLCKTSP
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - OFCMD
+    - RADCMD
+    - RAFLWSP
+    - RATSP
+    - REVVCMD
+    - RFCMD
+    - RFDCMD
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - ZCO2SP
+    - ZRHSP
+    - ZSPR
+    - ZSPRSP
+    - EFFZTSP
+    - ZTSP
+    - OCCCMD
+    - OCCST
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+BD:
+  name: Balancing Damper
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BD1 or BD266
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BD-1 or BD-266
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BD-1 or BD-268
+    type:
+      - balancing
+    reference:
+      - equipRef
+BYPD:
+  name: Bypass Damper
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BYD1 or BYD278
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BYD-1 or BYD-278
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BYD-1 or BYD-280
+    type:
+      - bypass
+    reference:
+      - equipRef
+CDDT:
+  name: Cold Air Duct
+  description: Conduit used to convey Cold air.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CDDT1 or CDDT248
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CDDT-1 or CDDT-248
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CDDT-1 or CDDT-250
+    type:
+      - cooling
+DAD:
+  name: Discharge Air Damper
+  description: Equipment used to regulate the amount of air entering the space.
+    Typically found in a VAV or MZU.
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DAD1 or DAD144
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DAD-1 or DAD-144
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DAD-1 or DAD-146
+    type:
+      - discharge
+DADUCT:
+  name: Discharge Air Duct
+  description: Conduit used to convey air for on the Discharge side of the airside process.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DADUCT1 or DADUCT197
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DADUCT-1 or DADUCT-197
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DADUCT-1 or DADUCT-199
+    type:
+      - discharge
+  contains:
+    - CHWCOIL
+    - DXCOIL
+    - DAD
+    - DAF
+    - HWCOIL
+DAF:
+  name: Discharge Air Fan
+  description: Fan equipment or control point located in the Discharge Air Duct
+  extends: FAN
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DF1 or DF29
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-29
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
+  functions:
+    - DFSS
+  points:
+    - DFI
+    - DFP
+    - DFSPCMD
+DMP:
+  name:  Damper
+  description: Equipment used to regulate flow of air.
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+    type:
+      - equip
+      - damper
+    reference:
+      - equipRef  
+DUCT:
+  name: Air Duct
+  description: Generic Base class of conduit used to convey air.
+  is_base: true
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DADUCT1 or DADUCT197
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DADUCT-1 or DADUCT-197
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DADUCT-1 or DADUCT-199
+    type:
+      - duct
+      - equip
+  contains:
+    - CHWCOIL
+    - DXCOIL
+    - DAD
+    - DAF
+    - HWCOIL
+EAD:
+  name: Exhaust Air Damper
+  description: Equipment use to regulate the amount of air exhausted from the
+    space or building.
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EAD1 or EAD153
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EAD-1 or EAD-153
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EAD-1 or EAD-155
+    type:
+      - exhaust
+EADT:
+  name: Exhaust Air Duct
+  description: Conduit used to convey air for on the Discharge side of the airside process.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EADT1 or EADT212
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EADT-1 or EADT-212
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EADT-1 or EADT-214
+    type:
+      - discharge
+EF:
+  name: Exhaust Air Fan
+  description: Fan equipment or control point located in the Exhaust Air Duct
+  extends: FAN
+  brick_ontology: Exhaust_Fan
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EF1 or EF49
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EF-1 or EF-49
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EF-1 or EF-51
+    type:
+      - exhaust
+    type_optional:
+      -  relief
+  functions:
+    - EFSS
+    - EFVSC
+    - CSP
+EHC:
+  name: Electric Heat Coil
+  description: Heat exchanger used to heat air using electricity as the source.
+    Coils are sub-components of HVAC equipment such as airHandlingEquip.
+  extends: COIL
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EHC1 or EHC105
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. EHC-1 or EHC-105
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EHC-1 or EHC-107
+    type:
+      - elecHeating
+      - heatingCoil
+FAN:
+  name: Fan
+  description: An equip that moves air.  
+  is_base: true
+  kpi: 
+    - TEEC
+  haystack:
+    type:
+      - equip
+      - fan
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DF1 or DF29
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-29
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
+    reference:
+      - equipRef
+  points: 
+    - ALRMPT
+    - CLDEM
+    - DFSPFBK
+    - DRSTS
+    - DWSTS
+    - EAFLWSP
+    - EARH
+    - EFSPFBK
+    - HOAST
+    - ISOADCMD
+    - VFDSPREF
+    - ZCO
+
+FANW:
+  name: Fan Wall
+  description: A group of fans that are arranged in a wall and controlled together.   
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - fan
+      - fanWall
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DF1 or DF29
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-29
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
+    reference:
+      - equipRef
+  contains:
+    - FAN
+  points:
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+DFANW:
+  name: Discharge Fan Wall
+  description: A discharge fan wall. See definition for fan wall.    
+  extends: FANW
+  haystack:
+    type:
+      - discharge
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DF1 or DF29
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-29
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
+  functions:
+    - DFSS
+EFANW:
+  name: Exhaust Fan Wall
+  description: An exhaust fan wall. See definition for fan wall.    
+  extends: FANW
+  haystack:
+    type:
+      - exhaust
+    type_optional:
+      -  relief
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DF1 or DF29
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-29
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
+  functions:
+    - EFSS
+RFANW:
+  name: Return Fan Wall
+  description: A return fan wall. See definition for fan wall.    
+  extends: FANW
+  haystack:
+    type:
+      - return
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DF1 or DF29
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-29
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
+  functions:
+    - RFSS
+GEF:
+  name: Garage Exhaust Fan
+  description: Fan used to remove contaminated air, specifically carbon monoxide
+    from a space where motor vehicles are used such as a garage. 
+  extends: FAN
+  google_ontology: FAN_SS_VSC_COC, FAN_SS_COC
+  brick_ontology: Exhaust_Fan
+  haystack:
+    type:
+      - exhaust
+      - co
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+  contains:
+    - OAD
+    - EAD
+  points:
+    - ZCO
+    - ZNO2
+    - EADCMD
+    - EADFBK
+    - OADCMD
+    - OADFBK
+
+GHC:
+  name: Gas Heat Coil
+  description: Heat exchanger used to heat air using natural gas as the source.
+    Coils are sub-components of HVAC equipment such as airHandlingEquip.
+  extends: COIL
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. GHC1 or GHC115
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. GHC-1 or GHC-115
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. GHC-1 or GHC-117
+    type:
+      - gasHeating
+      - heatingCoil
+HTDT:
+  name: Hot Air Duct
+  description: Conduit used to convey Hot air.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HTDT1 or HTDT257
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HTDT-1 or HTDT-257
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HTDT-1 or HTDT-259
+    type:
+      - heating
+MAD:
+  name: Mixed Air Damper
+  description: Equipment use to regulate the mixture of outisde and return air
+    before the DF.
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MAD1 or MAD162
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-162
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-164
+    type:
+      - mixed
+MADUCT:
+  name: Mixed Air Duct
+  description: Conduit used to convey air, blending outside air and return air
+    prior to the heating and cooling process.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MADUCT1 or MADUCT230
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MADUCT-1 or MADUCT-230
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MADUCT-1 or MADUCT-232
+    type:
+      - mixed
+OAD:
+  name: Outside Air Damper
+  description: Equipment use to regulate the amount of outside air entering the
+    space or building.
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OAD1 or OAD171
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OAD-1 or OAD-171
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. OAD-1 or OAD-173
+    type:
+      - outside
+OADUCT:
+  name: Outside Air Duct
+  description: Conduit used to convey outside air.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OADUCT1 or OADUCT239
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OADUCT-1 or OADUCT-239
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. OADUCT-1 or OADUCT-241
+    type:
+      - outside
+OF:
+  name: Outside Air Fan
+  description: Fan equipment or located in the Outside Air Duct
+  extends: FAN
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. OF1 or OF59
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OF-1 or OF-59
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. OF-1 or OF-61
+    type:
+      - outside
+RAD:
+  name: Return Air Damper
+  description: Equipment use to regulate the amount of return air routed back to
+    the space or building.
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RAD1 or RAD180
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RAD-1 or RAD-180
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RAD-1 or RAD-182
+    type:
+      - return
+RADUCT:
+  name: Return Air Duct
+  description: Conduit used to convey air for on the Return side of the airside process.
+  extends: DUCT
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RADUCT1 or RADUCT221
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RADUCT-1 or RADUCT-221
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RADUCT-1 or RADUCT-223
+    type:
+      - return
+RF:
+  name: Return Air Fan
+  description: Fan equipment or control point located in the Return Air Duct
+  extends: FAN
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RF1 or RF39
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RF-1 or RF-39
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RF-1 or RF-41
+    type:
+      - return
+  functions:
+    - RFSS
+SF:
+  name: Supply Fan
+  deprecated: true
+  description: Fan equipment or control point located in the Discharge Air Duct
+  extends: FAN
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SF1 or SF19
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SF-1 or SF-19
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SF-1 or SF-21
+    type:
+      - discharge
+  functions:
+    - SFSS
+  points:
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+BRSEL:
+  name: Branch Selector Box
+  description: An integral part of a VRF system, the branch selector box will send
+    either hot gas (Heating mode) or Low pressure liquid (Cooling mode) to the
+    indoor fan coil.
+  haystack:
+    type:
+      - equip
+      - vrf
+      - branchSelector
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. BRSEL1 or BRSEL580
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. BRSEL-1 or BRSEL-580
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. BRSEL-1 or BRSEL-582
+    reference:
+      - siteRef
+      - equipRef
+      - systemRef
+      - refrigRef
+CAV:
+  name: Constant Air Volume Box
+  description: Constant air volume (CAV) is a type of heating, ventilating, and
+    air-conditioning (HVAC) system where the supply air flow rate is constant,
+    but the supply air temperature is varied to meet the thermal loads of a
+    space.
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CAV1 or CAV239
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CAV-1 or CAV-239
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CAV-1 or CAV-241
+    type:
+      - equip
+      - cav
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - deviceRef
+      - airRef
+      - hvacZoneRef
+CHB:
+  name: Chilled Beam
+  short_name: CHB
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. CHB1 or CHB453
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CHB-1 or CHB-453
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CHB-1 or CHB-455
+    type:
+      - equip
+      - chilledBeam
+      - active
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - airRef
+      - deviceRef
+      - hotWaterRef
+      - chilledWaterRef
+      - hvacZoneRef
+  functions:
+    - CHBZC
+    - CSP
+    - DSP
+    - CNM
+    - CHWZC
+    - HWZC
+  points:
+    - DAT
+    - ZCO2
+    - ZRH
+    - ZT
+    - DFCMD
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - FLTDPR
+    - HWVCMD
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - EFFZTSP
+    - ZTSP
+    - CN
+    - IAT
+    - RWFLW
+    - VFB
+    - WDWSW
+    - ZDWP
+    - ZOVCMD
+    - ZCO2SP
+HP:
+  name: Heat Pump Air Handler (Base Definition)
+  is_base: true
+  short_name: HP
+  description: An air handling equipment which employs a vapor compression cycle with a reversing valve
+    to provide heating or cooling to a space.
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HP1 or HP150
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HP-1 or HP-151
+    type:
+      - equip
+      - heatPump
+      - ahu
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - hotWaterRef
+      - chilledWaterRef
+  functions:
+    - DFSS
+    - DSP
+    - CSP
+  contains:
+    - DXCOIL
+    - DADUCT
+    - DAF
+    - MADUCT
+    - OADUCT
+    - RADUCT
+    - CNTRL
+  points:
+    - CLCMD
+    - CMPST
+    - CMPST
+    - DACO2
+    - DARH
+    - DAT
+    - DFCMD
+    - DFMDSP
+    - DFOVCMD
+    - ECWT
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - EFFZTSP
+    - FLTDPR
+    - FRZST
+    - LCWT
+    - MACO2
+    - MARH
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCCSNS
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - RARH
+    - RAT
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - ZCO2
+    - ZCO2SP
+    - ZRH
+    - ZRHSP
+    - ZRHSP
+    - ZT
+    - ZTSP
+HPZC:
+  name: Heat Pump - Zone Control
+  description: HP with DX heating/cooling (zone control).
+  extends: HP
+  google_ontology: FCU_DFSS_DSP_HPZC
+  haystack:
+    type:
+      - dxCooling
+      - dxHeating
+  functions:
+    - ACR
+    - HPZC
+MAU:
+  name: Make Up Air Unit
+  short_name: MAU
+  description: "Make Up Air Unit: A larger air handler that conditions 100%
+    outside air, and no recirculated air to make up for air lost from exhausted
+    air. "
+  extends: AHU
+  google_ontology: MAU
+  brick_ontology: Makeup_Air_Unit
+  haystack:
+    type:
+      - equip
+      - mau
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MAU1 or MAU205
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MAU-1 or MAU-205
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MAU-1 or MAU-207
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - hvacZoneRef
+  functions:
+    - DTC
+    - HGRC
+    - DFDVC
+    - DXDC
+    - DSP
+    - ZRHC
+    - HTEZC
+  points:
+    - ALRMPT
+    - DAFLW
+    - DFCMD
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - FLTDPR
+    - OADCMD
+    - OAFLTST
+    - OATEMP
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - EFFZTSP
+    - ZRHAVG
+    - ZTAVG
+    - ZTSP
+VRFOU:
+  name: VRF Outdoor Unit
+  description: The outdoor unit of a VRF System, comprising one or
+    multiple compressors.
+  haystack:
+    type:
+      - equip
+      - vrf
+      - outdoorUnit
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VRFOUACHP1 or VRFOUACHP518
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUACHP-1 or VRFOUACHP-518
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUACHP-1 or VRFOUACHP-520
+    reference:
+      - siteRef
+      - systemRef
+      - equipRef
+  functions_base:
+    - VRFOUREF
+  points_base: 
+    - ALRMPT
+    - CMPSSCMD
+    - CMPST
+    - CNDRFSTT
+    - ECWT
+    - EVPRFSTT
+    - HVACMDSP
+    - HVACMDCMD
+    - LCWT
+
+VRFOUACHP:
+  name: VRF Air Cooled Outdoor Heat Pump Unit
+  description: The outdoor unit of a heat pump VRF System, comprising one or
+    multiple compressors. The outdoor unit utilizes an air-cooled condenser to reject (or absorb)
+    heat to ambient air.
+  extends: VRFOU
+  haystack:
+    type:
+      - airCooled
+      - heatPump
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VRFOUACHP1 or VRFOUACHP518
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUACHP-1 or VRFOUACHP-518
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUACHP-1 or VRFOUACHP-520
+  functions:
+    - VRFOUAIR
+
+VRFOUACHR:
+  name: VRF Air Cooled Outdoor Heat Recovery Unit
+  description: The outdoor unit of a heat recovery VRF System, comprising one or
+    multiple compressors. The outdoor unit utilizes an air-cooled condenser to reject (or absorb)
+    heat to ambient air.
+  extends: VRFOU
+  haystack:
+    type:
+      - airCooled
+      - heatRecovery
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VRFOUACHR1 or VRFOUACHR550
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUACHR-1 or VRFOUACHR-550
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUACHR-1 or VRFOUACHR-552
+  functions:
+    - VRFOUREF
+
+VRFOUWCHP:
+  name: VRF Water Cooled Outdoor Heat Pump Unit
+  description: The outdoor unit of a heat pump VRF System, comprising one or
+    multiple compressors. The compressors are cooled by condenser water.
+  extends: VRFOU
+  haystack:
+    type:
+      - waterCooled
+      - heatPump
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VRFOUWCHP1 or VRFOUWCHP534
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUWCHP-1 or VRFOUWCHP-534
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUWCHP-1 or VRFOUWCHP-536
+  functions:
+    - VRFOUWTR    
+
+VRFOUWCHR:
+  name: VRF Water Cooled Outdoor Heat Recovery Unit
+  description: The outdoor unit of a heat recovery VRF System, comprising one or
+    multiple compressors. The outdoor unit utilizes a water-cooled condenser to reject (or absorb)
+    heat. Note that this unit does not strictly need to be outdoors as it is water-cooled.
+  extends: VRFOU
+  haystack:
+    type:
+      - waterCooled
+      - heatRecovery
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VRFOUWCHR1 or VRFOUWCHR566
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUWCHR-1 or VRFOUWCHR-566
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VRFOUWCHR-1 or VRFOUWCHR-568
+  functions:
+    - VRFOUWTR    
+    
+VRFSYS:
+  name: VRF / VRV System
+  description: A typical system consists of an outdoor unit (comprising one or
+    more skids containing a compressor and condenser) and several indoor units (often called 
+    "fan coils"). The system is connected by refrigerant piping and comm wire running from the
+    outdoor units to all indoor units.
+  haystack:
+    type:
+      - equip
+      - system
+      - vrf
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VRFSYS1 or VRFSYS502
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFSYS-1 or VRFSYS-502
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VRFSYS-1 or VRFSYS-504
+    reference:
+      - siteRef
+      - spaceRef
+      - systemRef
+  contains:
+    - VRFOU
+    - BRSEL
+    - FCUVRFZC
+FCU:
+  name: Fan Coil Unit (Base Definition)
+  is_base: true
+  short_name: FCU
+  description: "Fan Coil Unit: A unitary, factory-made enclosure with a fan and
+    coil that recirculates air in a space and performs one or more of the
+    functions of cleaning, heating, cooling, humidifying, dehumidifying, or
+    ventilating the air. Unit heaters are examples of FCUs."
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FCU1 or FCU8
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FCU-1 or FCU-8
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. FCU-1 or FCU-10
+    type:
+      - equip
+      - fcu
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - directZone
+      - hvacZoneRef
+    reference_optional:
+      - airRef
+  contains:
+    - CHWCOIL
+    - DADUCT
+    - DAF
+    - HWCOIL
+    - MADUCT
+    - OADUCT
+    - RADUCT
+    - CNTRL
+  points:
+    - ALRMPT
+    - CHWVCMD
+    - CHWVFBK
+    - CLDEM
+    - CWVCMD
+    - CWVFBK
+    - DACO2
+    - DADCMD
+    - DADCTSPR
+    - DADFBK
+    - DADHRHSP
+    - DAFLWSP
+    - DAHUMRHSP
+    - DAT
+    - DATSP
+    - DFCMD
+    - DFFREQ
+    - DFMDSP
+    - DFSPCMDH
+    - DFSPCMDL
+    - ECMDSP
+    - EFFDAFLWSP
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - EFFZTSP
+    - EHTOCMD
+    - EVPRFLT
+    - FANSPMD
+    - FANSPMDCMD
+    - FLTDPR
+    - HTGCLGV
+    - HTREQ
+    - HWVCMD
+    - OCCEFFSP
+    - OCCSCHSP
+    - OCCSNS
+    - OCCST
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - RAT
+    - SSCMD
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - VFDSPCMD
+    - VFDSPREF
+    - VFDSSCMD
+    - ZCO2
+    - ZCO2SP
+    - ZOVCMD
+    - ZRH
+    - ZRHSP
+    - ZT
+    - ZTCA
+    - ZTHA
+    - ZTSP
+
+FCUDACO:
+  name: FCU - Discharge Air Cooling Only
+  description: FCU with chilled water cooling-only (discharge control).
+  extends: FCU
+  google_ontology: FCU_DFSS_CSP_CHWDC
+  haystack:
+    type:
+      - coolingOnly
+      - directZone
+  functions:
+    - DFSS
+    - CSP
+    - CHWDC
+    - OCC
+
+FCUVRFZC:
+  name: FCU - VRF Zone Control
+  description: FCU with DX heating and cooling and part of VRF System (zone control).
+  extends: FCU
+  haystack:
+    type:
+      - vrf
+      - directZone
+    reference:
+      - equipRef
+      - refrigRef
+  functions:
+    - DFSS
+    - DSP
+    - OCC
+  points: 
+    - ALRMPT
+    - SSST
+    - SSCMD
+    - FLTST
+    - DFSPCMD
+    - HVACMDSP
+    - HVACMDCMD
+    - EVPRFET
+    - EVPRRLT
+    - TSTATLCK
+    - TSTATMDLCK
+    - TSTATFLCK
+    - TSTATTLCK
+    - ZOVCMD
+    - ENERGY
+    - RLPWR
+    - THRMSRCPWR
+    - THRMSRCEN
+
+FCUZC:
+  name: FCU - Zone Control
+  description: FCU with chilled water cooling and hot water heating (zone control).
+  extends: FCU
+  google_ontology: FCU_DFSS_CSP_CHWZC_HWZC
+  haystack:
+    type:
+      - directZone
+    reference:
+      - hotWaterRef
+      - chilledWaterRef
+  functions:
+    - DFSS
+    - DSP
+    - CHWZC
+    - HWZC
+    - OCC
+FCUZCCO:
+  name: FCU - Zone Control Cooling Only
+  description: FCU with chilled water cooling-only (zone control).
+  extends: FCU
+  google_ontology: FCU_DFSS_CSP_CHWDC
+  haystack:
+    type:
+      - coolingOnly
+      - directZone
+  functions:
+    - DFSS
+    - CSP
+    - CHWZC
+    - OCC
+
+FCUZCCOD:
+  name: FCU - Zone DX Cooling Only
+  description: FCU with DX cooling-only (zone control).
+  extends: FCU
+  google_ontology: FCU_DFSS_CSP_DXZC
+  haystack:
+    type:
+      - dxCooling
+      - coolingOnly
+      - directZone
+  functions:
+    - DFSS
+    - CSP
+    - DXZC
+    - OCC
+
+FCUZCHOE:
+  name: FCU - Zone Elec Heating Only
+  description: FCU with electric heating only (zone control).  Also referred to as a Unit Heater.
+  extends: FCU
+  google_ontology: UH_SS_DSP_HTZC
+  haystack:
+    type:
+      - elecHeating
+      - heatingOnly
+      - directZone
+  functions:
+    - DFSS
+    - HSP
+    - HTEZC
+    - OCC
+###VAV TYPES###
+VAV:
+  name: Variable Air Volume Unit
+  short_name: VAV
+  is_base: true
+  description: "Variable air volume (VAV) is a type of heating, ventilating,
+    and/or air-conditioning (HVAC) system. "
+  brick_ontology: Variable_Air_Volume_Box
+  google_ontology: VAV
+  ifc_class: IfcAirTerminalBox
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VAV1 or VAV299
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VAV-1 or VAV-300
+    type:
+      - equip
+      - vav
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - deviceRef
+      - airRef
+      - hvacZoneRef
+  contains:
+    - DADUCT
+    - DAD
+    - DMPACT
+  functions_base:
+    - SID
+    - CSP
+    - DSP
+  points_base:
+    - ZT 
+  points:
+    - CLDEM
+    - CLREQ
+    - DACO2
+    - DADCMD
+    - DADFBK
+    - DARH
+    - DFCMD
+    - EADCMD
+    - EAFLW
+    - EFFCDAFLWSP
+    - EFFHDAFLWSP
+    - EFFIAFLWSP
+    - EFFZTCLSP
+    - EFFZTHTSP
+    - EFFZTSP
+    - EHTOCMD
+    - FLTDPR
+    - HDDATSP
+    - HDDCMD
+    - HTDEM
+    - HTREQ
+    - HWVCMD
+    - IAFLW
+    - OCCCDAFLWMNSP
+    - OCCCDAFLWMXSP
+    - OCCCMD
+    - OCCEFFSP
+    - OCCHDAFLWMNSP
+    - OCCHDAFLWMXSP
+    - OCCIAFLWCLMNSP
+    - OCCIAFLWCLMXSP
+    - OCCIAFLWHTMNSP
+    - OCCIAFLWHTMXSP
+    - OCCSCHSP
+    - OCCSNS
+    - OCCST
+    - OCCZCLDB
+    - OCCZHTDB
+    - OCCZTCLSP
+    - OCCZTHTSP
+    - RADVCMD
+    - RHV
+    - RHVCMD
+    - SBCDAFLWMNSP
+    - SBCDAFLWMXSP
+    - SBHDAFLWMNSP
+    - SBHDAFLWMXSP
+    - SBIAFLWCLMNSP
+    - SBIAFLWCLMXSP
+    - SBIAFLWHTMNSP
+    - SBIAFLWHTMXSP
+    - SBZTCLSP
+    - SBZTHTSP
+    - UOCCDAFLWMNSP
+    - UOCCDAFLWMXSP
+    - UOCHDAFLWMNSP
+    - UOCHDAFLWMXSP
+    - UOCIAFLWCLMNSP
+    - UOCIAFLWCLMXSP
+    - UOCIAFLWHTMNSP
+    - UOCIAFLWHTMXSP
+    - UOCIAFLWMNSP
+    - UOCZTCLSP
+    - UOCZTHTSP
+    - ZCH4ALMSP
+    - ZCO2
+    - ZCO2SP
+    - ZCOALMSP
+    - ZDHRHSP
+    - ZHUMRHSP
+    - ZOVCMD
+    - ZPCNT
+    - ZRH
+    - ZRHSP
+    - ZSPR
+    - ZSPRSP
+    - ZTSP
+
+# VAV Variant Definitions
+
+VAVCDAFC:
+  name: VAV - Inlet Air Flow Control
+  description: VAV terminal unit that delivers air to downstream equips, typically
+    1 or more chilled beams.
+  extends: VAV
+  haystack:
+    type:
+      - pressureIndependent
+      - singleDuct
+  functions:
+    - HAFC
+    - CAFC
+    - OCC
+VAVCO:
+  name: VAV - Cooling Only
+  description: VAV terminal unit that is supplied cool air from an AHU.
+  extends: VAV
+  google_ontology: VAV_SD_CSP
+  haystack:
+    type:
+      - pressureIndependent
+      - coolingOnly
+      - singleDuct
+      - directZone
+  functions:
+    - CSP
+    - CAFC
+    - OCC
+VAVEH:
+  name: VAV with Electric Reheat
+  description: Single duct reheat VAV with electric heat.
+  extends: VAV
+  google_ontology: VAV_SD_DSP_HTZC
+  brick_ontology: Variable_Air_Volume_Box_With_Reheat
+  haystack:
+    type:
+      - pressureIndependent
+      - elecHeating
+      - singleDuct
+      - directZone
+  functions:
+    - DSP
+    - CAFC
+    - HAFC
+    - HTEZC
+    - OCC
+VAVFPS:
+  name: Fan Powered Series VAV
+  description: Fan-powered series VAV.
+  extends: VAV
+  google_ontology: VAV_SD_DSP_HWZC
+  haystack:
+    type:
+      - pressureIndependent
+      - fanPowered
+      - series
+      - directZone
+    type_optional:
+      - elecHeating
+      - hotWaterHeating
+      - chilledWaterCooling
+    reference_optional:
+      - hotWaterRef
+  functions:
+    - CSP
+    - DSP
+    - CAFC
+    - DFSS
+    - HWZC
+    - HTEZC
+    - OCC
+VAVFPP: 
+  name: Fan Powered Parallel VAV
+  description: Fan-powered parallel VAV.
+  extends: VAV
+  haystack:
+    type:
+      - pressureIndependent
+      - fanPowered
+      - parallel
+      - directZone
+    type_optional:
+      - elecHeating
+      - hotWaterHeating
+      - chilledWaterCooling
+    reference_optional:
+      - hotWaterRef
+  functions:
+    - CSP
+    - DSP
+    - CAFC
+    - DFSS
+    - HWZC
+    - HTEZC
+    - OCC
+VAVHO:
+  name: VAV - Heating Only
+  description: VAV terminal unit that is supplied warm air from an AHU.
+  extends: VAV
+  google_ontology: VAV_SD_HSP
+  haystack:
+    type:
+      - heatingOnly
+      - pressureIndependent
+      - singleDuct
+      - directZone
+  functions:
+    - HSP
+    - HAFC
+    - OCC
+VAVPD:
+  name: Pressure Dependent VAV
+  extends: VAV
+  google_ontology: VAV_PDSCV_DSP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VAV1 or VAV413
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VAV-1 or VAV-413
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VAV-1 or VAV-415
+    type:
+      - pressureDependent
+      - singleDuct
+      - directZone
+  functions:
+    - PDZC
+    - DSP
+  contains:
+    - DADUCT
+    - DAD
+    - DMPACT
+VAVPDRH:
+  name: Pressure Dependent VAV with Hot Water Reheat
+  extends: VAV
+  google_ontology: VAV_PDSCV_DSP_HWDC
+  brick_ontology: Variable_Air_Volume_Box_With_Reheat
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. VAV1 or VAV431
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VAV-1 or VAV-431
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. VAV-1 or VAV-433
+    type:
+      - pressureDependent
+      - hotWaterHeating
+      - singleDuct
+      - directZone
+    reference:
+      - hotWaterRef
+    reference_optional:
+      - hotWaterMeterRef
+  functions:
+    - PDZC
+    - DSP
+    - PDV
+    - HWZC
+  contains:
+    - DADUCT
+    - DAD
+    - DMPACT
+VAVRH:
+  name: VAV with Hot Water Reheat
+  description: Single duct reheat VAV with dual setpoint control.
+  extends: VAV
+  google_ontology: VAV_SD_DSP_HWZC
+  brick_ontology: Variable_Air_Volume_Box_With_Reheat
+  haystack:
+    type:
+      - pressureIndependent
+      - hotWaterHeating
+      - singleDuct
+      - directZone
+    reference:
+      - hotWaterRef
+    reference_optional:
+      - hotWaterMeterRef
+  functions:
+    - DSP
+    - CAFC
+    - HAFC
+    - HWZC
+    - OCC
+VAVV:
+  name: VAV - Ventilation Only
+  description: VAV used to deliver outside air to a given space or process.
+  extends: VAV
+  haystack:
+    type:
+      - pressureIndependent
+      - singleDuct
+      - ventilationOnly
+  functions:
+    - AFC
+    - ZCO2C
+    - OCC
+
+EAV:
+  name: Exhaust Air VAV
+  description: Exhaust control VAV
+  is_base: true
+  google_ontology: VAV_ED
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. EAV1 or EAV218
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. EAV-1 or EAV-219
+    type:
+      - equip
+      - eav
+  functions:
+    - ED
+  points:
+    - ALRMPT
+RAV:
+  name: Return Air VAV
+  description: Return control VAV
+  google_ontology: VAV_RD
+  is_base: true
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RAV1 or RAV229
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RAV-1 or RAV-230
+    type:
+      - equip
+      - rav
+  functions:
+    - RD
+SAV:
+  name: Supply Air Valve
+  description: Supply air valve for zone pressure control, typically used in labs.
+  google_ontology: VAV_SD_ZSPC
+  is_base: true
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SAV1 or SAV256
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SAV-1 or SAV-257
+    type:
+      - equip
+      - sav
+      - directZone
+    reference:
+      - siteRef
+      - systemRef
+      - spaceRef
+      - deviceRef
+      - airRef
+  functions_base:
+    - SID
+  functions:
+    - CSP
+    - ZSPC
+SAVCO:
+  name: Supply Air Valve - Cooling Only
+  description: SAV - Cooling Only
+  extends: SAV
+  google_ontology: VAV_SD_CSP_ZSPC
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SAV1 or SAV284
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SAV-1 or SAV-284
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SAV-1 or SAV-286
+    type:
+      - coolingOnly
+      - pressureIndependent
+      - singleDuct
+      - directZone
+  functions:
+    - CSP
+    - ZSPC
+    - OCC
+SAVRH:
+  name: Supply Air Valve with Reheat Valve
+  description: Supply air valve for zone pressure control with hot water reheat.
+  extends: SAV
+  google_ontology: VAV_SD_ZSPC_HWZC
+  haystack:
+    type:
+      - hotWaterHeating
+      - singleDuct
+      - directZone
+    reference:
+      - hotWaterRef
+      - hotWaterMeterRef
+  functions:
+    - DSP
+    - ZSPC
+    - HWZC
+    - OCC
+SPF:
+  name: Stairwell Pressurization Fan
+  haystack:
+    type:
+      - equip
+      - fan
+      - pressurization
+      - stairwell
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. SPF1 or SPF472
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. SPF-1 or SPF-472
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SPF-1 or SPF-474
+    reference_optional:
+      - spaceRef

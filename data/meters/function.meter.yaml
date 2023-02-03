@@ -1,0 +1,12 @@
+MTR:
+  name: MTR
+  description: Substance Metering
+  haystack:
+    type:
+      - equip
+      - meter
+      - siteMeter
+      - utilityMeter
+      - virtual
+  points:
+    - CMST
