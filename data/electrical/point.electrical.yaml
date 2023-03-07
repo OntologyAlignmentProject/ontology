@@ -408,8 +408,34 @@ ACVA:
       - deviceRef
 
 ACVAVG:
-  name: Average AC Voltage
-  description: Any averaging single or multi-phase AC voltage reading
+  name: Average AC Line-to-Neutral Voltage
+  description: Averaging three-phase AC voltage reading between all lines and neutral. Example common U.S. voltages 120V/277V.
+  short_name: Avg L-N Voltage
+  extends: POINT_GEN_PWR
+  google_ontology: average_line_neutral_voltage_sensor
+  haystack:
+    type:
+      - ac
+      - avg
+      - elec
+      - magnitude
+      - phaseVoltage
+      - sensor
+      - volt
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit_type: electric_potential
+    reference:
+      - equipRef
+      - deviceRef
+
+ACVLLAVG:
+  name: Average AC Line-to-Line Voltage
+  description: Averaging three-phase AC voltage reading between two phase lines. Example common U.S. voltages 208V/480V.
+  short_name: Avg L-L Voltage
   extends: POINT_GEN_PWR
   google_ontology: average_inter_line_voltage_sensor
   haystack:
@@ -418,16 +444,15 @@ ACVAVG:
       - avg
       - elec
       - magnitude
+      - lineVoltage
       - sensor
       - volt
     identification:
-      - id: "ACVAVG or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
-          ACVAVG-1, ACVAVG-2, etc."
-      - navName: "ACVAVG or if more than 1 in the equip/device, use <CODE> + - +
-          <INTEGER>  : ACVAVG-1, ACVAVG-2, etc."
-      - dis: "Average AC Voltage or if more than 1 in the equip/device, use <NAME> + - +
-          <INTEGER>  : Average AC Voltage-1, Average AC Voltage-2, etc."
-      - unit: Electric Potential
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit_type: electric_potential
     reference:
       - equipRef
       - deviceRef

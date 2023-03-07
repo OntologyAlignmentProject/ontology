@@ -64,6 +64,8 @@ DHWHT:
       - elecMeterRef 
   functions_base: 
     - DHWC
+  points_base:
+    - DHWDT
 DEWH:
   name: Electric-resistance Domestic Hot Water Heater
   extends: DHWHT
@@ -493,6 +495,7 @@ DHWPL:
     - DHWST
     - DGWH
     - DEHW
+    - DHWDT
 
 RWS:
   name: Rainwater System

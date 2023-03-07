@@ -129,6 +129,10 @@ AHU:
     - OADUCT
     - RADUCT
     - CNTRL
+  attributes: 
+    - designDischargeAirPressure
+    - designDischargeAirFlow
+    - designExhaustAirFlow
   points_base:
     - DASDST  
   points:
@@ -816,7 +820,7 @@ EF:
     type:
       - exhaust
     type_optional:
-      -  relief
+      - relief
   functions:
     - EFSS
     - EFVSC
@@ -850,6 +854,8 @@ FAN:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
     reference:
       - equipRef
+  contains: 
+    - VFD
   points: 
     - ALRMPT
     - CLDEM
@@ -859,6 +865,7 @@ FAN:
     - EAFLWSP
     - EARH
     - EFSPFBK
+    - FANST
     - HOAST
     - ISOADCMD
     - VFDSPREF

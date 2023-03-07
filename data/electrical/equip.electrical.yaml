@@ -39,10 +39,10 @@ CIR:
       - elecRef
     reference_optional:
       - spaceRef
-      - elecMeterRef
-    type_optional: 
-      - ratedVoltage
-      - ratedCurrent    
+      - elecMeterRef  
+  attributes: 
+    - ratedVoltage
+    - ratedCurrent
   points:
     - ALRMPT
     - ACI
@@ -59,6 +59,7 @@ CIR:
     - ACPFAVG
     - ACV
     - ACVAVG
+    - ACVLLAVG
     - ACVAB
     - ACVBC
     - ACVCA
@@ -93,8 +94,6 @@ EDP:
     type_optional:
       - singlePhase
       - threePhase
-      - ratedVoltage
-      - ratedCurrent
       - loadType
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. HVDP1 or HVDP207
@@ -106,6 +105,9 @@ EDP:
     reference_optional:
       - spaceRef
       - elecMeterRef
+  attributes: 
+    - ratedVoltage
+    - ratedCurrent
   points:
     - ALRMPT
     - ACI
@@ -122,6 +124,7 @@ EDP:
     - ACPFAVG
     - ACV
     - ACVAVG
+    - ACVLLAVG
     - ACVAB
     - ACVBC
     - ACVCA
@@ -155,9 +158,6 @@ ESB:
       - switchboard
       - elec
       - threePhase
-    type_optional:
-      - ratedVoltage
-      - ratedCurrent
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. ESB1 or ESB137
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ESB-1 or ESB-137
@@ -168,6 +168,9 @@ ESB:
     reference_optional:
       - spaceRef
       - elecMeterRef
+  attributes: 
+    - ratedVoltage
+    - ratedCurrent
   points:
     - ALRMPT
     - ACI
@@ -184,6 +187,7 @@ ESB:
     - ACPFAVG
     - ACV
     - ACVAVG
+    - ACVLLAVG
     - ACVAB
     - ACVBC
     - ACVCA

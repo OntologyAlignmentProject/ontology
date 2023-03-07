@@ -15,6 +15,10 @@ ZONE:
       - siteRef
     reference_optional:
       - spaceRef
+  attributes: 
+    - netArea
+    - grossArea
+
 ##ZONES - TYPES
 SHZONE:
   name: Shades Zone

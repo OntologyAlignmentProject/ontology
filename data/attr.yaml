@@ -6,70 +6,111 @@ manufacturer:
   name: Manufacturer
   description: Brand, make or manufacturer under which equipment, device or object is sold
   domain: common
+  entity:
+    - equip
+    - device
   haystack:
-    tags: 
+    type: 
       - attr
       - manufacturer
-    kind: STRING
+    identification:
+      - kind: Str
   google_ontology: manufacturer_label
 
 model: 
   name: Model Name
   description: Model name or series descriptor
   domain: common
+  entity:
+    - equip
+    - device
   haystack:
-    tags: 
+    type: 
       - attr
       - model
-    kind: STRING
+    identification:
+      - kind: Str
   google_ontology: model_label
 
 modelNumber:
   name: Model Number
   description: Alphanumeric Model number
   domain: common
+  entity:
+    - equip
+    - device
   haystack:
-    tags: 
+    type: 
       - attr
       - model
       - number
-    kind: STRING
+    identification:
+      - kind: Str
   google_ontology: model_label
 
 serialNumber:
   name: Serial Number
   description: Unique identication code
   domain: common
+  entity:
+    - equip
+    - device
   haystack:
-    tags: 
+    type: 
       - attr
       - serialNumber
-    kind: STRING
+    identification:
+      - kind: Str
 
 ###Typical Site & Spatial Attributes ####
 netArea: 
   name: Net Area
   domain: spatial
   description: Area of a space exclusive of walls, utility areas and circulation spaces. 
+  entity:
+    - site
+    - space
   haystack:
-    tags: 
+    type: 
       - attr
       - area
       - net
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: area
 
 grossArea: 
   name: Gross Area
   domain: spatial
-  description: Area of a space exclusive of walls, utility areas and circulation spaces. 
+  description: Area of a space inclusive of walls, utility areas and circulation spaces. 
+  entity:
+    - site
+    - space
   haystack:
-    tags: 
+    type: 
       - attr
       - area
       - gross
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: area
+
+bioSafetyLevel: 
+  name: Biosafety Level
+  domain: spatial
+  description: Biosafety levels (BSL) are used to identify the protective measures needed in a laboratory setting to protect workers, the environment, and the public. 
+  haystack:
+    type: 
+      - attr
+      - level
+      - bioSafety
+    identification:
+      - kind: Str
+      - enum: 
+        - BSL-1
+        - BSL-2
+        - BSL-3
+        - BSL-4
 
 ###Typical Occupancy Attributes ###
 ratedOccupancy: 
@@ -77,11 +118,12 @@ ratedOccupancy:
   domain: occupancy
   description: Amount of occupants a space is allowed to hold from a life-safety or legal perpsective. 
   haystack:
-    tags: 
+    type: 
       - attr
       - occupancy
       - rated
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: dimesionless
 
 designOccupancy: 
@@ -89,11 +131,12 @@ designOccupancy:
   domain: occupancy
   description: Amount of occupants a space would typically be expected to contain. 
   haystack:
-    tags: 
+    type: 
       - attr
       - occupancy
       - design
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: dimesionless
 
 ###Electrical ###
@@ -101,22 +144,24 @@ ratedCurrent:
   name: Rated Current
   domain: electrical
   haystack:
-    tags: 
+    type: 
       - rated
       - current
       - attr
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: electric_current
 
 ratedVoltage:
   name: Rated Voltage
   domain: electrical
   haystack:
-    tags: 
+    type: 
       - rated
       - voltage
       - attr
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: electric_potential
 
 ###Mechanical ###
@@ -124,45 +169,48 @@ designAirPressure:
   name: "Design Air Pressure"
   domain: hvac.air
   haystack:
-    tags: 
+    type: 
       - design
       - air
       - pressure
       - attr
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: pressure
 
 designDischargeAirPressure: 
   name: "Design Discharge Air Pressure"
   extends: designAirPressure
   haystack:
-    tags: 
+    type: 
       - discharge
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: pressure
 
 designAirFlow: 
   name: "Design Airflow"
   domain: hvac.air
   haystack:
-    tags: 
+    type: 
       - design
       - air
       - flow
       - attr
-    kind: NUMBER
+    identification:
+      - kind: Number
   unit_type: volumetric_flow
 
 designDischargeAirFlow: 
   name: "Design Discharge Airflow"
   extends: designAirFlow
   haystack:
-    tags: 
+    type: 
       - discharge
 
 designExhaustAirFlow: 
   name: "Design Exhaust Airflow"
   extends: designAirFlow
   haystack:
-    tags: 
-      - exhaust    
+    type: 
+      - exhaust

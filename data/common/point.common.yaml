@@ -607,22 +607,6 @@ NGTEMP:
     reference:
       - equipRef
       - deviceRef
-OCCSNS:
-  name: Occupancy Sensor
-  google_ontology: zone_occupancy_status
-  haystack:
-    type:
-      - occupied
-      - sensor
-      - point
-    identification:
-      - navName: "OCCSNS or if more than 1 in the equip/device, use <CODE> + - +
-          <INTEGER>  : OCCSNS-1, OCCSNS-2, etc."
-      - dis: "Occupancy Sensor or if more than 1 in the equip/device, use <NAME> + - +
-          <INTEGER>  : Occupancy Sensor-1, Occupancy Sensor-2, etc."
-      - id
-    reference:
-      - equipRef
 
 OPDIR:
   name: Operation Direction

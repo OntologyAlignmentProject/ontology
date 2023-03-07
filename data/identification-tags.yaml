@@ -15,14 +15,6 @@ id:
   description: Defines the unique identifier of an entity in system using a Ref value type
   type: STRING
   source: HAY
-ifcClass:
-  description: Reference to the IFC Class for BIM
-  type: STRING
-  source: OAP
-ifcType:
-  description: Reference to the IFC Type for BIM
-  type: STRING
-  source: OAP
 navName:
   description: Abreviation and integer to create unique navigation name in the DB.
   type: STRING
@@ -36,9 +28,25 @@ unit:
   type: STRING
   source: HAY
 kind:
-  description: Number, Bool or Str
+  description: Name used to identify a value data type
   type: STRING
   source: HAY
+  enum:
+    - Marker
+    - Bool
+    - NA
+    - Number
+    - Str
+    - Uri
+    - Ref
+    - Date
+    - Time
+    - DateTime
+    - Coord
+    - XStr
+    - List
+    - Dict
+    - Grid
 floorNum:
   description: Unitless integer indicating the floor distance from ground level.
   type: NUMBER

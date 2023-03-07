@@ -66,6 +66,8 @@ EM:
     reference_optional:
       - submeterOf
       - spaceRef
+    measure_reference:
+      - elecMeterRef
   functions:
     - MTR
   points:
@@ -84,6 +86,7 @@ EM:
     - ACPFAVG
     - ACV
     - ACVAVG
+    - ACVLLAVG
     - ACVAB
     - ACVBC
     - ACVCA
@@ -127,6 +130,8 @@ NGM:
     reference_optional:
       - submeterOf
       - spaceRef
+    measure_reference:
+      - naturalGasMeterRef    
   functions:
     - MTR
   points: 
@@ -189,6 +194,8 @@ SM:
     reference_optional:
       - submeterOf
       - spaceRef
+    measure_reference:
+      - steamMeterRef       
   functions:
     - MTR
   points: 
@@ -218,6 +225,8 @@ CHWM:
       - chilled
     type_optional:
       - thermal
+    measure_reference:
+      - chilledWaterMeterRef        
     identification:
       - id: <ABBREVIATION> + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER> 
@@ -233,6 +242,8 @@ HWM:
       - heating
     type_optional:
       - thermal
+    measure_reference:
+      - hotWaterMeterRef      
     identification:
       - id: <ABBREVIATION> + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER> 
@@ -246,7 +257,9 @@ CWM:
     type:
       - condenser
     type_optional:
-      - thermal
+      - thermal    
+    measure_reference:
+      - condenserWaterMeterRef
     identification:
       - id: <ABBREVIATION> + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>       
@@ -259,6 +272,8 @@ DWM:
   haystack:
     type:
       - domestic
+    measure_reference:
+      - domesticWaterMeterRef  
     identification:
       - id: <ABBREVIATION> + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER> 
@@ -272,6 +287,8 @@ DHWM:
     type:
       - domestic
       - hot
+    measure_reference:
+      - domesticHotWaterMeterRef
     identification:
       - id: <ABBREVIATION> + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>       
@@ -288,6 +305,8 @@ BDWM:
   haystack:
     type:
       - blowdown
+    measure_reference:
+      - blowdownWaterMeterRef
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WWM-1 or WWM-421
@@ -319,6 +338,8 @@ WWM:
   haystack:
     type:
       - wastewater
+    measure_reference:
+      - wasteWaterMeterRef
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WWM-1 or WWM-421

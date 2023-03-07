@@ -422,6 +422,39 @@ DWPR:
     identification:    
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
+DHWDT:
+  name: Domestic Hot Water Delta Temperature 
+  description: Difference between domestic hot water leaving and entering temperatures.
+  short_name: DHW Delta Temp 
+  extends: DT
+  haystack:
+    type:
+      - domestic
+      - hot
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+      - unit_type: temperature_differential
+    reference:
+      - deviceRef
+      - equipRef
+HWDT:
+  name: Hot Water Delta Temperature 
+  description: Difference between hot water leaving and entering temperatures.
+  short_name: HW Delta Temp
+  extends: DT
+  haystack:
+    type:
+      - hot
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+      - kind: Number
+      - unit_type: temperature_differential
+    reference:
+      - deviceRef
+      - equipRef
 ECHWFL:
   name: Entering Chilled Water Flow
   short_name: Entering CHW Flow

@@ -21,7 +21,12 @@ ROOM:
       - hvacZoneRef
       - domesticHotWaterMeterRef
       - domesticWaterMeterRef      
-
+  attributes: 
+    - netArea
+    - grossArea
+    - ratedOccupancy
+    - designOccupancy
+    
 ## RealEstateCore standard reference https://github.com/RealEstateCore/rec/blob/master/ontology/building.rdf
 ##Room Categories (directly extends:ROOM)
 BREAKRM:
@@ -132,6 +137,9 @@ LABROOM:
       - navName: <ABBREVIATION> + - + <INTEGER> 
       - dis: <NAME> + - + <INTEGER> 
       - id: <ABBREVIATION> + <INTEGER> 
+  attributes: 
+    - bioSafetyLevel
+
 LOBBY:
   name: Lobby
   description: "An entranceway or foyer in a building "

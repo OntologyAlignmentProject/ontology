@@ -110,6 +110,7 @@ HWB:
     - WFLWST
     - HTDEM
     - NGVCMD
+    - HWDT
 HWBISOV:
   name: Hot Water Boiler with Isolation
   short_name: HWBLR
@@ -129,6 +130,7 @@ HWBISOV:
     - WFLWST
     - HTDEM
     - NGVCMD
+    - HWDT
 SB:
   name: Steam Boiler
   short_name: STMBLR
@@ -585,6 +587,9 @@ CH:
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. CH-1 or CH-9
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. CH-1 or CH-11
       - id
+    output_reference:
+      - chilledWaterRef
+      - condenserWaterRef
     reference:
       - siteRef
       - equipRef
@@ -934,7 +939,7 @@ CTSEP:
 CWPL:
   name: Condenser Water Plant
   short_name: CW Plant
-  description: A condenser water plant containg equipment and piping to deliver
+  description: A condenser water plant containing equipment and piping to deliver
     condenser water to a building, process, or equipment.
   haystack:
     type:
@@ -1156,6 +1161,7 @@ HWPL:
     - HTSTGCT
     - HTTHRMPWR
     - HWBYPVCMD
+    - HWDT
     - OALCKTSP
     - PREHWT
     - PRLHWT

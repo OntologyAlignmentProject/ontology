@@ -187,6 +187,11 @@ steamRef:
   type: REF
   subtype: FLOW
   source: HAY
+steamMeterRef:
+  description: Reference to the steam meter which monitors steam consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP  
 submeterOf:
   description: Reference to parent meter which is immediately upstream of this meter
   type: REF
@@ -196,7 +201,7 @@ systemRef:
   description: Reference to system to which this entity belongs
   type: REF
   subtype: CONTAIN
-  source: OAP
+  source: HAY
 wasteWaterMeterRef:
   description: Reference to water meter which monitors wastewater water generation by this entity
   type: REF

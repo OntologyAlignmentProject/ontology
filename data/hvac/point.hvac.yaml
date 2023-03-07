@@ -635,6 +635,7 @@ GLYCON:
 
 OCCCMD:
   name: Occupancy Command
+  short_name: Occ Cmd
   haystack:
     type:
       - occupied
@@ -650,6 +651,7 @@ OCCCMD:
       - equipRef
 OCCSNS:
   name: Occupancy Sensor
+  short_name: Occ Sensor
   haystack:
     type:
       - occupied
@@ -665,6 +667,7 @@ OCCSNS:
       - equipRef
 OCCEFFSP:
   name: Occupancy Status
+  short_name: Occ Status
   google_ontology: zone_occupancy_status
   haystack:
     type:
@@ -682,6 +685,7 @@ OCCEFFSP:
       - equipRef
 OCCSCHSP:
   name: Occupancy Schedule 
+  short_name: Occ Schedule
   google_ontology: schedule_run_command
   haystack:
     type:

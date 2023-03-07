@@ -10,11 +10,16 @@ SITE:
       - dis
       - id
     identification_optional:
-      - tz
+      - tz   
     reference_optional:
       - siteRef
       - portfolioRef
       - weatherStationRef
+  attributes: 
+    - netArea
+    - grossArea
+    - ratedOccupancy
+    - designOccupancy
   kpi:
     - TEEC
     - TNGEC
@@ -23,7 +28,7 @@ SITE:
     - SEUI
     - IAQI
     - OCCCT
-
+    
 BANKBR:
   name: Bank Branch
   description: Bank Branch refers to a commercial banking outlet that offers
@@ -32,27 +37,58 @@ BANKBR:
   haystack:
     type:
       - primaryFunction: Bank Branch
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
+
+CASINO:
+  name: Casino
+  description: Casino refers to buildings primarily used to conduct gambling activities 
+    including both electronic and live table games.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Casino
+ 
+COURT:
+  name: Courthouse
+  description: Courthouse refers to buildings used for federal, state, or local courts, 
+    and associated administrative office space.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Courthouse	
+     
 DATACTR:
   name: Data Center
-  description: "Data Center refers to buildings specifically designed and equipped
+  description: Data Center refers to buildings specifically designed and equipped
     to meet the needs of high density computing equipment, such as server racks,
-    used for data storage and processing. "
+    used for data storage and processing. 
   extends: SITE
   haystack:
     type:
       - primaryFunction: Data Center
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
+DISTCTR:
+  name: Distribution Center	
+  description: Distribution Center refers to unrefrigerated buildings that are used for the 
+    temporary storage and redistribution of goods, manufactured products, merchandise or 
+    raw materials. Buildings that are used primarily for assembling, modifying, manufacturing,
+    or growing goods, products, merchandise or raw material should be classified as Manufacturing Facility.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Distribution Center	
+   
+DWTRTRT:
+  name: Drinking Water Treatment & Distribution	
+  description: Drinking Water Treatment and Distribution refers to facilities designed to pump and 
+    distribute drinking water through a network of pipes. Depending on the water source (ground water,
+    surface water, purchased water), a water utility may or may not contain a treatment process.
+    This property use applies to any/all water sources and any/all levels of treatment.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Drinking Water Treatment & Distribution	
+         
 ENERPWR:
   name: Energy/Power Station
   description: Energy/Power Station applies to buildings containing machinery
@@ -65,40 +101,57 @@ ENERPWR:
   haystack:
     type:
       - primaryFunction: Energy/Power Station
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
-FINOFF:
-  name: Financial Office
-  description: Financial Office refers to buildings used for financial services
-    such as bank headquarters and securities and brokerage firms.
+
+FSTFOOD:
+  name: Fast Food Restaurant
+  description: Fast Food Restaurant, also known as Quick Service Restaurant, refers to buildings 
+    used for the preparation and sale of ready-to-eat food. Fast Food Restaurants are characterized
+    by a limited menu of food prepared quickly (often within a few minutes), and sometimes cooked 
+    in bulk in advance and kept hot.
   extends: SITE
   haystack:
     type:
-      - primaryFunction: Financial Office
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+      - primaryFunction: Fast Food Restaurant
+
+FIRE:
+  name: Fire Station	
+  description: Fire Station refers to buildings used to provide emergency response services
+    associated with fires. Fire stations may be staffed by either volunteer or full-time paid 
+    firefighters.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Fire Station
+   
+FITNESS:
+  name: Fitness Center
+  description: Fitness Center/Health Club/Gym refers to buildings used for recreational or 
+    professional athletic training and related activities.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Fitness Center/Health Club/Gym	
+      
 HOSP:
   name: Hospital 
-  description: "Hospital refers to a general medical and surgical hospital
-    (including critical access hospitals and children’s hospitals). "
+  description: Hospital refers to a general medical and surgical hospital
+    (including critical access hospitals and children’s hospitals). 
   extends: SITE
   haystack:
     type:
       - primaryFunction: Hospital (General Medical & Surgical)
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
+HOTEL:
+  name: Hotel 
+  description: Hotel refers to buildings renting overnight accommodations on a room/suite and
+    nightly basis, and typically include a bath/shower and other facilities in guest rooms. 
+    Hotel properties typically have daily services available to guests including housekeeping/laundry 
+    and a front desk/concierge.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Hotel
+   
 K12:
   name: K-12 School
   description: "K-12 School refers to buildings or campuses used as a school for
@@ -107,12 +160,7 @@ K12:
   haystack:
     type:
       - primaryFunction: K-12 School
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 LAB:
   name: Laboratory
   description: Laboratory refers to buildings that provide controlled conditions
@@ -122,28 +170,29 @@ LAB:
   haystack:
     type:
       - primaryFunction: Laboratory
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
-LSCTR:
-  name: Lifestyle Center
-  description: "Lifestyle Center refers to a mixed use commercial development that
-    includes retail stores and leisure amenities, where individual retail stores
-    typically contain an entrance accessible from the outside and are not
-    connected by internal walkways. "
+  attributes: 
+    - bioSafetyLevel
+    
+LIBRARY:
+  name: Library	
+  description: Library refers to buildings used to store and manage collections of literary and 
+    artistic materials such as books, periodicals, newspapers, films, etc. that can be used for
+    reference or lending.
   extends: SITE
   haystack:
     type:
-      - primaryFunction: Lifestyle Center
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+      - primaryFunction: Library
+
+MALL:
+  name: Enclosed Mall
+  description: Enclosed Mall refers to buildings that house multiple stores, often “anchored” by
+    one or more department stores, and with interior walkways. Most stores will not have entrances
+    accessible from outside, with the exception of the “anchor” stores.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Enclosed Mall
+
 MIXUSE:
   name: Mixed Use Property
   description: A Mixed Use (or multi use) property is one contains multiple
@@ -153,12 +202,7 @@ MIXUSE:
   haystack:
     type:
       - primaryFunction: Mixed Use Property
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 MOB:
   name: Medical Office
   description: Medical Office refers to buildings used to provide diagnosis and
@@ -167,14 +211,46 @@ MOB:
   haystack:
     type:
       - primaryFunction: Medical Office
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
+MOVIE:
+  name: Movie Theater	
+  description: Movie theater refers to buildings used for public or private film screenings.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Movie Theater	
+   
+MLTFAM:
+  name: Multifamily Housing	
+  description: Multifamily Housing refers to residential properties that contain two or more 
+    residential living units. These properties may include low-rise buildings (1-4 stories), 
+    mid-rise buildings (5-9 stories), or high-rise buildings (10+ stories). 
+    Occupants of these buildings may include tenants, cooperators, and/or individual owners.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Multifamily Housing	
+  
+MUSEUM:
+  name: Museum
+  description: Museum refers to buildings that display collections to outside visitors for public
+    viewing and enjoyment and for informational/educational purposes.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Museum
+
+OUTIL:
+  name: Other Utility 
+  description: Other - Utility applies to buildings used by a utility for some purpose other than general office or energy/power generation. 
+    This may include utility transfer stations, maintenance facilities and central plants for generating hot water, chilled water, steam, etc. 
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Other - Utility
+               
 OMALL:
-  name: Other - Mall
+  name: Outdoor Mall 
   description: Other-Mall refers to buildings containing a collection of stores
     whose purpose is the sale of goods, but which do not fit into the enclosed
     mall, lifestyle center, or strip mall property types.
@@ -182,12 +258,7 @@ OMALL:
   haystack:
     type:
       - primaryFunction: Other - Mall
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 OPRP:
   name: Outpatient Rehabilitation/Physical Therapy
   description: Outpatient Rehabilitation/Physical Therapy offices refers to
@@ -197,84 +268,106 @@ OPRP:
   haystack:
     type:
       - primaryFunction: Outpatient Rehabilitation/Physical Therapy
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 OSPCHOSP:
-  name: Other - Specialty Hospital
-  description: Other - Specialty Hospitals refers to long-term acute care
+  name: Specialty Hospital
+  description: Specialty Hospitals refers to long-term acute care
     hospitals, inpatient rehabilitation facilities, including Cancer Centers and
     Psychiatric and Substance Abuse Hospitals/Facilities.
   extends: SITE
   haystack:
     type:
       - primaryFunction: Other - Specialty Hospital
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
-OTHOFF:
-  name: Other - Office
-  description: "Other refers to buildings that do not fall within the available
-    property use categories in Portfolio Manager. "
+
+OFFICE:
+  name: Office
+  description: Office refers to buildings used to conduct commercial or governmental business 
+    activities. This includes administrative and professional offices.
   extends: SITE
   haystack:
     type:
-      - primaryFunction: Other - Office
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+      - primaryFunction: Office
+
 PARKING:
   name: Parking
-  description: "Parking refers to buildings and lots used for parking vehicles. "
+  description: Parking refers to buildings and lots used for parking vehicles. 
   extends: SITE
   haystack:
     type:
       - primaryFunction: Parking
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
+PERF:
+  name: Performing Arts	
+  description: Performing Arts refers to buildings used for public or private artistic or
+    musical performances.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Performing Arts
+  
+POLICE:
+  name: Police Station	
+  description: Police Station applies to buildings used for federal, state, or local police 
+    forces and their associated office space.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Police Station
+      
+DORM:
+  name: Residence Hall/Dormitory
+  description: Residence Hall/Dormitory refers to buildings associated with educational 
+    institutions or military facilities which offer multiple accommodations for long-term residents.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Residence Hall/Dormitory	
+
+REST:
+  name: Restaurant
+  description: Restaurant refers to buildings used for preparation and sale of ready-to-eat food
+    and beverages, but which do not fit in the fast food property type. Examples include fast 
+    casual, casual, and fine dining restaurants.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Restaurant
+
 RETST:
-  name: Retail Store
-  description: "Retail Store refers to individual stores used to conduct the
-    retail sale of non-food consumer goods such as clothing, books, toys,
-    sporting goods, office supplies, hardware, and electronics. "
+  name: Retail Store	
+  description: Retail Store refers to individual stores used to conduct the retail sale of non-food
+    consumer goods such as Department Stores, Discount Stores, Drug Stores, Dollar Stores, Hardware
+    Stores, and Apparel/Specialty Stores (e.g. books, clothing, office products, sporting goods, 
+    toys, home goods, and electronics). Buildings containing multiple stores should be classified
+    as enclosed mall, lifestyle center, or strip mall.
   extends: SITE
   haystack:
     type:
-      - primaryFunction: Retail Store
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
-SHCTR:
-  name: Enclosed Mall
-  description: "Enclosed Mall refers to buildings that house multiple stores,
-    often “anchored” by one or more department stores, and with interior
-    walkways. "
+      - primaryFunction: Retail Store	
+            
+SENIORLV:
+  name: Senior Living Community
+  description: Senior Living Community refers to buildings that house and provide care and 
+    assistance for elderly residents, specifically homes (skilled nursing facilities) and assisted
+    living facilities. It is NOT intended for retirement or other senior communities that offer
+    only independent living – a community with only independent living should benchmark as a
+    Multifamily property (see below for further details).
   extends: SITE
   haystack:
     type:
-      - primaryFunction: Enclosed Mall
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+      - primaryFunction: Senior Care Community
+
+SUPERMKT:
+  name: Supermarket/Grocery Store	
+  description: Supermarket/Grocery Store refers to buildings used for the retail sale of primarily
+    food and beverage products, and which may include small amounts of preparation and sale of 
+    ready-to-eat food. Buildings where the primary business is the onsite preparation and sale of 
+    ready-to-eat food should use one of the Restaurant property types.
+  extends: SITE
+  haystack:
+    type:
+      - primaryFunction: Supermarket/Grocery Store	
+   
 STRMALL:
   name: Strip Mall
   description: Strip mall refers to buildings comprising more than one retail
@@ -285,12 +378,7 @@ STRMALL:
   haystack:
     type:
       - primaryFunction: Strip Mall
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 UNIV:
   name: College/University
   description: College/University refers to buildings used for the purpose of
@@ -300,12 +388,7 @@ UNIV:
   haystack:
     type:
       - primaryFunction: College/University
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 URGCLIN:
   name: Urgent Care/Clinic/Other Outpatient
   description: Urgent Care Center/Clinic/Other Outpatient Office refers to
@@ -316,12 +399,7 @@ URGCLIN:
   haystack:
     type:
       - primaryFunction: Urgent Care/Clinic/Other Outpatient
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 WASTEWTR:
   name: Wastewater Treatment Plant
   description: Wastewater Treatment Plant refers to facilities designed to treat
@@ -330,12 +408,7 @@ WASTEWTR:
   haystack:
     type:
       - primaryFunction: Wastewater Treatment Plant
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz
+
 WORSHIP:
   name: Worship Facility
   description: Worship Facility refers to buildings that are used as places of
@@ -346,9 +419,3 @@ WORSHIP:
   haystack:
     type:
       - primaryFunction: Worship Facility
-    identification:
-      - navName
-      - dis
-      - id
-    identification_optional:
-      - tz

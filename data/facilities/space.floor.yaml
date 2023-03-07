@@ -22,6 +22,11 @@ FLOOR:
       - airRef
       - domesticHotWaterMeterRef
       - domesticWaterMeterRef
+  attributes: 
+    - netArea
+    - grossArea
+    - ratedOccupancy
+    - designOccupancy      
 ##FLOORS - Types
 BSMNT:
   name: Basement

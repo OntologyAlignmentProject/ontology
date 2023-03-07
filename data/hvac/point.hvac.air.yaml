@@ -94,6 +94,7 @@ CDAFLW:
       - dis: <NAME> + - + <INTEGER>
 CDDAT:
   name: Cold Deck Discharge Air Temperature
+  short_name: Cold Deck Discharge Air Temp
   extends: DAT
   haystack:
     type:
@@ -185,7 +186,8 @@ DAFLW:
           <INTEGER>  : Discharge Air Flow-1, Discharge Air Flow-2, etc."
           
 DARH:
-  name: Discharge Air Rel Humidity
+  name: Discharge Air Relative Humidity
+  short_name: Discharge Air RH
   extends: RELHUM
   google_ontology: discharge_air_relative_humidity_sensor
   google_ontology_full: 
@@ -204,6 +206,7 @@ DARH:
           Rel Humidity-2, etc."
 DAT:
   name: Discharge Air Temperature
+  short_name: Discharge Air Temp
   description: The air temperature measured by a sensor in the discharge air duct.
   extends: AIRTEMP
   google_ontology: discharge_air_temperature_sensor
@@ -306,6 +309,7 @@ EAFLW:
           <INTEGER>  : Exhaust Air Flow-1, Exhaust Air Flow-2, etc."
 EARH:
   name: Exhaust Air Relative Humidity
+  short_name: Exhaust Air RH
   description: The relative humidity measured by a sensor in the exhaust air duct.
   extends: RELHUM
   google_ontology: 
@@ -322,6 +326,7 @@ EARH:
           Relative Humidity-2, etc."
 EAT:
   name: Exhaust Air Temperature
+  short_name: Exhaust Air Temp
   description: The air temperature measured by a sensor in the exhaust air duct.
   extends: AIRTEMP
   google_ontology: exhaust_air_temperature_sensor
@@ -432,7 +437,8 @@ MAENTH:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER> 
 MARH:
-  name: Mixed Air Rel Humidity
+  name: Mixed Air Relative Humidity
+  short_name: Mixed Air RH
   extends: RELHUM
   haystack:
     type:
@@ -447,6 +453,7 @@ MARH:
           etc."          
 MAT:
   name: Mixed Air Temperature
+  short_name: Mixed Air Temp
   description: The air temperature measured by a sensor in the mixed air duct.
   extends: AIRTEMP
   google_ontology: mixed_air_temperature_sensor
@@ -540,7 +547,8 @@ RAFLW:
       - dis: "Return Air Flow or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Return Air Flow-1, Return Air Flow-2, etc."
 RARH:
-  name: Return Air Rel Humidity
+  name: Return Air Relative Humidity
+  short_name: Return Air RH
   extends: RELHUM
   google_ontology: return_air_relative_humidity_sensor
   haystack:
@@ -556,6 +564,7 @@ RARH:
           Humidity-2, etc."
 RAT:
   name: Return Air Temperature
+  short_name: Return Air Temp
   description: The air temperature measured by a sensor in the return air duct.
   extends: AIRTEMP
   google_ontology: return_air_temperature_sensor
@@ -586,7 +595,8 @@ RFST:
           - + <INTEGER>  : Return Fan Status-1, Return Fan Status-2,
           etc."
 ZRH:
-  name: Zone Rel Humidity
+  name: Zone Relative Humidity
+  short_name: Zone RH
   extends: RELHUM
   google_ontology: zone_air_relative_humidity_sensor
   haystack:
@@ -604,7 +614,8 @@ ZRH:
       - spaceRef
 
 ZRHAVG:
-  name: Avg Zone Rel Humidity
+  name: Average Zone Relative Humidity
+  short_name: Avg Zone RH
   description: The average relative humidity of an indoor space.
   extends: RELHUM
   haystack:
@@ -624,6 +635,7 @@ ZRHAVG:
 
 ZT:
   name: Zone Temperature
+  short_name: Zone Temp
   description: The air temperature of an indoor space.
   extends: AIRTEMP
   google_ontology: zone_air_temperature_sensor
@@ -644,6 +656,7 @@ ZT:
 
 ZTAVG:
   name: Avg Zone Temperature
+  short_name: Avg Zone Temp
   description: The average air temperature of an indoor space.
   extends: AIRTEMP
   google_ontology: average_zone_air_temperature_sensor
@@ -855,6 +868,7 @@ ATSP:
 
 RHSP: 
   name: Relative Humidity Setpoint
+  short_name: RH Sp
   is_base: true 
   haystack:
     type:
@@ -925,6 +939,7 @@ FANCMD:
       - equipRef
 FANSPCMD:
   name: Fan Speed Command
+  short_name: Fan Speed Cmd
   google_ontology: fan_speed_percentage_command 
   haystack:
     type:
@@ -1353,6 +1368,7 @@ CLSTGCT:
       - equipRef
 CLSTG1CMD:
   name: Cooling Stage 1 Command
+  short_name: Cooling Stage 1 Cmd
   google_ontology: compressor_run_command_1
   haystack:
     type:
@@ -1373,6 +1389,7 @@ CLSTG1CMD:
 
 CLSTG2CMD:
   name: Cooling Stage 2 Command
+  short_name: Cooling Stage 2 Cmd
   google_ontology: compressor_run_command_2
   haystack:
     type:
@@ -1393,6 +1410,7 @@ CLSTG2CMD:
 
 CLSTG3CMD:
   name: Cooling Stage 3 Command
+  short_name: Cooling Stage 3 Cmd
   google_ontology: compressor_run_command_3
   haystack:
     type:
@@ -1413,6 +1431,7 @@ CLSTG3CMD:
 
 CLSTG4CMD:
   name: Cooling Stage 4 Command
+  short_name: Cooling Stage 4 Cmd
   google_ontology: compressor_run_command_4
   haystack:
     type:
@@ -1433,6 +1452,7 @@ CLSTG4CMD:
 
 CLSTG5CMD:
   name: Cooling Stage 5 Command
+  short_name: Cooling Stage 5 Cmd
   google_ontology: compressor_run_command_5
   haystack:
     type:
@@ -1453,6 +1473,7 @@ CLSTG5CMD:
 
 CLSTG6CMD:
   name: Cooling Stage 6 Command
+  short_name: Cooling Stage 6 Cmd
   google_ontology: compressor_run_command_6
   haystack:
     type:
@@ -1473,6 +1494,7 @@ CLSTG6CMD:
 
 CLSTG7CMD:
   name: Cooling Stage 7 Command
+  short_name: Cooling Stage 7 Cmd
   google_ontology: compressor_run_command_7
   haystack:
     type:
@@ -1492,7 +1514,8 @@ CLSTG7CMD:
       - equipRef
 
 CLSTG8CMD:
-  name: Cooling Stage 8 Command  
+  name: Cooling Stage 8 Command
+  short_name: Cooling Stage 8 Cmd
   google_ontology: compressor_run_command_8
   haystack:
     type:
@@ -2183,6 +2206,7 @@ DARHSP:
       - equipRef
 DAHUMRHSP:
   name: Discharge Air Humidification Relative Humidity Setpoint
+  short_name: Discharge Air Humidification RH Sp
   description: The lower bound of relative humidity that the discharge air is maintained to.
   google_ontology: supply_air_humidification_relative_humidity_setpoint
   haystack:
@@ -2203,6 +2227,7 @@ DAHUMRHSP:
       - equipRef
 DADHRHSP:
   name: Discharge Air Dehumidification Relative Humidity Setpoint
+  short_name: Discharge Air Dehumidification RH Sp
   description: The upper bound of relative humidity that the discharge air is maintained to. 
   google_ontology: supply_air_dehumidification_relative_humidity_setpoint
   haystack:
@@ -2255,6 +2280,7 @@ DFOVCMD:
       
 DFSPCMD:
   name: Discharge Fan Speed Command
+  short_name: Discharge Fan Speed Cmd
   extends: FANSPCMD
   google_ontology: discharge_fan_speed_percentage_command
   google_ontology_full:
@@ -2334,6 +2360,7 @@ DFFREQ:
       - equipRef
 EADCMD:
   name: Exhaust Air Damper Command
+  short_name: Exhaust Air Damper Cmd
   extends: DPRCMD
   google_ontology: exhaust_air_damper_command
   google_ontology_full:
@@ -2729,6 +2756,7 @@ HDDCMD:
           Command-2, etc."
 HTCMD:
   name: Heating Command
+  short_name: Heating Cmd
   google_ontology: heater_run_command
   google_ontology_full: 
     - heater_run_command:
@@ -3498,6 +3526,7 @@ OALCKTSP:
 
 OCCCDAFLWMNSP:
   name: Occupied Cold Deck Air Flow Min Setpoint
+  short_name: Occ Cold Deck Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3515,6 +3544,7 @@ OCCCDAFLWMNSP:
 
 OCCCDAFLWMXSP:
   name: Occupied Cold Deck Air Flow Max Setpoint
+  short_name: Occ Cold Deck Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3532,6 +3562,7 @@ OCCCDAFLWMXSP:
 
 OCCIAFLWMNSP:
   name: Occupied Air Flow Min Setpoint
+  short_name: Occ Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3549,6 +3580,7 @@ OCCIAFLWMNSP:
 
 OCCIAFLWMXSP:
   name: Occupied Air Flow Max Setpoint
+  short_name: Occ Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3566,6 +3598,7 @@ OCCIAFLWMXSP:
 
 OCCIAFLWCLMNSP:
   name: Occupied Cooling Air Flow Min Setpoint
+  short_name: Occ Cooling Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3584,6 +3617,7 @@ OCCIAFLWCLMNSP:
 
 OCCIAFLWCLMXSP:
   name: Occupied Cooling Air Flow Max Setpoint
+  short_name: Occ Cooling Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3602,6 +3636,7 @@ OCCIAFLWCLMXSP:
 
 OCCIAFLWHTMNSP:
   name: Occupied Heating Air Flow Min Setpoint
+  short_name: Occ Heating Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3620,6 +3655,7 @@ OCCIAFLWHTMNSP:
 
 OCCIAFLWHTMXSP:
   name: Occupied Heating Air Flow Max Setpoint
+  short_name: Occ Heating Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3638,6 +3674,7 @@ OCCIAFLWHTMXSP:
 
 OCCHDAFLWMNSP:
   name: Occupied Hot Deck Air Flow Min Setpoint
+  short_name: Occ Hot Deck Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3655,6 +3692,7 @@ OCCHDAFLWMNSP:
 
 OCCHDAFLWMXSP:
   name: Occupied Hot Deck Air Flow Max Setpoint
+  short_name: Occ Hot Deck Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3672,6 +3710,7 @@ OCCHDAFLWMXSP:
 
 OCCZRHSP:
   name: Occupied Zone Relative Humidity Setpoint
+  short_name: Occ Zone RH Sp
   extends: RHSP
   haystack:
     type: 
@@ -3688,6 +3727,7 @@ OCCZRHSP:
           etc."
 OCCZTCLSP:
   name: Occupied Zone Temperature Cooling Setpoint
+  short_name: Occ Zone Temp Cooling Sp
   extends: ATSP
   haystack:
     type:
@@ -3705,6 +3745,7 @@ OCCZTCLSP:
           etc."
 OCCZTHTSP:
   name: Occupied Zone Temperature Heating Setpoint
+  short_name: Occ Zone Temp Heating Sp
   extends: ATSP
   google_ontology: zone_air_occupied_heating_temperature_setpoint
   haystack:
@@ -3723,6 +3764,7 @@ OCCZTHTSP:
           etc."
 OFCMD:
   name: Outside Air Fan Command
+  short_name: Outside Air Fan Cmd
   extends: FANCMD
   google_ontology: run_command
   haystack:
@@ -3738,6 +3780,7 @@ OFCMD:
           Command-2, etc."
 RACTSP:
   name: Return Air Cooling Temperature Setpoint
+  short_name: Return Air Cooling Temp Sp
   extends: ATSP
   google_ontology: return_air_cooling_temperature_setpoint
   haystack:
@@ -3754,6 +3797,7 @@ RACTSP:
           Air Cooling Temperature Setpoint-2, etc."
 RADCMD:
   name: Return Air Damper Command
+  short_name: Return Air Damper Cmd
   extends: DPRCMD
   google_ontology: return_air_damper_percentage_command
   haystack:
@@ -3802,6 +3846,7 @@ RADVCMD:
           etc."
 RAFLWSP:
   name: Return Air Flow Setpoint
+  short_name: Return Air Flow Sp
   extends: AFLWSP
   google_ontology: return_air_flowrate_setpoint
   haystack:
@@ -3817,6 +3862,7 @@ RAFLWSP:
           Setpoint-2, etc."
 RAHTSP:
   name: Return Air Heating Temperature Setpoint
+  short_name: Return Air Heating Temp Sp
   extends: ATSP
   google_ontology: return_air_heating_temperature_setpoint
   haystack:
@@ -3833,6 +3879,7 @@ RAHTSP:
           Air Heating Temperature Setpoint-2, etc."
 RATSP:
   name: Return Air Temperature Setpoint
+  short_name: Return Air Temp Sp
   extends: ATSP
   google_ontology: return_air_temperature_setpoint
   haystack:
@@ -3848,6 +3895,7 @@ RATSP:
           Air Temperature Setpoint-2, etc."
 RARHSP:
   name: Return Air Humidity Setpoint
+  short_name: Return Air Humidity Sp
   extends: RHSP
   google_ontology: return_air_relative_humidity_setpoint
   haystack:
@@ -3953,6 +4001,7 @@ REVVCMD:
           Command-2, etc."
 RFCMD:
   name: Return Fan Command
+  short_name: Return Fan Cmd
   extends: FANCMD
   haystack:
     type:
@@ -3966,6 +4015,7 @@ RFCMD:
           <INTEGER>  : Return Fan Command-1, Return Fan Command-2, etc."
 RFSPCMD:
   name: Return Fan Speed Command
+  short_name: Return Fan Speed Cmd
   extends: FANSPCMD
   google_ontology: return_fan_speed_percentage_command
   haystack:
@@ -4280,6 +4330,7 @@ UOCCDAFLWMXSP:
           
 UOCIAFLWCLMNSP:
   name: Unoccupied Cooling Air Flow Min Setpoint
+  short_name: Unocc Cooling Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4298,6 +4349,7 @@ UOCIAFLWCLMNSP:
 
 UOCIAFLWCLMXSP:
   name: Unoccupied Cooling Air Flow Max Setpoint
+  short_name: Unocc Cooling Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4316,6 +4368,7 @@ UOCIAFLWCLMXSP:
 
 UOCIAFLWHTMNSP:
   name: Unoccupied Heating Air Flow Min Setpoint
+  short_name: Unocc Heating Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4334,6 +4387,7 @@ UOCIAFLWHTMNSP:
 
 UOCIAFLWHTMXSP:
   name: Unoccupied Heating Air Flow Max Setpoint
+  short_name: Unocc Heating Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4352,6 +4406,7 @@ UOCIAFLWHTMXSP:
 
 UOCIAFLWMNSP:
   name: Unoccupied Air Flow Min Setpoint
+  short_name: Unocc Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4369,6 +4424,7 @@ UOCIAFLWMNSP:
 
 UOCIAFLWMXSP:
   name: Unoccupied Air Flow Max Setpoint
+  short_name: Unocc Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4419,6 +4475,7 @@ UOCHDAFLWMXSP:
           Flow Setpoint-1, Max Unoccupied Hot Deck Air Flow Setpoint-2, etc."
 UOCZTCLSP:
   name: Unoccupied Zone Temperature Cooling Setpoint
+  short_name: Unocc Zone Temp Cooling Sp
   extends: ATSP
   haystack:
     type:
@@ -4436,6 +4493,7 @@ UOCZTCLSP:
           Setpoint-2, etc."
 UOCZRHSP:
   name: Unoccupied Zone Relative Humidity Setpoint
+  short_name: Unocc Zone RH Sp
   extends: RHSP
   haystack:
     type: 
@@ -4452,6 +4510,7 @@ UOCZRHSP:
           etc."
 UOCZTHTSP:
   name: Unoccupied Zone Temperature Heating Setpoint
+  short_name: Unocc Zone Temp Heating Sp
   extends: ATSP
   google_ontology: zone_air_unoccupied_heating_temperature_setpoint
   haystack:
@@ -4503,6 +4562,7 @@ VCMDCL:
 
 ZRHSP:
   name: Zone Humidity Setpoint
+  short_name: Zone Humidity Sp
   google_ontology: zone_air_relative_humidity_setpoint
   extends: RHSP
   haystack:
@@ -4522,6 +4582,7 @@ ZRHSP:
       - equipRef
 ZDHRHSP:
   name: Zone Air Dehumidification Relative Humidity Setpoint
+  short_name: Zone Air Dehumidification RH Sp
   description: The upper bound of relative humidity that the zone air is maintained to. 
   google_ontology: zone_air_dehumidification_relative_humidity_setpoint
   extends: ZRHSP
@@ -4538,6 +4599,7 @@ ZDHRHSP:
       - equipRef
 ZHUMRHSP:
   name: Zone Air Humidification Relative Humidity Setpoint
+  short_name: Zone Air Humidification RH Sp
   description: The lower bound of relative humidity that the zone air is maintained to. 
   google_ontology: zone_air_humidification_relative_humidity_setpoint
   extends: ZRHSP
@@ -4597,6 +4659,7 @@ ZSPRSP:
           etc."
 ZTADJSP:
   name: Zone Temperature Adjust Setpoint
+  short_name: Zone Temp Adjust Sp
   extends: ATSP
   google_ontology: zone_air_offset_temperature_setpoint
   haystack:
@@ -4614,6 +4677,7 @@ ZTADJSP:
 
 EFFZTDB:
   name: Effective Zone Temperature Deadband
+  short_name: Effective Zone Temp Deadband
   description: Adjustable difference between heating and cooling setpoints
   haystack:
     type:
@@ -4634,6 +4698,7 @@ EFFZTDB:
       - kind: Number
 EFFZTSP:
   name: Effective Zone Temperature Setpoint
+  short_name: Effective Zone Temp Sp
   extends: ATSP
   google_ontology: zone_air_temperature_setpoint
   haystack:
@@ -4650,6 +4715,7 @@ EFFZTSP:
           Effective Zone Temperature Setpoint-2, etc."
 EFFZTCLSP:
   name: Effective Zone Temperature Cooling Setpoint
+  short_name: Effective Zone Temp Cooling Sp
   google_ontology: zone_air_cooling_temperature_setpoint
   extends: ATSP
   haystack:
@@ -4668,6 +4734,7 @@ EFFZTCLSP:
           etc."
 EFFZTHTSP:
   name: Effective Zone Temperature Heating Setpoint
+  short_name: Effective Zone Temp Heating Sp
   google_ontology: zone_air_heating_temperature_setpoint
   extends: ATSP
   haystack:
@@ -4686,6 +4753,7 @@ EFFZTHTSP:
           etc."
 ZTSP:
   name: Zone Temperature Base Setpoint
+  short_name: Zone Temp Base Sp
   description: The zone temperature setpoint that is used to calculate the effective or occupied setpoints
     when adding a deadband or offset. 
   extends: ATSP

@@ -7,7 +7,7 @@ ac:
   type: MARKER
   source: HAY
 accumulate:
-  description: Accumulate the tag's value during inheritance and defx
+  description: Accumulate the tag's value during inheritance and defx
   type: MARKER
   source: HAY
 acoustic:
@@ -79,6 +79,10 @@ area:
   description: Area of a shape or floor space
   type: NUMBER
   source: HAY
+assembly:
+  description: A collection of manufactured parts or subassemblies
+  type: MARKER
+  source: HAY
 atmospheric:
   description: Related to the atmosphere of the earth
   type: MARKER
@@ -140,13 +144,15 @@ branch:
   type: MARKER
   source: OAP
 branchSelector:
-  description: An integral part of a VRF system, the branch selector box will send
-    either hot gas (Heating mode) or Low pressure liquid (Cooling mode) to the
-    indoor fan coil.
+  description: Branch selector used for heat recovery in a VRF system
   type: MARKER
-  source: OAP
+  source: HAY
 bypass:
   description: Pipe used to bypass an equipment
+  type: MARKER
+  source: HAY
+cable:
+  description: An assembly of one or more insulated conductors
   type: MARKER
   source: HAY
 call:
@@ -330,7 +336,7 @@ coolingLoop:
   type: MARKER
   source: HAY
 coolingOnly:
-  description: Device without heating
+  description: Equipment without heating
   type: MARKER
   source: HAY
 coolingProcessType:
@@ -402,6 +408,7 @@ delta:
 device:
   description: Microprocessor based hardware device
   type: MARKER
+  fundamental_entity: true
   source: HAY
 dewPoint:
   description: Dew point temperature at which water vapor will form dew
@@ -416,7 +423,7 @@ directZone:
   type: MARKER
   source: HAY
 disable:
-  description: Secondary off point of an equip
+  description: Secondary off point of an equip
   type: MARKER
   source: OAP
 discharge:
@@ -448,7 +455,7 @@ door:
   type: MARKER
   source: OAP
 drive:
-  description: Related to the drive control of a motor
+  description: Related to the drive control of a motor
   type: MARKER
   source: HAY
 dryer:
@@ -464,7 +471,7 @@ duct:
   type: MARKER
   source: HAY
 ductArea:
-  description: Config point on a vav for duct area measured in ft² or m²
+  description: Config point on a vav for duct area measured in ft² or m²
   type: MARKER
   source: HAY
 ductConfigType:
@@ -529,7 +536,7 @@ emergency:
   type: MARKER
   source: OAP
 enable:
-  description: Secondary on/off point of an equip especially used with a vfd
+  description: Secondary on/off point of an equip especially used with a vfd
   type: MARKER
   source: HAY
 energy:
@@ -555,6 +562,7 @@ environment:
 equip:
   description: Equipment asset
   type: MARKER
+  fundamental_entity: true
   source: HAY
 escalator:
   description: Moving staircase used to move people between floors
@@ -574,6 +582,10 @@ evaporative:
   description: Describes the evaporation process of a liquid, typically water, for a cooling application.
   type: MARKER
   source: OAP
+evse:
+  description: Electric Vehicle Supply Equipment
+  type: MARKER
+  source: HAY
 exhaust:
   description: Duct used to expel air back outside
   type: MARKER
@@ -781,16 +793,13 @@ heatingProcessType:
   type: MARKER
   source: HAY
 heatPump:
-  description: Heat pumps move thermal energy in the opposite direction of
-    spontaneous heat transfer, by absorbing heat from a cold space and releasing
-    it to a warmer one.
+  description: Equipment that employs a vapor compression cycle with a reversing valve to provide heating or cooling
   type: MARKER
   source: HAY
 heatRecovery:
-  description: Heat recovery is a method to reduce the heating and cooling demands
-    ( and thus energy costs ) of buildings.
+  description: Transfer of heat from one substance to another to reduce energy consumption
   type: MARKER
-  source: OAP
+  source: HAY
 heatWheel:
   description: Boolean point indicating command state of AHU's heat wheel
   type: MARKER
@@ -885,9 +894,9 @@ import:
   type: MARKER
   source: HAY
 indoorUnit:
-  description: The indoor unit of a VRF System, often referred to as fan coils
+  description: Operates inside the conditioned space
   type: MARKER
-  source: OAP
+  source: HAY
 inHand:
   description: Indicates device is locally controlled 
   type: MARKER
@@ -931,6 +940,11 @@ knx:
   description: KNX protocol commonly used for lighting systems
   type: MARKER
   source: HAY
+kpi: 
+  description: Key performance indicator
+  fundamental_entity: true
+  type: MARKER
+  source: OAP
 landing:
   description: A stop for an elevator or lift
   type: MARKER
@@ -1183,9 +1197,9 @@ opticalFiber:
   type: MARKER
   source: OAP
 outdoorUnit:
-  description: The outdoor unit of a VRF System, comprising one or multiple compressors
+  description: Operates outside the conditioned space
   type: MARKER
-  source: OAP
+  source: HAY
 outside:
   description: Duct to access fresh outside air
   type: MARKER
@@ -1207,7 +1221,7 @@ parking:
   type: MARKER
   source: OAP  
 perimeterHeat:
-  description: Auxiliary heating points associated with a vav
+  description: Auxiliary heating points associated with a vav
   type: MARKER
   source: HAY
 penthouse: 
@@ -1273,6 +1287,7 @@ poe:
 point:
   description: Data point such as a sensor or actuator
   type: MARKER
+  fundamental_entity: true
   source: HAY
 pointFunctionType:
   description: Classifies the point as a sensor, command, or setpoint
@@ -1283,9 +1298,9 @@ pop3:
   type: MARKER
   source: HAY
 port:
-  description: Communication endpoint
+  description: A gateway or opening used to transfer a substance
   type: MARKER
-  source: OAP
+  source: HAY
 portfolio:
   description: A collection of sites owned or managed by a single entity
   type: MARKER
@@ -1323,6 +1338,51 @@ pressureIndependent:
   description: VAV damper or a control valve that modulates to maintain desired
     flow setpoint
   type: MARKER
+  source: HAY
+primaryFunction:  
+  description: Primary function of building as US Energy Star key  
+  type: ENUM
+  enum:
+    - Bank Branch	
+    - Casino	
+    - College/University		
+    - Courthouse	
+    - Data Center	
+    - Distribution Center	
+    - Drinking Water Treatment & Distribution	
+    - Enclosed Mall	
+    - Energy/Power Station
+    - Fast Food Restaurant	
+    - Fire Station	
+    - Fitness Center/Health Club/Gym	
+    - Hospital (General Medical & Surgical)	
+    - Hotel	
+    - K-12 School	
+    - Laboratory	
+    - Library	
+    - Medical Office	
+    - Mixed Use Property	
+    - Movie Theater	
+    - Multifamily Housing	
+    - Museum	
+    - Non-Refrigerated Warehouse	
+    - Office	
+    - Other - Mall
+    - Other - Specialty Hospital
+    - Other - Utility
+    - Outpatient Rehabilitation/Physical Therapy  
+    - Parking	
+    - Performing Arts	
+    - Police Station	
+    - Residence Hall/Dormitory	
+    - Restaurant	
+    - Retail Store	
+    - Senior Care Community	
+    - Strip Mall	
+    - Supermarket/Grocery Store	
+    - Urgent Care/Clinic/Other Outpatient
+    - Wastewater Treatment Plant	
+    - Worship Facility	
   source: HAY
 primaryLoop:
   description: Indicates equipment and points which are associated with a chiller,
@@ -1388,7 +1448,7 @@ refrig:
   type: MARKER
   source: HAY
 reheat:
-  description: Command point for reheats process
+  description: Command point for reheats process
   type: MARKER
   source: HAY
 relief:
@@ -1434,7 +1494,7 @@ rtu:
   type: MARKER
   source: HAY
 run:
-  description: Primary on/off point of an equip especially used with a vfd
+  description: Primary on/off point of an equip especially used with a vfd
   type: MARKER
   source: HAY
 sand:
@@ -1504,6 +1564,7 @@ singleDuct:
 site:
   description: Site is a geographic location of the built environment
   type: MARKER
+  fundamental_entity: true
   source: HAY
 siteMeter:
   description: Main meter for the associated site
@@ -1548,6 +1609,7 @@ sp:
 space:
   description: Space is a three-dimensional volume in the built environment
   type: MARKER
+  fundamental_entity: true
   source: HAY
 speed:
   description: Distance per unit time
@@ -1634,10 +1696,9 @@ switchboard:
   type: MARKER
   source: OAP  
 system:
-  description: A system is a group of interacting or interrelated entities that
-    form a unified whole.
+  description: Grouping of related equipment dedicated to a single application
   type: MARKER
-  source: OAP
+  source: HAY
 tablet:
   description: Mobile device with touch screen for user input
   type: MARKER
@@ -1706,7 +1767,7 @@ transient:
   type: MARKER
   source: HAY
 transitive:
-  description: This marker is applied to a relationship to indicate it is transitive
+  description: This marker is applied to a relationship to indicate it is transitive
   type: MARKER
   source: HAY
 tripleDuct:
@@ -1794,10 +1855,18 @@ volt:
   description: Electrical voltage, potential difference
   type: MARKER
   source: HAY
-vrf:
-  description: Indicates that the entity is part of a vrf system
+lineVoltage:
+  description: Electrical voltage, potential difference in a three-phase system between two phases.
   type: MARKER
   source: OAP
+phaseVoltage:
+  description: Electrical voltage, potential difference in a single or three-phase system between a line and neutral.
+  type: MARKER
+  source: OAP
+vrf:
+  description: Variable refrigerant flow
+  type: MARKER
+  source: HAY
 wastewater:
   description: "Wastewater (or waste water) is any water that has been
     contaminated by human use. "
@@ -1892,9 +1961,14 @@ zwave:
 attr: 
   description: Numerical or descriptive characteristic of an entity, spec. 
   type: MARKER
+  fundamental_entity: true
   source: OAP
 
 ## Attribute descriptors
+bioSafety: 
+  description: The prevention of large-scale loss of biological integrity, focusing both on ecology and human health.
+  type: MARKER
+  source: HAY  
 design: 
   description: Data related to intended design and operating conditions. This includes sizing and other data specified by design engineers and engineered drawings. 
   type: MARKER
