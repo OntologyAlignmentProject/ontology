@@ -988,7 +988,7 @@ loadshed:
   type: MARKER
   source: OAP
 loadType:
-  desciption: Primary load type served by an entity (typically an electrical panel)
+  description: Primary load type served by an entity (typically an electrical panel)
   enum: 
     - lighting
     - hvac
@@ -1994,4 +1994,4 @@ serialNumber:
 gross: 
     description: Consisting of an overall total exclusive of deductions
     type: MARKER
-    source: OAP    
+    source: OAP

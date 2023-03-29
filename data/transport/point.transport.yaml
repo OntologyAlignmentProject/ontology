@@ -8,7 +8,7 @@ ELVCALL:
     type:
       - call
       - point
-    indentification: 
+    identification:
       - kind: List
     reference:
       - equipRef

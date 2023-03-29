@@ -308,7 +308,7 @@ OAS:
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. OAS-1 or OAS-187
       - dis: Outdoor Air Sensor 1 or OAS-1
   points:
-    - OAC02
+    - OACO2
     - OATVOC
     - OADWP
     - OARH

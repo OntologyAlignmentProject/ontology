@@ -879,7 +879,7 @@ RHSP:
     identification:
       - kind: Number 
       - unit: percentage
-    referece: 
+    reference: 
       - equipRef
 DHCMD:
   name: Dehumidify Command
@@ -2671,10 +2671,10 @@ FLGST:
     type:
       - flue
       - gas
-  identification:
-    - id: <ABBREVIATION> + <INTEGER> - e.g. FLGST1 or FLGST2
-    - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FLGST-1 or FLGST-2
-    - dis: Flue Gas Temperature 1 or FLGST-1
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FLGST1 or FLGST2
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FLGST-1 or FLGST-2
+      - dis: Flue Gas Temperature 1 or FLGST-1
 FLTDPR:
   name: Filter Differential Pressure
   extends: ADP
@@ -3400,7 +3400,7 @@ OADCMD:
   google_ontology_full:
     - ventilation_outside_air_damper_percentage_command
     - outside_air_damper_command:
-      - kind: bool
+      - kind: Bool
     - outside_air_damper_percentage_command:
       - kind: Number
       - unit: percentage
