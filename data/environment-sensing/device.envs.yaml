@@ -35,7 +35,7 @@ OCCS:
 
 AIRS:
   name: Air Sensor
-  description: A device that meausures or detects information about the air around it.
+  description: A device that measures or detects information about the air around it.
   is_base: true
   haystack:
     type:
@@ -68,7 +68,7 @@ AIRS:
 
 SURS:
   name: Surface Sensor
-  description: A device that meausures or detects things on a surface
+  description: A device that measures or detects things on a surface
   is_base: true
   haystack:
     type:
@@ -159,7 +159,7 @@ OCCPS:
 
 LNPCS:
   name: Line People Counting Sensor
-  description: A device that measure in and out people traffice across a line, such as entrance
+  description: A device that measure in and out people traffic across a line, such as entrance
     to a space.  Also called a In Out People Sensor
   extends: OCCS
   ifc_class: ifcSensor

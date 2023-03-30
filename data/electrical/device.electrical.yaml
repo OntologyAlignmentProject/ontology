@@ -21,7 +21,7 @@ CB:
       - spaceRef
 
 UPS:
-  name: Uninteruptible Power Supply
+  name: Uninterruptible Power Supply
   short_name: UPS
   description: An electrical apparatus that provides emergency power to a load
     when the input power source or mains power fails.

@@ -23,7 +23,7 @@ CAM:
     - RES
 CNTRL:
   name: Controller
-  description: A microprocesor Controller on any type of equipment
+  description: A microprocessor Controller on any type of equipment
   short_name: CTRLR
   haystack:
     type:
@@ -180,7 +180,7 @@ SDNC:
 
 SUPC:
   name: Supervisory Controller
-  description: A microprocesor Controller whose primary function is to integrate
+  description: A microprocessor Controller whose primary function is to integrate
     and supervise other controllers
   extends: CNTRL
   haystack:

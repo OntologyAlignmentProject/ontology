@@ -692,7 +692,7 @@ ZTCA:
       - equipRef
 ZTHA:
   name: Hot Aisle Zone Temperature
-  description: In a data center, the temperature of the warmo or hot side of the server rack. 
+  description: In a data center, the temperature of the warm or hot side of the server rack. 
   extends: ZT
   google_ontology: hot_aisle_temperature_sensor
   haystack:
@@ -899,7 +899,7 @@ HMCMD:
   google_ontology_full: 
     - humidification_run_command: 
       - kind: Bool
-    - humidfication_percentage_command: 
+    - humidification_percentage_command: 
       - kind: Number
   haystack: 
     type: 
@@ -1773,7 +1773,7 @@ LCWISOVCMD:
       - id: <ABBREVIATION> + <INTEGER> 
 ECWISOVCMD:
   name: Entering Condenser Water Isolation Valve Command
-  short_name: Enterting CW Isolation Valve Cmd
+  short_name: Entering CW Isolation Valve Cmd
   extends: VCMD
   google_ontology: condensing_supply_water_isolation_valve_command
   google_ontology_full:
@@ -2701,7 +2701,7 @@ EFFHDAFLWSP:
           <INTEGER>  : EFFHDAFLWSP-1, EFFHDAFLWSP-2, etc."
       - navName: "EFFHDAFLWSP or if more than 1 in the equip/device, use <CODE> + - +
           <INTEGER>  : EFFHDAFLWSP-1, EFFHDAFLWSP-2, etc."
-      - dis: "Effectie Hot Deck Air Flow Setpoint or if more than 1 in the
+      - dis: "Effective Hot Deck Air Flow Setpoint or if more than 1 in the
           equip/device, use <NAME> + - + <INTEGER>  : Effective Hot Deck Air Flow
           Setpoint-1, Effective Hot Deck Air Flow Setpoint-2, etc."
 IGVFBK:
@@ -4774,7 +4774,7 @@ ZTSP:
 
 OCCZCLDB:
   name: Occupied Zone Cooling Deadband
-  description: Adujstable cooling setpoint offset used by some devices setpoint control
+  description: Adjustable cooling setpoint offset used by some devices setpoint control
   haystack:
     type:
       - cooling

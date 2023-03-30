@@ -266,7 +266,7 @@ CWM:
 
 DWM:
   name: Domestic Water Meter
-  description: A domesctic cold water meter is a device that measures the amount of
+  description: A domestic cold water meter is a device that measures the amount of
     domestic (cold) water consumed by a residence, a business or equipment.
   extends: WM
   haystack:
@@ -280,7 +280,7 @@ DWM:
 
 DHWM:
   name: Domestic Hot Water Meter
-  description: A domesctic hot water meter is a device that measures the amount of
+  description: A domestic hot water meter is a device that measures the amount of
     domestic hot water consumed by a residence, a business or equipment.
   extends: WM
   haystack:

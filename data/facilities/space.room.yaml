@@ -44,7 +44,7 @@ BREAKRM:
       - dis: <NAME> + - + <INTEGER> 
       - id: <ABBREVIATION> + <INTEGER>
 CIRCULATION:
-  name: Cirulation
+  name: circulation
   description: A space used by people to move throughout a building - hallways, stair.
   extends: ROOM
   haystack:
@@ -198,7 +198,7 @@ PERHYGIENE:
 RESIDENCE:
   name: Residence
   is_base: true
-  description: An individaul space (Dormitory Room) or collection of rooms(Bedroom, Living Room, etc) 
+  description: An individual space (Dormitory Room) or collection of rooms(Bedroom, Living Room, etc) 
     providing sleeping and living quarters.
   extends: ROOM
   haystack:
@@ -310,7 +310,7 @@ MECHRM:
       - id: <ABBREVIATION> + <INTEGER> 
 MORTUARY:
   name: Mortuary
-  description: A room where dead bodies are kept in preporation for burial or cremation, 
+  description: A room where dead bodies are kept in preparation for burial or cremation, 
     or in the case of a hospital or school, for study and examination. 
   extends: HEALTHCARERM
   realestatecore_ontology:

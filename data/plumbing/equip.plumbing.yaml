@@ -220,7 +220,7 @@ MDAP:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MDAP-1 or MDAP-36
 MDVCP:
   name: Medical Vacuum Pump
-  description: A medical vacuum pump is a meical grade device that removes gas
+  description: A medical vacuum pump is a medical grade device that removes gas
     molecules from a sealed volume in order to leave behind a partial vacuum.
   haystack:
     type:
@@ -426,7 +426,7 @@ DWS:
   name: Domestic Water System
   description: A collection of entities related to the domestic water in a building such as booster pumps,
     sensors, water treatment or softeners, or filtration. Domestic water is also commonly called "Domestic Cold Water"
-    or potable water. All elements in the domestic water system should be interconnected thorugh the domestic Water
+    or potable water. All elements in the domestic water system should be interconnected thorough the domestic Water
     distribution piping. 
   haystack:
     type:
@@ -500,7 +500,7 @@ DHWPL:
 RWS:
   name: Rainwater System
   description: A collection of entities related to the rainwater collection (for purposes of onsite reuse) in a building 
-    such as tanks, pumps, water treatment, or filtration. All elements in the rainwater system are interconnected through the raiwater or stormwater piping.
+    such as tanks, pumps, water treatment, or filtration. All elements in the rainwater system are interconnected through the rainwater or stormwater piping.
   haystack:
     type:
       - equip
@@ -539,7 +539,7 @@ SANS:
 STRMS:
   name: Stormwater System
   description: A collection of entities related to the disposal of onsite storm water on a site. Stormwater is distinct from rainwater
-    in that it is not intended for onsite reuse. All elements in the stromwater system are interconnected through stormwater piping.
+    in that it is not intended for onsite reuse. All elements in the stormwater system are interconnected through stormwater piping.
   haystack:
     type:
       - equip

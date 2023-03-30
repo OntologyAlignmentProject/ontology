@@ -50,7 +50,7 @@ ASNLNDCALL:
 CARDIRCMD:
   name: Car Assigned Direction
   description: This represents the direction this elevator is assigned to move, based on 
-    curent car calls.
+    current car calls.
   extends: POINT_GEN
   haystack:
     type:
