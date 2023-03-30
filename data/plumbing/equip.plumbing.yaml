@@ -284,8 +284,8 @@ RWST:
       - equipRef
     reference_optional:
       - spaceRef
-    points: 
-      - WTLVL
+  points: 
+    - WTLVL
 RCP:
   name: Recirculation Pump
   extends: PUMP
@@ -320,12 +320,12 @@ RO:
       - equipRef
     reference_optional:
       - spaceRef
-    points:
-      - WTLVL
-      - WLVLSP
-      - WCD
-      - WCDSP
-      - WLALRML
+  points:
+    - WTLVL
+    - WLVLSP
+    - WCD
+    - WCDSP
+    - WLALRML
     
 SEP:
   name: Sewage Ejector Pump
