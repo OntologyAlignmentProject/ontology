@@ -491,11 +491,11 @@ duration:
   type: MARKER
   source: HAY
 dxCooling:
-  description: Cooling using direct expansion of a refrigerant vapar
+  description: Cooling using direct expansion of a refrigerant vapor
   type: MARKER
   source: HAY
 dxHeating:
-  description: Heating using direct expansion of a refrigerant vapar
+  description: Heating using direct expansion of a refrigerant vapor
   type: MARKER
   source: OAP
 east:
