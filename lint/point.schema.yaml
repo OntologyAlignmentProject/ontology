@@ -1,0 +1,17 @@
+map(include("point"))
+---
+point:
+  name: str()
+  short_name: str(required=False)
+  description: str(required=False)
+  haystack: include("haystack")
+  is_base: bool(required=False)
+  extends: str(required=False)
+  alarms: list(str(), map(str()), required=False)
+  history: list(str(), required=False)
+  points: list(str(), required=False)
+  google_ontology: str(required=False)
+  google_ontology_full: list(str(), map(list(include("google_ontology_full"))), required=False)
+  brick_ontology: str(required=False)
+  deprecated: bool(required=False)
+

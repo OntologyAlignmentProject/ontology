@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - develop
+jobs:
+  lint:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Run cspell on the dataset using our saved dictionary of ignore words
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install cspell
+        working-directory: lint
+        run: npm install -g cspell
+      - name: Run spellcheck
+        working-directory: lint
+        run: cspell ../data/**/*.yaml 
+

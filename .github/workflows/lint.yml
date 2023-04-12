@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - develop
+jobs:
+  lint:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Run the linter on the dataset
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Install prereqs
+        working-directory: lint
+        run: pip install -r requirements.txt
+      - name: Run linter
+        working-directory: lint
+        run: python lint.py
+

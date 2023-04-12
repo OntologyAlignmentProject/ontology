@@ -1,0 +1,6 @@
+{
+    "dictionaries": ["en_us", "ids"],
+    "dictionaryDefinitions": [
+	{"name": "ids", "path": "./ids.txt"}
+    ]
+}
