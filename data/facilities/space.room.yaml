@@ -44,7 +44,7 @@ BREAKRM:
       - dis: <NAME> + - + <INTEGER> 
       - id: <ABBREVIATION> + <INTEGER>
 CIRCULATION:
-  name: circulation
+  name: Circulation
   description: A space used by people to move throughout a building - hallways, stair.
   extends: ROOM
   haystack:
