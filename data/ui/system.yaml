@@ -70,8 +70,8 @@ FAS:
   parent:
     - LSS
 FSS:
-  name: Fire Supression System
-  description: "A fire supression system is an engineered group of equipment
+  name: Fire Suppression System
+  description: "A fire suppression system is an engineered group of equipment
     that are built to extinguish fires through the application of a substance (typically water). "
   icon: Whatshot
   parent:
@@ -168,7 +168,7 @@ OTS:
 PARKSYS:
   name: Parking Systems
   description: Car parking systems automated systems designed to monitor the
-    environemnt, parking stalls, gates, as well as other parking related systems
+    environment, parking stalls, gates, as well as other parking related systems
     in a car parking lot or parking structure. Automated Car Parking Systems,
     although less common, would also fall into this category.
   icon: LocalParking

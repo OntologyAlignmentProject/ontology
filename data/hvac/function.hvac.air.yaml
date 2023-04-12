@@ -465,7 +465,7 @@ SID:
 
 WCR:
   name: WCR
-  description: Uses water to cool hot refrigerant (or heat cold referigerant),
+  description: Uses water to cool hot refrigerant (or heat cold refrigerant),
     basically a refrigerant to condenser water heat exchange process.
   haystack:
     type:

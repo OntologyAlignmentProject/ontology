@@ -697,7 +697,7 @@ POEPWR:
 
 PRKSPACT:
   name: Parking Space Active
-  description: Indicates when with the parking space is availble to be used.
+  description: Indicates when with the parking space is available to be used.
   extends: POINT_GEN
   haystack:
     type:

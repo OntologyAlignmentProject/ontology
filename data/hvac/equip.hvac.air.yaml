@@ -984,7 +984,7 @@ HTDT:
       - heating
 MAD:
   name: Mixed Air Damper
-  description: Equipment use to regulate the mixture of outisde and return air
+  description: Equipment use to regulate the mixture of outside and return air
     before the DF.
   extends: DMP
   haystack:

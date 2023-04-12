@@ -13,7 +13,7 @@ CHWC:
       - chilledWaterCooling
 CWCOIL:
   name: Condenser Water Coil
-  description: Heat exchanger used to heat or cool air using ccondenser water as
+  description: Heat exchanger used to heat or cool air using condenser water as
     the source. Coils are sub-components of HVAC equipment such as
     airHandlingEquip.
   extends: COIL
@@ -330,7 +330,7 @@ SCHWP:
       - chilledWaterMeterRef 
 TCHWP:
   name: Tertiary Chilled Water Pump
-  description: Pump that moves Chilled Water within the buidlings to 
+  description: Pump that moves Chilled Water within the buildings to 
     the load
   extends: PUMP
   haystack:
@@ -1298,7 +1298,7 @@ TWHP:
   name: Hydronic Heat Pump 
   is_base: true
   description: A hydronic heat pump,  also known as a "reversible chiller", is a machine that removes heat from
-    or adds heat to a liquid via avapor-compression or absorption refrigeration cycle. 
+    or adds heat to a liquid via vapor-compression or absorption refrigeration cycle. 
   haystack:
     type:
       - equip

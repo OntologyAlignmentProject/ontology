@@ -14,9 +14,9 @@
 #   comparison: <list of the comparison methods typical used for the KPI (from field.calculation.yaml)>
 #   unit_type: <a single unit type from (units.yaml)>
 #   unit: <list of possible units of measure (from units.yaml)>
-#   class: cateogry or grouping of KPI, KPI can belong to more than one category such as energy and cost
+#   class: category or grouping of KPI, KPI can belong to more than one category such as energy and cost
 # Usage Rules:
-#  - range=date means a start and end date needs to be provided to get a historty
+#  - range=date means a start and end date needs to be provided to get a history
 #  - rollup_interval is a single select only
 #  - rollup_interval=range means that a single value is returned for the entire range specified
 #  - rollup_calculation is single select only
@@ -141,7 +141,7 @@ UE:
     - cost       
 
 TUE:
-  name: Total Expenditure for Utilties
+  name: Total Expenditure for Utilities
   description: Total amount of expenditure in currency for all utilities.
   extends: UE
   inputs: 
@@ -334,7 +334,7 @@ OCCCT:
   normalization:
     - area
   class: 
-    - utilizition
+    - utilization
 
 # Other KPIs to add
 # Water Consumption

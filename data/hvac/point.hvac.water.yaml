@@ -1459,7 +1459,7 @@ WFLWST:
 BCPSSCMD:
   name: Boiler Circulation Pump Run Command
   extends: PSSCMD
-  google_ontology: cirulation_pump_run_command
+  google_ontology: circulation_pump_run_command
   haystack:
     type:
       - circ
@@ -1472,7 +1472,7 @@ BCPSSCMD:
 BCPSSST:
   name: Boiler Circulation Pump Run Status
   extends: PSSST
-  google_ontology: cirulation_pump_run_status
+  google_ontology: circulation_pump_run_status
   haystack:
     type:
       - circ
@@ -1587,7 +1587,7 @@ EWTSP:
 LCHWT:
   name: Leaving Chilled Water Temperature
   short_name: Leaving CHW Temp
-  description: The tempwerature of the water leaving the chiller or Chilled water
+  description: The temperature of the water leaving the chiller or Chilled water
     plant. Commonly referred to as Chilled Water Supply Temp (CHWST).
   extends: WTRTEMP
   google_ontology: chilled_supply_water_temperature_sensor
