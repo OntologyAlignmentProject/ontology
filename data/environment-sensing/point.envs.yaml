@@ -80,16 +80,14 @@ ZTVOC:
     identification:
       - unit: µg/m³
 
-ZPM10:
-  name: Zone PM 10
-  short_name: PM₁₀
-  description: Particulate Matter 10 (PM 10) measured in the air within a space
+ZPM01:
+  name: Zone PM 0.1
+  short_name: PM₀₁
+  description: Particulate Matter 0.1 (PM 0.1) measured in the air within a space
   extends: AIR
-  google_ontology: zone_air_pm10_concentration_sensor
-  brick_ontology: PM10_Level_Sensor
   haystack:
     type:
-      - pm10
+      - pm01
       - zone
     identification:
       - unit: µg/m³
@@ -99,7 +97,7 @@ ZPM25:
   short_name: PM₂₅
   description: Particulate Matter 2.5 (PM 2.5) measured in the air within a space
   extends: AIR
-  google_ontology: zone_air_pm25_concentration_sensor
+  google_ontology: zone_air_pm2pt5_concentration_sensor
   brick_ontology: PM2.5_Level_Sensor
   haystack:
     type:
@@ -108,16 +106,16 @@ ZPM25:
     identification:
       - unit: µg/m³
 
-ZPM01:
-  name: Zone PM 0.1
-  short_name: PM₀₁
-  description: Particulate Matter 0.1 (PM 0.1) measured in the air within a space
+ZPM10:
+  name: Zone PM 10
+  short_name: PM₁₀
+  description: Particulate Matter 10 (PM 10) measured in the air within a space
   extends: AIR
-  google_ontology: zone_air_pm01_concentration_sensor
-  brick_ontology: PM1_Sensor
+  google_ontology: zone_air_pm10pt0_concentration_sensor
+  brick_ontology: PM10_Level_Sensor
   haystack:
     type:
-      - pm01
+      - pm10
       - zone
     identification:
       - unit: µg/m³
@@ -127,7 +125,7 @@ ZCH2O:
   short_name: CH₂O
   description: Formaldehyde (CH2O) measured in the air within a space
   extends: AIR
-  google_ontology: zone_air_hcho_concentration_sensor
+  google_ontology: zone_air_formaldehyde_concentration_sensor
   brick_ontology: Formaldehyde_Sensor
   haystack:
     type:
@@ -142,6 +140,7 @@ ZNO2:
   description: Nitrogen Dioxide (NO2) measured in the air within a space
   extends: AIR
   google_ontology: zone_air_no2_concentration_sensor
+  brick_ontology: NO2_Level_Sensor
   haystack:
     type:
       - no2
@@ -154,7 +153,8 @@ ZO3:
   short_name: Ozone
   description: Ozone (O3) measured in the air within a space
   extends: AIR
-  google_ontology: zone_air_o3_concentration_sensor
+  brick_ontology: Ozone_Level_Sensor
+  google_ontology: zone_air_ozone_concentration_sensor
   haystack:
     type:
       - o3
@@ -167,7 +167,7 @@ ZNH3:
   short_name: NH₃
   description: Ammonia (NH3) measured in the air within a space
   extends: AIR
-  google_ontology: zone_air_nh3_concentration_sensor
+  brick_ontology: Ammonia_Level_Sensor
   haystack:
     type:
       - nh3
@@ -178,6 +178,7 @@ ZRF:
   name: Zone Air Refrigerant Concentration
   description: Refrigerant concentration measured in the air within a space
   extends: AIR
+  brick_ontology: Refrigerant_Level_Sensor
   google_ontology: zone_air_refrigerant_concentration_sensor
   haystack:
     type:
@@ -189,8 +190,9 @@ ZRF:
       - unit: ppm      
 ZCO2SP:
   name: Zone CO2 Setpoint
-  google_ontology: zone_air_co2_concentration_setpoint
   extends: AIRSP
+  brick_ontology: CO2_Setpoint
+  google_ontology: zone_air_co2_concentration_setpoint
   haystack:
     type:
       - co2

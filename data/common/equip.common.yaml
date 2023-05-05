@@ -29,7 +29,7 @@ PRKG:
     reference_optional:
       - spaceRef
 TK:
-  name: Tank (Base Definition)
+  name: Tank 
   short_name: tank
   is_base: true
   haystack:
@@ -46,7 +46,7 @@ TK:
     reference_optional:
       - spaceRef
 WTK:
-  name: Water Tank (Base Definition)
+  name: Water Tank
   short_name: waterTank
   is_base: true
   haystack:
@@ -65,6 +65,10 @@ WTK:
       - spaceRef
   points:
     - DHWTT
+    - WTLVL
+    - WTLVLSP
+    - WTALRMH
+    - WTALRML
 TST:
   name: Thermal Storage Tank
   extends: WTK

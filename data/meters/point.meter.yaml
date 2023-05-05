@@ -106,4 +106,177 @@ STCNMFLOW:
       - unit_type: mass_flow
     reference:
       - deviceRef
+      - equipRef         
+
+##DEMAND MANAGEMENT /LOAD SHED ##      
+ENLDSH:
+  name: Enable Loadshedding
+  description: Enable loadshedding at a piece of equipment.
+  haystack:
+    type:
+      - enable
+      - loadshed  
+      - cmd
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+    reference_optional:
+      - deviceRef
+LDSHST:
+  name:  Loadshed Active Status 
+  description: Indicates whether or not an equipment is currently in an overriden state during a demand management event. 
+  haystack:
+    type:
+      - active
+      - loadshed  
+      - sensor
+      - point
+    identification:
+      - navName: "<CODE> + - + <INTEGER>"
+      - dis: "<NAME> + - + <INTEGER>"
+      - id
+      - kind: Bool
+    reference:
+      - equipRef
+      - spaceRef
+    reference_optional:
+      - deviceRef
+LDSHSEN:
+  name: Load Shed Sensor
+  description: A virtual sensor point that quantifies the response of all equipment being overriden.
+  haystack:
+    type:
+      - point
+      - loadshed
+      - load
+      - sensor
+    identification:
+      - kind: Number
+    reference:
+      - equipRef               
+LDSHCMD:
+  name: Load Shed Output Command
+  description: A virtual sensor point that indicates the output signal of the ADM system. 
+    Typically this is the output of a PID loop.
+  haystack:
+    type:
+      - point
+      - loadshed
+      - load
+      - cmd
+    identification:
+      - kind: Number
+    reference:
+      - equipRef 
+LDSHPRCLEN:
+  name: Load Shed Precooling Enable
+  short_name: Precooling Enable
+  description: Indicates that precooling is allowed to run. 
+  haystack:
+    type:
+      - point
+      - loadshed
+      - enable
+      - cmd
+      - precooling
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef      
+LDSHPRCLACT:
+  name: Load Shed Precooling Active
+  short_name: Precooling Active
+  description: Indicates that precooling is allowed to run. 
+  haystack:
+    type:
+      - point
+      - loadshed
+      - active
+      - sensor
+      - precooling
+    identification:
+      - kind: Bool
+    reference:
       - equipRef           
+DMPWRSP:
+  name: Demand Management Maximum Power Setpoint
+  description: A setpoint that the demand management system controls the power load to maintain.
+  haystack:
+    type:
+      - point
+      - loadshed
+      - sp
+      - max
+      - power
+    identification:
+      - kind: Number
+    reference:
+      - equipRef            
+ADMEN:
+  name: Automated Demand Management Enable
+  short_name: Demand Management Enabled
+  description: Indicates whether or not an equipment is allowed to run in a demand management mode. 
+  extends: ENLDSH
+  haystack:
+    type:
+      - adm
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef
+     
+ADREN:
+  name: Demand Response Enable
+  short_name: DR Enabled
+  description: Indicates whether or not an equipment is allowed to run during a demand response event. 
+  extends: ENLDSH
+  haystack:
+    type:
+      - adr
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef
+ADRST:
+  name: Demand Response Active
+  short_name: DR Active
+  description: Indicates whether or not an equipment is currently in an overriden state during a demand response event. 
+  extends: LDSHST
+  haystack:
+    type:
+      - adr
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef        
+ADRSCH:
+  name: Demand Response Schedule
+  description: Indicates the next schedule time that a demand response event is scheduled to start. 
+  haystack:
+    type:
+      - point
+      - adr
+      - schedulePoint
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef              
+ADRIMM:
+  name: Demand Response Imminent
+  description: Indicates that a demand response event is going to start soon after a prescribed interval.
+  haystack:
+    type:
+      - point
+      - adr
+      - imminent
+      - sensor
+    identification:
+      - kind: Bool
+    reference:
+      - equipRef         

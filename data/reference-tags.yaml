@@ -211,3 +211,7 @@ weatherStationRef:
   description: Reference to weather station for to use this entity
   type: REF
   source: HAY
+weatherRef:
+  description: Reference to weather station for to use this entity
+  type: REF
+  source: OAP

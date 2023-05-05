@@ -1,0 +1,223 @@
+## Motors ##
+
+ratedMotorPower:
+  name: Rated Motor Power
+  domain: hvac
+  haystack:
+    type:
+      - rated
+      - motor
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power
+
+### Air ###
+
+designAirPressure: 
+  name: "Design Air Pressure"
+  domain: hvac.air
+  haystack:
+    type: 
+      - design
+      - air
+      - pressure
+      - attr
+    identification:
+      - kind: Number
+  unit_type: pressure
+
+designDischargeAirPressure: 
+  name: Design Discharge Air External Static Pressure
+  short_name: Design Disch ESP
+  extends: designAirPressure
+  haystack:
+    type: 
+      - discharge
+      - external
+
+designDischargeTotalAirPressure: 
+  name: Design Discharge Total Air Pressure
+  extends: designAirPressure
+  haystack:
+    type: 
+      - discharge
+      - total
+
+designExhaustAirPressure: 
+  name: Design Exhaust Air External Static Pressure
+  short_name: Design Exhaust ESP
+  extends: designAirPressure
+  haystack:
+    type: 
+      - exhaust
+      - external
+
+designExhaustTotalAirPressure: 
+  name: Design Exhaust Total Air Pressure
+  extends: designAirPressure
+  haystack:
+    type: 
+      - exhaust
+      - total
+
+designReturnAirPressure: 
+  name: Design Return Air External Static Pressure
+  short_name: Design Return ESP
+  extends: designAirPressure
+  haystack:
+    type: 
+      - return
+      - external
+
+designReturnTotalAirPressure: 
+  name: "Design Return Total Air Pressure"
+  extends: designAirPressure
+  haystack:
+    type: 
+      - return
+      - total
+
+designAirFlow: 
+  name: "Design Airflow"
+  domain: hvac.air
+  haystack:
+    type: 
+      - design
+      - air
+      - flow
+      - attr
+    identification:
+      - kind: Number
+  unit_type: volumetric_flow
+
+designDischargeAirFlow: 
+  name: "Design Discharge Airflow"
+  extends: designAirFlow
+  haystack:
+    type: 
+      - discharge
+
+designExhaustAirFlow: 
+  name: "Design Exhaust Airflow"
+  extends: designAirFlow
+  haystack:
+    type: 
+      - exhaust
+
+designReturnAirFlow: 
+  name: "Design Return Airflow"
+  extends: designAirFlow
+  haystack:
+    type: 
+      - return
+
+designMinAirFlow: 
+  name: "Design Minimum Airflow"
+  extends: designAirFlow
+  haystack:
+    type: 
+      - min
+
+designMaxAirFlow: 
+  name: "Design Maximum Airflow"
+  extends: designAirFlow
+  haystack:
+    type: 
+      - max
+
+### Water ###
+
+designWaterFlow: 
+  name: "Design Water Flow"
+  domain: hvac.water
+  haystack:
+    type: 
+      - design
+      - water
+      - flow
+      - attr
+    identification:
+      - kind: Number
+  unit_type: volumetric_flow
+
+designMinWaterFlow:
+  name: Design Minimum Water Flow
+  extends: designWaterFlow
+  haystack:
+    - min
+
+designMaxWaterFlow:
+  name: Design Minimum Water Flow
+  extends: designWaterFlow
+  haystack:
+    - max
+
+designWaterTemp:
+  name: Design Water Temperature
+  domain: hvac.water
+  haystack:
+    type:
+      - design
+      - water
+      - temp
+      - attr
+    identification:
+      - kind: Number
+  unit_type: temperature
+
+designEWT:
+  name: Design Entering Water Temperature
+  extends: designWaterTemp
+  haystack:
+    type:
+      - entering
+
+designLWT:
+  name: Design Leaving Water Temperature
+  extends: designWaterTemp
+  haystack:
+    type:
+      - leaving
+
+designWaterPressure:
+  name: Design Water Pressure
+  domain: hvac.water
+  haystack:
+    type:
+      - design
+      - water
+      - pressure
+      - attr
+    identification:
+      - kind: Number
+  unit_type: pressure
+
+
+## Heating and Cooling ##
+
+coolingCapacity:
+  name: Cooling Capacity
+  domain: hvac
+  haystack:
+    type:
+      - cooling
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power
+
+heatingCapacity:
+  name: Heating Capacity
+  domain: hvac
+  haystack:
+    type:
+      - heating
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power
+

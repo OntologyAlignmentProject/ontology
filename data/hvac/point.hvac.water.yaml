@@ -133,6 +133,7 @@ WFLOWSP:
   name: Water Flow Setpoint (Base Definition)
   is_base: true
   short_name: Water Flow Sp
+  brick_ontology: Water_Flow_Setpoint
   google_ontology: flowrate_setpoint
   haystack:
     type:
@@ -214,6 +215,7 @@ CHWDPR:
   name: Chilled Water Differential Pressure
   short_name: CHW Diff Pressure
   extends: WDIFFPR
+  brick_ontology: Chilled_Water_Differential_Pressure_Sensor
   google_ontology: chilled_water_differential_pressure_sensor
   haystack:
     type:
@@ -281,6 +283,7 @@ LCHWFLOWSP:
   name: Leaving Chilled Water Flow Setpoint
   short_name: Leaving CHW Flow Sp
   extends: WFLOWSP
+  brick_ontology: Leaving_Chilled_Water_Flow_Setpoint
   haystack:
     type:
       - chilled
@@ -422,6 +425,26 @@ DWPR:
     identification:    
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
+LWPR: 
+  name: Leaving Water Pressure 
+  extends: WPR
+  description: Water Pressure on the leaving/discharge side of the entity. 
+  haystack:
+    type:
+      - leaving
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
+EWPR:
+  name: Entering Water Pressure
+  extends: WPR
+  description: Water Pressure on the entering/suction side of the entity.
+  haystack:
+    type: 
+      - entering
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
 DHWDT:
   name: Domestic Hot Water Delta Temperature 
   description: Difference between domestic hot water leaving and entering temperatures.
@@ -459,6 +482,7 @@ ECHWFL:
   name: Entering Chilled Water Flow
   short_name: Entering CHW Flow
   extends: WFLOW
+  brick_ontology: Entering_Chilled_Water_Flow_Sensor
   google_ontology: chilled_water_flowrate_sensor
   google_ontology_full:
     - chilled_water_flowrate_sensor
@@ -492,6 +516,7 @@ EHWFL:
   name: Entering Hot Water Flow
   short_name: Entering HW Flow
   extends: WFLOW
+  brick_ontology: Entering_Hot_Water_Flow_Sensor
   google_ontology: heating_water_flowrate_sensor
   haystack:
     type:
@@ -759,6 +784,7 @@ LCHWTSP:
   name: Leaving Chilled Water Temperature Setpoint
   short_name: Leaving CHW Temp Sp
   extends: WTEMPSP
+  brick_ontology: Leaving_Chilled_Water_Temperature_Setpoint
   google_ontology: chilled_supply_water_temperature_setpoint
   google_ontology_full:
     - chilled_supply_water_temperature_setpoint
@@ -778,6 +804,7 @@ LCWFL:
   name: Leaving Condenser Water Flow
   short_name: Leaving CW Flow
   extends: WFLOW
+  brick_ontology: Leaving_Condenser_Water_Flow_Sensor
   google_ontology: condensing_water_flowrate_sensor
   google_ontology_full:
     - condensing_water_flowrate_sensor:
@@ -812,6 +839,7 @@ LCWTSP:
   name: Leaving Condenser Water Temperature Setpoint
   short_name: Leaving CW Temp Sp
   extends: WTEMPSP
+  brick_ontology: Leaving_Condenser_Water_Temperature_Setpoint
   google_ontology: condensing_supply_water_temperature_setpoint
   haystack:
     type:
@@ -828,6 +856,7 @@ LHWFL:
   name: Leaving Hot Water Flow
   short_name: Leaving HW FLow
   extends: WFLOW
+  brick_ontology: Leaving_Hot_Water_Flow_Sensor
   google_ontology: heating_water_flowrate_sensor
   haystack:
     type:
@@ -843,6 +872,7 @@ LHWFLSP:
   name: Leaving Hot Water Flow Setpoint
   short_name: Leaving HW Flow Sp
   extends: WFLOWSP
+  brick_ontology: Leaving_Hot_Water_Flow_Setpoint
   haystack:
     type:
       - hot
@@ -854,6 +884,7 @@ LHWTSP:
   name: Leaving Hot Water Temperature Setpoint
   short_name: Leaving HW Temp Sp
   extends: WTEMPSP
+  brick_ontology: Leaving_Hot_Water_Temperature_Setpoint
   google_ontology: heating_supply_water_temperature_setpoint
   haystack:
     type:
@@ -884,7 +915,7 @@ LWISOVCMD:
           Command-2, etc."
 LWISOVST:
   name: Leaving Water Isolation Valve Status
-  extends: VST
+  extends: VPOS
   google_ontology: supply_water_isolation_valve_status
   haystack:
     type:
@@ -972,6 +1003,22 @@ PHWVCMD:
           <INTEGER>  : PHWVCMD-1, PHWVCMD-2, etc."
       - dis: "Preheat Water Valve Command or if more than 1 in the equip/device, use <NAME>
           + - + <INTEGER>  : Preheat Water Valve Command-1, Preheat Water Valve Command-2, etc."
+PHWVFBK:
+  name: Preheat Water Valve Position Feedback
+  short_name: Preheat Valve Position
+  description: This represents the current position of the Preheat Water Valve, typically provided as a boolean or as as percentage value.
+  extends: VPOS
+  haystack:
+    type:
+      - preheat
+      - water
+    identification:
+      - id: "PHWVFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          PHWVFBK-1, PHWVFBK-2, etc."
+      - navName: "PHWVFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : PHWVFBK-1, PHWVFBK-2, etc."
+      - dis: "Preheat Water Valve Position Feedback or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Preheat Water Valve Position Feedback-1, Preheat Water Valve Position Feedback-2, etc."
 PRLHWTSP:
   name: Primary Leaving Hot Water Temperature Setpoint
   short_name: Primary Leaving HW Temp Sp
@@ -1370,6 +1417,7 @@ WCDSP:
 WTLVL:
   name: Water Level Sensor
   description: A measure of the water level in units of height, typically in a tank or sump.
+  brick_ontology: Water_Level_Sensor
   haystack:
     type:
       - water
@@ -1502,6 +1550,7 @@ ECHWT:
   description: The temperature of the water entering the chiller or Chilled water
     plant. Commonly referred to as Chilled Water Return Temp (CHWRT).
   extends: WTRTEMP
+  brick_ontology: Entering_Chilled_Water_Temperature_Sensor
   google_ontology: chilled_return_water_temperature_sensor
   google_ontology_full:
     - chilled_return_water_temperature_sensor
@@ -1524,6 +1573,7 @@ ECWT:
     tower or condenser water plant. Commonly referred to as Condenser Water
     Return Temp (CWRT).
   extends: WTRTEMP
+  brick_ontology: Entering_Condenser_Water_Temperature_Sensor
   google_ontology: condensing_return_water_temperature_sensor
   google_ontology_full:
     - condensing_return_water_temperature_sensor
@@ -1544,6 +1594,7 @@ EHWT:
   description: The temperature of the water entering (returning to) the boiler or
     Hot water plant. Commonly referred to as Hot Water Return Temp (HWRT).
   extends: WTRTEMP
+  brick_ontology: Entering_Hot_Water_Temperature_Sensor
   google_ontology: heating_return_water_temperature_sensor
   haystack:
     type:
@@ -1559,8 +1610,9 @@ EDHWT:
   name: Entering Domestic Hot Water Temperature
   short_name: Entering Domestic HW Temp
   description: The temperature of the water entering the domestic hot water heater or plant.
-  google_ontology: potable_hot_return_water_temperature_sensor
   extends: WTRTEMP
+  brick_ontology: Entering_Domestic_Hot_Water_Temperature_Sensor
+  google_ontology: potable_hot_return_water_temperature_sensor
   haystack:
     type:
       - entering
@@ -1574,6 +1626,7 @@ EWTSP:
   name: Entering Water Temperature Setpoint
   short_name: Entering Water Temp Sp
   extends: WTEMPSP
+  brick_ontology: Entering_Water_Temperature_Setpoint
   google_ontology: return_water_temperature_setpoint
   haystack:
     type:
@@ -1590,6 +1643,7 @@ LCHWT:
   description: The temperature of the water leaving the chiller or Chilled water
     plant. Commonly referred to as Chilled Water Supply Temp (CHWST).
   extends: WTRTEMP
+  brick_ontology: Leaving_Chilled_Water_Temperature_Sensor
   google_ontology: chilled_supply_water_temperature_sensor
   google_ontology_full:
     - chilled_supply_water_temperature_sensor
@@ -1611,6 +1665,7 @@ LCWT:
     condenser water loop equipment, cooling tower or condenser water plant. Commonly referred
     to as Condenser Water Supply Temp (CWST).
   extends: WTRTEMP
+  brick_ontology: Leaving_Condenser_Water_Temperature_Sensor
   google_ontology: condensing_supply_water_temperature_sensor
   google_ontology_full:
     - condensing_supply_water_temperature_sensor
@@ -1631,6 +1686,7 @@ LHWT:
   description: The temperature of the water leaving the boiler or Hot water
     plant. Commonly referred to as Hot Water Supply Temp (HWST).
   extends: WTRTEMP
+  brick_ontology: Leaving_Hot_Water_Temperature_Sensor
   google_ontology: heating_supply_water_temperature_sensor
   haystack:
     type:
@@ -1647,8 +1703,9 @@ LDHWT:
   short_name: Leaving Domestic HW Temp
   description: The temperature of the water leaving the domestic hot water heater 
     or recirculation pump.
-  google_ontology: potable_hot_supply_water_temperature_sensor
   extends: WTRTEMP
+  brick_ontology: Leaving_Domestic_Hot_Water_Temperature_Sensor
+  google_ontology: potable_hot_supply_water_temperature_sensor
   haystack:
     type:
       - leaving
@@ -1663,8 +1720,9 @@ LDHWTSP:
   short_name: Leaving Domestic HW Temp Sp
   description: The temperature setpoint of the water leaving the domestic hot water heater 
     or recirculation pump.
-  google_ontology: potable_hot_water_temperature_setpoint
   extends: WTEMPSP
+  brick_ontology: Leaving_Domestic_Hot_Water_Temperature_Setpoint
+  google_ontology: potable_hot_water_temperature_setpoint
   haystack:
     type:
       - leaving
@@ -1747,7 +1805,21 @@ PSPCMD:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER> 
       - kind: Number 
-      
+PSPFBK:
+  name: Pump Speed Feedback
+  short_name: Pump Speed Fbk
+  haystack:
+    type:
+      - point
+      - speed
+      - pump
+      - sensor
+    reference:
+      - equipRef  
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER> 
+      - kind: Number      
 CNPST:
   name: Condensate Pump Status
   extends: PSSST
@@ -1849,6 +1921,7 @@ CHWDT:
   name: Chilled Water Delta Temperature 
   short_name: CHW Delta Temp
   extends: DT
+  brick_ontology: Chilled_Water_Differential_Temperature_Sensor
   haystack:
     type:
       - chilled

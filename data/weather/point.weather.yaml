@@ -1,0 +1,280 @@
+WTHTEMP:
+  name: Weather Temperature
+  short_name: Weather Temp
+  description: Drybulb Air Temp from a weather service
+  extends: AIRTEMP
+  haystack:
+    type:
+      - weather
+    identification:
+      - navName: "WTHTEMP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WTHTEMP-1, WTHTEMP-2, etc."
+      - dis: "Weather Temp or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Weather Temp-1, Weather
+          Temp-2, etc."
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef
+      
+WTHWBTEMP:
+  name: Weather Wet Bulb Temperature
+  short_name: Weather Wet Bulb Temp
+  description: Wetbulb Air Temp from a weather service
+  haystack:
+    type:
+      - air
+      - sensor
+      - point
+      - weather
+      - wetBulb
+    identification:
+      - navName: "WTHWBTEMP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WTHWBTEMP-1, WTHWBTEMP-2, etc."
+      - dis: "Weather Wet Bulb Temperature or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Weather Wet Bulb Temperature-1, Weather Wet Bulb 
+          Temperature-2, etc."
+      - kind: Number
+      - unit: temperature
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef      
+WTHFLS:
+  name: Weather Feels Like Temperature
+  short_name: Weather Feels Like Temp
+  description: Apparent temperature from a weather service
+  extends: AIRTEMP
+  haystack:
+    type:
+      - weather
+      - feelsLike
+    identification:
+      - navName: "WTHFLS or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WTHFLS-1, WTHFLS-2, etc."
+      - dis: "Weather Feels Like Temperature or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Weather Feels Like Temperature-1, Weather Feels Like 
+          Temperature-2, etc."
+      - kind: Number
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef 
+WTHDWP:
+  name: Weather Dewpoint
+  description: Dewpoint temperature from a weather service
+  extends: AIRDWP
+  haystack:
+    type:
+      - weather
+    identification:
+      - navName: "WTHDWP or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WTHDWP-1, WTHDWP-2, etc."
+      - dis: "Weather Dewpoint or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Weather Dewpoint-1, Weather Dewpoint-2, etc."
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef        
+WTHRH:
+  name: Weather Relative Humidity
+  short_name: Weather RH
+  description: Relative humidity from a weather service
+  extends: RELHUM
+  haystack:
+    type:
+      - weather
+    identification:
+      - navName: "WTHRH or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : WTHRH-1, WTHRH-2, etc."
+      - dis: "Weather Relative Humidity or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Weather Relative Humidity-1, Weather
+          Relative Humidity-2, etc."
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef
+WTHENTH:
+  name: Weather Air Enthalpy
+  description: Air enthalpy from a weather service
+  extends: AIRENTH
+  haystack:
+    type:
+      - weather
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
+      - kind: Number
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef
+
+WTHCO2:
+  name: Weather CO2
+  description: Total Carbon Dioxide (CO2) from a weather service
+  extends: AIRCO2
+  haystack:
+    type:
+      - weather
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef
+WTHPR:
+  name: Weather Atmospheric Pressure
+  extends: ADP
+  haystack:
+    type:
+      - weather
+      - atmospheric
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef      
+WTHCLD:
+  name: Weather Cloudage
+  description: Cloudiness as a percentage from a weather service
+  haystack:
+    type:
+      - weather
+      - cloudage
+      - point
+      - sensor
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: percent
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef
+WTHWNDSPD: 
+  name: Weather Wind Speed
+  description: Wind Speed from a weather service
+  extends: WNDSPD
+  haystack:
+    type:
+      - weather
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef   
+WTHWNDDIR: 
+  name: Weather Wind Direction
+  description: Direction from which wind originates via a weather service
+  haystack:
+    type:
+      - weather
+      - point
+      - sensor
+      - wind
+      - direction
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Str
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef         
+WTHDAYTM: 
+  name: Weather Daytime
+  description: Indicates whether or not it is daytime from a weather service
+  haystack:
+    type:
+      - weather
+      - point
+      - sensor
+      - daytime
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef    
+WTHPRCP: 
+  name: Weather Precipitation
+  description: Fallen atmospheric water vapor from a weather service
+  haystack:
+    type:
+      - weather
+      - point
+      - sensor
+      - precipitation
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef          
+WTHSOLIRR: 
+  name: Weather Solar Irradiance
+  description: Energy recieved from the sun from a weather service
+  haystack:
+    type:
+      - weather
+      - point
+      - sensor
+      - solar
+      - irradiance
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+      - unit: irradiance
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef 
+WTHCOND: 
+  name: Weather Conditions
+  description: Descritption of weather conditions from a weather service
+  haystack:
+    type:
+      - weather
+      - point
+      - sensor
+      - weatherCond
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Str
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef 
+WTHVIS: 
+  name: Weather Visibility
+  description: Visibility (distance at which light can be discerned) from a weather service
+  haystack:
+    type:
+      - weather
+      - point
+      - sensor
+      - visibility
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - weatherStationRef
+    reference_optional:
+      - equipRef      
+
+

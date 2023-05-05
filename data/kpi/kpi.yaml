@@ -14,9 +14,9 @@
 #   comparison: <list of the comparison methods typical used for the KPI (from field.calculation.yaml)>
 #   unit_type: <a single unit type from (units.yaml)>
 #   unit: <list of possible units of measure (from units.yaml)>
-#   class: category or grouping of KPI, KPI can belong to more than one category such as energy and cost
+#   class: cateogry or grouping of KPI, KPI can belong to more than one category such as energy and cost
 # Usage Rules:
-#  - range=date means a start and end date needs to be provided to get a history
+#  - range=date means a start and end date needs to be provided to get a historty
 #  - rollup_interval is a single select only
 #  - rollup_interval=range means that a single value is returned for the entire range specified
 #  - rollup_calculation is single select only
@@ -50,6 +50,7 @@ EC:
     - previous_month
     - previous_year
     - portfolio_average
+    - baseline
     - forecast
   unit_type: energy
   class:
@@ -111,6 +112,31 @@ TEC:
   unit: 
     - kilobtu
     - megabtu
+    - kilowatt_hour
+TES:
+  name: Total Energy Savings
+  description: The total energy saved by an entity from various external sources compared to a baseline.
+  is_base: true
+  inputs:
+    - TEEC
+    - TNGEC
+    - TCHWEC
+    - THWEC
+    - TSTEC
+  range:
+    - date
+  rollup_interval:
+    - month
+    - range
+  rollup_calculation:
+    - sum
+  unit_type: energy
+  class:
+    - energy  
+  unit: 
+    - kilobtu
+    - megabtu    
+    - kilowatt_hour
 
 UE:
   name: Utility Expenditure
@@ -119,8 +145,8 @@ UE:
   range:
     - date
   rollup_interval:
-    - day
     - month
+    - billing_period
     - range
   rollup_calculation:
     - sum
@@ -129,6 +155,7 @@ UE:
   comparison: 
     - previous_month
     - previous_year
+    - baseline
     - forecast
   unit_type: currency
   unit:
@@ -141,14 +168,13 @@ UE:
     - cost       
 
 TUE:
-  name: Total Expenditure for Utilities
+  name: Total Expenditure for Utilties
   description: Total amount of expenditure in currency for all utilities.
   extends: UE
   inputs: 
       - TEEEC
       - TENGEC
       - TEWC
- 
 TEEEC:
   name: Total Expenditure for Electric Energy Consumption
   description: Total amount of expenditure in currency for electric energy consumed by an entity from an external source.
@@ -167,6 +193,30 @@ TEWC:
   name: Total Expenditure for Water Consumption
   description: Total amount of expenditure in currency for water consumed by an entity from an external source.
   extends: UE
+  
+TUCS:
+  name: Total Utility Cost Savings
+  description: Total amount of expenditure saved in currency for all utilities as compared to a baseline.
+  is_base: true
+  inputs: 
+    - TEEEC
+    - TENGEC
+  range:
+    - date
+  rollup_interval:
+    - month
+    - range
+  rollup_calculation:
+    - sum
+  unit_type: currency
+  unit:
+    - us_dollar
+    - canadian_dollar
+    - pound_sterling
+    - euro
+    - australian_dollar
+  class:
+    - cost      
 
 PKD:
   name: Peak Demand
@@ -188,6 +238,8 @@ PKED:
   comparison:
     - previous_month
     - previous_year
+    - baseline
+    - forecast
   normalization:
     - area
     - oat
@@ -197,7 +249,23 @@ PKED:
     - megawatt
   class:
     - energy 
-
+PKDR:
+  name: Peak Demand Reduction
+  description: The delta between peak demand and a baseline. 
+  range:
+    - date
+  rollup_interval:
+    - day
+    - month
+    - range
+  rollup_calculation:
+    - sum
+  unit_type: power
+  unit:
+    - kilowatt
+    - megawatt
+  class:
+    - energy 
 DPRFL:
   name:  Demand Profile
   description: The typical demand profile for the profile window.
@@ -297,8 +365,24 @@ SEUI:
   class:
     - energy    
 
-# Other KPIs
+# Health and Comfort KPIs
 
+COMF:
+  name: Comfort Summary
+  description: For all equipment contained under the entity, this summarizes whether spaces were too hot, too cold or within setpoint during occupied hours. 
+  # if you pass in an equip it gives the summary for the equip
+  # If you pass in a site, it gives the comfort summary for all equips 
+  range:
+    - current
+    - date
+  rollup_interval:
+    - range
+  rollup_calculation:
+    - none
+  unit:
+    - percent
+  class:
+    - comfort  
 IAQI:
   name: Indoor Air Quality Index
   short_name: Indoor AQI
@@ -334,7 +418,69 @@ OCCCT:
   normalization:
     - area
   class: 
-    - utilization
+    - utilizition
+
+
+# Equipment KPIs
+TOPINS:
+  name: Top Insights
+  description: Creates a breakdown of the most common insights related to an equipment or an entity by % of insights.
+  range:
+    - current
+    - date
+  filter: 
+    - admDisqualification
+  rollup_interval:
+    - range
+  rollup_calculation:
+    - sum
+  unit_type: dimensionless
+  unit: 
+    - percent
+  class: 
+    - maintenance
+
+EQSTS:
+  name: Equip Status
+  description: Creates a breakdown of the status of all equipment
+  is_base: true
+  range:
+    - current
+    - date
+  rollup_interval:
+    - range
+  rollup_calculation:
+    - sum
+  unit_type: dimensionless
+  unit: 
+    - percent
+  class: 
+    - maintenance
+
+COMMSTS:
+  name: Communication Status
+  description: Creates a breakdown of the communication status of all equipment 
+  extends: EQSTS
+
+MODESTS:
+  name: HVAC Mode Status
+  description: Creates a breakdown of the hvac mode status of all equipment 
+  extends: EQSTS
+
+RUNSTS:
+  name: Run Status
+  description: Creates a breakdown of the run status of all equipment 
+  extends: EQSTS
+
+ADMENSTS:
+  name: Demand Management Enable Status
+  description: Creates a breakdown of the status of all equipment as it relates to demand managment
+  extends: EQSTS
+
+ADMSTS:
+  name: Demand Management Active Status
+  description: Creates a breakdown summary of equipment that is actively in an overridden state. 
+  extends: EQSTS
 
 # Other KPIs to add
 # Water Consumption

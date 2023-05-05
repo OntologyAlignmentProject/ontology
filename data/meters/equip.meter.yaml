@@ -66,7 +66,7 @@ EM:
     reference_optional:
       - submeterOf
       - spaceRef
-    measure_reference:
+    reference_as:
       - elecMeterRef
   functions:
     - MTR
@@ -93,7 +93,7 @@ EM:
     - ACVA
     - ACVB
     - ACVC
-    - APPENE 
+    - APPENE
     - APPPWR
     - DCV
     - ENERGYIMP
@@ -109,7 +109,7 @@ EM:
 
 NGM:
   name: Natural Gas Meter
-  description: A natural gas meter is a device that measures the amount of natural 
+  description: A natural gas meter is a device that measures the amount of natural
     gas consumed by a residence, a business or equipment.
   is_base: true
   google_ontology: GM_STANDARD
@@ -130,15 +130,15 @@ NGM:
     reference_optional:
       - submeterOf
       - spaceRef
-    measure_reference:
-      - naturalGasMeterRef    
+    reference_as:
+      - naturalGasMeterRef
   functions:
     - MTR
-  points: 
+  points:
     - ALRMPT
     - NGEN
     - NGFLOW
-    - NGVOL 
+    - NGVOL
     - NGPWR
     - NGTEMP
     - THRMEN
@@ -169,9 +169,9 @@ HM:
       - spaceRef
   functions:
     - MTR
-  points: 
+  points:
     - THRMEN
-    - THRMPWR  
+    - THRMPWR
 
 SM:
   name: Steam Meter
@@ -194,25 +194,25 @@ SM:
     reference_optional:
       - submeterOf
       - spaceRef
-    measure_reference:
-      - steamMeterRef       
+    reference_as:
+      - steamMeterRef
   functions:
     - MTR
-  points: 
+  points:
     - ALRMPT
     - THRMEN
     - THRMPWR
     - STMASS
-    - STVOL 
+    - STVOL
     - STFLOW
     - STMFLOW
     - STCNMASS
-    - STCNVOL 
+    - STCNVOL
     - STCNFLOW
     - STCNMFLOW
     - LSTT
     - LSTP
-    
+
 # Water meter types
 
 CHWM:
@@ -225,11 +225,11 @@ CHWM:
       - chilled
     type_optional:
       - thermal
-    measure_reference:
-      - chilledWaterMeterRef        
+    reference_as:
+      - chilledWaterMeterRef
     identification:
-      - id: <ABBREVIATION> + <INTEGER> 
-      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
 
 HWM:
   name: Hot Water Meter
@@ -242,11 +242,11 @@ HWM:
       - heating
     type_optional:
       - thermal
-    measure_reference:
-      - hotWaterMeterRef      
+    reference_as:
+      - hotWaterMeterRef
     identification:
-      - id: <ABBREVIATION> + <INTEGER> 
-      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
 
 CWM:
   name: Condenser Water Meter
@@ -257,12 +257,12 @@ CWM:
     type:
       - condenser
     type_optional:
-      - thermal    
-    measure_reference:
+      - thermal
+    reference_as:
       - condenserWaterMeterRef
     identification:
-      - id: <ABBREVIATION> + <INTEGER> 
-      - navName: <ABBREVIATION> + - + <INTEGER>       
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
 
 DWM:
   name: Domestic Water Meter
@@ -272,11 +272,11 @@ DWM:
   haystack:
     type:
       - domestic
-    measure_reference:
-      - domesticWaterMeterRef  
+    reference_as:
+      - domesticWaterMeterRef
     identification:
-      - id: <ABBREVIATION> + <INTEGER> 
-      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
 
 DHWM:
   name: Domestic Hot Water Meter
@@ -287,11 +287,11 @@ DHWM:
     type:
       - domestic
       - hot
-    measure_reference:
+    reference_as:
       - domesticHotWaterMeterRef
     identification:
-      - id: <ABBREVIATION> + <INTEGER> 
-      - navName: <ABBREVIATION> + - + <INTEGER>       
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
 
 BDWM:
   name: Blowdown Meter
@@ -305,12 +305,12 @@ BDWM:
   haystack:
     type:
       - blowdown
-    measure_reference:
+    reference_as:
       - blowdownWaterMeterRef
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WWM-1 or WWM-421
-      - dis: Wastewater Meter 1 or WWM-1      
+      - dis: Wastewater Meter 1 or WWM-1
 
 MUWM:
   name: Makeup Water Meter
@@ -323,8 +323,8 @@ MUWM:
     type_optional:
       - domestic
     identification:
-      - id: <ABBREVIATION> + <INTEGER> 
-      - navName: <ABBREVIATION> + - + <INTEGER>       
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER>
 
 WWM:
   name: Wastewater Meter
@@ -338,7 +338,7 @@ WWM:
   haystack:
     type:
       - wastewater
-    measure_reference:
+    reference_as:
       - wasteWaterMeterRef
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421

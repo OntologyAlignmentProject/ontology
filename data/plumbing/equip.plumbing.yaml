@@ -516,6 +516,9 @@ RWS:
       - systemRef
   contains: 
     - RWST
+    - PUMPGRP
+    - BSP
+    - WFLT
       
 SANS:
   name: Sanitary Waste System

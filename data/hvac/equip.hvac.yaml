@@ -46,7 +46,7 @@ HX:
     - ALRMPT
     - HWVCMD
 RADF:
-  name: Radiant Floor (Base Definition)
+  name: Radiant Floor
   is_base: true
   short_name: RADF
   description: Heats a space using pipes or cables embedded beneath floor.

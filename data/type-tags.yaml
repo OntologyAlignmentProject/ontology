@@ -22,6 +22,14 @@ actuator:
   description: Equipment to move or control a mechanism
   type: MARKER
   source: HAY
+adm:
+  description: Related to automated (energy) demand management
+  type: MARKER
+  source: OAP  
+adr:
+  description: Related to demand reponse i.e. getting a signal from a utility operator and reducing energy demand
+  type: MARKER
+  source: OAP    
 ahu:
   description: Air Handling Unit
   type: MARKER
@@ -87,6 +95,10 @@ atmospheric:
   description: Related to the atmosphere of the earth
   type: MARKER
   source: HAY
+auxiliary :
+  description: Providing supplemental or additional support, typically in the form of heating. 
+  type: MARKER
+  source: OAP  
 avg:
   description: Average
   type: MARKER
@@ -889,6 +901,10 @@ imbalance:
   description: Lacking balance
   type: MARKER
   source: HAY
+imminent:
+  description: Starting soon, pending
+  type: MARKER
+  source: OAP  
 import:
   description: Received into a system
   type: MARKER
@@ -1322,6 +1338,10 @@ precipitation:
     snow, and hail
   type: MARKER
   source: HAY
+precooling:
+  description: To cool in advance in order to reduce cooling load later
+  type: MARKER
+  source: OAP
 preheat:
   description: To heat before using or before subjecting to some further process
   type: MARKER
@@ -1545,6 +1565,10 @@ server:
   description: General purpose computer
   type: MARKER
   source: HAY
+service:
+  description: A system that supplies data and information such as a weather service
+  type: MARKER
+  source: OAP  
 sewageEjector:
   description: An ejector create a vacuum feed connection for sewage systems
   type: MARKER
@@ -1985,13 +2009,18 @@ manufacturer:
 model: 
   description: Specific model name or series descriptor of an item.
   type: MARKER
-  source: OAP  
+  source: OAP
 serialNumber: 
   description: Unique identifying number
   type: MARKER
-  source: OAP    
+  source: OAP
 
 gross: 
-    description: Consisting of an overall total exclusive of deductions
-    type: MARKER
-    source: OAP
+  description: Consisting of an overall total exclusive of deductions
+  type: MARKER
+  source: OAP
+
+external:
+  description: Relating to areas external to an equipment, device or object
+  type: MARKER
+  source: OAP

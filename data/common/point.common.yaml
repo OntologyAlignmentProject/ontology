@@ -231,25 +231,7 @@ AIRTEMP:
     - recordCountController
     - recordCountServer
     - localTimeZone
-ENLDSH:
-  name: Enable Loadshedding
-  description: Enable loadshedding.
-  haystack:
-    type:
-      - enable
-      - loadshed  
-      - cmd
-      - point
-    identification:
-      - navName: "<CODE> + - + <INTEGER>"
-      - dis: "<NAME> + - + <INTEGER>"
-      - id
-      - kind: Bool
-    reference:
-      - equipRef
-      - spaceRef
-    reference_optional:
-      - deviceRef
+
 AIRENTH:
   name: Air Enthalpy (Base Definition)
   is_base: true
@@ -697,7 +679,7 @@ POEPWR:
 
 PRKSPACT:
   name: Parking Space Active
-  description: Indicates when with the parking space is available to be used.
+  description: Indicates when the parking space is available to be used.
   extends: POINT_GEN
   haystack:
     type:

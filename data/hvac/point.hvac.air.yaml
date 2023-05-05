@@ -170,6 +170,7 @@ DACO2:
 DAFLW:
   name: Discharge Air Flow
   extends: AIRFLOW
+  brick_ontology: Discharge_Air_Flow_Sensor
   google_ontology: discharge_air_flowrate_sensor
   google_ontology_full: 
     - discharge_air_flowrate_sensor
@@ -277,6 +278,7 @@ DFP:
           Power-2, etc."
 DFST:
   name: Discharge Fan Status
+  short_name: Discharge Fan Status
   extends: FANST
   google_ontology: discharge_fan_run_status
   google_ontology_full:
@@ -296,6 +298,7 @@ DFST:
 EAFLW:
   name: Exhaust Air Flow
   extends: AIRFLOW
+  brick_ontology: Exhaust_Air_Flow_Sensor
   google_ontology: exhaust_air_flowrate_sensor
   haystack:
     type:
@@ -329,6 +332,7 @@ EAT:
   short_name: Exhaust Air Temp
   description: The air temperature measured by a sensor in the exhaust air duct.
   extends: AIRTEMP
+  brick_ontology: Exhaust_Air_Temperature_Sensor
   google_ontology: exhaust_air_temperature_sensor
   haystack:
     type:
@@ -344,6 +348,7 @@ EAT:
 
 EFST:
   name: Exhaust Fan Status
+  short_name: EF Status
   extends: FANST
   google_ontology: exhaust_fan_run_status
   haystack:
@@ -416,6 +421,7 @@ MAFLTST:
 MAFLW:
   name: Mixed Air Flow
   extends: AIRFLOW
+  brick_ontology: Mixed_Air_Flow_Sensor
   haystack:
     type:
       - mixed
@@ -485,6 +491,7 @@ OAFLTST:
 OAFLW:
   name: Outside Air Flow
   extends: AIRFLOW
+  brick_ontology: Outside_Air_Flow_Sensor
   google_ontology: outside_air_flowrate_sensor
   google_ontology_full: 
     - outside_air_flowrate_sensor
@@ -535,7 +542,8 @@ RAENTH:
 RAFLW:
   name: Return Air Flow
   extends: AIRFLOW
-  google_ontology: return_air_flowrate
+  brick_ontology: Return_Air_Flow_Sensor
+  google_ontology: return_air_flowrate_sensor
   haystack:
     type:
       - return
@@ -655,7 +663,7 @@ ZT:
       - spaceRef
 
 ZTAVG:
-  name: Avg Zone Temperature
+  name: Average Zone Temperature
   short_name: Avg Zone Temp
   description: The average air temperature of an indoor space.
   extends: AIRTEMP
@@ -725,6 +733,7 @@ HRWCMD:
 
 HRWST:
   name: Heat Recovery Wheel Status
+  short_name: Heat Wheel Status
   description: The status for the heat recovery wheel.
   extends: ST
   haystack:
@@ -879,7 +888,7 @@ RHSP:
     identification:
       - kind: Number 
       - unit: percentage
-    reference: 
+    referece: 
       - equipRef
 DHCMD:
   name: Dehumidify Command
@@ -912,6 +921,7 @@ HMCMD:
       - equipRef      
 DPRCMD:
   name: Damper Command (Base Definition)
+  short_name: Damper Cmd
   is_base: true
   haystack:
     type:
@@ -926,6 +936,7 @@ DPRCMD:
       - equipRef
 FANCMD:
   name: Fan Command 
+  short_name: Fan Cmd
   google_ontology: run_command
   haystack:
     type:
@@ -1022,6 +1033,8 @@ VCMD:
 VPOS:
   name: Valve Position (Base Definition)
   is_base: true
+  description: Valve status or position. Typically this is a numeric point indicating the valve's current position,
+    but this could also be a boolean point indicating open/closed. 
   haystack:
     type:
       - point
@@ -1029,18 +1042,6 @@ VPOS:
       - sensor
     identification:
       - kind: Number
-    reference:
-      - equipRef
-VST:
-  name: Valve Status (Base Definition)
-  is_base: true
-  haystack:
-    type:
-      - point
-      - sensor
-      - valve
-    identification:
-      - kind: Bool
     reference:
       - equipRef
 
@@ -1093,6 +1094,24 @@ BYPDCMD:
       - dis: "Bypass Damper Command or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Bypass Damper Command-1, Bypass Damper Command-2,
           etc."
+BYPDFBK:
+  name: Bypass Damper Feedback
+  short_name: Bypass Damper Fbk
+  extends: ADFBK
+  haystack:
+    identification:
+      - id: "BYPDCMDFBK or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          BYPDFBK-1, BYPDFBK-2, etc."
+      - navName: "BYPDCMDFBK or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : BYPDCMDFBK-1, BYPDCMDFBK-2, etc."
+      - dis: "Bypass Damper Feedback or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Bypass Damper Feedback-1,
+          Bypass Damper Feedback-2, etc."
+      - kind: Number
+    type:
+      - bypass
+    reference:
+      - equipRef
 EFFCDAFLWSP:
   name: Effective Cold Deck Air Flow Setpoint
   extends: AFLWSP
@@ -1293,6 +1312,7 @@ ECHWISOVFBK:
       - id: <ABBREVIATION> + <INTEGER>  
 CHWVCMD:
   name: Chilled Water Valve Command
+  short_name: CHW Valve Cmd
   extends: VCMD
   google_ontology: chilled_water_valve_percentage_command
   google_ontology_full:
@@ -1353,6 +1373,7 @@ CLCMD:
       - equipRef
 CLSTGCT:
   name: Cooling Stage Count
+  short_name: Cool Stage Count
   description: Highest number of stages at which equipment is currently operating. 
   google_ontology: cooling_stage_run_count
   haystack:
@@ -1368,7 +1389,7 @@ CLSTGCT:
       - equipRef
 CLSTG1CMD:
   name: Cooling Stage 1 Command
-  short_name: Cooling Stage 1 Cmd
+  short_name: Cool Stage 1 Cmd
   google_ontology: compressor_run_command_1
   haystack:
     type:
@@ -1389,7 +1410,7 @@ CLSTG1CMD:
 
 CLSTG2CMD:
   name: Cooling Stage 2 Command
-  short_name: Cooling Stage 2 Cmd
+  short_name: Cool Stage 2 Cmd
   google_ontology: compressor_run_command_2
   haystack:
     type:
@@ -1410,7 +1431,7 @@ CLSTG2CMD:
 
 CLSTG3CMD:
   name: Cooling Stage 3 Command
-  short_name: Cooling Stage 3 Cmd
+  short_name: Cool Stage 3 Cmd
   google_ontology: compressor_run_command_3
   haystack:
     type:
@@ -1431,7 +1452,7 @@ CLSTG3CMD:
 
 CLSTG4CMD:
   name: Cooling Stage 4 Command
-  short_name: Cooling Stage 4 Cmd
+  short_name: Cool Stage 4 Cmd
   google_ontology: compressor_run_command_4
   haystack:
     type:
@@ -1452,7 +1473,7 @@ CLSTG4CMD:
 
 CLSTG5CMD:
   name: Cooling Stage 5 Command
-  short_name: Cooling Stage 5 Cmd
+  short_name: Cool Stage 5 Cmd
   google_ontology: compressor_run_command_5
   haystack:
     type:
@@ -1473,7 +1494,7 @@ CLSTG5CMD:
 
 CLSTG6CMD:
   name: Cooling Stage 6 Command
-  short_name: Cooling Stage 6 Cmd
+  short_name: Cool Stage 6 Cmd
   google_ontology: compressor_run_command_6
   haystack:
     type:
@@ -1494,7 +1515,7 @@ CLSTG6CMD:
 
 CLSTG7CMD:
   name: Cooling Stage 7 Command
-  short_name: Cooling Stage 7 Cmd
+  short_name: Cool Stage 7 Cmd
   google_ontology: compressor_run_command_7
   haystack:
     type:
@@ -1515,7 +1536,7 @@ CLSTG7CMD:
 
 CLSTG8CMD:
   name: Cooling Stage 8 Command
-  short_name: Cooling Stage 8 Cmd
+  short_name: Cool Stage 8 Cmd
   google_ontology: compressor_run_command_8
   haystack:
     type:
@@ -1537,6 +1558,7 @@ CLSTG8CMD:
 
 CLSTG1STS:
   name: Cooling Stage 1 Status
+  short_name: Cool Stage 1 Status
   haystack:
     type:
       - point
@@ -1556,6 +1578,7 @@ CLSTG1STS:
 
 CLSTG2STS:
   name: Cooling Stage 2 Status
+  short_name: Cool Stage 2 Status
   haystack:
     type:
       - point
@@ -1575,6 +1598,7 @@ CLSTG2STS:
 
 CLSTG3STS:
   name: Cooling Stage 3 Status
+  short_name: Cool Stage 3 Status
   haystack:
     type:
       - point
@@ -1594,6 +1618,7 @@ CLSTG3STS:
 
 CLSTG4STS:
   name: Cooling Stage 4 Status
+  short_name:: Cool Stage 4 Status
   haystack:
     type:
       - point
@@ -1613,6 +1638,7 @@ CLSTG4STS:
 
 CLSTG5STS:
   name: Cooling Stage 5 Status
+  short_name: Cool Stage 5 Status
   haystack:
     type:
       - point
@@ -1632,6 +1658,7 @@ CLSTG5STS:
 
 CLSTG6STS:
   name: Cooling Stage 6 Status
+  short_name: Cool Stage 6 Status
   haystack:
     type:
       - point
@@ -1651,6 +1678,7 @@ CLSTG6STS:
 
 CLSTG7STS:
   name: Cooling Stage 7 Status
+  short_name: Cool Stage 7 Status
   haystack:
     type:
       - point
@@ -1670,6 +1698,7 @@ CLSTG7STS:
 
 CLSTG8STS:
   name: Cooling Stage 8 Status
+  short_name: Cool Stage 8 Status
   haystack:
     type:
       - point
@@ -1688,6 +1717,7 @@ CLSTG8STS:
       - equipRef
 CLSTS:
   name: Cooling Status
+  short_name: Cool Status
   haystack:
     type:
       - point
@@ -2146,6 +2176,7 @@ DATSP:
 DATCLSP:
   name: Discharge Air Temperature Cooling Setpoint
   short_name: Discharge Air Temp Cool Sp
+  brick_ontology: Discharge_Air_Temperature_Cooling_Setpoint
   google_ontology: discharge_air_cooling_temperature_setpoint
   google_ontology_full: 
     - discharge_air_cooling_temperature_setpoint
@@ -2409,6 +2440,7 @@ EAFLWSP:
 EADCTSPR:
   name: Exhaust Air Duct Static Pressure
   extends: ADP
+  brick_ontology: Exhaust_Air_Static_Pressure_Sensor
   google_ontology: exhaust_air_static_pressure_sensor
   haystack:
     type:
@@ -2559,6 +2591,7 @@ EVCLCMD:
           <INTEGER>  : Evaporative Cooling Command-1, Evaporative Cooling Command-2, etc."
 EVCLSTS:
   name: Evaporative Cooling Status
+  short_name: Evap Cool Status
   extends: CLSTS
   google_ontology: evaporative_cooler_run_status
   haystack:
@@ -2807,7 +2840,18 @@ HTSTS:
       - kind: Bool
     reference:
       - equipRef      
-     
+AUXHTST:
+  name: Auxiliary Heating Status
+  extends: HTSTS
+  haystack:
+    type:
+      - auxiliary
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+    reference:
+      - equipRef    
 HTDEM:
   name: Heating Demand
   description: The calculated demand for heating
@@ -2839,7 +2883,8 @@ HTREQ:
       - dis: "Heating Requests or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heating Requests-1, Heating Requests-2"
 HTGCLGV:
-  name: Htg Clg Valve
+  name: Heating Cooling Valve
+  short_name: Htg Clg Valve
   extends: VCMD
   haystack:
     type:
@@ -2904,7 +2949,7 @@ HTGRHDBSP:
       - kind: Number
 HTSTG1CMD:
   name: Heating Stage 1 Command
-  short_name: Heating Stage 1 Cmd
+  short_name: Heat Stage 1 Cmd
   haystack:
     type:
       - point
@@ -2924,7 +2969,7 @@ HTSTG1CMD:
       - equipRef
 HTSTG2CMD:
   name: Heating Stage 2 Command
-  short_name: Heating Stage 2 Cmd
+  short_name: Heat Stage 2 Cmd
   haystack:
     type:
       - point
@@ -2944,7 +2989,7 @@ HTSTG2CMD:
       - equipRef
 HTSTG3CMD:
   name: Heating Stage 3 Command
-  short_name: Heating Stage 3 Cmd
+  short_name: Heat Stage 3 Cmd
   haystack:
     type:
       - point
@@ -2962,7 +3007,7 @@ HTSTG3CMD:
       - equipRef
 HTSTG4CMD:
   name: Heating Stage 4 Command
-  short_name: Heating Stage 4 Cmd
+  short_name: Heat Stage 4 Cmd
   haystack:
     type:
       - point
@@ -2980,6 +3025,7 @@ HTSTG4CMD:
       - equipRef
 HTSTG1STS:
   name: Heating Stage 1 Status
+  short_name: Heat Stage 1 Status
   google_ontology: heater_run_status_1
   haystack:
     type:
@@ -3000,6 +3046,7 @@ HTSTG1STS:
       - equipRef
 HTSTG2STS:
   name: Heating Stage 2 Status
+  short_name: Heat Stage 2 Status
   google_ontology: heater_run_status_2
   haystack:
     type:
@@ -3010,7 +3057,7 @@ HTSTG2STS:
     identification:
       - id: "HTSTG2STS or if more than 1 in the equip/device, use <CODE> + - +
           <INTEGER>  : HTSTG2STS-1, HTSTG2STS-2, etc."
-      - navName: "HTSTG2STS or if more than 1 in the equip/device, use <CODE> + - +
+      - navName: "HTSTG2ST or if more than 1 in the equip/device, use <CODE> + - +
           <INTEGER>  : HTSTG2STS-1, HTSTG2STS-2, etc."
       - dis: "Heating Stage 2 Status or if more than 1 in the equip/device, use <NAME>
           + - + <INTEGER>  : Heating Stage 2 Status-1, Heating Stage 2
@@ -3020,6 +3067,7 @@ HTSTG2STS:
       - equipRef
 HTSTG3STS:
   name: Heating Stage 3 Status
+  short_name: Heat Stage 3 Status
   google_ontology: heater_run_status_3
   haystack:
     type:
@@ -3038,6 +3086,7 @@ HTSTG3STS:
       - equipRef
 HTSTG4STS:
   name: Heating Stage 4 Status  
+  short_name: Heat Stage 4 Status
   google_ontology: heater_run_status_4
   haystack:
     type:
@@ -3098,6 +3147,7 @@ HWVCMD:
 
 IADCMD:
   name: Inlet Air Damper Command
+  short_name: Inlet Damper Cmd
   extends: DPRCMD
   google_ontology: supply_air_damper_percentage_command
   brick_ontology: Damper_Position_Command
@@ -3145,6 +3195,7 @@ IADCMDCL:
 
 IADFBK:
   name: Inlet Air Damper Feedback
+  short_name: Inlet Damper Position
   extends: ADFBK
   google_ontology: supply_air_damper_percentage_sensor
   haystack:
@@ -3476,6 +3527,7 @@ OAFLWMNSP:
 OAFLWSP:
   name: Outside Air Flow Setpoint
   extends: AFLWSP
+  brick_ontology: Outside_Air_Flow_Setpoint
   google_ontology: outside_air_flowrate_setpoint
   google_ontology_full: 
     - outside_air_flowrate_setpoint
@@ -3707,7 +3759,22 @@ OCCHDAFLWMXSP:
       - dis: "Occupied Hot Deck Air Flow Max Setpoint or if more than 1 in the equip/device,
           use <NAME> + - + <INTEGER>  : Occupied Hot Deck Air Flow Max Setpoint-1,
           Occupied Hot Deck Air Flow Max Setpoint-2, etc."
-
+MXZDWPSP:
+  name: Max Zone Dew Point Setpoint
+  short_name: Max Zone Dew Point Sp
+  haystack:
+    type:
+      - zone
+      - point
+      - air
+      - dewPoint
+      - setpoint
+      - max
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
 OCCZRHSP:
   name: Occupied Zone Relative Humidity Setpoint
   short_name: Occ Zone RH Sp
@@ -3729,6 +3796,7 @@ OCCZTCLSP:
   name: Occupied Zone Temperature Cooling Setpoint
   short_name: Occ Zone Temp Cooling Sp
   extends: ATSP
+  brick_ontology: Occupied_Air_Temperature_Cooling_Setpoint
   haystack:
     type:
       - cooling
@@ -3747,6 +3815,7 @@ OCCZTHTSP:
   name: Occupied Zone Temperature Heating Setpoint
   short_name: Occ Zone Temp Heating Sp
   extends: ATSP
+  brick_ontology: Occupied_Air_Temperature_Heating_Setpoint
   google_ontology: zone_air_occupied_heating_temperature_setpoint
   haystack:
     type:
@@ -3999,6 +4068,19 @@ REVVCMD:
       - dis: "Reversing Valve Command or if more than 1 in the equip/device, use <NAME>
           + - + <INTEGER>  : Reversing Valve Command-1, Reversing Valve
           Command-2, etc."
+REVVST:
+  name: Reversing Valve Status
+  extends: VPOS
+  haystack:
+    type:
+      - reversing
+    identification:
+      - id: "REVVST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REVVST01"
+      - navName: "REVVST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : REVVCST-1,"
+      - dis: "Reversing Valve Command or if more than 1 in the equip/device, use <NAME>
+          + - + <INTEGER>  : Reversing Valve Status - 1 "
 RFCMD:
   name: Return Fan Command
   short_name: Return Fan Cmd
@@ -4126,6 +4208,7 @@ SBCDAFLWMXSP:
 
 SBIAFLWMNSP:
   name: Standby Air Flow Min Setpoint
+  shortname: Standby Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4143,6 +4226,7 @@ SBIAFLWMNSP:
 
 SBIAFLWMXSP:
   name: Standby Air Flow Max Setpoint
+  short_name: Standby Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4160,6 +4244,7 @@ SBIAFLWMXSP:
 
 SBIAFLWCLMNSP:
   name: Standby Cooling Air Flow Min Setpoint
+  short_name: Standby Cool Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4178,6 +4263,7 @@ SBIAFLWCLMNSP:
 
 SBIAFLWCLMXSP:
   name: Standby Cooling Air Flow Max Setpoint
+  short_name: Standby Cool Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4196,6 +4282,7 @@ SBIAFLWCLMXSP:
 
 SBIAFLWHTMNSP:
   name: Standby Heating Air Flow Min Setpoint
+  short_name: Standby Heat Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4214,6 +4301,7 @@ SBIAFLWHTMNSP:
 
 SBIAFLWHTMXSP:
   name: Standby Heating Air Flow Max Setpoint
+  short_name: Standby Heat Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4264,6 +4352,7 @@ SBHDAFLWMXSP:
           Flow Max Setpoint-1, Standby Hot Deck Air Flow Max Setpoint-2, etc."
 SBZTCLSP:
   name: Standby Zone Temperature Cooling Setpoint
+  short_name: Standby Zone Temp Cool Sp
   extends: ATSP
   haystack:
     type:
@@ -4280,6 +4369,7 @@ SBZTCLSP:
           Cooling Setpoint-1, Standby Zone Temperature Cooling Setpoint-2, etc."
 SBZTHTSP:
   name: Standby Zone Temperature Heating Setpoint
+  short_name: Standby Zone Temp Heat Sp
   extends: ATSP
   haystack:
     type:
@@ -4477,6 +4567,7 @@ UOCZTCLSP:
   name: Unoccupied Zone Temperature Cooling Setpoint
   short_name: Unocc Zone Temp Cooling Sp
   extends: ATSP
+  brick_ontology: Unoccupied_Air_Temperature_Cooling_Setpoint
   haystack:
     type:
       - cooling
@@ -4495,6 +4586,7 @@ UOCZRHSP:
   name: Unoccupied Zone Relative Humidity Setpoint
   short_name: Unocc Zone RH Sp
   extends: RHSP
+  brick_ontology: Unoccupied_Humidity_Setpoint
   haystack:
     type: 
       - unocc
@@ -4512,6 +4604,7 @@ UOCZTHTSP:
   name: Unoccupied Zone Temperature Heating Setpoint
   short_name: Unocc Zone Temp Heating Sp
   extends: ATSP
+  brick_ontology: Unoccupied_Air_Temperature_Heating_Setpoint
   google_ontology: zone_air_unoccupied_heating_temperature_setpoint
   haystack:
     type:
@@ -4559,6 +4652,35 @@ VCMDCL:
       - dis: "Valve Command Closed or if more than 1 in the equip/device, use <NAME> + -
           + <INTEGER>  : Valve Command Closed-1, Valve Command Closed-2, etc." 
       - kind: Bool                  
+HUMST:
+  name: Humidify Status
+  short_name: Humidify Status
+  extends: ST
+  haystack:
+    type:
+      - humidify
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HUMST1
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HUMST-1
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HUMST - 1
+      - kind: Bool
+    reference:
+      - equipRef
+
+DEHUMST:
+  name: Dehumidify Status
+  short_name: Dehumidify Status
+  extends: ST
+  haystack:
+    type:
+      - dehumidify
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DEHUMST1
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DEHUMST-1
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DEHUMST - 1
+      - kind: Bool
+    reference:
+      - equipRef
 
 ZRHSP:
   name: Zone Humidity Setpoint
@@ -4774,7 +4896,7 @@ ZTSP:
 
 OCCZCLDB:
   name: Occupied Zone Cooling Deadband
-  description: Adjustable cooling setpoint offset used by some devices setpoint control
+  description: Adjustable cooling setpoint offset used by a device's setpoint control
   haystack:
     type:
       - cooling

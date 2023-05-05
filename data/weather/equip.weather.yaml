@@ -1,0 +1,29 @@
+WEATH:
+  name: Weather Service
+  description: A virtual service that produces data about the weather. 
+  haystack:
+    type:
+      - weatherStation
+      - service
+      - equip
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. WEATH1 or WEATH186
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WEATH-1 or WEATH-187
+      - dis: Weather Service 1 or WEATH-1 
+  points:
+    - WTHTEMP
+    - WTHWBTEMP
+    - WTHFLS
+    - WTHDWP
+    - WTHRH
+    - WTHENTH
+    - WTHCO2
+    - WTHPR
+    - WTHCLD
+    - WTHWNDDIR
+    - WTHWNDSPD
+    - WTHDAYTM
+    - WTHPRCP
+    - WTHSOLIRR
+    - WTHCOND
+    - WTHVIS

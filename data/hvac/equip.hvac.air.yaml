@@ -108,12 +108,14 @@ AHU:
     type:
       - equip
       - ahu
+    reference_as:
+      - airRef
     reference:
       - siteRef
       - systemRef
+    reference_optional:
       - spaceRef
       - deviceRef
-    reference_optional:
       - elecRef
       - elecMeterRef
       - chilledWaterRef
@@ -130,9 +132,17 @@ AHU:
     - RADUCT
     - CNTRL
   attributes: 
-    - designDischargeAirPressure
     - designDischargeAirFlow
+    - designDischargeAirPressure
+    - designDischargeTotalAirPressure
     - designExhaustAirFlow
+    - designExhaustAirPressure
+    - designExhaustTotalAirPressure
+    - designReturnAirFlow
+    - designReturnAirPressure
+    - designReturnTotalAirPressure
+    - coolingCapacity
+    - heatingCapacity
   points_base:
     - DASDST  
   points:
@@ -211,6 +221,7 @@ AHU:
     - EFSPFBK
     - EFST
     - EHTOCMD
+    - ENCMD
     - EVCLCMD
     - EVCLSTS
     - EVPRFSTT
@@ -856,6 +867,8 @@ FAN:
       - equipRef
   contains: 
     - VFD
+  attributes:
+    - ratedMotorPower
   points: 
     - ALRMPT
     - CLDEM
@@ -982,18 +995,6 @@ HTDT:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HTDT-1 or HTDT-259
     type:
       - heating
-MAD:
-  name: Mixed Air Damper
-  description: Equipment use to regulate the mixture of outside and return air
-    before the DF.
-  extends: DMP
-  haystack:
-    identification:
-      - id: <ABBREVIATION> + <INTEGER> - e.g. MAD1 or MAD162
-      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-162
-      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-164
-    type:
-      - mixed
 MADUCT:
   name: Mixed Air Duct
   description: Conduit used to convey air, blending outside air and return air
@@ -1006,6 +1007,21 @@ MADUCT:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MADUCT-1 or MADUCT-232
     type:
       - mixed
+MAD:
+  name: Mixed Air Damper
+  description: Equipment use to regulate the mixture of outisde and return air
+    before the DF.
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. MAD1 or MAD162
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-162
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-164
+    type:
+      - mixed
+    points:
+      - RADCMD
+      - RADFBK
 OAD:
   name: Outside Air Damper
   description: Equipment use to regulate the amount of outside air entering the
@@ -1163,6 +1179,7 @@ CHB:
     - CHWZC
     - HWZC
   points:
+    - ENCMD
     - DAT
     - ZCO2
     - ZRH
@@ -1187,7 +1204,7 @@ CHB:
     - ZOVCMD
     - ZCO2SP
 HP:
-  name: Heat Pump Air Handler (Base Definition)
+  name: Heat Pump Air Handler
   is_base: true
   short_name: HP
   description: An air handling equipment which employs a vapor compression cycle with a reversing valve
@@ -1438,7 +1455,7 @@ VRFSYS:
     - BRSEL
     - FCUVRFZC
 FCU:
-  name: Fan Coil Unit (Base Definition)
+  name: Fan Coil Unit
   is_base: true
   short_name: FCU
   description: "Fan Coil Unit: A unitary, factory-made enclosure with a fan and
@@ -1528,6 +1545,7 @@ FCU:
     - ZTCA
     - ZTHA
     - ZTSP
+
 
 FCUDACO:
   name: FCU - Discharge Air Cooling Only
@@ -1642,6 +1660,7 @@ FCUZCHOE:
     - HSP
     - HTEZC
     - OCC
+
 ###VAV TYPES###
 VAV:
   name: Variable Air Volume Unit
@@ -1670,6 +1689,9 @@ VAV:
     - DADUCT
     - DAD
     - DMPACT
+  attributes:
+    - designMinAirFlow
+    - designMaxAirFlow
   functions_base:
     - SID
     - CSP
@@ -1754,7 +1776,6 @@ VAV:
     - ZSPR
     - ZSPRSP
     - ZTSP
-
 # VAV Variant Definitions
 
 VAVCDAFC:

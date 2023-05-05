@@ -16,6 +16,7 @@ calculation:
   max: "The maximum value within a set of values"
   min: "The minimum value within a set of values"
   sum: "The sum of a set of values"
+  none: "No applicable rollup calculation"
 normalization:
   area: "The area of a space, site or group of sites"
   cdd: "Cooling Degree Days"
@@ -29,7 +30,8 @@ range_filter:
   days: "A list of days that should be used to filter the range."
 comparison:
   benchmark: "Compare to a industry benchmark or standard"
-  forecast: "Compare to a forecasted or predicted value"
+  baseline: "Compare to a modelled value representative of the status quo."
+  forecast: "Compare to a future forecasted or predicted value"
   portfolio_average: "Compare to all other assets within the portfolio" 
   previous_month: "Compare to the data in this range from last month"
   previous_year: "Compare to the data in this range from last year"
