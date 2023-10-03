@@ -1,0 +1,28 @@
+## Waste equipment definitions
+
+Bin
+ - Extend base type
+
+NAME: PWB                     ## Check for clashes
+  name: Portable Wheeled Bin
+  description: A lightweight portable bin for storing and transporting waste
+  haystack:
+    identification:
+      - dis: <ABBREVIATION (optional)> + _ + <VOLUME> + _ + <WASTE_TYPE> + _ + <16 bit HEX INTEGER> _ e.g. PWB_120L_Comingled_04DC
+      - id: machine generated
+    type:
+      - waste                 ## Not described in existing tagging models
+      - bin                   ## Not described in existing tagging models
+      - equip
+    reference:
+      - siteRef
+      - spaceRef              ## for home location, in facilities with centralised waste handling
+    attributes:
+      - volume                ## e.g. 80L, 120L, 240L, 660L
+      - wasteType             ## e.g. General waste, Comingled recycling, Organics, Paper & cardboard ## Not haystack
+  points:                     ## AIRAH/OAP working group proposed that points were generalised, rather than being specific to bins (note on coordinates - optional)
+    - LOC                     
+    - WASWT
+    - WASFL
+    - WASCR
+    - PWBST
