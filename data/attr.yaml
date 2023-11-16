@@ -2,7 +2,7 @@
 ##Attribute definitions ###
 
 ###Common, non-numerical Attributes ####
-manufacturer: 
+manufacturer:
   name: Manufacturer
   description: Brand, make or manufacturer under which equipment, device or object is sold
   domain: common
@@ -10,14 +10,14 @@ manufacturer:
     - equip
     - device
   haystack:
-    type: 
+    type:
       - attr
       - manufacturer
     identification:
       - kind: Str
   google_ontology: manufacturer_label
 
-model: 
+model:
   name: Model Name
   description: Model name or series descriptor
   domain: common
@@ -25,7 +25,7 @@ model:
     - equip
     - device
   haystack:
-    type: 
+    type:
       - attr
       - model
     identification:
@@ -40,7 +40,7 @@ modelNumber:
     - equip
     - device
   haystack:
-    type: 
+    type:
       - attr
       - model
       - number
@@ -56,22 +56,22 @@ serialNumber:
     - equip
     - device
   haystack:
-    type: 
+    type:
       - attr
       - serialNumber
     identification:
       - kind: Str
 
 ###Typical Site & Spatial Attributes ####
-netArea: 
+netArea:
   name: Net Area
   domain: spatial
-  description: Area of a space exclusive of walls, utility areas and circulation spaces. 
+  description: Area of a space exclusive of walls, utility areas and circulation spaces.
   entity:
     - site
     - space
   haystack:
-    type: 
+    type:
       - attr
       - area
       - net
@@ -79,15 +79,15 @@ netArea:
       - kind: Number
   unit_type: area
 
-grossArea: 
+grossArea:
   name: Gross Area
   domain: spatial
-  description: Area of a space inclusive of walls, utility areas and circulation spaces. 
+  description: Area of a space inclusive of walls, utility areas and circulation spaces.
   entity:
     - site
     - space
   haystack:
-    type: 
+    type:
       - attr
       - area
       - gross
@@ -95,30 +95,30 @@ grossArea:
       - kind: Number
   unit_type: area
 
-bioSafetyLevel: 
+bioSafetyLevel:
   name: Biosafety Level
   domain: spatial
-  description: Biosafety levels (BSL) are used to identify the protective measures needed in a laboratory setting to protect workers, the environment, and the public. 
+  description: Biosafety levels (BSL) are used to identify the protective measures needed in a laboratory setting to protect workers, the environment, and the public.
   haystack:
-    type: 
+    type:
       - attr
       - level
       - bioSafety
     identification:
       - kind: Str
-      - enum: 
-        - BSL-1
-        - BSL-2
-        - BSL-3
-        - BSL-4
+      - enum:
+          - BSL-1
+          - BSL-2
+          - BSL-3
+          - BSL-4
 
 ###Typical Occupancy Attributes ###
-ratedOccupancy: 
+ratedOccupancy:
   name: Rated Occupancy
   domain: occupancy
-  description: Amount of occupants a space is allowed to hold from a life-safety or legal perpsective. 
+  description: Amount of occupants a space is allowed to hold from a life-safety or legal perpsective.
   haystack:
-    type: 
+    type:
       - attr
       - occupancy
       - rated
@@ -126,12 +126,12 @@ ratedOccupancy:
       - kind: Number
   unit_type: dimesionless
 
-designOccupancy: 
+designOccupancy:
   name: Design Occupancy
   domain: occupancy
-  description: Amount of occupants a space would typically be expected to contain. 
+  description: Amount of occupants a space would typically be expected to contain.
   haystack:
-    type: 
+    type:
       - attr
       - occupancy
       - design
@@ -144,7 +144,7 @@ ratedCurrent:
   name: Rated Current
   domain: electrical
   haystack:
-    type: 
+    type:
       - rated
       - current
       - attr
@@ -156,11 +156,22 @@ ratedVoltage:
   name: Rated Voltage
   domain: electrical
   haystack:
-    type: 
+    type:
       - rated
       - voltage
       - attr
     identification:
       - kind: Number
   unit_type: electric_potential
-  
+
+ratedWattage:
+  name: Rated Wattage
+  domain: electrical
+  haystack:
+    type:
+      - rated
+      - wattage
+      - attr
+    identification:
+      - kind: Number
+  unit_type: electric_wattage

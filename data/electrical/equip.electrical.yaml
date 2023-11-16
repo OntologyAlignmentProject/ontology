@@ -545,3 +545,11 @@ XFMR:
       - equipRef
     reference_optional:
       - spaceRef
+PVP:
+  name: Photovoltaic Panel
+  description: A collection of photovoltaic cells arranged into a panel to produce electrical energy.
+  brick_ontology: Photovoltaic Panel
+  attributes: 
+    - ratedVoltage
+    - ratedCurrent
+    - ratedWattage
