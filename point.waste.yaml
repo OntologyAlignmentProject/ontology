@@ -60,6 +60,7 @@ PWBST:              ## Check for clashes
     type:
       - bin
       - sensor
+      - state
       - point
     identification:
       - kind: Enum
