@@ -3,9 +3,9 @@
 Bin
  - Extend base type
 
-NAME: PWB                     ## Check for clashes
-  name: Portable Wheeled Bin
-  description: A lightweight portable bin for storing and transporting waste
+BIN                
+  name: Waste Bin
+  description: A bin for storing and transporting waste
   haystack:
     identification:
       - dis: <ABBREVIATION (optional)> + _ + <VOLUME> + _ + <WASTE_TYPE> + _ + <16 bit HEX INTEGER> _ e.g. PWB_120L_Comingled_04DC
