@@ -3,7 +3,7 @@
 LOC:
   name: Location
   description: For location history of portable bins in RTLS system
-  metadata:         ## Not really described by Haystack. `space` type broadly describes the concept but is not a point
+  haystack:         
     type:
       - location
       - point
