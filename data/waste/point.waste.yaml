@@ -21,6 +21,7 @@ WASWT:
     type:
       - waste
       - weight
+      - sensor
       - point
     identification:
       - kind: Number

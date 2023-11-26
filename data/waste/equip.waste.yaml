@@ -11,8 +11,8 @@ BIN
       - dis: <ABBREVIATION (optional)> + _ + <VOLUME> + _ + <WASTE_TYPE> + _ + <16 bit HEX INTEGER> _ e.g. PWB_120L_Comingled_04DC
       - id: machine generated
     type:
-      - waste                 ## Not described in existing tagging models
-      - bin                   ## Not described in existing tagging models
+      - waste
+      - bin
       - equip
     reference:
       - siteRef
