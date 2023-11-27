@@ -18,7 +18,7 @@ BIN
       - siteRef
       - spaceRef              ## for home location, in facilities with centralised waste handling
     attributes:
-      - volume                ## e.g. 80L, 120L, 240L, 660L
+      - containerVolume       ## e.g. 80L, 120L, 240L, 660L
       - wasteType             ## e.g. General waste, Comingled recycling, Organics, Paper & cardboard ## Not haystack
   points:                     ## AIRAH/OAP working group proposed that points were generalised, rather than being specific to bins (note on coordinates - optional)
     - LOC                     
