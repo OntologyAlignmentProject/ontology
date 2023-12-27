@@ -6,8 +6,6 @@ BRPR:
    type:
      - pneumatic
      - branch
-   identification:
-     - kind: Number
 VFDSPCMD:
   name: VFD Output Speed
   extends: OUTSPD
@@ -22,7 +20,6 @@ VFDSPCMD:
       - deviceRef
     reference_optional:
       - equipRef
-
 VFDSPREF:
   name: VFD Speed Reference
   extends: SPDREF
@@ -63,13 +60,13 @@ VFDFREQ:
       - point
     identification:
       - kind: Number
-      - unit: frequency
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
     reference:
       - deviceRef
     reference_optional:
       - equipRef
+  unit_type: frequency
 EFF:
   name: Efficiency (Base Definition)
   description: Units of useful work out divided by units of useful work in. 
@@ -109,9 +106,10 @@ RLAPCT:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER> 
       - kind: Number     
-      - unit: percentage
     reference:
-      - equipRef      
+      - equipRef     
+  units: 
+    - percent
 CN:
   name: Condensate Status
   description: Presence of condensate water.
@@ -170,6 +168,8 @@ CMPSPCMD:
       - dis: <NAME> + - + <INTEGER>  
     reference:
       - equipRef   
+  units: 
+    - percent
 CMPSPFBK:
   name: Compressor Speed Feedback
   google_ontology: compressor_speed_percentage_sensor
@@ -184,7 +184,9 @@ CMPSPFBK:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>   
     reference: 
-      - equipRef      
+      - equipRef  
+  units: 
+    - percent
 CMPFREQ:
   name: Compressor Frequency
   haystack:
@@ -198,7 +200,8 @@ CMPFREQ:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>   
     reference:
-      - equipRef      
+      - equipRef 
+  unit_type: frequency     
 CMPRFLT:
   name: Compressor Discharge Temperature
   description: Abbreviated as Compressor Refrigerant Leaving Temperature 
@@ -213,9 +216,9 @@ CMPRFLT:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef
+  unit_type: temperature
 CMPRFET:
   name: Compressor Suction Temperature
   description: Abbreviated as Compressor Refrigerant Entering Temperature
@@ -229,9 +232,9 @@ CMPRFET:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef
+  unit_type: temperature
 CNDFFREQ:
   name: Condenser Fan Frequency 
   description: For an air-cooled condenser fan 
@@ -244,9 +247,9 @@ CNDFFREQ:
       - point
     identification:
       - kind: Number
-      - unit: frequency
     reference:
       - equipRef
+  unit_type: frequency
 CNDFSPCMD:
   name: Condenser Fan Speed Command
   extends: FANSPCMD
@@ -254,7 +257,9 @@ CNDFSPCMD:
   google_ontology: condensing_fan_speed_percentage_command
   haystack:
     type:
-      - condenser
+      - condenser   
+    reference:
+      - equipRef   
 CNDRFPR:
   name: Condenser Refrigerant Pressure 
   description: Also called Liquid Refrigerant Pressure or "high side pressure"
@@ -268,9 +273,9 @@ CNDRFPR:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
+  unit_type: pressure
 CNDRFLT:
   name: Condenser Refrigerant Leaving Temperature 
   description: Also called Liquid Line Temperature. 
@@ -284,9 +289,9 @@ CNDRFLT:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef      
+  unit_type: temperature
 CNDRFSTT:
   name: Condenser Refrigerant Saturation Temperature 
   description: Temperature at which refrigerant is fully saturated (transitioned from vapor to liquid) for a corresponding saturation pressure in the condenser. 
@@ -301,9 +306,25 @@ CNDRFSTT:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
-      - equipRef          
+      - equipRef  
+  unit_type: temperature
+DRFPR:
+  name: Discharge Refrigerant Pressure 
+  description: Refrigerant pressure leaving the compressor, before entering the condenser.
+  google_ontology: refrigerant_discharge_pressure_sensor
+  haystack:
+    type:
+      - refrig
+      - discharge
+      - pressure
+      - sensor
+      - point
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+  unit_type: pressure
 SBCRFET:
   name: Subcooler Refrigerant Entering Temperature 
   haystack:
@@ -316,9 +337,9 @@ SBCRFET:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef        
+  unit_type: temperature
 SBCRFLT:
   name: Subcooler Refrigerant Leaving Temperature 
   haystack:
@@ -331,9 +352,9 @@ SBCRFLT:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
-      - equipRef         
+      - equipRef       
+  unit_type: temperature
 EVPRFPR:
   name: Evaporator Refrigerant Pressure 
   description: Also called Suction Refrigerant Pressure or "low side pressure"
@@ -347,9 +368,9 @@ EVPRFPR:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
+  unit_type: pressure
 EVPRFET:
   name: Evaporator Refrigerant Entering Temperature 
   description: Refrigerant temperature entering evaporator (or indoor coil)
@@ -363,9 +384,9 @@ EVPRFET:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef      
+  unit_type: temperature
 EVPRFLT:
   name: Evaporator Refrigerant Leaving Temperature 
   description: Refrigerant temperature leaving evaporator (or indoor coil)
@@ -379,9 +400,9 @@ EVPRFLT:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef
+  unit_type: temperature
 EVPRFSTT:
   name: Evaporator Refrigerant Saturation Temperature 
   description: Temperature at which refrigerant is fully saturated (transitioned from liquid to vapor) for a corresponding saturation pressure in the evaporator. 
@@ -396,9 +417,9 @@ EVPRFSTT:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
-      - equipRef          
+      - equipRef       
+  unit_type: temperature
 ALRMPT:
   name: Alarm Point
   description: Generic alarm point indicating a critical malfunction with a piece of equipment
@@ -408,6 +429,22 @@ ALRMPT:
       - alarm
       - sensor
       - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool 
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+ALRMPTAUX:
+  name: Alarm Point Auxiliary
+  short_name: Alarm Point Aux
+  extends: ALRMPT
+  description: Auxiliary alarm point indicating a critical malfunction with a piece of equipment
+  haystack:
+    type:
+      - auxiliary
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
@@ -473,7 +510,6 @@ ENCMD:
       - enable
     identification:
       - navName: <name><uniqueInteger>, e.g. ENCMD-1
-
 THRMEN:
   name: Thermal Energy 
   description: energy associated with heating or cooling, measured in units such as kBtu or kJ
@@ -489,10 +525,10 @@ THRMEN:
       - dis
       - id
       - kind: Number
-      - unit: kBtu
     reference:
       - deviceRef
       - equipRef
+  unit_type: energy
 THRMPWR:
   name: Thermal Power
   description: Power associated with heating or cooling, measured in units such as kBTU/h or Watts
@@ -506,10 +542,10 @@ THRMPWR:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: kBTU/h
     reference:
       - deviceRef
       - equipRef
+  unit_type: power
 CLTHRMPWR:
   name: Cooling Thermal Power
   description: Power associated with cooling, measured in units such as kBTU/h or Watts
@@ -525,10 +561,10 @@ CLTHRMPWR:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: kBTU/h
     reference:
       - deviceRef
-      - equipRef      
+      - equipRef 
+  unit_type: power
 HTTHRMPWR:
   name: Heating Thermal Power
   description: Power associated with heating, measured in units such as kBTU/h or Watts
@@ -540,11 +576,9 @@ HTTHRMPWR:
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit: kBTU/h
     reference:
       - deviceRef
-      - equipRef         
+      - equipRef     
 CNTMDCFG:
   name: Control Mode Configuration
   haystack:
@@ -625,14 +659,11 @@ GLYCON:
       - dis
       - id
       - kind: Number
-      - unit: percentage
     reference:
       - deviceRef
       - equipRef
-
-
-
-
+  units: 
+    - percent
 OCCCMD:
   name: Occupancy Command
   short_name: Occ Cmd
@@ -701,7 +732,6 @@ OCCSCHSP:
       - kind: Str
     reference:
       - equipRef
-
 SXWVCMD:
   name: 6-way Valve Command
   extends: VCMD
@@ -712,7 +742,6 @@ SXWVCMD:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - id
-      - kind: Number
     reference:
       - equipRef
 SXWVFB:
@@ -725,7 +754,6 @@ SXWVFB:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - id
-      - kind: Number
     reference:
       - equipRef
 WDST:
@@ -773,7 +801,6 @@ ZOVCMD:
       - kind: Bool
     reference:
       - equipRef
-
 TSTATLCK:
   name: Thermostat Lockout 
   description: Disables thermostat for users. 
@@ -791,7 +818,6 @@ TSTATLCK:
       - kind: Bool
     reference:
       - equipRef
-
 TSTATMDLCK:
   name: Thermostat Mode Lockout 
   description: Disables users from adjusting mode setting on local thermostat.
@@ -810,7 +836,6 @@ TSTATMDLCK:
       - kind: Bool
     reference:
       - equipRef
-
 TSTATFLCK:
   name: Thermostat Fan Lockout 
   description: Disables users from adjusting fan setting on local thermostat.
@@ -829,7 +854,6 @@ TSTATFLCK:
       - kind: Bool
     reference:
       - equipRef
-
 TSTATTLCK:
   name: Thermostat Temperature Lockout 
   description: Disables users from adjusting temperature setting on local thermostat.
@@ -848,7 +872,6 @@ TSTATTLCK:
       - kind: Bool
     reference:
       - equipRef    
-
 WDCMD:
   name: Window Command
   description: Command a window or group of windows open to create ventilation in the space
@@ -868,7 +891,6 @@ WDCMD:
       - deviceRef
       - equipRef
       - lightingZoneRef
-
 THRMSRCPWR:
   name: Thermal Source Electrical Power
   description: Electric Power consumed by equipment attributed only to heating or cooling. 
@@ -888,10 +910,9 @@ THRMSRCPWR:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: power
     reference:
       - equipRef
-
+  unit_type: power
 THRMSRCEN:
   name: Thermal Source Electrical Energy
   description: Electric Energy consumed by equipment attributed only to heating or cooling. 
@@ -911,10 +932,9 @@ THRMSRCEN:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: energy
     reference:
       - equipRef      
-
+  unit_type: energy
 RESET:
   name: Generic reset point
   haystack:
@@ -928,7 +948,6 @@ RESET:
       - kind: Str
     reference:
       - equipRef
-
 ALRMRESET:
   name: Alarm Reset
   extends: RESET
@@ -954,6 +973,22 @@ FOMFL:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
       - kind: Number
-      - unit_type: mass_flow
     reference:
-      - equipRef      
+      - equipRef    
+  unit_type: mass_flow
+DUTYST:
+  name: Duty Status
+  extends: ST
+  brick_ontology: Lead_Lag_Status
+  description: Point that identifies the current status of equipment that operates in a lead,lag configuration
+  haystack:
+    type:
+      - duty
+    identification:
+      - navName: <name><uniqueInteger>, e.g. DUTYST1
+      - dis: <NAME> + - + <INTEGER>
+      - id
+      - kind: Str
+    reference:
+      - equipRef
+      - deviceRef

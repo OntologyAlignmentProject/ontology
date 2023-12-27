@@ -41,7 +41,7 @@ VFD:
       - siteRef
       - equipRef
   points:
-    - DVST
+    - OCCEFFSP
     - ALRMPT
     - ALRMPTCD
     - VFDFREQ

@@ -13,13 +13,14 @@ DLTLVLSP:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 EFLTLVLSP:
   name: Light Level Setpoint
@@ -36,13 +37,14 @@ EFLTLVLSP:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 ENDLC:
   name: Enable Daylighting Control
@@ -80,13 +82,14 @@ LDSHLTLVLSP:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 LTCIRCMD:
   name: Lighting Circuit Command
@@ -126,13 +129,13 @@ LTCLRT:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Kelvin
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  unit_type: temperature
 
 LTCMD:
   name: Light Command
@@ -172,13 +175,14 @@ LTLVL:
           <INTEGER>  : Light Level Sensor-1, Light Level Sensor-2, etc."
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 LTLVLCMD:
   name: Light Level Command
@@ -197,13 +201,14 @@ LTLVLCMD:
           <INTEGER>  : Light Level Sensor-1, Light Level Sensor-2, etc."
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 LTOCMODE:
   name: Lighting Occupancy Control Mode
@@ -250,13 +255,13 @@ LTPC:
           <INTEGER>  : Light Photocell-1, Light Photocell-2, etc."
       - id
       - kind: Number
-      - unit: footcandles
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  unit_type: illuminance
 
 LTSC:
   name: Lighting Scene
@@ -317,13 +322,14 @@ OCLTLVLSP:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 OLTPC:
   name: Outdoor Light Photocell
@@ -338,8 +344,6 @@ OLTPC:
       - dis: "Outdoor Light Photocell or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Outdoor Light Photocell-1, Outdoor Light Photocell-2, etc."
       - id
-      - kind: Number
-      - unit: footcandle
     reference:
       - equipRef
       - spaceRef
@@ -362,13 +366,14 @@ UOCLTLVLSP:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - lightingZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 SHPOS:
   name: Shade Position
@@ -384,13 +389,14 @@ SHPOS:
       - dis: "<NAME> + - + <INTEGER>"
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - shadesZoneRef
     reference_optional:
       - deviceRef
+  units:
+    - percent
 
 SHSC:
   name: Shade Scene or Preset
@@ -451,14 +457,14 @@ SHPOSCMD:
           <INTEGER>  : Shade Position Command-1, Position Command-2, etc."
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - shadesZoneRef
     reference_optional:
       - deviceRef
-
+  units:
+    - percent
 
 SHTLTCMD:
   name: Shade Tilt Command
@@ -477,11 +483,11 @@ SHTLTCMD:
           <INTEGER>  : Shade Tilt Command-1, Shade Tilt Command-2, etc."
       - id
       - kind: Number
-      - unit: Percent
     reference:
       - equipRef
       - spaceRef
       - shadesZoneRef
     reference_optional:
       - deviceRef
-    
+  units:
+    - percent

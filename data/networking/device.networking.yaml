@@ -1,6 +1,6 @@
 # Computers and Servers
 
-DTC:
+DTCP:
   name: Desktop Computer
   description: "A desktop computer is a personal computer designed for regular use
     at a single location on or near a desk or table due to its size and power
@@ -11,9 +11,9 @@ DTC:
       - desktop
       - computer
     identification:
-      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DTC-1 or DTC-569
-      - dis: Desktop Computer 1 or DTC-1
-      - id: <ABBREVIATION> + <INTEGER> - e.g. DTC1 or DTC572
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DTCP-1 or DTCP-569
+      - dis: Desktop Computer 1 or DTCP-1
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DTCP1 or DTCP572
     reference:
       - siteRef
       - networkRef

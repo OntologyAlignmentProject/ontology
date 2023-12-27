@@ -106,7 +106,6 @@ AIRCO2:
       - sensor
     identification:
       - kind: Number
-      - unit: ppm
     reference:
       - deviceRef
       - equipRef
@@ -140,6 +139,9 @@ AIRCO2:
     - recordCountController
     - recordCountServer
     - localTimeZone
+  units:
+    - parts_per_million
+    - parts_per_billion
 
 AIRFLOW:
   name: Air Flow (Base Definition)
@@ -152,7 +154,6 @@ AIRFLOW:
       - sensor
     identification:
       - kind: Number
-      - unit: volumetric flow
     reference:
       - deviceRef
       - equipRef
@@ -185,6 +186,14 @@ AIRFLOW:
     - recordCountController
     - recordCountServer
     - localTimeZone
+  units:
+    - cubic_meters_per_second
+    - cubic_feet_per_second
+    - cubic_feet_per_minute
+    - cubic_feet_per_hour
+    - kilocubic_feet_per_minute
+    - cubic_meters_per_minute
+    - cubic_meters_per_hour
 
 AIRTEMP:
   name: Air Temperature (Base Definition)
@@ -197,7 +206,6 @@ AIRTEMP:
       - sensor
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - deviceRef
       - equipRef
@@ -231,6 +239,7 @@ AIRTEMP:
     - recordCountController
     - recordCountServer
     - localTimeZone
+  unit_type: temperature
 
 AIRENTH:
   name: Air Enthalpy (Base Definition)
@@ -243,7 +252,7 @@ AIRENTH:
       - sensor
     identification:
       - kind: Number
-      - unit: enthalpy
+  unit_type: enthalpy
 AIRDWP:
   name: Air Dewpoint (Base Definition)
   is_base: true
@@ -255,7 +264,8 @@ AIRDWP:
       - sensor
     identification:
       - kind: Number
-      - unit: temperature  
+  unit_type: temperature  
+
 RELHUM:
   name: Relative Humidity (Base Definition)
   is_base: true
@@ -271,7 +281,6 @@ RELHUM:
       - sensor
     identification:
       - kind: Number
-      - unit: percentage
     reference:
       - deviceRef
       - equipRef
@@ -305,6 +314,8 @@ RELHUM:
     - recordCountController
     - recordCountServer
     - localTimeZone
+  units:
+    - percent_relative_humidity
 
 SPDREF:
   name: Speed Reference (Base Definition)
@@ -320,6 +331,9 @@ SPDREF:
     reference:
       - deviceRef
       - equipRef
+  units:
+    - percent
+    - revolutions_per_minute
 
 OUTSPD:
   name: Output Speed (Base Definition)
@@ -332,10 +346,12 @@ OUTSPD:
     identification:
       - id
       - kind: Number
-      - unit: percentage
     reference:
       - deviceRef
       - equipRef
+  units:
+    - percent
+    - revolutions_per_minute
 
 WTRTEMP:
   name: Water Temperature
@@ -349,7 +365,6 @@ WTRTEMP:
       - id: "WTRTEMP or if more than 1 in the equip/device, use <CODE> + - +
           <INTEGER>  : WTRTEMP-1, WTRTEMP-2, etc."
       - kind: Number
-      - unit: temperature
     reference:
       - deviceRef
       - equipRef
@@ -380,6 +395,7 @@ WTRTEMP:
     - recordCountController
     - recordCountServer
     - localTimeZone
+  unit_type: temperature
 
 # Standard point definitions
 
@@ -397,10 +413,11 @@ ACSLVL:
           <INTEGER>  : Acoustic Level Sensor-1, Acoustic Level Sensor-2, etc."
       - id
       - kind: Number
-      - unit: db
     reference:
       - equipRef
       - deviceRef
+  units:
+    - decibel
 
 DIMCMD:
   name: Dimming Command
@@ -419,6 +436,8 @@ DIMCMD:
     reference_optional:
       - equipRef
       - deviceRef
+  units:
+    - percent
 
 EPRTBAND:
   name: Ethernet Port Bandwidth
@@ -505,10 +524,10 @@ NGVOL:
           <INTEGER>  : NGVOL-1, NGVOL-2, etc."
       - dis: "Total Natural Gas Volume or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Total Natural Gas Volume-1, Total Natural Gas Volume-2, etc."
-      - unit: Volume
     reference:
       - equipRef
       - deviceRef
+  unit_type: volume
 NGEN:
   name: Natural Gas Energy Sensor
   description: Natural gas energy sensor, often measured in Therms.
@@ -526,10 +545,10 @@ NGEN:
       - dis: "Natural Gas Energy Sensor or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Natural Gas Energy Sensor-1, Natural Gas Energy Sensor-2, etc."
       - kind: Number
-      - unit: Energy
     reference:
       - equipRef
       - deviceRef
+  unit_type: energy
 NGPWR:
   name: Natural Gas Power Sensor
   description: Natural gas usage expressed in units of power. 
@@ -541,10 +560,10 @@ NGPWR:
       - point
     identification:
       - kind: Number
-      - unit: Power
     reference:
       - equipRef
-      - deviceRef      
+      - deviceRef     
+  unit_type: power
 NGFLOW:
   name: Natural Gas Flow Rate
   description: Natural gas flow rate
@@ -563,10 +582,18 @@ NGFLOW:
       - dis: "Natural Gas Flow or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Natural Gas Flow-1, Natural Gas Flow-2, etc."
       - kind: Number
-      - unit: Volumetric Flow
     reference:
       - equipRef
       - deviceRef
+  units:
+    - cubic_meters_per_second
+    - cubic_feet_per_second
+    - cubic_feet_per_minute
+    - cubic_feet_per_hour
+    - kilocubic_feet_per_minute
+    - cubic_meters_per_minute
+    - cubic_meters_per_hour
+
 NGTEMP:
   name: Natural Gas Temperature
   description: Natural Gas Temperature
@@ -585,52 +612,11 @@ NGTEMP:
         - dis: "Natural Gas Temperature or if more than 1 in the equip/device, use <NAME> + - +
             <INTEGER>  : Natural Gas Temperature-1, Natural Gas Temperature-2, etc."
         - kind: Number
-        - unit: temperature
     reference:
       - equipRef
       - deviceRef
+  unit_type: temperature
 
-OPDIR:
-  name: Operation Direction
-  description: This property represents the direction and speed in which this
-    escalator is presently moving.
-  extends: POINT_GEN
-  haystack:
-    type:
-      - point
-      - sensor
-      - direction
-    identification:
-      - id: "OPDIR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
-          OPDIR-1, OPDIR-2, etc."
-      - navName: "OPDIR or if more than 1 in the equip/device, use <CODE> + - +
-          <INTEGER>  : OPDIR-1, OPDIR-2, etc."
-      - dis: "Operation Direction or if more than 1 in the equip/device, use <NAME> + -
-          + <INTEGER>  : Operation Direction-1, Operation Direction-2, etc."
-    reference:
-      - equipRef
-      - deviceRef
-
-PASALM:
-  name: Passenger Alarm
-  description: This property indicates whether (TRUE) or not (FALSE) the passenger
-    alarm has been activated.
-  extends: POINT_GEN
-  haystack:
-    type:
-      - point
-      - alarm
-      - sensor
-    identification:
-      - id: "PASALM or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
-          PASALM-1, PASALM-2, etc."
-      - navName: "PASALM or if more than 1 in the equip/device, use <CODE> + - +
-          <INTEGER>  : PASALM-1, PASALM-2, etc."
-      - dis: "Passenger Alarm or if more than 1 in the equip/device, use <NAME> + - +
-          <INTEGER>  : Passenger Alarm-1, Passenger Alarm-2, etc."
-    reference:
-      - equipRef
-      - deviceRef
 POECURR:
   name: Power-Over-Ethernet Current
   description: Amount of current being used by the device connected to the port.
@@ -653,6 +639,7 @@ POECURR:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: electric_current
 
 POEPWR:
   name: Power-Over-Ethernet Power
@@ -676,6 +663,7 @@ POEPWR:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: power
 
 PRKSPACT:
   name: Parking Space Active
@@ -777,7 +765,7 @@ RNTM:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-
+  unit_type: time
 
 # Device Points
 
@@ -820,7 +808,8 @@ SDLD:
       - sensor
     identification:
       - kind: Number
-      - unit: "%"
+  units:
+    - percent
 
 CPULD:
   name: CPU Usage
@@ -832,7 +821,8 @@ CPULD:
       - sensor
     identification:
       - kind: Number
-      - unit: "%"
+  units:
+    - percent
 
 PMLD:
   name: Physical Memory Usage
@@ -844,7 +834,8 @@ PMLD:
       - sensor
     identification:
       - kind: Number
-      - unit: "%"
+  units:
+    - percent
 
 TLPM:
   name: Total Physical Memory Capacity
@@ -856,6 +847,8 @@ TLPM:
       - sp
     identification:
       - kind: Number
+  units:
+    - percent
 
 HPLD:
   name: Heap Memory Usage
@@ -867,7 +860,8 @@ HPLD:
       - sensor
     identification:
       - kind: Number
-      - unit: "%"
+  units:
+    - percent
 
 TLSD:
   name: Total Storage Drive Capacity
@@ -879,6 +873,8 @@ TLSD:
       - sp
     identification:
       - kind: Number
+  units:
+    - percent
 
 BATST:
   name: Battery Status
@@ -896,12 +892,13 @@ BATLVL:
   extends: DEVPT
   haystack:
    type:
-     - battery
-     - level
-     - sensor
+      - battery
+      - level
+      - sensor
    identification:
-     - kind: Number
-     - unit: "%"
+      - kind: Number
+  units:
+    - percent
 BATLLST:
   name: Battery Level Low Fault Status
   extends: FLTPT
@@ -943,11 +940,13 @@ OATVOC:
       - dis: "Outside Air TVOC or if more than 1 in the equip/device, use <NAME>
           + - + <INTEGER>  : Outside Air TVOC-1, Outside Air
           TVOCe-2, etc."
-      - unit: µg/m³
     reference_optional:
       - weatherStationRef
     reference:
       - siteRef
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 OADWP:
   name: Outside Air Dewpoint
   description: Outside air dewpoint temperature
@@ -1035,7 +1034,8 @@ WNDSPD:
     reference_optional:
       - weatherStationRef
     reference:
-      - siteRef      
+      - siteRef    
+  unit_type: velocity  
 ESTWNDSPD: 
   name: East Wind Speed
   description: Measures easterly ( blows from the east) winds
@@ -1095,3 +1095,16 @@ DRSTS:
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
+AVAIL: 
+  name: Availability Status
+  description:  Indicates if a piece of equipment is able to be used for operation i.e. not temporarily offline or disabled for maintenance. 
+  brick_ontology: Availability_Status
+  haystack:
+    type:
+      - availablility
+      - sensor
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Str

@@ -72,7 +72,8 @@ ACU:
     - UOCZTHTSP
     - EFFZTSP
     - OCCCMD
-    - OCCST
+    - OCCEFFSP
+    - CMST
     - VFDSPCMD
     - VFDSPREF
     - VFDSSCMD
@@ -124,6 +125,9 @@ AHU:
       - hotWaterMeterRef
       - condenserWaterRef
       - condenserWaterMeterRef
+      - airRef
+  functions:
+    - HRWC
   contains:
     - DADUCT
     - DAF
@@ -131,6 +135,10 @@ AHU:
     - OADUCT
     - RADUCT
     - CNTRL
+    - EF
+    - RF
+    - RFCIR
+    - RFSYS
   attributes: 
     - designDischargeAirFlow
     - designDischargeAirPressure
@@ -257,7 +265,6 @@ AHU:
     - OCCEFFSP
     - OCCSCHSP
     - OCCSNS
-    - OCCST
     - OCCZRHSP
     - OCCZTCLSP
     - OCCZTHTSP
@@ -589,6 +596,7 @@ DOAS:
     - RADCMD 
     - DAT  
     - CNDRFPR 
+    - DRFPR
     - EVPRFPR
     - CMPRFLT 
     - CMPST
@@ -679,7 +687,7 @@ RTU:
     - EFFZTSP
     - ZTSP
     - OCCCMD
-    - OCCST
+    - OCCEFFSP
     - VFDSPCMD
     - VFDSPREF
     - VFDSSCMD
@@ -707,6 +715,20 @@ BYPD:
       - bypass
     reference:
       - equipRef
+RLFD:
+  name: Relief Air Damper
+  short_name: Relief Damper
+  description: The relief damper allows air to spill to the outside, usually to maintain building pressure
+  extends: DMP
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. RLFD1 or RLFD278
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. RLFD-1 or RLFD-278
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RLFD-1 or RLFD-280
+    type:
+      - relief
+    reference:
+      - equipRef
 CDDT:
   name: Cold Air Duct
   description: Conduit used to convey Cold air.
@@ -730,6 +752,8 @@ DAD:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DAD-1 or DAD-146
     type:
       - discharge
+  points: 
+    - DMPDPR
 DADUCT:
   name: Discharge Air Duct
   description: Conduit used to convey air for on the Discharge side of the airside process.
@@ -749,6 +773,7 @@ DADUCT:
     - HWCOIL
 DAF:
   name: Discharge Air Fan
+  short_name: Discharge Fan
   description: Fan equipment or control point located in the Discharge Air Duct
   extends: FAN
   haystack:
@@ -764,8 +789,46 @@ DAF:
     - DFI
     - DFP
     - DFSPCMD
+DH:
+  name: Duct Heater
+  haystack:
+    type:
+      - equip
+      - heater
+      - duct
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DH1 or DH404
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DH-1 or DH-404
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DH-1 or DH-406
+    reference_optional:
+      - equipRef
+      - airRef
+  points:
+    - EFFZTSP
+    - HTCMD
+    - OCCEFFSP
+    - ZT
+DCTC:
+  name: Duct Cooler
+  haystack:
+    type:
+      - equip
+      - cooler
+      - duct
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DCTC1 or DCTC404
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DCTC-1 or DCTC-404
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DCTC-1 or DCTC-406
+    reference_optional:
+      - equipRef
+      - airRef
+  points:
+    - EFFZTSP
+    - CLCMD
+    - OCCEFFSP
+    - ZT
 DMP:
-  name:  Damper
+  name: Damper
   description: Equipment used to regulate flow of air.
   haystack:
     identification:
@@ -777,6 +840,9 @@ DMP:
       - damper
     reference:
       - equipRef  
+      - airRef
+  points: 
+    - DMPDPR
 DUCT:
   name: Air Duct
   description: Generic Base class of conduit used to convey air.
@@ -797,6 +863,7 @@ DUCT:
     - HWCOIL
 EAD:
   name: Exhaust Air Damper
+  short_name: Exhaust Damper
   description: Equipment use to regulate the amount of air exhausted from the
     space or building.
   extends: DMP
@@ -809,6 +876,7 @@ EAD:
       - exhaust
 EADT:
   name: Exhaust Air Duct
+  short_name: Exhaust Duct
   description: Conduit used to convey air for on the Discharge side of the airside process.
   extends: DUCT
   haystack:
@@ -820,6 +888,7 @@ EADT:
       - discharge
 EF:
   name: Exhaust Air Fan
+  short_name: Exhaust Fan
   description: Fan equipment or control point located in the Exhaust Air Duct
   extends: FAN
   brick_ontology: Exhaust_Fan
@@ -833,6 +902,7 @@ EF:
     type_optional:
       - relief
   functions:
+    - ED
     - EFSS
     - EFVSC
     - CSP
@@ -865,6 +935,10 @@ FAN:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DF-1 or DF-31
     reference:
       - equipRef
+    reference_optional:
+      - airRef
+    reference_as:
+      - airRef
   contains: 
     - VFD
   attributes:
@@ -876,6 +950,7 @@ FAN:
     - DRSTS
     - DWSTS
     - EAFLWSP
+    - EADCMD
     - EARH
     - EFSPFBK
     - FANST
@@ -984,6 +1059,33 @@ GHC:
     type:
       - gasHeating
       - heatingCoil
+
+HRU:
+  name: Heat Recovery Ventilator
+  extends: AHU
+  description: "Heat Recovery Ventilator: An energy recovery ventilation system 
+    that operates between two air sources, recovering residual heat from exhaust 
+    gas to preheat or precool fresh outside air."
+  haystack:
+    type:
+      - heatRecovery
+      - doas
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. HRU1 or HRU430
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HRU-1 or HRU-430
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HRU-1 or HRU-432
+    reference_as: 
+      - airRef
+    reference_optional:
+      - equipRef
+      - airRef
+  points:
+    - HRWCMD
+    - HRWST
+    - HRWSPCMD
+    - HRBYPDCMD
+    - HRDAT
+
 HTDT:
   name: Hot Air Duct
   description: Conduit used to convey Hot air.
@@ -1019,9 +1121,9 @@ MAD:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. MAD-1 or MAD-164
     type:
       - mixed
-    points:
-      - RADCMD
-      - RADFBK
+  points:
+    - RADCMD
+    - RADFBK
 OAD:
   name: Outside Air Damper
   description: Equipment use to regulate the amount of outside air entering the
@@ -1056,6 +1158,8 @@ OF:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. OF-1 or OF-61
     type:
       - outside
+  points:
+    - OFCMD
 RAD:
   name: Return Air Damper
   description: Equipment use to regulate the amount of return air routed back to
@@ -1090,8 +1194,13 @@ RF:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. RF-1 or RF-41
     type:
       - return
-  functions:
-    - RFSS
+  points:
+    - ISOADCMD
+    - RFCMD
+    - RFFREQ
+    - RFSPCMD
+    - RFSPFBK
+    - RFST
 SF:
   name: Supply Fan
   deprecated: true
@@ -1198,8 +1307,8 @@ CHB:
     - CN
     - IAT
     - RWFLW
-    - VFB
-    - WDWSW
+    - WDST
+    - CHWVFBK
     - ZDWP
     - ZOVCMD
     - ZCO2SP
@@ -1223,8 +1332,10 @@ HP:
       - spaceRef
       - elecMeterRef
       - deviceRef
-      - hotWaterRef
+    reference_optional:
       - chilledWaterRef
+      - hotWaterRef
+      - condenserWaterRef
   functions:
     - DFSS
     - DSP
@@ -1470,16 +1581,17 @@ FCU:
     type:
       - equip
       - fcu
+    reference_as:
+      - airRef
     reference:
       - siteRef
       - systemRef
       - spaceRef
-      - elecMeterRef
-      - deviceRef
-      - directZone
       - hvacZoneRef
     reference_optional:
       - airRef
+      - elecMeterRef
+      - deviceRef
   contains:
     - CHWCOIL
     - DADUCT
@@ -1526,7 +1638,6 @@ FCU:
     - OCCEFFSP
     - OCCSCHSP
     - OCCSNS
-    - OCCST
     - OCCZTCLSP
     - OCCZTHTSP
     - RAT
@@ -1546,9 +1657,9 @@ FCU:
     - ZTHA
     - ZTSP
 
-
 FCUDACO:
   name: FCU - Discharge Air Cooling Only
+  deprecated: true
   description: FCU with chilled water cooling-only (discharge control).
   extends: FCU
   google_ontology: FCU_DFSS_CSP_CHWDC
@@ -1586,13 +1697,13 @@ FCUVRFZC:
     - HVACMDSP
     - HVACMDCMD
     - EVPRFET
-    - EVPRRLT
+    - EVPRFLT
     - TSTATLCK
     - TSTATMDLCK
     - TSTATFLCK
     - TSTATTLCK
     - ZOVCMD
-    - ENERGY
+    - ENERGYNET
     - RLPWR
     - THRMSRCPWR
     - THRMSRCEN
@@ -1605,7 +1716,10 @@ FCUZC:
   haystack:
     type:
       - directZone
-    reference:
+    type_optional:
+      - hotWaterHeating
+      - chilledWaterCooling
+    reference_optional:
       - hotWaterRef
       - chilledWaterRef
   functions:
@@ -1623,14 +1737,36 @@ FCUZCCO:
     type:
       - coolingOnly
       - directZone
+    type_optional:
+      - chilledWaterCooling
+    reference_optional:
+      - chilledWaterRef
   functions:
     - DFSS
     - CSP
     - CHWZC
     - OCC
 
+FCUZCHO:
+  name: FCU - Zone Control Heating Only
+  description: FCU with hot water heating-only (zone control).
+  extends: FCU
+  haystack:
+    type:
+      - heatingOnly
+      - directZone
+    type_optional:
+      - hotWaterHeating
+    reference_optional:
+      - hotWaterRef
+  functions:
+    - DFSS
+    - HSP
+    - HWZC
+    - OCC
+
 FCUZCCOD:
-  name: FCU - Zone DX Cooling Only
+  name: FCU - Zone Control DX Cooling Only
   description: FCU with DX cooling-only (zone control).
   extends: FCU
   google_ontology: FCU_DFSS_CSP_DXZC
@@ -1646,7 +1782,7 @@ FCUZCCOD:
     - OCC
 
 FCUZCHOE:
-  name: FCU - Zone Elec Heating Only
+  name: FCU - Zone Control Elec Heating Only
   description: FCU with electric heating only (zone control).  Also referred to as a Unit Heater.
   extends: FCU
   google_ontology: UH_SS_DSP_HTZC
@@ -1687,7 +1823,6 @@ VAV:
       - hvacZoneRef
   contains:
     - DADUCT
-    - DAD
     - DMPACT
   attributes:
     - designMinAirFlow
@@ -1702,8 +1837,6 @@ VAV:
     - CLDEM
     - CLREQ
     - DACO2
-    - DADCMD
-    - DADFBK
     - DARH
     - DFCMD
     - EADCMD
@@ -1734,7 +1867,6 @@ VAV:
     - OCCIAFLWHTMXSP
     - OCCSCHSP
     - OCCSNS
-    - OCCST
     - OCCZCLDB
     - OCCZHTDB
     - OCCZTCLSP
@@ -1923,9 +2055,8 @@ VAVPDRH:
       - hotWaterHeating
       - singleDuct
       - directZone
-    reference:
-      - hotWaterRef
     reference_optional:
+      - hotWaterRef
       - hotWaterMeterRef
   functions:
     - PDZC
@@ -1948,9 +2079,8 @@ VAVRH:
       - hotWaterHeating
       - singleDuct
       - directZone
-    reference:
-      - hotWaterRef
     reference_optional:
+      - hotWaterRef
       - hotWaterMeterRef
   functions:
     - DSP
@@ -2077,3 +2207,4 @@ SPF:
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. SPF-1 or SPF-474
     reference_optional:
       - spaceRef
+

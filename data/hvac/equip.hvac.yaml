@@ -10,6 +10,20 @@ CMP:
       - compressor
     reference:
       - equipRef
+COIL:
+  name: Coil
+  description: A coil is a sub-component of HVAC equipment. Coils change the temperature and 
+    pressure of a fluid, as a step in a heat exchange process.
+  haystack:
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. COIL or COIL125
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. COIL-1 or COIL-125
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. COIL-1 or COIL-127
+    type:
+      - equip
+      - coil
+
+
 DXCOIL:
   name: DX Coil
   description: A DX Coil uses direct-expansion of refrigerants for heating and cooling.
@@ -83,3 +97,55 @@ RADFE:
     - HSP
     - HTEZC
     - OCC
+RFCIR:
+  name: Refrigerant Circuit
+  description: A refrigerant circuit encompasses comporessors, refrigerant piping, condenser & evaperator coils.
+               This is typically a sub-component of a system reponsible for fluid heat exchange. 
+  haystack:
+    type:
+      - equip
+      - refrig
+      - circuit
+    reference:
+      - equipRef
+  contains:
+    - COIL
+    - CMP
+    - DXCOIL
+  points:
+    - CMPRFLT
+    - CMPRFET
+    - CNDFSPCMD
+    - CNDRFPR
+    - CNDRFLT
+    - CNDRFSTT
+    - DRFPR
+    - EVPRFPR
+    - EVPRFET
+    - EVPRFLT
+    - EVPRFSTT
+RFSYS:
+  name: Refrigerant System
+  description: Refrigerant distribution to fulfill all or parts of a refrigeration cycle.
+               Typiclly comprised of multiple refrigerant circuits.
+  haystack:
+    type:
+      - equip
+      - refrig
+      - system
+    reference:
+      - equipRef
+  contains:
+    - RFCIR
+  points:
+    - CMPRFLT
+    - CMPRFET
+    - CNDFSPCMD
+    - CNDRFPR
+    - CNDRFLT
+    - CNDRFSTT
+    - DRFPR
+    - EVPRFPR
+    - EVPRFET
+    - EVPRFLT
+    - EVPRFSTT

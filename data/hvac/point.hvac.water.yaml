@@ -15,10 +15,11 @@ DT:
       - dis
       - id
       - kind: Number
-      - unit: °F
     reference:
       - deviceRef
       - equipRef
+  unit_type: temperature_differential
+
 DTSP:
   name:  Water Delta Temperature Setpoint
   short_name: Water Delta Temp Sp
@@ -35,10 +36,11 @@ DTSP:
       - dis
       - id
       - kind: Number
-      - unit: °F
     reference:
       - deviceRef
       - equipRef
+  unit_type: temperature_differential
+
 RWFLW:
   name: Return Water Flow
   haystack:
@@ -54,9 +56,17 @@ RWFLW:
       - dis
       - id
       - kind: Number
-      - unit: flow
     reference:
       - equipRef
+  units:
+    - milliliters_per_second
+    - hectoliters_per_second
+    - liters_per_second
+    - imperial_gallons_per_minute
+    - liters_per_minute
+    - gallons_per_minute
+    - gallons_per_hour
+    - liters_per_hour
 # Base water point definitions
 WPR:
   name: Water Pressure (Base Definition)
@@ -69,11 +79,11 @@ WPR:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: pressure
 WDIFFPR:
   name: Water Differential Pressure (Base Definition)
   is_base: true
@@ -88,11 +98,11 @@ WDIFFPR:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: pressure
 WDIFFPRSP:
   name: Water Differential Pressure Setpoint (Base Definition)
   is_base: true
@@ -107,11 +117,11 @@ WDIFFPRSP:
       - point
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: pressure
 WFLOW:
   name: Water Flow Rate
   short_name: WFL
@@ -124,11 +134,19 @@ WFLOW:
       - point
     identification:
       - kind: Number
-      - unit: volumetric flow
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  units:
+    - milliliters_per_second
+    - hectoliters_per_second
+    - liters_per_second
+    - imperial_gallons_per_minute
+    - liters_per_minute
+    - gallons_per_minute
+    - gallons_per_hour
+    - liters_per_hour
 WFLOWSP:
   name: Water Flow Setpoint (Base Definition)
   is_base: true
@@ -143,11 +161,19 @@ WFLOWSP:
       - point
     identification:
       - kind: Number
-      - unit: volumetric flow
     reference:
       - equipRef
     reference_optional:
-      - deviceRef      
+      - deviceRef  
+  units:
+    - milliliters_per_second
+    - hectoliters_per_second
+    - liters_per_second
+    - imperial_gallons_per_minute
+    - liters_per_minute
+    - gallons_per_minute
+    - gallons_per_hour
+    - liters_per_hour
 WTEMPSP:
   name: Water Temperature Setpoint (Base Definition)
   is_base: true
@@ -160,11 +186,11 @@ WTEMPSP:
       - point
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: temperature
 WVOL:
   name: Total Water Volume
   description: Cumulative total of water volume measured relative to some baseline
@@ -178,11 +204,21 @@ WVOL:
       - total
     identification:
       - kind: Number
-      - unit: volume
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  units:
+    - milliliter
+    - hectoliter
+    - liter
+    - kiloliter
+    - gallon
+    - kilogallon
+    - quart
+    - pint
+    - fluid_ounce
+    - imperial_gallon
 
 # Standard water point definitions
 BYPCHWFL:
@@ -237,7 +273,6 @@ PRCHWDPR:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCCHWDPR:
   name: Secondary Loop Chilled Water Differential Pressure
   short_name: Secondary CHW Diff Pressure
@@ -249,7 +284,6 @@ SCCHWDPR:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRCHWDPR:
   name: Tertiary Loop Chilled Water Differential Pressure
   short_name: Tertiary CHW Diff Pressure
@@ -261,7 +295,6 @@ TRCHWDPR:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 CHWFLWMNSP:
   name: Chilled Water Minimum Flow Setpoint
   short_name: CHW Min Flow Sp
@@ -317,7 +350,6 @@ PRCHWDPRSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCCHWDPRSP:
   name: Secondary Loop Chilled Water Differential Pressure Setpoint
   short_name: Secondary CHW Diff Pressure Sp
@@ -329,7 +361,6 @@ SCCHWDPRSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRCHWDPRSP:
   name: Tertiary Loop Chilled Water Differential Pressure Setpoint
   short_name: Tertiary CHW Diff Pressure Sp
@@ -341,7 +372,6 @@ TRCHWDPRSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 CTBYPVCMD:
   name: Cooling Tower Bypass Valve Command
   short_name: CT Bypass Valve Cmd
@@ -457,8 +487,6 @@ DHWDT:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
-      - unit_type: temperature_differential
     reference:
       - deviceRef
       - equipRef
@@ -473,8 +501,6 @@ HWDT:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
-      - unit_type: temperature_differential
     reference:
       - deviceRef
       - equipRef
@@ -672,7 +698,6 @@ PRHWDPR:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCHWDPR:
   name: Secondary Loop Hot Water Differential Pressure
   short_name: Secondary HW Diff Pressure
@@ -683,8 +708,7 @@ SCHWDPR:
     identification:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
-      - dis: <NAME> + - + <INTEGER>
-      - kind: Number
+      - dis: <NAME> + - + <INTEGER>   
 TRHWDPR:
   name: Tertiary Loop Hot Water Differential Pressure
   short_name: Tertiary HW Diff Pressure
@@ -696,7 +720,6 @@ TRHWDPR:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 HWDPRSP:
   name: Hot Water Differential Pressure Setpoint
   short_name: HW Diff Pressure Sp
@@ -722,7 +745,6 @@ PRHWDPRSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCHWDPRSP:
   name: Secondary Loop Hot Water Differential Pressure Setpoint
   short_name: Secondary HW Diff Pressure Sp
@@ -734,7 +756,6 @@ SCHWDPRSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRHWDPRSP:
   name: Tertiary Loop Hot Water Differential Pressure Setpoint
   short_name: Tertiary HW Diff Pressure Sp
@@ -746,7 +767,6 @@ TRHWDPRSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 LCHWFL:
   name: Leaving Chilled Water Flow
   short_name: Leaving CHW Flow
@@ -940,7 +960,6 @@ PRREQ:
     identification:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
     reference:
       - equipRef
 MKUPWVCMD:
@@ -1043,7 +1062,6 @@ PRLCHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 PRLCHWTSP:
   name: Primary Loop Leaving Chilled Water Temperature Setpoint
   short_name: Primary Leaving CHW Temp Sp
@@ -1055,7 +1073,6 @@ PRLCHWTSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 PRECHWT:
   name: Primary Loop Entering Chilled Water Temperature
   short_name: Primary Entering CHW Temp
@@ -1067,7 +1084,6 @@ PRECHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 PRLCWT:
   name: Primary Loop Leaving Condenser Water Temperature
   short_name: Primary Leaving CW Temp
@@ -1099,7 +1115,6 @@ PLLCWFLSP:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
 PLLCWFLOW:
   name: Primary Loop Leaving Condenser Water Flow
   short_name: Primary Leaving CW Flow
@@ -1111,7 +1126,6 @@ PLLCWFLOW:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
 SLLCWFLSP:
   name: Secondary Loop Leaving Condenser Water Flow Setpoint
   short_name: Secondary Leaving CW Flow Sp
@@ -1123,7 +1137,6 @@ SLLCWFLSP:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
 SLLCWFLOW:
   name: Secondary Loop Leaving Condenser Water Flow
   short_name: Secondary Leaving CW Flow
@@ -1135,7 +1148,6 @@ SLLCWFLOW:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
 PRECWT:
   name: Primary Loop Entering Condenser Water Temperature
   short_name: Primary Entering CW Temp
@@ -1177,7 +1189,6 @@ SCLCHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCLCHWTSP:
   name: Secondary Loop Leaving Chilled Water Temperature Setpoint
   short_name: Secondary Leaving CHW Temp Sp
@@ -1189,7 +1200,6 @@ SCLCHWTSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCECHWT:
   name: Secondary Loop Entering Chilled Water Temperature
   short_name: Secondary Entering CHW Temp
@@ -1201,7 +1211,6 @@ SCECHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCLCWT:
   name: Secondary Loop Leaving Condenser Water Temperature
   short_name: Secondary Leaving CW Temp
@@ -1266,7 +1275,6 @@ SCCWHXBYPVCMD:
     identification:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-
 SCHWFL:
   name: Secondary Chilled Water Flow
   extends: WFLOW
@@ -1291,7 +1299,6 @@ SHWFL:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 SCLHWTSP:
   name: Secondary Leaving Hot Water Temperature Setpoint
   short_name: Secondary Leaving HW Temp Sp
@@ -1316,7 +1323,6 @@ TRCHWFL:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRHWFL:
   name: Tertiary Hot Water Flow
   extends: WFLOW
@@ -1328,7 +1334,6 @@ TRHWFL:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRLCHWT:
   name: Tertiary Loop Leaving Chilled Water Temperature
   short_name: Tertiary Leaving CHW Temp
@@ -1340,7 +1345,6 @@ TRLCHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRLHWT:
   name: Tertiary Loop Leaving Hot Water Temperature
   short_name: Tertiary Leaving HW Temp
@@ -1352,7 +1356,6 @@ TRLHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TRECHWT:
   name: Tertiary Loop Entering Chilled Water Temperature
   short_name: Tertiary Entering CHW Temp
@@ -1364,7 +1367,6 @@ TRECHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 TREHWT:
   name: Tertiary Loop Entering Hot Water Temperature
   short_name: Tertiary Entering HW Temp
@@ -1376,25 +1378,24 @@ TREHWT:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
 WCD:
- name: Water Conductivity Sensor
- description: A measure of the conductivity of water.
- haystack:
-  type:
-    - water
-    - conductivity
-    - sensor 
-    - point
-  identification:
-    - navName: <ABBREVIATION> + - + <INTEGER>
-    - dis: <NAME> + - + <INTEGER>    
-    - kind: Number
-    - unit: resistance
-  reference:
-    - equipRef
-  reference_optional:
-    - deviceRef
+  name: Water Conductivity Sensor
+  description: A measure of the conductivity of water.
+  haystack:
+    type:
+      - water
+      - conductivity
+      - sensor 
+      - point
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>    
+      - kind: Number
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef
+  unit_type: electric_conductivity
 WCDSP:
   name: Water Conductivity Setpoint
   short_name: Water Conductivity Sp
@@ -1409,11 +1410,11 @@ WCDSP:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>    
       - kind: Number
-      - unit: resistance
     reference:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: electric_conductivity
 WTLVL:
   name: Water Level Sensor
   description: A measure of the water level in units of height, typically in a tank or sump.
@@ -1432,6 +1433,7 @@ WTLVL:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: length
 WLVLSP:
   name: Water Level Setpoint
   short_name: Water Level Sp
@@ -1450,6 +1452,7 @@ WLVLSP:
       - equipRef
     reference_optional:
       - deviceRef
+  unit_type: length
 WLALRMH:
   name: Water Level Alarm High
   description: Water level has exceeded a certain threshold and is generating an alarm.
@@ -1543,7 +1546,6 @@ DHWTT:
     identification:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>   
-      - kind: Number
 ECHWT:
   name: Entering Chilled Water Temperature
   short_name: Entering CHW Temp
@@ -1566,6 +1568,18 @@ ECHWT:
       - dis: "Entering Chilled Water Temperature or if more than 1 in the equip/device,
           use <NAME> + - + <INTEGER>  : Entering Chilled Water Temperature-1,
           Entering Chilled Water Temperature-2, etc."
+LTECHWT:
+  name: Low Temperature Chilled Water Entering Temperature
+  short_name: Low Temp CHW Entering Temp
+  description: The temperature of the water entering the chiller, chilled water plant, 
+    or ice storage plant. 
+  extends: ECHWT
+  haystack:
+    type:
+      - lowTemp
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
 ECWT:
   name: Entering Condenser Water Temperature
   short_name: Entering CW Temp
@@ -1621,7 +1635,6 @@ EDHWT:
     identification:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>   
-      - kind: Number
 EWTSP:
   name: Entering Water Temperature Setpoint
   short_name: Entering Water Temp Sp
@@ -1658,6 +1671,18 @@ LCHWT:
       - dis: "Leaving Chilled Water Temperature or if more than 1 in the equip/device,
           use <NAME> + - + <INTEGER>  : Leaving Chilled Water Temperature-1,
           Leaving Chilled Water Temperature-2, etc."
+LTLCHWT:
+  name: Low Temperature Chilled Water Leaving Temperature
+  short_name: Low Temp CHW Leaving Temp
+  description: The temperature of the water leaving the chiller, chilled water plant, 
+    or ice storage plant. 
+  extends: LCHWT
+  haystack:
+    type:
+      - lowTemp
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>   
 LCWT:
   name: Leaving Condenser Water Temperature
   short_name: Leaving CW Temp
@@ -1714,7 +1739,6 @@ LDHWT:
     identification:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>   
-      - kind: Number
 LDHWTSP:
   name: Leaving Domestic Hot Water Temperature Setpoint
   short_name: Leaving Domestic HW Temp Sp
@@ -1731,7 +1755,6 @@ LDHWTSP:
     identification:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number         
 PRLHWT:
   name: Primary Leaving Hot Water Temperature
   short_name: Primary Leaving HW Temp
@@ -1805,6 +1828,8 @@ PSPCMD:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER> 
       - kind: Number 
+  units:
+    - percent
 PSPFBK:
   name: Pump Speed Feedback
   short_name: Pump Speed Fbk
@@ -1820,6 +1845,8 @@ PSPFBK:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER> 
       - kind: Number      
+  units:
+    - percent
 CNPST:
   name: Condensate Pump Status
   extends: PSSST
@@ -1914,7 +1941,6 @@ COVFBK:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
     reference:
       - equipRef
 CHWDT:
@@ -1928,8 +1954,19 @@ CHWDT:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
-      - unit: °F
+    reference:
+      - deviceRef
+      - equipRef
+CWDT:
+  name: Condenser Water Delta Temperature 
+  short_name: CW Delta Temp
+  extends: DT
+  haystack:
+    type:
+      - condenser
+    identification:
+      - navName: <CODE> + - + <INTEGER>  
+      - dis: <NAME> + - + <INTEGER>  
     reference:
       - deviceRef
       - equipRef
@@ -1946,9 +1983,9 @@ LSTT:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
       - kind: Number
-      - unit_type: temperature
     reference:
-      - equipRef    
+      - equipRef   
+  unit_type: temperature
 LSTP:
   name: Leaving Steam Pressure
   google_ontology: supply_steam_static_pressure_sensor
@@ -1963,9 +2000,9 @@ LSTP:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
       - kind: Number
-      - unit_type: pressure
     reference:
-      - equipRef          
+      - equipRef   
+  unit_type: pressure       
 WECVCMD:
   name: Waterside Economizer Valve Command
   description: Command to a valve that controls a waterside economizer
@@ -1977,7 +2014,6 @@ WECVCMD:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
     reference:
       - equipRef             
 WECVPOS:
@@ -1991,6 +2027,5 @@ WECVPOS:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
     reference:
       - equipRef                  

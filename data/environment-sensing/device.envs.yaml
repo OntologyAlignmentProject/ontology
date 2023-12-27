@@ -25,7 +25,8 @@ OCCS:
       - hvacZoneRef
       - lightingZoneRef
   points_base:
-    - DVST
+    - OCCEFFSP
+    - CMST
     - BATST
     - BATLVL
     - OCCSNS
@@ -52,7 +53,8 @@ AIRS:
       - hvacZoneRef
   points_base:
     - ALRMPT
-    - DVST
+    - OCCEFFSP
+    - CMST
     - BATST
     - BATLVL
     - ZCO
@@ -65,6 +67,8 @@ AIRS:
     - ZCH4ALMSP 
     - ZCOSP 
     - ZCOALMSP 
+    - SIGSTR
+    - RSSI
 
 SURS:
   name: Surface Sensor
@@ -84,7 +88,8 @@ SURS:
       - systemRef
   points_base:
     - ALRMPT
-    - DVST
+    - OCCEFFSP
+    - CMST
     - BATST
     - BATLVL
 
@@ -108,7 +113,8 @@ MTS:
   points_base:
     - ALRMPT
     - ACSLVL
-    - DVST
+    - OCCEFFSP
+    - CMST
     - BATST
     - BATLVL
     - LTLVL

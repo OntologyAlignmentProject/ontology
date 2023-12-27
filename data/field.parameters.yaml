@@ -28,6 +28,10 @@ range:
   date: "Values over a specified start and end date"
 range_filter: 
   days: "A list of days that should be used to filter the range."
+filter: 
+  adm: "A boolean value indicating whether only events, rules or times related to active demand management should be considered."
+  equipType: "A list of equipment types on which to restrict this KPI."
+  endUse: "A list of end uses on which to restrict this KPI"
 comparison:
   benchmark: "Compare to a industry benchmark or standard"
   baseline: "Compare to a modelled value representative of the status quo."
