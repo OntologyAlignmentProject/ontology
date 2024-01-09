@@ -1,0 +1,70 @@
+EVSEA:
+  name: Electric Vehicle Charging Assembly
+  description: Equipment that delivers electricity via EVSE ports to charging inlets located on EVs.
+  haystack:
+    type:
+      - equip
+      - evse
+      - assembly
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - elecRef
+      - elecMeterRef
+  contains: 
+    - EVPORT
+    - EVPORTDC
+
+EVPORT:
+  name: Electric Vehicle Port - AC
+  description: An EVSE port delivers electricity to a single EV charging inlet at a time
+  haystack:
+    type:
+      - equip
+      - evse
+      - port
+      - ac
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+    reference:
+      - siteRef
+      - equipRef
+  contains: 
+    - EVCABLE     
+EVPORTDC:
+  name: Electric Vehicle Port - DC
+  description: An EVSE port delivers electricity to a single EV charging inlet at a time
+  haystack:
+    type:
+      - equip
+      - evse
+      - port
+      - dc
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+    reference:
+      - siteRef
+      - equipRef
+  contains: 
+    - EVCABLE           
+
+EVCABLE:
+  name: Electric Vehicle Cable
+  description: An EVSE port delivers electricity to a single EV charging inlet at a time.
+  haystack:
+    type:
+      - equip
+      - evse
+      - cable
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+    reference:
+      - siteRef
+      - equipRef      

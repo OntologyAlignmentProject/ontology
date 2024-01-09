@@ -84,4 +84,18 @@ TST:
       - equipRef
     reference_optional:
       - spaceRef
-
+IST:
+  name: Ice Storage Tank
+  extends: TST
+  haystack:
+    type:
+      - ice
+    identification:
+      - id: <ABBREVIATION> + <INTEGER>
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: Ice Storage Tank 1 or IST-1
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - spaceRef

@@ -1,0 +1,37 @@
+SIGSTR:
+  name: Signal Strength
+  description: The transmitter power output as received by a reference antenna at a distance from the transmitting antenna.
+  haystack:
+    type:
+      - signal
+      - level
+      - sensor
+      - point
+    identification:
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+  units:
+    - percent
+    - db_millivolt_per_meter
+    - db_microvolt_per_meter
+
+RSSI:
+  name: Received Signal Strength Indicator
+  description: Measurement of the power present in a received radio signal. In essence,
+    it measures how well a client device can hear (receive) a signal
+  haystack:
+    type:
+      - received
+      - signal
+      - level
+      - sensor
+      - point
+    identification:
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+  units:
+    - db_milliwatt

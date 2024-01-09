@@ -301,6 +301,9 @@ OPDIR:
       - dis: "Operation Direction or if more than 1 in the equip/device, use <NAME> + -
           + <INTEGER>  : Operation Direction-1, Operation Direction-2, etc."
       - kind: Str
+    reference:
+      - equipRef
+      - deviceRef
 
 PASALM:
   name: Passenger Alarm
@@ -309,6 +312,7 @@ PASALM:
   extends: POINT_GEN
   haystack:
     type:
+      - point
       - occupants
       - alarm
       - sensor
@@ -320,6 +324,9 @@ PASALM:
       - dis: "Passenger Alarm or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Passenger Alarm-1, Passenger Alarm-2, etc."
       - kind: Bool
+    reference:
+      - equipRef
+      - deviceRef
 
 REGCARCALL:
   name: Registered Car Calls

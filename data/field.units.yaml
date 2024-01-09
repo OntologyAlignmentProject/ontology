@@ -1,503 +1,1813 @@
 # Sourced from Project Haystack downloads
+# Google (DBO) uri - https://github.com/google/digitalbuildings/blob/master/ontology/yaml/resources/units/units.yaml
+# QUDT uri - https://www.qudt.org/doc/DOC_VOCAB-UNITS.html
+
+# Unit Definition Structure
+#
+# Units are defined under a Unit Type, e.g. "energy"
+#
+# UNITCODE:
+#   name: <common name or title for the Unit, if none defaults to reader friendly Unit Code>
+#   description: <a description of the Unit, if none defaults to reader friendly Unit Code>
+#   symbol: <common symbol displayed in graphs, tables, etc>
+#   is_standard: <boolean designation that this is the standardizing Unit within the Unit Type, default is "false">
+#   multiplier: <multiplier used to convert to the standardizing Unit, defaults to 1>
+#   offset: <offset value used to convert to the standardizing Unit, defaults to 0>
+#   haystack_symbol: <the symbol corresponding to the Unit if received from a Haystack source, defaults to "symbol">
+#   google_ontology: <the code aligning to the Unit in the Digital Building Ontology>
+#   qudt_ontology: <the code aligning to the Unit in the QUDT, utilized by Brick Schema>
 
 dimensionless:
-  percent: "%"
-  pixel: "px"
-  decibel: "db"
-  power_factor: "pf"
-  ph: "pH"
-  percent_relative_humidity: "%RH"
-  grams_of_water_per_kilogram_dry_air: "gH₂O/kgAir"
-  volts_per_degree_kelvin: "V/K"
-  degree_days_celsius: "°daysC"
-  degree_days_fahrenheit: "°daysF"
-  percent_obscuration_per_foot: "%obsc/ft"
-  percent_obscuration_per_meter: "%obsc/m"
-  psi_per_degree_fahrenheit: "psi/°F"
-  square_meters_per_newton: "m²/N"
-  watts_per_square_meter_degree_kelvin: "W/m²K"
-  db_millivolt: "dBmV"
-  db_microvolt: "dBµV"
-  parts_per_unit: "ppu"
-  parts_per_million: "ppm"
-  parts_per_billion: "ppb"
-  grams_per_kilogram: "g/kg"
-  radian: "rad"
-  degrees_angular: "deg"
-  degrees_phase: "degPh"
-  steradian: "sr"
-  nephelometric_turbidity_units: "ntu"
-  formazin_nephelometric_unit: "fnu"
-  power_usage_effectiveness: "PUE"
-  data_center_infrastructure_efficiency: "DCIE"
+  percent:
+    symbol: "%"
+    qudt_ontology: PERCENT
+  pixel:
+    symbol: "px"
+  power_factor:
+    symbol: "pf"
+  ph:
+    symbol: "pH"
+    qudt_ontology: PH
+  percent_relative_humidity:
+    symbol: "%RH"
+    google_ontology: percent_relative_humidity
+    qudt_ontology: PERCENT_RH
+  grams_of_water_per_kilogram_dry_air:
+    symbol: "gH₂O/kgAir"
+  volts_per_degree_kelvin:
+    symbol: "V/K"
+    qudt_ontology: V-PER-K
+  psi_per_degree_fahrenheit:
+    symbol: "psi/°F"
+  square_meters_per_newton:
+    symbol: "m²/N"
+    qudt_ontology: M2-PER-N
+  db_millivolt:
+    symbol: "dBmV"
+  db_microvolt:
+    symbol: "dBµV"
+  nephelometric_turbidity_units:
+    symbol: "ntu"
+    qudt_ontology: NTU
+  formazin_nephelometric_unit:
+    symbol: "fnu"
+  power_usage_effectiveness:
+    symbol: "PUE"
+  data_center_infrastructure_efficiency:
+    symbol: "DCIE"
+
 acceleration:
-  meters_per_second_squared: "m/s²"
+  meters_per_second_squared:
+    symbol: "m/s²"
+    google_ontology: meters_per_square_second
+    qudt_ontology: M-PER-SEC2
+
+angle:
+  radian:
+    symbol: "rad"
+    is_standard: true
+    qudt_ontology: RAD
+  degrees_angular:
+    symbol: "deg"
+    multiplier: 0.0174532925
+    google_ontology: degrees
+    qudt_ontology: DEG
+
 angular_acceleration:
-  radians_per_second_squared: "rad/s²"
+  radians_per_second_squared:
+    symbol: "rad/s²"
+    qudt_ontology: RAD-PER-SEC
+
 angular_momentum:
-  joule_second: "Js"
+  joule_second:
+    symbol: "Js"
+    google_ontology: joule_seconds
+
 angular_velocity:
-  radians_per_second: "rad/s"
-  revolutions_per_minute: "rpm"
+  radians_per_second:
+    symbol: "rad/s"
+    is_standard: true
+    qudt_ontology: RAD-PER-SEC
+  revolutions_per_minute:
+    symbol: "rpm"
+    multiplier: 0.104719755
+    google_ontology: revolutions_per_minute
+    qudt_ontology: REV-PER-MIN
+
 area:
-  square_meter: "m²"
-  square_millimeter: "mm²"
-  square_centimeter: "cm²"
-  square_kilometer: "km²"
-  square_inch: "in²"
-  square_foot: "ft²"
-  square_yard: "yd²"
-  square_mile: "mile²"
-  acre: "acre"
+  square_meter:
+    symbol: "m²"
+    is_standard: true
+    google_ontology: square_meters
+    qudt_ontology: M2
+  square_millimeter:
+    symbol: "mm²"
+    multiplier: 0.000001
+    qudt_ontology: MilliM2
+  square_centimeter:
+    symbol: "cm²"
+    multiplier: 0.0001
+    google_ontology: square_centimeters
+    qudt_ontology: CentiM2
+  square_kilometer:
+    symbol: "km²"
+    multiplier: 1000000
+  square_inch:
+    symbol: "in²"
+    multiplier: 0.00064516
+    google_ontology: square_inches
+    qudt_ontology: IN2
+  square_foot:
+    symbol: "ft²"
+    multiplier: 0.09290304
+    google_ontology: square_feet
+    qudt_ontology: FT2
+  square_yard:
+    symbol: "yd²"
+    multiplier: 0.836127
+    qudt_ontology: YD2
+  square_mile:
+    symbol: "mile²"
+    multiplier: 2590000
+    qudt_ontology: MI2
+  acre:
+    symbol: "acre"
+    multiplier: 4046.86
+    qudt_ontology: AC
+
 capacitance:
-  farad: "F"
+  farad:
+    symbol: "F"
+    google_ontology: farads
+    qudt_ontology: FARAD
+
+concentration:
+  parts_per_unit:
+    symbol: "ppu"
+    is_standard: true
+    google_ontology: parts_per_unit
+  parts_per_million:
+    symbol: "ppm"
+    multiplier: 0.000001
+    google_ontology: parts_per_million
+    qudt_ontology: PPM
+  parts_per_billion:
+    symbol: "ppb"
+    multiplier: 0.000000001
+    google_ontology: parts_per_billion
+    qudt_ontology: PPB
+  grams_per_kilogram:
+    symbol: "g/kg"
+    multiplier: 0.001
+    google_ontology: grams_per_kilogram
+    qudt_ontology: GM-PER-KiloGM
+
 cooling_efficiency:
-  coefficient_of_performance: "COP"
-  energy_efficiency_ratio: "EER"
-  kilowatt_per_ton: "kW/ton"
+  coefficient_of_performance:
+    symbol: "COP"
+  energy_efficiency_ratio:
+    symbol: "EER"
+  kilowatt_per_ton:
+    symbol: "kW/ton"
+
 density:
-  kilograms_per_cubic_meter: "kg/m³"
-  grams_per_cubic_meter: "g/m³"
-  milligrams_per_cubic_meter: "mg/m³"
-  micrograms_per_cubic_meter: "µg/m³"
+  kilograms_per_cubic_meter:
+    symbol: "kg/m³"
+    is_standard: true
+    google_ontology: kilograms_per_cubic_meter
+    qudt_ontology: KiloGM-PER-M3
+  grams_per_cubic_meter:
+    symbol: "g/m³"
+    multiplier: 0.001
+    google_ontology: grams_per_cubic_meter
+    qudt_ontology: GM-PER-M3
+  milligrams_per_cubic_meter:
+    symbol: "mg/m³"
+    multiplier: 0.000001
+    google_ontology: milligrams_per_cubic_meter
+    qudt_ontology: MilliGM-PER-M3
+  micrograms_per_cubic_meter:
+    symbol: "µg/m³"
+    multiplier: 0.000000001
+    google_ontology: micrograms_per_cubic_meter
+    qudt_ontology: MicroGM-PER-M3
+
 electric_charge:
-  coulomb: "C"
-  ampere_hour: "Ah"
+  coulomb:
+    symbol: "C"
+    is_standard: true
+    qudt_ontology: C
+  ampere_hour:
+    symbol: "Ah"
+    multiplier: 3600
+    qudt_ontology: A-HR
+
 electric_conductance:
-  siemens: "S"
+  siemens:
+    symbol: "S"
+    google_ontology: siemens
+    qudt_ontology: S
+
 electric_current:
-  ampere: "A"
-  milliampere: "mA"
+  ampere:
+    symbol: "A"
+    is_standard: true
+    google_ontology: amperes
+    qudt_ontology: A
+  milliampere:
+    symbol: "mA"
+    multiplier: 0.001
+    google_ontology: milliamperes
+    qudt_ontology: MilliA
+
 electromagnetic_moment:
-  ampere_square_meter: "Am²"
+  ampere_square_meter:
+    symbol: "Am²"
+    qudt_ontology: A-M2
+
 electric_current_density:
-  amperes_per_square_meter: "A/m²"
+  amperes_per_square_meter:
+    symbol: "A/m²"
+    google_ontology: amperes_per_square_meter
+    qudt_ontology: A-PER-M2
+
 electric_field_strength:
-  volts_per_meter: "V/m"
+  volts_per_meter:
+    symbol: "V/m"
+    google_ontology: volts_per_meter
+    qudt_ontology: V-PER-M
+
+electric_phase_difference:
+  degrees_phase:
+    symbol: "degPh"
+    google_ontology: degrees_phase
+    
 electric_potential:
-  volt: "V"
-  millivolt: "mV"
-  kilovolt: "kV"
-  megavolt: "MV"
+  volt:
+    symbol: "V"
+    is_standard: true
+    google_ontology: volts
+    qudt_ontology: V
+  millivolt:
+    symbol: "mV"
+    multiplier: 0.001
+    google_ontology: millivolts
+    qudt_ontology: MilliV
+  kilovolt:
+    symbol: "kV"
+    multiplier: 1000
+    google_ontology: kilovolts
+    qudt_ontology: KiloV
+  megavolt:
+    symbol: "MV"
+    multiplier: 1000000
+    google_ontology: megavolts
+    qudt_ontology: MegaV
+
 electric_resistance:
-  ohm: "Ω"
-  kilohm: "kΩ"
-  megohm: "MΩ"
-  milliohm: "mΩ"
+  ohm:
+    symbol: "Ω"
+    is_standard: true
+    google_ontology: ohms
+    qudt_ontology: OHM
+  kilohm:
+    symbol: "kΩ"
+    multiplier: 1000
+    google_ontology: kiloohms
+    qudt_ontology: KiloOHM
+  megohm:
+    symbol: "MΩ"
+    multiplier: 1000000
+    google_ontology: megaohms
+    qudt_ontology: MegaOHM
+  milliohm:
+    symbol: "mΩ"
+    multiplier: 0.001
+    google_ontology: milliohms
+    qudt_ontology: MillOHM
+
 electrical_conductivity:
-  siemens_per_meter: "S/m"
+  siemens_per_meter:
+    symbol: "S/m"
+    google_ontology: siemens_per_meter
+    qudt_ontology: S-PER-M
+
 electrical_resistivity:
-  ohm_meter: "Ωm"
+  ohm_meter:
+    symbol: "Ωm"
+    google_ontology: ohm_meters
+    qudt_ontology: OHM-M
+
 energy:
-  joule: "J"
-  kilojoule: "kJ"
-  watt_hour: "Wh"
-  kilowatt_hour: "kWh"
-  megawatt_hour: "MWh"
-  gigawatt_hour: "GWh"
-  btu: "BTU"
-  kilobtu: "kBTU"
-  megabtu: "MBTU"
-  horsepower_hour: "hph"
-  calorie: "cal"
-  therm: "therm"
-  tons_refrigeration_hour: "tonrefh"
-  megajoule: "MJ"
-  gigajoule: "GJ"
-  newton_meter: "Nm"
-  cubic_meters_natural_gas: "m³_gas"
-  cubic_feet_natural_gas: "ft³_gas"
+  joule:
+    symbol: "J"
+    is_standard: true
+    google_ontology: joules
+    qudt_ontology: J
+  kilojoule:
+    symbol: "kJ"
+    multiplier: 1000
+    google_ontology: kilojoules
+    qudt_ontology: KiloJ
+  watt_hour:
+    symbol: "Wh"
+    multiplier: 3600
+    google_ontology: watt_hours
+    qudt_ontology: W-HR
+  kilowatt_hour:
+    symbol: "kWh"
+    multiplier: 3600000
+    google_ontology: kilowatt_hours
+    qudt_ontology: KiloW-HR
+  megawatt_hour:
+    symbol: "MWh"
+    multiplier: 3600000000
+    google_ontology: megawatt_hours
+    qudt_ontology: MegaW-HR
+  gigawatt_hour:
+    symbol: "GWh"
+    multiplier: 3600000000000
+    qudt_ontology: GigaW-HR
+  btu:
+    symbol: "BTU"
+    multiplier: 1055.055853
+    google_ontology: btus
+    qudt_ontology: BTU_IT
+  kilobtu:
+    symbol: "kBTU"
+    multiplier: 1055055.853
+    google_ontology: kilobtus
+    qudt_ontology: KiloBTU_IT
+  megabtu:
+    symbol: "MBTU"
+    multiplier: 1055055853
+    google_ontology: megabtus
+  horsepower_hour:
+    symbol: "hph"
+    multiplier: 2684519.5368856
+  calorie:
+    symbol: "cal"
+    multiplier: 4.184
+    qudt_ontology: CAL_15_DEG_C
+  therm:
+    symbol: "therm"
+    multiplier: 105480400
+    google_ontology: therms
+    qudt_ontology: THM_US
+  tons_refrigeration_hour:
+    symbol: "tonrefh"
+    multiplier: 12660670.23144
+    google_ontology: ton_hours
+    qudt_ontology: TON_FG-HR
+  megajoule:
+    symbol: "MJ"
+    multiplier: 1000000
+    google_ontology: megajoules
+    qudt_ontology: MegaJ
+  gigajoule:
+    symbol: "GJ"
+    multiplier: 1000000000
+    qudt_ontology: GigaJ
+  newton_meter:
+    symbol: "Nm"
+    multiplier: 1
+    qudt_ontology: N-M
+  cubic_meters_natural_gas:
+    symbol: "m³_gas"
+    multiplier: 37300000
+  cubic_feet_natural_gas:
+    symbol: "ft³_gas"
+    multiplier: 1055055.85
+
 apparent_energy:
-  volt_ampere_hour: "VAh"
-  kilovolt_ampere_hour: "kVAh"
-  megavolt_ampere_hour: "MVAh"
+  volt_ampere_hour:
+    is_standard: true
+    symbol: "VAh"
+    qudt_ontology: V-A-HR
+  kilovolt_ampere_hour:
+    symbol: "kVAh"
+    multiplier: 1000
+    qudt_ontology: KiloV-A-HR
+  megavolt_ampere_hour:
+    symbol: "MVAh"
+    multiplier: 1000000
+    qudt_ontology: MegaV-A-HR
+
 reactive_energy:
-  volt_ampere_reactive_hour: "VARh"
-  kilovolt_ampere_reactive_hour: "kVARh"
-  megavolt_ampere_reactive_hour: "MVARh"
+  volt_ampere_reactive_hour:
+    symbol: "VARh"
+    is_standard: true
+    qudt_ontology: V-A_Reactive-HR
+  kilovolt_ampere_reactive_hour:
+    symbol: "kVARh"
+    multiplier: 1000
+    qudt_ontology: KiloV-A_Reactive-HR
+  megavolt_ampere_reactive_hour:
+    symbol: "MVARh"
+    multiplier: 1000000
+    qudt_ontology: MegaV-A_Reactive-HR
+
 energy_by_area:
-  joules_per_square_meter: "J/m²"
-  watt_hours_per_square_meter: "Wh/m²"
-  watt_hours_per_square_foot: "Wh/ft²"
-  kilowatt_hours_per_square_meter: "kWh/m²"
-  kilowatt_hours_per_square_foot: "kWh/ft²"
-  megawatt_hours_per_square_meter: "MWh/m²"
-  megawatt_hours_per_square_foot: "MWh/ft²"
-  megajoules_per_square_meter: "MJ/m²"
-  megajoules_per_square_foot: "MJ/ft²"
-  kilobtu_per_square_foot: "kBTU/ft²"
-  megabtu_per_square_foot: "MBTU/ft²"
+  joules_per_square_meter:
+    symbol: "J/m²"
+    is_standard: true
+    qudt_ontology: J-PER-M2
+  watt_hours_per_square_meter:
+    symbol: "Wh/m²"
+    multiplier: 3600
+    qudt_ontology: W-HR-PER-M2
+  watt_hours_per_square_foot:
+    symbol: "Wh/ft²"
+    multiplier: 334.45126766
+  kilowatt_hours_per_square_meter:
+    symbol: "kWh/m²"
+    multiplier: 3600000
+    qudt_ontology: KiloW-HR-PER-M2
+  kilowatt_hours_per_square_foot:
+    symbol: "kWh/ft²"
+    multiplier: 334451.26766
+  megawatt_hours_per_square_meter:
+    symbol: "MWh/m²"
+    multiplier: 3600000000
+  megawatt_hours_per_square_foot:
+    symbol: "MWh/ft²"
+    multiplier: 334451267.66
+  megajoules_per_square_meter:
+    symbol: "MJ/m²"
+    multiplier: 1000000
+    qudt_ontology: MegaJ-PER-M2
+  megajoules_per_square_foot:
+    symbol: "MJ/ft²"
+    multiplier: 92903.13
+  kilobtu_per_square_foot:
+    symbol: "kBTU/ft²"
+    multiplier: 11356526.7
+    qudt_ontology: KiloBTU_IT-PER-FT2
+  megabtu_per_square_foot:
+    symbol: "MBTU/ft²"
+    multiplier: 11356526700
+
 enthalpy:
-  joules_per_gram: "J/g"
-  joules_per_kilogram: "J/kg"
-  joules_per_kilogram_dry_air: "J/kg_dry"
-  btu_per_pound: "BTU/lb"
-  btus_per_pound_dry_air: "btu/lb_dry"
-  kilojoules_per_kilogram: "kJ/kg"
-  kilojoules_per_kilogram_dry_air: "kJ/kg_dry"
-  megajoules_per_kilogram_dry_air: "MJ/kg_dry"
-  calorie_per_gram: "cal/g"
+  joules_per_gram:
+    symbol: "J/g"
+    multiplier: 1000
+    qudt_ontology: J-PER-GM
+  joules_per_kilogram:
+    symbol: "J/kg"
+    is_standard: true
+    google_ontology: joules_per_kilogram
+    qudt_ontology: J-PER-KiloGM
+  joules_per_kilogram_dry_air:
+    symbol: "J/kg_dry"
+    multiplier: 1
+  btu_per_pound:
+    symbol: "BTU/lb"
+    multiplier: 2324.443861
+    qudt_ontology: BTU_TH-PER-LB
+  btus_per_pound_dry_air:
+    symbol: "btu/lb_dry"
+    multiplier: 2326
+    google_ontology: btus_per_pound_dry_air
+    qudt_ontology: BTU_IT-PER-LB
+  kilojoules_per_kilogram:
+    symbol: "kJ/kg"
+    multiplier: 1000
+    qudt_ontology: KiloJ-PER-KiloGM
+  kilojoules_per_kilogram_dry_air:
+    symbol: "kJ/kg_dry"
+    multiplier: 1000
+    google_ontology: kilojoules_per_kilogram_dry_air
+  megajoules_per_kilogram_dry_air:
+    symbol: "MJ/kg_dry"
+    multiplier: 1000000
+    google_ontology: megajoules_per_kilogram_dry_air
+  calorie_per_gram:
+    symbol: "cal/g"
+    multiplier: 4184
+    qudt_ontology: CAL_TH-PER-GM
+
 entropy:
-  joules_per_degree_kelvin: "J/°K"
-  kilojoules_per_degree_kelvin: "kJ/°K"
-  megajoules_per_degree_kelvin: "MJ/°K"
+  joules_per_degree_kelvin:
+    symbol: "J/°K"
+    is_standard: true
+    google_ontology: joules_per_kelvin
+    qudt_ontology: J-PER-K
+  kilojoules_per_degree_kelvin:
+    symbol: "kJ/°K"
+    multiplier: 1000
+    google_ontology: kilojoules_per_kelvin
+    qudt_ontology: KiloJ-PER-K
+  megajoules_per_degree_kelvin:
+    symbol: "MJ/°K"
+    multiplier: 1000000
+    google_ontology: megajoules_per_kelvin
+    qudt_ontology: MegaJ-PER-K
+
 force:
-  newton: "N"
-  pound_force: "lbf"
+  newton:
+    symbol: "N"
+    is_standard: true
+    google_ontology: newton
+    qudt_ontology: N
+  pound_force:
+    symbol: "lbf"
+    multiplier: 4.448222
+    qudt_ontology: LB_F
+
 frequency:
-  hertz: "Hz"
-  kilohertz: "kHz"
-  cycles_per_hour: "cph"
-  cycles_per_minute: "cpm"
-  megahertz: "MHz"
-  per_minute: "/min"
-  per_second: "/s"
-  per_hour: "/h"
-  percent_per_second: "%/s"
-  air_changes_per_hour: "ACH"
+  hertz:
+    symbol: "Hz"
+    is_standard: true
+    google_ontology: hertz
+    qudt_ontology: HZ
+  kilohertz:
+    symbol: "kHz"
+    multiplier: 1000
+    google_ontology: kilohertz
+    qudt_ontology: KiloHZ
+  cycles_per_hour:
+    symbol: "cph"
+    multiplier: 0.000277777777778
+    google_ontology: cycles_per_hour
+  cycles_per_minute:
+    symbol: "cpm"
+    multiplier: 0.016666666666667
+    google_ontology: cycles_per_minute
+  megahertz:
+    symbol: "MHz"
+    multiplier: 0.000001
+    google_ontology: megahertz
+    qudt_ontology: MegaHZ
+  per_minute:
+    symbol: "/min"
+    multiplier: 0.016666666666667
+    google_ontology: per_minute
+    qudt_ontology: PER-MIN
+  per_second:
+    symbol: "/s"
+    multiplier: 1
+    google_ontology: per_second
+    qudt_ontology: PER-SEC
+  per_hour:
+    symbol: "/h"
+    multiplier: 0.000277777777778
+    google_ontology: per_hour
+    qudt_ontology: PER-HR
+  percent_per_second:
+    multiplier: 1
+    symbol: "%/s"
+  air_changes_per_hour:
+    symbol: "ACH"
+    multiplier: 0.000277777777778
+
 grammage:
-  kilograms_per_square_meter: "kg/m²"
-  grams_per_square_meter: "g/m²"
+  kilograms_per_square_meter:
+    symbol: "kg/m²"
+    is_standard: true
+    qudt_ontology: KiloGM-PER-M2
+  grams_per_square_meter:
+    symbol: "g/m²"
+    multiplier: 0.001
+    qudt_ontology: GM-PER-M2
+
 heating_rate:
-  degrees_kelvin_per_second: "K/s"
-  degrees_celsius_per_hour: "°C/h"
-  degrees_celsius_per_minute: "°C/min"
-  degrees_fahrenheit_per_hour: "°F/h"
-  degrees_fahrenheit_per_minute: "°F/min"
-  degrees_kelvin_per_hour: "K/h"
-  degrees_kelvin_per_minute: "K/min"
+  degrees_kelvin_per_second:
+    symbol: "K/s"
+    is_standard: true
+    qudt_ontology: K-PER-SEC
+  degrees_celsius_per_hour:
+    symbol: "°C/h"
+    multiplier: 0.000277777777778
+    qudt_ontology: DEG_C-PER-HR
+  degrees_celsius_per_minute:
+    symbol: "°C/min"
+    multiplier: 0.01666667
+    qudt_ontology: DEG_C-PER-MIN
+  degrees_fahrenheit_per_hour:
+    symbol: "°F/h"
+    multiplier: 0.000154320987667
+    qudt_ontology: DEG_F-PER-HR
+  degrees_fahrenheit_per_minute:
+    symbol: "°F/min"
+    multiplier: 0.009259261111852
+    qudt_ontology: DEF_F-PER-MIN
+  degrees_kelvin_per_hour:
+    symbol: "K/h"
+    multiplier: 0.000277777777778
+    qudt_ontology: K-PER-HR
+  degrees_kelvin_per_minute:
+    symbol: "K/min"
+    multiplier: 0.01666667
+    qudt_ontology: K-PER-MIN
+
 illuminance:
-  lux: "lx"
-  footcandle: "fc"
-  phot: "phot"
+  lux:
+    symbol: "lx"
+    is_standard: true
+    google_ontology: lux
+    qudt_ontology: LUX
+  footcandle:
+    symbol: "fc"
+    multiplier: 10.7639
+    google_ontology: foot_candles
+    qudt_ontology: FC
+  phot:
+    symbol: "phot"
+    multiplier: 10000
+    qudt_ontology: PHOT
+
 inductance:
-  henry: "H"
+  henry:
+    symbol: "H"
+    google_ontology: henrys
+    qudt_ontology: H
+
 irradiance:
-  watts_per_square_meter_irradiance: "W/m²_irr"
-  watts_per_square_foot_irradiance: "W/ft²_irr"
+  watts_per_square_meter_irradiance:
+    symbol: "W/m²_irr"
+    is_standard: true
+  watts_per_square_foot_irradiance:
+    symbol: "W/ft²_irr"
+    multiplier: 10.7639104
+
 length:
-  meter: "m"
-  micrometer: "µm"
-  millimeter: "mm"
-  centimeter: "cm"
-  kilometer: "km"
-  inch: "in"
-  foot: "ft"
-  yard: "yd"
-  mile: "mile"
+  meter:
+    symbol: "m"
+    is_standard: true
+    google_ontology: meters
+    qudt_ontology: M
+  micrometer:
+    symbol: "µm"
+    multiplier: 0.000001
+    google_ontology: micrometers
+    qudt_ontology: MicroM
+  millimeter:
+    symbol: "mm"
+    multiplier: 0.001
+    google_ontology: millimeters
+    qudt_ontology: MilliM
+  centimeter:
+    symbol: "cm"
+    multiplier: 0.01
+    google_ontology: centimeters
+    qudt_ontology: CentiM
+  kilometer:
+    symbol: "km"
+    multiplier: 1000
+    qudt_ontology: KiloM
+  inch:
+    symbol: "in"
+    multiplier: 0.0254
+    google_ontology: inches
+    qudt_ontology: IN
+  foot:
+    symbol: "ft"
+    multiplier: 0.3048
+    google_ontology: feet
+    qudt_ontology: FT
+  yard:
+    symbol: "yd"
+    multiplier: 0.9144
+    qudt_ontology: YD
+  mile:
+    symbol: "mile"
+    multiplier: 1609.344
+    qudt_ontology: MI_US
+
 luminance:
-  candelas_per_square_meter: "cd/m²"
-  candels_per_square_foot: "cd/ft²"
+  candelas_per_square_meter:
+    symbol: "cd/m²"
+    is_standard: true
+    qudt_ontology: CD-PER-M2
+  candels_per_square_foot:
+    symbol: "cd/ft²"
+    multiplier: 10.7639104
+
 luminous_flux:
-  lumen: "lm"
+  lumen:
+    symbol: "lm"
+    google_ontology: lumens
+    qudt_ontology: LM
+
 luminous_intensity:
-  candela: "cd"
+  candela:
+    symbol: "cd"
+    google_ontology: candelas
+    qudt_ontology: CD
+
 magnetic_field_strength:
-  amperes_per_meter: "A/m"
+  amperes_per_meter:
+    symbol: "A/m"
+    google_ontology: amperes_per_meter
+    qudt_ontology: A-PER-M
+
 magnetic_flux:
-  weber: "Wb"
+  weber:
+    symbol: "Wb"
+    google_ontology: webers
+    qudt_ontology: WB
+
 magnetic_flux_density:
-  tesla: "T"
+  tesla:
+    symbol: "T"
+    google_ontology: teslas
+    qudt_ontology: T
+
 mass:
-  kilogram: "kg"
-  milligram: "mg"
-  gram: "g"
-  ounce: "oz"
-  pound: "lb"
-  kilopound: "klb"
-  metric_ton: "ton"
-  short_ton: "t"
+  kilogram:
+    symbol: "kg"
+    is_standard: true
+    google_ontology: kilograms
+    qudt_ontology: KiloGM
+  milligram:
+    symbol: "mg"
+    multiplier: 0.000001
+    qudt_ontology: MilliGM
+  gram:
+    symbol: "g"
+    multiplier: 0.001
+    google_ontology: grams
+    qudt_ontology: GM
+  ounce:
+    symbol: "oz"
+    multiplier: 0.028349523125
+    qudt_ontology: OZ
+  pound:
+    symbol: "lb"
+    multiplier: 0.453592
+    google_ontology: pounds_mass
+    qudt_ontology: LB
+  kilopound:
+    symbol: "klb"
+    multiplier: 453.592
+  metric_ton:
+    symbol: "ton"
+    multiplier: 1000
+    qudt_ontology: TON_Metric
+  short_ton:
+    symbol: "t"
+    multiplier: 907.18474
+    google_ontology: tons
+    qudt_ontology: TON_SHORT
+
 mass_flow:
-  kilograms_per_second: "kg/s"
-  kilograms_per_minute: "kg/min"
-  kilograms_per_hour: "kg/h"
-  pounds_per_minute: "lb/min"
-  pounds_per_hour: "lb/h"
-  pounds_per_second: "lb/s"
-  kilopounds_per_hour: "klb/h"
-  grams_per_second: "g/s"
-  grams_per_minute: "g/min"
-  metric_tons_per_hour: "ton/h"
+  kilograms_per_second:
+    symbol: "kg/s"
+    is_standard: true
+    google_ontology: kilograms_per_second
+    qudt_ontology: KiloGM-PER-SEC
+  kilograms_per_minute:
+    symbol: "kg/min"
+    multiplier: 0.01666667
+    google_ontology: kilograms_per_minute
+    qudt_ontology: KiloGM-PER-MIN
+  kilograms_per_hour:
+    symbol: "kg/h"
+    multiplier: 0.000277777778
+    google_ontology: kilograms_per_hour
+    qudt_ontology: KiloGM-PER-HR
+  pounds_per_minute:
+    symbol: "lb/min"
+    multiplier: 0.007559872833333333
+    google_ontology: pounds_mass_per_minute
+    qudt_ontology: LB-PER-MIN
+  pounds_per_hour:
+    symbol: "lb/h"
+    multiplier: 0.00012599788055555556
+    qudt_ontology: LB-PER-HR
+  pounds_per_second:
+    symbol: "lb/s"
+    multiplier: 0.4535924
+    google_ontology: pounds_mass_per_hour
+    qudt_ontology: LB-PER-SEC
+  kilopounds_per_hour:
+    symbol: "klb/h"
+    multiplier: 453.5924
+  grams_per_second:
+    symbol: "g/s"
+    multiplier: 0.001
+    google_ontology: grams_per_second
+    qudt_ontology: GM-PER-SEC
+  grams_per_minute:
+    symbol: "g/min"
+    multiplier: 0.00001666667
+    google_ontology: grams_per_minute
+    qudt_ontology: GM-PER-MIN
+  metric_tons_per_hour:
+    symbol: "ton/h"
+    multiplier: 0.277777777777778
+    qudt_ontology: TON_Metric-PER-HR
+
 momentum:
-  newton_second: "Ns"
+  newton_second:
+    symbol: "Ns"
+    google_ontology: newton_seconds
+    qudt_ontology: N-SEC
+
+obscuration:
+  percent_obscuration_per_meter: 
+    symbol: "%obsc/m"
+    is_standard: true
+    google_ontology: percent_obscuration_per_meter
+  percent_obscuration_per_foot:
+    symbol: "%obsc/ft"
+    multiplier: 0.3048
+    google_ontology: percent_obscuration_per_foot
+
 power:
-  watt: "W"
-  milliwatt: "mW"
-  kilowatt: "kW"
-  megawatt: "MW"
-  gigawatt: "GW"
-  btus_per_hour: "BTU/h"
-  therms_per_hour: "therm/h"
-  horsepower: "hp"
-  foot_pounds_per_second: "ftlbs/sec"
-  tons_refrigeration: "tonref"
-  kilobtus_per_hour: "kBTU/h"
-  megabtus_per_hour: "MBTU/h"
-  joules_per_hour: "J/h"
-  kilojoules_per_hour: "kJ/h"
-  megajoules_per_hour: "MJ/h"
-  gigajoules_per_hour: "GJ/h"
+  watt:
+    symbol: "W"
+    is_standard: true
+    google_ontology: watts
+    qudt_ontology: W
+  milliwatt:
+    symbol: "mW"
+    multiplier: 0.001
+    google_ontology: milliwatts
+    qudt_ontology: MilliW
+  kilowatt:
+    symbol: "kW"
+    multiplier: 1000
+    google_ontology: kilowatts
+    qudt_ontology: KiloW
+  megawatt:
+    symbol: "MW"
+    multiplier: 1000000
+    google_ontology: megawatts
+    qudt_ontology: MegaW
+  gigawatt:
+    symbol: "GW"
+    multiplier: 1000000000
+    qudt_ontology: GigaW
+  btus_per_hour:
+    symbol: "BTU/h"
+    multiplier: 0.29307107
+    google_ontology: btus_per_hour
+    qudt_ontology: BTU_IT-PER-HR
+  therms_per_hour:
+    symbol: "therm/h"
+    multiplier: 29300.1111
+    google_ontology: therms_per_hour
+    qudt_ontology: THM_US-PER-HR
+  horsepower:
+    symbol: "hp"
+    multiplier: 745.699872
+    google_ontology: horsepower
+    qudt_ontology: HP
+  foot_pounds_per_second:
+    symbol: "ftlbs/sec"
+    multiplier: 1.3558179483314
+    qudt_ontology: FT-LB_F-PER-SEC
+  tons_refrigeration:
+    symbol: "tonref"
+    multiplier: 3516.85
+    qudt_ontology: TON_FG
+  kilobtus_per_hour:
+    symbol: "kBTU/h"
+    multiplier: 293.07107
+    qudt_ontology: KiloBTU_IT-PER-HR
+  megabtus_per_hour:
+    symbol: "MBTU/h"
+    multiplier: 293071.07
+    qudt_ontology: MegaBTU_IT-PER-HR
+  joules_per_hour:
+    symbol: "J/h"
+    multiplier: 0.0002777778
+    qudt_ontology: J-PER-HR
+  kilojoules_per_hour:
+    symbol: "kJ/h"
+    multiplier: 0.2777777778
+  megajoules_per_hour:
+    symbol: "MJ/h"
+    multiplier: 277.777778
+    qudt_ontology: MegaJ-PER-HR
+  gigajoules_per_hour:
+    symbol: "GJ/h"
+    multiplier: 277777.778
+    qudt_ontology: GigaJ-PER-HR
+
 power_by_area:
-  watts_per_square_meter: "W/m²"
-  watts_per_square_foot: "W/ft²"
-  kilowatts_per_square_meter: "kW/m²"
-  kilowatts_per_square_foot: "kW/ft²"
-  kilobtus_per_hour_per_square_foot: "kBTU/h/ft²"
+  watts_per_square_meter:
+    symbol: "W/m²"
+    is_standard: true
+    google_ontology: watts_per_square_meter
+    qudt_ontology: W-PER-M2
+  watts_per_square_foot:
+    symbol: "W/ft²"
+    multiplier: 10.7639104
+    google_ontology: watts_per_square_foot
+    qudt_ontology: W-PER-FT2
+  kilowatts_per_square_meter:
+    symbol: "kW/m²"
+    multiplier: 1000
+  kilowatts_per_square_foot:
+    symbol: "kW/ft²"
+    multiplier: 10763.9104
+  kilobtus_per_hour_per_square_foot:
+    symbol: "kBTU/h/ft²"
+    multiplier: 3156.572
+
 power_by_volumetric_flow:
-  watts_per_cubic_meters_per_second: "W/m³/s"
-  watts_per_cubic_feet_per_minute: "W/cfm"
-  kilowatts_per_kilocubic_feet_per_minute: "kW/kcfm"
-  kilowatts_per_gallons_per_minute: "kW/gal/min"
+  watts_per_cubic_meters_per_second:
+    symbol: "W/m³/s"
+  watts_per_cubic_feet_per_minute:
+    symbol: "W/cfm"
+  kilowatts_per_kilocubic_feet_per_minute:
+    symbol: "kW/kcfm"
+  kilowatts_per_gallons_per_minute:
+    symbol: "kW/gal/min"
+
 apparent_power:
-  volt_ampere: "VA"
-  kilovolt_ampere: "kVA"
-  megavolt_ampere: "mVA"
+  volt_ampere:
+    symbol: "VA"
+    is_standard: true
+    google_ontology: volt_amperes_apparent
+    qudt_ontology: V-A
+  kilovolt_ampere:
+    symbol: "kVA"
+    multiplier: 1000
+    google_ontology: kilovolt_amperes_apparent
+    qudt_ontology: KiloV-A
+  megavolt_ampere:
+    symbol: "mVA"
+    multiplier: 1000000
+    google_ontology: megavolt_amperes_apparent
+    qudt_ontology: MegaV-A
+
 reactive_power:
-  volt_ampere_reactive: "VAR"
-  kilovolt_ampere_reactive: "kVAR"
-  megavolt_ampere_reactive: "MVAR"
+  volt_ampere_reactive:
+    symbol: "VAR"
+    is_standard: true
+    google_ontology: volt_amperes_reactive
+    qudt_ontology: V-A_Reactive
+  kilovolt_ampere_reactive:
+    symbol: "kVAR"
+    multiplier: 1000
+    google_ontology: kilovolt_amperes_reactive
+    qudt_ontology: KiloV-A_Reactive
+  megavolt_ampere_reactive:
+    symbol: "MVAR"
+    multiplier: 1000000
+    google_ontology: megavolt_amperes_reactive
+    qudt_ontology: MegaV-A_Reactive
+
 pressure:
-  pascal: "Pa"
-  kilopascal: "kPa"
-  bar: "bar"
-  atmosphere: "atm"
-  pounds_per_square_inch: "psi"
-  centimeters_of_water: "cmH₂O"
-  inches_of_water: "inH₂O"
-  millimeters_of_mercury: "mmHg"
-  centimeters_of_mercury: "cmHg"
-  inches_of_mercury: "inHg"
-  hectopascal: "hPa"
-  millibar: "mbar"
+  pascal:
+    symbol: "Pa"
+    is_standard: true
+    google_ontology: pascals
+    qudt_ontology: PA
+  kilopascal:
+    symbol: "kPa"
+    multiplier: 1000
+    google_ontology: kilopascals
+    qudt_ontology: KiloPA
+  bar:
+    symbol: "bar"
+    multiplier: 100000
+    google_ontology: bars
+    qudt_ontology: BAR
+  atmosphere:
+    symbol: "atm"
+    multiplier: 101325
+    google_ontology: atmospheres
+    qudt_ontology: ATM
+  pounds_per_square_inch:
+    symbol: "psi"
+    multiplier: 6894.75789
+    google_ontology: pounds_force_per_square_inch
+    qudt_ontology: PSI
+  centimeters_of_water:
+    symbol: "cmH₂O"
+    multiplier: 98.0665
+    google_ontology: centimeters_of_water
+    qudt_ontology: CentiM_H2O
+  inches_of_water:
+    symbol: "inH₂O"
+    multiplier: 249.080024
+    google_ontology: inches_of_water
+    qudt_ontology: IN_H2O
+  millimeters_of_mercury:
+    symbol: "mmHg"
+    multiplier: 133.322
+    google_ontology: millimeters_of_mercury
+    qudt_ontology: MilliM_HG
+  centimeters_of_mercury:
+    symbol: "cmHg"
+    multiplier: 1333.22365
+    google_ontology: centimeters_of_mercury
+    qudt_ontology: CentiM_HG
+  inches_of_mercury:
+    symbol: "inHg"
+    multiplier: 3386.39
+    google_ontology: inches_of_mercury
+    qudt_ontology: IN_HG
+  hectopascal:
+    symbol: "hPa"
+    multiplier: 0.01
+    google_ontology: hectopascals
+    qudt_ontology: HectoPA
+  millibar:
+    symbol: "mbar"
+    multiplier: 100
+    google_ontology: millibar
+    qudt_ontology: MilliBAR
+
+signal_strength: 
+  db_millivolt_per_meter:
+    symbol: "dBmV/m"  
+  db_microvolt_per_meter:
+    symbol: "dBµV/m" 
+  db_milliwatt: 
+    symbol: dBm
+    description: A unit of level used to indicate that a power level is expressed in decibels (dB) with reference to one milliwatt (mW)
+    qudt_ontology: DeciB_M
+
+solid_angle:
+  steradian:
+    symbol: "sr"
+    qudt_ontology: SR
+
+sound_level:
+  decibel:
+    symbol: "db"
+    qudt_ontology: DeciB
+
 specific_entropy:
-  joules_per_kilogram_degree_kelvin: "J/kg°K"
+  joules_per_kilogram_degree_kelvin:
+    symbol: "J/kg°K"
+    google_ontology: joules_per_kilogram_kelvin
+    qudt_ontology: J-PER-KiloGM-K
+
 surface_tension:
-  newtons_per_meter: "N/m"
+  newtons_per_meter:
+    symbol: "N/m"
+
 temperature:
-  fahrenheit: "°F"
-  celsius: "°C"
-  kelvin: "K"
+  fahrenheit:
+    symbol: "°F"
+    multiplier: 0.5555555555555556
+    offset: 255.37037037037038
+    google_ontology: degrees_fahrenheit
+    qudt_ontology: DEG_F
+  celsius:
+    symbol: "°C"
+    multiplier: 1
+    offset: 273.15
+    google_ontology: degrees_celsius
+    qudt_ontology: DEG_C
+  kelvin:
+    symbol: "K"
+    is_standard: true
+    google_ontology: kelvin
+    qudt_ontology: K
+
+time_temperature:
+  degree_days_kelvin:
+    symbol: "°daysK"
+    is_standard: true
+    google_ontology: "°daysC"
+  degree_days_celsius:
+    symbol: "°daysC"
+    multiplier: 1
+    offset: -273.15
+    google_ontology: "degree_days_celsius"
+  degree_days_fahrenheit:
+    symbol: "°daysF"
+    multiplier: 0.5555555556
+    offset: 255.37
+    google_ontology: "degree_days_fahrenheit"
+
 temperature_differential:
-  fahrenheit_degrees: "Δ°F"
-  celsius_degrees: "Δ°C"
-  kelvin_degrees: "ΔK"
+  fahrenheit_degrees:
+    symbol: "Δ°F"
+    multiplier: 0.5555555556
+  celsius_degrees:
+    symbol: "Δ°C"
+    multiplier: 1
+  kelvin_degrees:
+    is_standard: true
+    symbol: "ΔK"
+
 thermal_conductivity:
-  watts_per_meter_degree_kelvin: "W/m°K"
+  watts_per_meter_degree_kelvin:
+    symbol: "W/m°K"
+    qudt_ontology: W-PER-M-K
+
+thermal_transmittance:
+  watts_per_square_meter_degree_kelvin:
+    symbol: "W/m²K"
+    qudt_ontology: W-PER-M2-K
+
 time:
-  nanosecond: "ns"
-  microsecond: "µs"
-  millisecond: "ms"
-  hundredths_second: "cs"
-  tenths_second: "ds"
-  second: "sec,s"
-  minute: "min"
-  hour: "h"
-  day: "d"
-  week: "wk"
-  julian_month: "mo"
-  year: "yr"
+  nanosecond:
+    symbol: "ns"
+    multiplier: 0.000000001
+    qudt_ontology: NanoSEC
+  microsecond:
+    symbol: "µs"
+    multiplier: 0.000001
+    qudt_ontology: MicroSEC
+  millisecond:
+    symbol: "ms"
+    multiplier: 0.001
+    google_ontology: milliseconds
+    qudt_ontology: MillSEC
+  hundredths_second:
+    symbol: "cs"
+    multiplier: 0.01
+    google_ontology: hundredths_seconds
+  tenths_second:
+    symbol: "ds"
+    multiplier: 0.1
+  second:
+    symbol: "sec,s"
+    is_standard: true
+    google_ontology: seconds
+    qudt_ontology: SEC
+  minute:
+    symbol: "min"
+    multiplier: 60
+    google_ontology: minutes
+    qudt_ontology: MIN
+  hour:
+    symbol: "h"
+    multiplier: 3600
+    google_ontology: hours
+    qudt_ontology: HR
+  day:
+    symbol: "d"
+    multiplier: 84600
+    google_ontology: days
+    qudt_ontology: DAY
+  week:
+    symbol: "wk"
+    multiplier: 604800
+    google_ontology: weeks
+    qudt_ontology: WK
+  julian_month:
+    symbol: "mo"
+    multiplier: 2551442.976
+    qudt_ontology: MO
+  year:
+    symbol: "yr"
+    multiplier: 31557600
+
 velocity:
-  meters_per_second: "m/s"
-  kilometers_per_second: "km/s"
-  kilometers_per_hour: "km/h"
-  miles_per_hour: "mph"
-  feet_per_second: "ft/s"
-  feet_per_minute: "ft/min"
-  millimeters_per_second: "mm/s"
-  millimeters_per_minute: "mm/min"
-  meters_per_minute: "m/min"
-  meters_per_hour: "m/h"
-  knot: "knot"
+  meters_per_second:
+    symbol: "m/s"
+    is_standard: true
+    google_ontology: meters_per_second
+    qudt_ontology: M-PER-SEC
+  kilometers_per_second:
+    symbol: "km/s"
+    multiplier: 1000
+    qudt_ontology: KiloM-PER-SEC
+  kilometers_per_hour:
+    symbol: "km/h"
+    multiplier: 0.2777777777777778
+    google_ontology: kilometers_per_hour
+    qudt_ontology: KiloM-PER-HR
+  miles_per_hour:
+    symbol: "mph"
+    multiplier: 0.44704
+    google_ontology: miles_per_hour
+    qudt_ontology: MI-PER-HR
+  feet_per_second:
+    symbol: "ft/s"
+    multiplier: 0.3048
+    google_ontology: feet_per_second
+    qudt_ontology: FT-PER-SEC
+  feet_per_minute:
+    symbol: "ft/min"
+    multiplier: 0.00508
+    google_ontology: feet_per_minute
+    qudt_ontology: FT-PER-MIN
+  millimeters_per_second:
+    symbol: "mm/s"
+    multiplier: 0.001
+    google_ontology: millimeters_per_second
+    qudt_ontology: MilliM-PER-SEC
+  millimeters_per_minute:
+    symbol: "mm/min"
+    multiplier: 0.00001666667
+    google_ontology: millimeters_per_minute
+    qudt_ontology: MilliM-PER-MIN
+  meters_per_minute:
+    symbol: "m/min"
+    multiplier: 0.0166666667
+    google_ontology: meters_per_minute
+    qudt_ontology: M-PER-MIN
+  meters_per_hour:
+    symbol: "m/h"
+    multiplier: 0.000277777778
+    google_ontology: meters_per_hour
+    qudt_ontology: M-PER-HR
+  knot:
+    symbol: "knot"
+    multiplier: 0.5144444444444445
+    qudt_ontology: KN
+
 volume:
-  cubic_meter: "m³"
-  cubic_millimeter: "mm³"
-  cubic_centimeter: "cm³"
-  milliliter: "mL"
-  hectoliter: "hL"
-  liter: "L"
-  kiloliter: "kL"
-  cubic_inch: "in³"
-  cubic_foot: "ft³"
-  cubic_yard: "yd³"
-  gallon: "gal"
-  kilogallon: "kgal"
-  quart: "qt"
-  pint: "pt"
-  fluid_ounce: "fl_oz"
-  imperial_gallon: "galUK"
-  hecto_cubic_foot: "hft³"
+  cubic_meter:
+    symbol: "m³"
+    is_standard: true
+    google_ontology: cubic_meters
+    qudt_ontology: M3
+  cubic_millimeter:
+    symbol: "mm³"
+    multiplier: 0.000000001
+    qudt_ontology: MilliM3
+  cubic_centimeter:
+    symbol: "cm³"
+    multiplier: 0.000001
+    qudt_ontology: CentiM3
+  milliliter:
+    symbol: "mL"
+    multiplier: 0.000001
+    qudt_ontology: MilliL
+  hectoliter:
+    symbol: "hL"
+    multiplier: 0.1
+    qudt_ontology: HectoL
+  liter:
+    symbol: "L"
+    multiplier: 0.001
+    google_ontology: liters
+    qudt_ontology: L
+  kiloliter:
+    symbol: "kL"
+    multiplier: 1
+    qudt_ontology: KiloL
+  cubic_inch:
+    symbol: "in³"
+    multiplier: 0.000016387064
+    qudt_ontology: IN3
+  cubic_foot:
+    symbol: "ft³"
+    multiplier: 0.028316846592
+    google_ontology: cubic_feet
+    qudt_ontology: FT3
+  cubic_yard:
+    symbol: "yd³"
+    multiplier: 0.764554857984
+    qudt_ontology: YD3
+  gallon:
+    symbol: "gal"
+    multiplier: 0.00378541
+    google_ontology: us_gallons
+    qudt_ontology: GAL_US
+  kilogallon:
+    symbol: "kgal"
+    multiplier: 3.78541
+  quart:
+    symbol: "qt"
+    multiplier: 0.000946353
+    qudt_ontology: QT_US
+  pint:
+    symbol: "pt"
+    multiplier: 0.00056826125
+    qudt_ontology: PINT
+  fluid_ounce:
+    symbol: "fl_oz"
+    multiplier: 0.0000295735
+  imperial_gallon:
+    symbol: "galUK"
+    multiplier: 0.00454609
+    google_ontology: imperial_gallons
+    qudt_ontology: GAL_UK
+  hecto_cubic_foot:
+    symbol: "hft³"
+    multiplier: 2.8316846592
+
 volumetric_flow:
-  cubic_meters_per_second: "m³/s"
-  milliliters_per_second: "mL/s"
-  hectoliters_per_second: "hL/s"
-  liters_per_second: "L/s"
-  cubic_feet_per_second: "cfs"
-  cubic_feet_per_minute: "cfm"
-  cubic_feet_per_hour: "cfh"
-  kilocubic_feet_per_minute: "kcfm"
-  imperial_gallons_per_minute: "galUK/min"
-  liters_per_minute: "L/min"
-  gallons_per_minute: "gal/min"
-  gallons_per_hour: "gal/h"
-  liters_per_hour: "L/h"
-  cubic_meters_per_minute: "m³/min"
-  cubic_meters_per_hour: "m³/h"
+  cubic_meters_per_second:
+    symbol: "m³/s"
+    is_standard: true
+    google_ontology: cubic_meters_per_second
+    qudt_ontology: M3-PER-SEC
+  milliliters_per_second:
+    symbol: "mL/s"
+    multiplier: 0.000001
+    qudt_ontology: MilliL-PER-SEC
+  hectoliters_per_second:
+    symbol: "hL/s"
+    multiplier: 0.1
+  liters_per_second:
+    symbol: "L/s"
+    multiplier: 0.001
+    google_ontology: liters_per_second
+    qudt_ontology: L-PER-SEC
+  cubic_feet_per_second:
+    symbol: "cfs"
+    multiplier: 0.028316846592
+    google_ontology: cubic_feet_per_second
+    qudt_ontology: FT3-PER-SEC
+  cubic_feet_per_minute:
+    symbol: "cfm"
+    multiplier: 0.0004719474432000001
+    google_ontology: cubic_feet_per_minute
+    qudt_ontology: FT3-PER-MIN
+  cubic_feet_per_hour:
+    symbol: "cfh"
+    multiplier: 0.000007865792
+    google_ontology: cubic_feet_per_hour
+    qudt_ontology: FT3-PER-HR
+  kilocubic_feet_per_minute:
+    symbol: "kcfm"
+    multiplier: 0.016666666666666666
+  imperial_gallons_per_minute:
+    symbol: "galUK/min"
+    multiplier: 0.000075768166666667
+    google_ontology: imperial_gallons_per_minute
+    qudt_ontology: GAL_UK-PER-MIN
+  liters_per_minute:
+    symbol: "L/min"
+    multiplier: 0.000016666666666667
+    google_ontology: liters_per_minute
+    qudt_ontology: L-PER-MIN
+  gallons_per_minute:
+    symbol: "gal/min"
+    multiplier: 0.0000630901964
+    google_ontology: gallons_per_minute
+    qudt_ontology: GAL_US-PER-MIN
+  gallons_per_hour:
+    symbol: "gal/h"
+    multiplier: 951019
+    qudt_ontology: GAL_US-PER-HR
+  liters_per_hour:
+    symbol: "L/h"
+    multiplier: 0.000000277777777778
+    google_ontology: liters_per_hour
+    qudt_ontology: L-PER-HR
+  cubic_meters_per_minute:
+    symbol: "m³/min"
+    multiplier: 0.016666666666666667
+    google_ontology: cubic_meters_per_minute
+    qudt_ontology: M3-PER-MIN
+  cubic_meters_per_hour:
+    symbol: "m³/h"
+    multiplier: 0.000277777777777778
+    google_ontology: cubic_meters_per_hour
+    qudt_ontology: M3-PER-HR
+
 bytes:
-  byte: "B"
-  kilobyte: "kB"
-  megabyte: "MB"
-  gigabyte: "GB"
-  terabyte: "TB"
-  petabyte: "PB"
+  byte:
+    symbol: "B"
+  kilobyte:
+    symbol: "kB"
+  megabyte:
+    symbol: "MB"
+  gigabyte:
+    symbol: "GB"
+  terabyte:
+    symbol: "TB"
+  petabyte:
+    symbol: "PB"
+
+# Currency is uniquely identified by its ISO 4217 alphanumeric code
 currency:
-  afghani: "AFN"
-  algerian_dinar: "DZD"
-  argentine_peso: "ARS"
-  armenian_dram: "AMD"
-  aruban_guilder_florin: "AWG"
-  australian_dollar: "AUD"
-  azerbaijanian_manat: "AZN"
-  bahamian_dollar: "BSD"
-  bahraini_dinar: "BHD"
-  baht: "THB"
-  balboa: "PAB"
-  barbados_dollar: "BBD"
-  belarussian_ruble: "BYR"
-  belize_dollar: "BZD"
-  bermudian_dollar: "BMD"
-  bolivar_fuerte: "VEF"
-  boliviano: "BOB"
-  brazilian_real: "BRL"
-  brunei_dollar: "BND"
-  bulgarian_lev: "BGN"
-  burundi_franc: "BIF"
-  canadian_dollar: "CAD"
-  cape_verde_escudo: "CVE"
-  cayman_islands_dollar: "KYD"
-  cedi: "GHS"
-  cfa_franc_bceao: "XAF"
-  cfp_franc: "XPF"
-  chilean_peso: "CLP"
-  chinese_yuan: "CNY"
-  congolese_franc: "CDF"
-  cordoba_oro: "NIO"
-  costa_rican_colon: "CRC"
-  croatian_kuna: "HRK"
-  cuban_peso: "CUP"
-  czech_koruna: "CZK"
-  dalasi: "GMD"
-  danish_krone: "DKK"
-  denar: "MKD"
-  djibouti_franc: "DJF"
-  dobra: "STD"
-  dominican_peso: "DOP"
-  dong: "VND"
-  east_caribbean_dollar: "XCD"
-  egyptian_pound: "EGP"
-  ethiopian_birr: "ETB"
-  euro: "EUR"
-  falkland_islands_pound: "FKP"
-  fiji_dollar: "FJD"
-  forint: "HUF"
-  gibraltar_pound: "GIP"
-  gourde: "HTG"
-  guarani: "PYG"
-  guinea_franc: "GNF"
-  guyana_dollar: "GYD"
-  hong_kong_dollar: "HKD"
-  hryvnia: "UAH"
-  iceland_krona: "ISK"
-  indian_rupee: "INR"
-  iranian_rial: "IRR"
-  iraqi_dinar: "IQD"
-  jamaican_dollar: "JMD"
-  jordanian_dinar: "JOD"
-  kenyan_shilling: "KES"
-  kina: "PGK"
-  kip: "LAK"
-  konvertibilna_marka: "BAM"
-  kuwaiti_dinar: "KWD"
-  kwacha: "MWK"
-  kwanza: "AOA"
-  kyat: "MMK"
-  lari: "GEL"
-  lebanese_pound: "LBP"
-  lek: "ALL"
-  lempira: "HNL"
-  leone: "SLL"
-  leu: "RON"
-  liberian_dollar: "LRD"
-  libyan_dinar: "LYD"
-  lilangeni: "SZL"
-  loti: "LSL"
-  malagasy_ariary: "MGA"
-  malaysian_ringgit: "MYR"
-  manat: "TMT"
-  mauritius_rupee: "MUR"
-  metical: "MZN"
-  mexican_peso: "MXN"
-  moldavian_leu: "MDL"
-  moroccan_dirham: "MAD"
-  naira: "NGN"
-  nakfa: "ERN"
-  namibia_dollar: "NAD"
-  nepalese_rupee: "NPR"
-  new_israeli_shekel: "ILS"
-  new_zealand_dollar: "NZD"
-  ngultrum: "BTN"
-  north_korean_won: "KPW"
-  norwegian_krone: "NOK"
-  nuevo_sol: "PEN"
-  ouguiya: "MRO"
-  pakistan_rupee: "PKR"
-  pataca: "MOP"
-  peso_uruguayo: "UYU"
-  philippine_peso: "PHP"
-  pound_sterling: "£"
-  pula: "BWP"
-  pzloty: "PLN"
-  qatari_rial: "QAR"
-  quetzal: "GTQ"
-  rand: "ZAR"
-  rial_omani: "OMR"
-  riel: "KHR"
-  rufiyaa: "MVR"
-  rupiah: "IDR"
-  russian_ruble: "RUB"
-  rwanda_franc: "RWF"
-  saint_helena_pound: "SHP"
-  saudi_riyal: "SAR"
-  serbian_dinar: "RSD"
-  seychelles_rupee: "SCR"
-  singapore_dollar: "SGD"
-  solomon_islands_dollar: "SBD"
-  som: "KGS"
-  somali_shilling: "SOS"
-  somoni: "TJS"
-  south_korean_won: "KRW"
-  sri_lanka_rupee: "LKR"
-  sudanese_pound: "SDG"
-  suriname_dollar: "SRD"
-  swedish_krona: "SEK"
-  swiss_franc: "CHF"
-  syrian_pound: "SYP"
-  taiwan_dollar: "TWD"
-  taka: "BDT"
-  tala: "WST"
-  tanzanian_shilling: "TZS"
-  tenge: "KZT"
-  trinidad_and_tobago_dollar: "TTD"
-  tugrik: "MNT"
-  tunisian_dinar: "TND"
-  turkish_lira: "TRY"
-  uae_dirham: "AED"
-  uganda_shilling: "UGX"
-  us_dollar: "$"
-  uzbekistan_sum: "UZS"
-  vatu: "VUV"
-  yemeni_rial: "YER"
-  yen: "¥"
-  zambian_kwacha: "ZMW"
-  zimbabwe_dollar: "ZWL"
-
-
+  AFN:
+    name: Afghani
+    symbol: "Af"
+  DZD:
+    name: Algerian Dinar
+    symbol: "DZD"
+  ARS: 
+    name: Argentine Peso
+    symbol: "ARS"
+  AMD: 
+    name: Armenian Dram
+    symbol: "Դ"
+  AWG:
+    name: Aruban Florin
+    symbol: "ƒ"
+  AUD:
+    name: Australian Dollar
+    symbol: "AU$"
+    haystack_symbol: "AUD"
+  AZN:
+    name: Azerbaijan Manat
+    symbol: "ман"
+  BSD:
+    name: Bahamian Dollar
+    symbol: "BSD"
+  BHD:
+    name: Bahraini Dinar
+    symbol: "BHD"
+  THB:
+    name: Baht
+    symbol: "฿"
+  PAB:
+    name: Balboa
+    symbol: "PAB"
+  BBD:
+    name: Barbados Dollar
+    symbol: "BBD"
+  BYN:
+    name: Belarusian Ruble
+    symbol: "Br"
+  BZD:
+    name: Belize Dollar
+    symbol: "BZD"
+  BMD:
+    name: Bermudian Dollar
+    symbol: "BMD"
+  BOB:
+    name: Boliviano
+    symbol: "BOB"
+  BRL:
+    name: Brazilian Real
+    symbol: "R$"
+  BND:
+    name: Brunei Dollar
+    symbol: "BND"
+  BGN:
+    name: Bulgarian Lev
+    symbol: "лв"
+  BIF: 
+    name: Burundi Franc
+    symbol: "BIF"
+  CAD:
+    name: Canadian Dollar
+    symbol: "CA$"
+    haystack_symbol: "CAD"
+  CVE:
+    name: Cabo Verde Escudo
+    symbol: "CVE"
+  KYD:
+    name: Cayman Islands Dollar
+    symbol: "KYD"
+  GHS:
+    name: Ghana Cedi
+    symbol: "₵"
+  XAF:
+    name: CFA Franc BEAC
+    symbol: "XAF"
+  XPF:
+    name: CFP Franc
+    symbol: "XPF"
+  CLP:
+    name: Chilean Peso
+    symbol: "CLP"
+  CNY:
+    name: Yuan Renminbi
+    symbol: "元"
+  CDF:
+    name: Congolese Franc
+    symbol: "CDF"
+  NIO:
+    name: Cordoba Oro
+    symbol: "C$"
+  CRC:
+    name: Costa Rican Colon
+    symbol: "₡"
+  CUP:
+    name: Cuban Peso
+    symbol: "CUP"
+  CZK:
+    name: Czech Koruna
+    symbol: "Kč"
+  GMD:
+    name: Dalasi
+    symbol: "GMD"
+  DKK:
+    name: Danish Krone
+    symbol: "kr"
+  MKD:
+    name: Denar
+    symbol: "ден"
+  DJF:
+    name: Djibouti Franc
+    symbol: "DJF"
+  STN:
+    name: Dobra
+    symbol: "Db"
+  DOP:
+    name: Dominican Peso
+    symbol: "DOP"
+  VND:
+    name: Dong
+    symbol: "₫"
+  XCD:
+    name: East Caribbean Dollar
+    symbol: "XCD"
+  EGP:
+    name: Egyptian Pound
+    symbol: "EGP"
+  ETB:
+    name: Ethiopian Birr
+    symbol: "ETB"
+  EUR:
+    name: Euro
+    symbol: "€"
+  FKP:
+    name: Falkland Islands Pound
+    symbol: "FKP"
+  FJD:
+    name: Fiji Dollar
+    symbol: "FJD"
+  HUF:
+    name: Forint
+    symbol: "HUF"
+  GIP:
+    name: Gibraltar Pound
+    symbol: "GIP"
+  HTG:
+    name: Gourde
+    symbol: "HTG"
+  PYG:
+    name: Guarani
+    symbol: "₲"
+  GNF:
+    name: Guinean Franc
+    symbol: "GNF"
+  GYD:
+    name: Guyana Dollar
+    symbol: "GYD"
+  HKD:
+    name: Hong Kong Dollar
+    symbol: "HKD"
+  UAH:
+    name: Hryvnia
+    symbol: "₴"
+  ISK:
+    name: Iceland Krona
+    symbol: "Kr"
+  INR:
+    name: Indian Rupee
+    symbol: "₹"
+  IRR:
+    name: Iranian Rial
+    symbol: "IRR"
+  IQD:
+    name: Iraqi Dinar
+    symbol: "IQD"
+  JMD:
+    name: Jamaican Dollar
+    symbol: "JMD"
+  JOD:
+    name: Jordanian Dinar
+    symbol: "JOD"
+  KES:
+    name: Kenyan Shilling
+    symbol: "Sh"
+  PGK:
+    name: Kina
+    symbol: "PGK"
+  LAK:
+    name: Lao Kip
+    symbol: "₭"
+  BAM:
+    name: Convertible Mark
+    symbol: "KM"
+  KWD:
+    name: Kuwaiti Dinar
+    symbol: "KWD"
+  MWK:
+    name: Malawi Kwacha
+    symbol: "MK"
+  AOA:
+    name: Kwanza
+    symbol: "Kz"
+  MMK:
+    name: Kyat
+    symbol: "MMK"
+  GEL:
+    name: Lari
+    symbol: "ლ"
+  LBP:
+    name: Lebanese Pound
+    symbol: "LBP"
+  ALL:
+    name: Lek
+    symbol: "ALL"
+  HNL:
+    name: Lempira
+    symbol: "HNL"
+  SLL:
+    name: Leone
+    symbol: "Le"
+  RON:
+    name: Romanian Leu
+    symbol: "RON"
+  LRD:
+    name: Liberian Dollar
+    symbol: "LRD"
+  LYD:
+    name: Libyan Dinar
+    symbol: "LYD"
+  SZL:
+    name: Lilangeni
+    symbol: "SZL"
+  LSL:
+    name: Loti
+    symbol: "LSL"
+  MGA:
+    name: Malagasy Ariary
+    symbol: "MGA"
+  MYR:
+    name: Malaysian Ringgit
+    symbol: "RM"
+  TMT:
+    name: Turkmenistan New Manat
+    symbol: "TMT"
+  MUR:
+    name: Mauritius Rupee
+    symbol: "MUR"
+  MZN:
+    name: Mozambique Metical
+    symbol: "MTn"
+  MXN:
+    name: Mexican Peso
+    symbol: "MXN"
+  MDL:
+    name: Moldovan Leu
+    symbol: "MDL"
+  MAD:
+    name: Moroccan Dirham
+    symbol: "MAD"
+  NGN:
+    name: Naira
+    symbol: "₦"
+  ERN:
+    name: Nakfa
+    symbol: "Nfk"
+  NAD:
+    name: Namibia Dollar
+    symbol: "NAD"
+  NPR:
+    name: Nepalese Rupee
+    symbol: "NPR"
+  ILS:
+    name: New Israeli Sheqel
+    symbol: "₪"
+  NZD:
+    name: New Zealand Dollar
+    symbol: "NZ$"
+    haystack_symbol: "NZD"
+  BTN:
+    name: Ngultrum
+    symbol: "BTN"
+  KPW:
+    name: North Korean Won
+    symbol: "KPW"
+  NOK:
+    nam: Norwegian Krone
+    symbol: "NOK"
+  PEN:
+    name: Sol
+    symbol: "PEN"
+  MRU:
+    name: Ouguiya
+    symbol: "UM"
+  PKR:
+    name: Pakistan Rupee
+    symbol: "₨"
+  MOP:
+    name: Pataca
+    symbol: "MOP"
+  UYU:
+    name: Peso Uruguayo
+    symbol: "UYU"
+  PHP:
+    name: Philippine Peso
+    symbol: "₱"
+  GBP:
+    name: Pound Sterling
+    symbol: "£"
+  BWP:
+    name: Pula
+    symbol: "BWP"
+  PLN:
+    name: Zloty
+    symbol: "zł"
+  QAR:
+    name: Qatari Rial
+    symbol: "QAR"
+  GTQ:
+    name: Quetzal
+    symbol: "GTQ"
+  ZAR:
+    name: Rand
+    symbol: "ZAR"
+  OMR:
+    name: Rial Omani
+    symbol: "OMR"
+  KHR:
+    name: Riel
+    symbol: "KHR"
+  MVR:
+    name: Rufiyaa
+    symbol: "MVR"
+  IDR:
+    name: Rupiah
+    symbol: "Rp"
+  RUB:
+    name: Russian Ruble
+    symbol: "RUB"
+  RWF:
+    name: Rwanda Franc
+    symbol: "RWF"
+  SHP:
+    name: Saint Helena Pound
+    symbol: "SHP"
+  SAR:
+    name: Saudi Riyal
+    symbol: "SAR"
+  RSD:
+    name: Serbian Dinar
+    symbol: "din"
+  SCR:
+    name: Seychelles Rupee
+    symbol: "SCR"
+  SGD:
+    name: Singapore Dollar
+    symbol: "SGD"
+  SBD:
+    name: Solomon Islands Dollar
+    symbol: "SBD"
+  KGS:
+    name: Som
+    symbol: "KGS"
+  SOS:
+    name: Somali Shilling
+    symbol: "SOS"
+  TJS:
+    name: Somoni
+    symbol: "SM"
+  KRW:
+    name: Won
+    symbol: "₩"
+  LKR:
+    name: Sri Lanka Rupee
+    symbol: "Rs"
+  SDG:
+    name: Sudanese Pound
+    symbol: "SDG"
+  SRD:
+    name: Surinam Dollar
+    symbol: "SRD"
+  SEK:
+    name: Swedish Krona
+    symbol: "SEK"
+  CHF:
+    name: Swiss Franc
+    symbol: "SFr"
+  SYP:
+    name: Syrian Pound
+    symbol: "SYP"
+  TWD:
+    name: New Taiwan Dollar
+    symbol: "TWD"
+  BDT:
+    name: Taka
+    symbol: "৳"
+  WST:
+    name: Tala
+    symbol: "WST"
+  TZS:
+    name: Tanzanian Shilling
+    symbol: "TZS"
+  KZT:
+    name: Tenge
+    symbol: "〒"
+  TTD:
+    name: Trinidad and Tobago Dollar
+    symbol: "TTD"
+  MNT:
+    name: Tugrik
+    symbol: "₮"
+  TND:
+    name: Tunisian Dinar
+    symbol: "TND"
+  TRY:
+    name: Turkish Lira
+    symbol: "₤"
+  AED:
+    name: UAE Dirham
+    symbol: "AED"
+  UGX:
+    name: Uganda Shilling
+    symbol: "UGX"
+  USD:
+    name: US Dollar
+    symbol: "$"
+  UZS:
+    name: Uzbekistan Sum
+    symbol: "UZS"
+  VUV:
+    name: Vatu
+    symbol: "Vt"
+  YER:
+    name: Yemeni Rial
+    symbol: "YER"
+  JPY:
+    name: Yen
+    symbol: "¥"
+  ZMW:
+    name: Zambian Kwacha
+    symbol: "ZK"
+  ZWL:
+    name: Zimbabwe Dollar
+    symbol: "ZWL"

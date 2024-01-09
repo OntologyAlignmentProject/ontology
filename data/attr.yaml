@@ -124,7 +124,6 @@ ratedOccupancy:
       - rated
     identification:
       - kind: Number
-  unit_type: dimesionless
 
 designOccupancy: 
   name: Design Occupancy
@@ -137,7 +136,6 @@ designOccupancy:
       - design
     identification:
       - kind: Number
-  unit_type: dimesionless
 
 ###Electrical ###
 ratedCurrent:

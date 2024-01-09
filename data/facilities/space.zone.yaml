@@ -87,7 +87,6 @@ LTGZONE:
     - LTLVLCMD
     - LTCMD
     - LTLVL
-    - LTLVLSP
     - LTST
     - ENLDSH
     - RLPWR
@@ -99,6 +98,7 @@ LTGZONE:
     - LTSC
     - OCLTLVLSP
     - UOCLTLVLSP
+    - ZOVCMD
 OCCZONE:
   name: Occupancy Zone
   description: Related to spaces from a system perspective

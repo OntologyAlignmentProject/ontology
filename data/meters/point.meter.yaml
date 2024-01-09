@@ -1,5 +1,5 @@
 STMASS:
-  name:  Steam Mass
+  name: Steam Mass
   haystack:
     type:
       - steam
@@ -8,12 +8,12 @@ STMASS:
       - point
     identification:
       - kind: Number
-      - unit_type: mass
     reference:
       - deviceRef
       - equipRef
+  unit_type: mass
 STVOL:
-  name:  Steam Volume
+  name: Steam Volume
   haystack:
     type:
       - steam
@@ -22,12 +22,12 @@ STVOL:
       - point
     identification:
       - kind: Number
-      - unit_type: volume
     reference:
       - deviceRef
-      - equipRef      
+      - equipRef     
+  unit_type: volume
 STFLOW:
-  name:  Steam Flow Rate
+  name: Steam Flow Rate
   description: Volumetric flow rate of steam
   haystack:
     type:
@@ -37,12 +37,19 @@ STFLOW:
       - point
     identification:
       - kind: Number
-      - unit_type: volumetric_flow
     reference:
       - deviceRef
-      - equipRef       
+      - equipRef    
+  units:
+    - cubic_meters_per_second
+    - cubic_feet_per_second
+    - cubic_feet_per_minute
+    - cubic_feet_per_hour
+    - kilocubic_feet_per_minute
+    - cubic_meters_per_minute
+    - cubic_meters_per_hour
 STMFLOW:
-  name:  Steam Mass Flow Rate
+  name: Steam Mass Flow Rate
   description: Mass flow rate of steam
   haystack:
     type:
@@ -52,58 +59,45 @@ STMFLOW:
       - point
     identification:
       - kind: Number
-      - unit_type: mass_flow
     reference:
       - deviceRef
       - equipRef           
-
+  unit_type: mass_flow
 STCNMASS:
-  name:  Steam Condensate Mass
+  name: Steam Condensate Mass
   extends: STMASS
   haystack:
     type:
       - condensate
-    identification:
-      - kind: Number
-      - unit_type: mass
     reference:
       - deviceRef
       - equipRef
 STCNVOL:
-  name:  Steam Condensate Volume
+  name: Steam Condensate Volume
   extends: STVOL
   haystack:
     type:
       - condensate
-    identification:
-      - kind: Number
-      - unit_type: volume
     reference:
       - deviceRef
       - equipRef      
 STCNFLOW:
-  name:  Steam Condensate Flow Rate
+  name: Steam Condensate Flow Rate
   description: Volumetric flow rate of steam
   extends: STFLOW
   haystack:
     type:
       - condensate
-    identification:
-      - kind: Number
-      - unit_type: volumetric_flow
     reference:
       - deviceRef
       - equipRef       
 STCNMFLOW:
-  name:  Steam Condensate Mass Flow Rate
+  name: Steam Condensate Mass Flow Rate
   description: Mass flow rate of steam
   extends: STMFLOW
   haystack:
     type:
       - condensate
-    identification:
-      - kind: Number
-      - unit_type: mass_flow
     reference:
       - deviceRef
       - equipRef         
@@ -218,6 +212,7 @@ DMPWRSP:
       - kind: Number
     reference:
       - equipRef            
+  unit_type: power
 ADMEN:
   name: Automated Demand Management Enable
   short_name: Demand Management Enabled
@@ -230,7 +225,6 @@ ADMEN:
       - kind: Bool
     reference:
       - equipRef
-     
 ADREN:
   name: Demand Response Enable
   short_name: DR Enabled

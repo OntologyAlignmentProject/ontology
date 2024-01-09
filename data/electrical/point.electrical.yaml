@@ -62,10 +62,10 @@ ACI:
           <INTEGER>  : ACI-1, ACI-2, etc."
       - dis: "AC Current or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Current-1, AC Current-2, etc."
-      - unit: Electric Current
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_current
 
 ACIA:
   name: AC Current Phase A
@@ -87,13 +87,13 @@ ACIA:
           <INTEGER>  : ACIA-1, ACIA-2, etc."
       - dis: "AC Current Phase A or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Current Phase A-1, AC Current Phase A-2, etc."
-      - unit: Electric Current
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_current
 
 ACIAVG:
-  name: Average AC Current
+  name: AC Current Average
   description: Any averaging single or multi-phase AC current reading
   extends: POINT_GEN_PWR
   google_ontology: average_line_current_sensor
@@ -114,10 +114,10 @@ ACIAVG:
           <INTEGER>  : ACIAVG-1, ACIAVG-2, etc."
       - dis: "Average AC Current or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Average AC Current-1, Average AC Current-2, etc."
-      - unit: Electric Current
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_current
 
 ACIB:
   name: AC Current Phase B
@@ -139,10 +139,10 @@ ACIB:
           <INTEGER>  : ACIB-1, ACIB-2, etc."
       - dis: "AC Current Phase B or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Current Phase B-1, AC Current Phase B-2, etc."
-      - unit: Electric Current
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_current
 
 ACIC:
   name: AC Current Phase C
@@ -164,10 +164,10 @@ ACIC:
           <INTEGER>  : ACIC-1, ACIC-2, etc."
       - dis: "AC Current Phase C or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Current Phase C-1, AC Current Phase C-2, etc."
-      - unit: Electric Current
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_current
 
 ACITTL:
   name: Total Multi-Phase AC Current
@@ -188,10 +188,10 @@ ACITTL:
           <INTEGER>  : ACITTL-1, ACITTL-2, etc."
       - dis: "Total AC Current or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Total AC Current-1, Total AC Current-2, etc."
-      - unit: Electric Current
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_current
 
 ACFREQ:
   name: AC Frequency
@@ -211,10 +211,10 @@ ACFREQ:
           <INTEGER>  : ACFREQ-1, ACFREQ-2, etc."
       - dis: "AC Frequency or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Frequency-1, AC Frequency-2, etc."
-      - unit: Frequency
     reference:
       - equipRef
       - deviceRef
+  unit_type: frequency
 
 ACPF:
   name: Power Factor
@@ -234,10 +234,11 @@ ACPF:
           <INTEGER>  : ACPF-1, ACPF-2, etc."
       - dis: "Power Factor or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Power Factor-1, Power Factor-2, etc."
-      - unit: Power Factor
     reference:
       - equipRef
       - deviceRef
+  units: 
+    - power_factor
 
 ACPFA:
   name: Power Factor Phase A
@@ -258,10 +259,11 @@ ACPFA:
           <INTEGER>  : ACPFA-1, ACPFA-2, etc."
       - dis: "Power Factor Phase A or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Power Factor Phase A-1, Power Factor Phase A-2, etc."
-      - unit: Power Factor
     reference:
       - equipRef
       - deviceRef
+  units: 
+    - power_factor
 
 ACPFB:
   name: Power Factor Phase B
@@ -282,10 +284,11 @@ ACPFB:
           <INTEGER>  : ACPFB-1, ACPFB-2, etc."
       - dis: "Power Factor Phase B or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Power Factor Phase B-1, Power Factor Phase B-2, etc."
-      - unit: Power Factor
     reference:
       - equipRef
       - deviceRef
+  units: 
+    - power_factor
 
 ACPFC:
   name: Power Factor Phase C
@@ -306,13 +309,14 @@ ACPFC:
           <INTEGER>  : ACPFC-1, ACPFC-2, etc."
       - dis: "Power Factor Phase C or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Power Factor Phase C-1, Power Factor Phase C-2, etc."
-      - unit: Power Factor
     reference:
       - equipRef
       - deviceRef
+  units: 
+    - power_factor
 
 ACPFAVG:
-  name: Average Multi-Phase Power Factor
+  name: Power Factor Multi-Phase Average
   description: Multi-phase average power factor
   extends: POINT_GEN_PWR
   haystack:
@@ -329,10 +333,11 @@ ACPFAVG:
           <INTEGER>  : ACPFAVG-1, ACPFAVG-2, etc."
       - dis: "Average Power Factor or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Average Power Factor-1, Average Power Factor-2, etc."
-      - unit: Power Factor
     reference:
       - equipRef
       - deviceRef
+  units: 
+    - power_factor
 
 ACV:
   name: Single Phase AC Voltage Sensor
@@ -352,10 +357,10 @@ ACV:
           <INTEGER>  : ACV-1, ACV-2, etc."
       - dis: "AC Voltage or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage-1, AC Voltage-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVAB:
   name: AC Voltage Phase AB
@@ -377,10 +382,10 @@ ACVAB:
           <INTEGER>  : ACVAB-1, ACVAB-2, etc."
       - dis: "AC Voltage Phase AB or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage Phase AB-1, AC Voltage Phase AB-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVA:
   name: AC Voltage Phase A
@@ -402,15 +407,15 @@ ACVA:
           <INTEGER>  : ACVA-1, ACVA-2, etc."
       - dis: "AC Voltage Phase A or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage Phase A-1, AC Voltage Phase A-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVAVG:
-  name: Average AC Line-to-Neutral Voltage
+  name: AC Line-to-Neutral Voltage Average
   description: Averaging three-phase AC voltage reading between all lines and neutral. Example common U.S. voltages 120V/277V.
-  short_name: Avg L-N Voltage
+  short_name: L-N Voltage Avg
   extends: POINT_GEN_PWR
   google_ontology: average_line_neutral_voltage_sensor
   haystack:
@@ -426,16 +431,15 @@ ACVAVG:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit_type: electric_potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVLLAVG:
-  name: Average AC Line-to-Line Voltage
+  name: AC Line-to-Line Voltage Average
   description: Averaging three-phase AC voltage reading between two phase lines. Example common U.S. voltages 208V/480V.
-  short_name: Avg L-L Voltage
+  short_name: L-L Voltage Avg
   extends: POINT_GEN_PWR
   google_ontology: average_inter_line_voltage_sensor
   haystack:
@@ -451,11 +455,10 @@ ACVLLAVG:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit_type: electric_potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVBC:
   name: AC Voltage Phase BC
@@ -477,11 +480,10 @@ ACVBC:
           <INTEGER>  : ACVBC-1, ACVBC-2, etc."
       - dis: "AC Voltage Phase BC or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage Phase BC-1, AC Voltage Phase BC-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
-
+  unit_type: electric_potential
 
 ACVB:
   name: AC Voltage Phase B
@@ -503,10 +505,10 @@ ACVB:
           <INTEGER>  : ACVB-1, ACVB-2, etc."
       - dis: "AC Voltage Phase B or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage Phase B-1, AC Voltage Phase B-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVCA:
   name: AC Voltage Phase CA
@@ -528,10 +530,10 @@ ACVCA:
           <INTEGER>  : ACVCA-1, ACVCA-2, etc."
       - dis: "AC Voltage Phase CA or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage Phase CA-1, AC Voltage Phase CA-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ACVC:
   name: AC Voltage Phase C
@@ -553,14 +555,14 @@ ACVC:
           <INTEGER>  : ACVC-1, ACVC-2, etc."
       - dis: "AC Voltage Phase C or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : AC Voltage Phase C-1, AC Voltage Phase C-2, etc."
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 APPENE:
   name: Apparent Energy
-  description: Totalized (import + export) apparent energy
+  description: The simple product of voltage and current in an alternating current (AC) system, without regard for the presence of reactive energy due to the phase differences between voltage and current at any given time. Apparent energy = Active energy + Reactive energy.
   extends: POINT_GEN_PWR
   haystack:
     type:
@@ -577,10 +579,10 @@ APPENE:
           <INTEGER>  : APPENE-1, APPENE-2, etc."
       - dis: "Apparent Energy or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Apparent Energy-1, Apparent Energy-2, etc."
-      - unit: Apparent Energy
     reference:
       - equipRef
       - deviceRef
+  unit_type: apparent_energy
 
 APPPWR:
   name: Apparent Power
@@ -602,10 +604,10 @@ APPPWR:
           <INTEGER>  : APPPWR-1, APPPWR-2, etc."
       - dis: "Apparent Power or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Apparent Power-1, Apparent Power-2, etc."
-      - unit: Apparent Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: apparent_power
 
 DCV:
   name: DC Voltage
@@ -623,10 +625,10 @@ DCV:
           DCV-1, DCV-2, etc."
       - navName: DCV
       - dis: DC Voltage
-      - unit: Electric Potential
     reference:
       - equipRef
       - deviceRef
+  unit_type: electric_potential
 
 ENERGYNET:
   name: Net Active Energy
@@ -648,10 +650,10 @@ ENERGYNET:
           <INTEGER>  : ENERGYNET-1, ENERGYNET-2, etc."
       - dis: "Net Active Energy or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Net Active Energy-1, Net Active Energy-2, etc."
-      - unit: Energy
     reference:
       - equipRef
       - deviceRef
+  unit_type: energy
 
 ENERGYIMP:
   name: Imported Active Energy
@@ -673,10 +675,10 @@ ENERGYIMP:
           <INTEGER>  : ENERGYIMP-1, ENERGYIMP-2, etc."
       - dis: "Imported Active Energy or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Imported Active Energy-1, Imported Active Energy-2, etc."
-      - unit: Energy
     reference:
       - equipRef
       - deviceRef
+  unit_type: energy
 
 ENERGYEXP:
   name: Exported Active Energy
@@ -698,10 +700,10 @@ ENERGYEXP:
           <INTEGER>  : ENERGYEXP-1, ENERGYEXP-2, etc."
       - dis: "Exported Active Energy or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Exported Active Energy-1, Exported Active Energy-2, etc."
-      - unit: Energy
     reference:
       - equipRef
       - deviceRef
+  unit_type: energy
 PHANG:
   name: Phase Angle
   short_name: Phase Angle
@@ -719,7 +721,8 @@ PHANG:
       - kind: Number
     reference:
       - equipRef
-
+  units:
+    - degrees_phase
 PWRDMD:
   name: Power Demand
   description: Total power demand
@@ -738,10 +741,10 @@ PWRDMD:
           <INTEGER>  : PWRDMD-1, PWRDMD-2, etc."
       - dis: "Power Demand or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Power Demand-1, Power Demand-2, etc."
-      - unit: Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: power
 PWREXP:
   name: Exported Active Power
   description: Exported (aka generated) active power. Exported is typically power out.
@@ -761,10 +764,10 @@ PWREXP:
           <INTEGER>  : PWREXP-1, PWREXP-2, etc."
       - dis: "Exported Active Power or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Exported Active Power-1, Exported Active Power-2, etc."
-      - unit: Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: power
 REACENE:
   name: Total Reactive Energy
   description: Totalized (import + export) reactive energy
@@ -784,10 +787,10 @@ REACENE:
           <INTEGER>  : REACENE-1, REACENE-2, etc."
       - dis: "Total Reactive Energy or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Total Reactive Energy-1, Total Reactive Energy-2, etc."
-      - unit: Reactive Energy
     reference:
       - equipRef
       - deviceRef
+  unit_type: reactive_energy
 
 REACPWR:
   name: Reactive Power
@@ -809,10 +812,10 @@ REACPWR:
           <INTEGER>  : RAPWR-1, RAPWR-2, etc."
       - dis: "Reactive Power or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Reactive Power-1, Reactive Power-2, etc."
-      - unit: Reactive Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: reactive_power
 
 RLPWR:
   name: Real Power
@@ -834,10 +837,10 @@ RLPWR:
           <INTEGER>  : RLPWR-1, RLPWR-2, etc."
       - dis: "Real Power or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Real Power-1, Real Power-2, etc."
-      - unit: Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: power
 
 RLPWRA:
   name: Real Power Phase A
@@ -859,10 +862,10 @@ RLPWRA:
           <INTEGER>  : RLPWRA-1, RLPWRA-2, etc."
       - dis: "Real Power Phase A or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Real Power Phase A-1, Real Power Phase A-2, etc."
-      - unit: Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: power
 
 RLPWRB:
   name: Real Power Phase B
@@ -884,10 +887,10 @@ RLPWRB:
           <INTEGER>  : RLPWRB-1, RLPWRB-2, etc."
       - dis: "Real Power Phase B or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Real Power Phase B-1, Real Power Phase B-2, etc."
-      - unit: Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: power
 
 RLPWRC:
   name: Real Power Phase C
@@ -909,7 +912,7 @@ RLPWRC:
           <INTEGER>  : RLPWRC-1, RLPWRC-2, etc."
       - dis: "Real Power Phase C or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Real Power Phase C-1, Real Power Phase C-2, etc."
-      - unit: Power
     reference:
       - equipRef
       - deviceRef
+  unit_type: power
