@@ -30,7 +30,6 @@ CAFC:
     - OCCIAFLWCLMNSP
     - OCCIAFLWCLMXSP
     - IAFLW
-    - IAFLWSP
     - EFFIAFLWSP
     - CLREQ
 
@@ -227,11 +226,11 @@ ECON:
     - ECOALCKTSP
     - RAT
     - MAT
-    - OAT
+    - OATEMP
     - DAT
     - DATSP
     - MATSP
-    - ECMODE
+    - ECMDSP
     - OADCMD
     - OADFBK
     - RADCMD
@@ -251,8 +250,8 @@ EFSS:
   points:
     - EFCMD
     - EFST
-    - EFP
-    - EFI
+    - EFANP
+    - EFANI
 EFVSC:
   name: EFVSC
   description: Variable speed control for exhaust fans.
@@ -278,7 +277,6 @@ HAFC:
     - OCCIAFLWHTMNSP
     - OCCIAFLWHTMXSP
     - IAFLW
-    - IAFLWSP
     - EFFIAFLWSP
     - HTREQ
 HPZC:
@@ -529,13 +527,14 @@ HGRC:
   points:
     - HTGRHVCMD
     - HTGRHSP
-    - HTGRHDB
+    - HTGRHDBSP
 VRFOUREF:
   name: VRFOUREF
   description: VRF Refrigeration Control and Monitoring for Outdoor Units
   points:
     - CMPFREQ
     - CNDRFPR
+    - DRFPR
     - EVPRFPR
     - CMPRFET
     - CMPRFLT

@@ -95,10 +95,14 @@ atmospheric:
   description: Related to the atmosphere of the earth
   type: MARKER
   source: HAY
-auxiliary :
+auxiliary:
   description: Providing supplemental or additional support, typically in the form of heating. 
   type: MARKER
   source: OAP  
+availablility: 
+  description: Ability to be used in operation.
+  type: MARKER
+  source: OAP
 avg:
   description: Average
   type: MARKER
@@ -229,7 +233,7 @@ circ:
   type: MARKER
   source: HAY
 circuit:
-  description: An electric circuit.
+  description: End-use subsystem, typically connected by a common conduit of either pipe or wire.
   type: MARKER
   source: OAP
 closed:
@@ -474,6 +478,10 @@ dryer:
   description: Machine used to dry clothing. 
   type: MARKER
   source: OAP  
+dryCooler:
+  description: Heat rejection equipment that uses air as a cooling medium.
+  type: MARKER
+  source: OAP
 dualDuct:
   description: Two ducts
   type: MARKER
@@ -502,6 +510,10 @@ duration:
   description: Number with a unit of time
   type: MARKER
   source: HAY
+duty:
+  description: lead or lag status of equipment
+  type: MARKER
+  source: OAP
 dxCooling:
   description: Cooling using direct expansion of a refrigerant vapor
   type: MARKER
@@ -673,6 +685,10 @@ fluid:
   description: Liquid or gas
   type: MARKER
   source: HAY
+fluidCooler:
+  description: Heat rejection equipment that uses water as a cooling medium.
+  type: MARKER
+  source: OAP
 flux:
   description: Measurement through a given surface
   type: MARKER
@@ -952,6 +968,12 @@ jam:
   description: Be fixed in a particular position or unable to move or be moved.
   type: MARKER
   source: OAP
+kfactor:
+  description: "Correction factor used to determine volumetric flow from a pressure measurement. It takes into account the duct area,
+    geometry and flow dynamics of the pitot tube. It is typically manufacturer specific and then calibrated per piece of equipment during 
+    test and balance. Also referred to as: Flow multiplier, Pickup Gain, Flow amplification, K constant."
+  type: MARKER
+  source: OAP  
 knx:
   description: KNX protocol commonly used for lighting systems
   type: MARKER
@@ -1013,6 +1035,10 @@ loadType:
     - refrigeration
   type: ENUM
   source: OAP  
+loop: 
+  description: Subsystem connected by a common conduit of either pipe or wire.
+  type: MARKER
+  source: OAP 
 low: 
   description: Below a threshold
   type: MARKER
@@ -1252,6 +1278,10 @@ phase:
   description: Phase measurement in a three-phase electrical system
   type: STRING
   source: HAY
+phaseCount:
+  description: Number of phases for an AC electrical power system or connected equipment, single-phase or three-phase.
+  type: STRING
+  source: HAY  
 singlePhase:
   description: Single-phase AC electrical power. Power is provided by a single AC voltage source.
   type: MARKER
@@ -1463,6 +1493,10 @@ reciprocal:
   description: Piston compressor driven by a crankshaft
   type: MARKER
   source: HAY
+received: 
+  description: Incoming, typically in reference to signsl detected or picked up
+  type: MARKER
+  source: OAP
 refrig:
   description: Fluid used in refrigeration and heat exchange
   type: MARKER
@@ -1581,6 +1615,10 @@ shades:
   description: Window converings, usually created with a large swath of soft fabric material
   type: MARKER
   source: OAP
+signal: 
+  description: An electrical impulse or radio wave transmitted or received.
+  type: MARKER
+  source: OAP
 singleDuct:
   description: One single duct
   type: MARKER
@@ -1647,6 +1685,10 @@ stage:
   description: Stage number of staged equipment operation such as coil or pump.
   type: NUMBER
   source: HAY
+stageCount:
+  description: Number of stages for a multi-stage system such as a chiller or ahu.
+  type: NUMBER
+  source: HAY  
 standby:
   description: Readiness mode of a space
   type: MARKER

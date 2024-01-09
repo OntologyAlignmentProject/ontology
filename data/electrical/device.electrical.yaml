@@ -54,8 +54,8 @@ UPS:
     - APPENE
     - APPPWR
     - DCV
-    - ENERGY
-    - RAPWR
+    - ENERGYNET
+    - REACPWR
     - REACENE
     - RLPWR
     - RLPWRA

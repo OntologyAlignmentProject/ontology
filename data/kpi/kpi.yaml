@@ -13,7 +13,7 @@
 #   normalization: <list of possible data normalizations (from field.calculation.yaml)>
 #   comparison: <list of the comparison methods typical used for the KPI (from field.calculation.yaml)>
 #   unit_type: <a single unit type from (units.yaml)>
-#   unit: <list of possible units of measure (from units.yaml)>
+#   units: <list of possible units of measure (from units.yaml)>
 #   class: cateogry or grouping of KPI, KPI can belong to more than one category such as energy and cost
 # Usage Rules:
 #  - range=date means a start and end date needs to be provided to get a historty
@@ -52,7 +52,6 @@ EC:
     - portfolio_average
     - baseline
     - forecast
-  unit_type: energy
   class:
     - energy
 
@@ -60,7 +59,7 @@ TEEC:
   name: Total Electric Energy Consumption
   description: Total electric energy consumed by an entity from an external source.
   extends: EC
-  unit:
+  units:
     - kilowatt_hour
     - megawatt_hour
 
@@ -68,7 +67,7 @@ TNGEC:
   name: Total Natural Gas Consumption
   description: Total energy from natural gas consumed by an entity from an external source.
   extends: EC
-  unit: 
+  units: 
     - kilobtu
     - megabtu
     - therm
@@ -77,7 +76,7 @@ TCHWEC:
   name: Total Chilled Water Energy Consumption
   description: Total energy from chilled water consumed by an entity from an external source.
   extends: EC
-  unit: 
+  units: 
     - kilobtu
     - megabtu
     - kilowatt_hour
@@ -86,7 +85,7 @@ THWEC:
   name: Total Hot Water Energy Consumption
   description: Total energy from hot water consumed by an entity from an external source.
   extends: EC
-  unit: 
+  units: 
     - kilobtu
     - megabtu
     - kilowatt_hour
@@ -95,7 +94,7 @@ TSTEC:
   name: Total Steam Energy Consumption
   description: Total energy from steam consumed by an entity from an external source.
   extends: EC
-  unit: 
+  units: 
     - kilobtu
     - megabtu    
 
@@ -109,7 +108,7 @@ TEC:
     - TCHWEC
     - THWEC
     - TSTEC
-  unit: 
+  units: 
     - kilobtu
     - megabtu
     - kilowatt_hour
@@ -133,7 +132,7 @@ TES:
   unit_type: energy
   class:
     - energy  
-  unit: 
+  units: 
     - kilobtu
     - megabtu    
     - kilowatt_hour
@@ -146,7 +145,6 @@ UE:
     - date
   rollup_interval:
     - month
-    - billing_period
     - range
   rollup_calculation:
     - sum
@@ -158,12 +156,12 @@ UE:
     - baseline
     - forecast
   unit_type: currency
-  unit:
-    - us_dollar
-    - canadian_dollar
-    - pound_sterling
-    - euro
-    - australian_dollar
+  units:
+    - USD
+    - CAD
+    - GBP
+    - EUR
+    - AUD
   class:
     - cost       
 
@@ -209,12 +207,12 @@ TUCS:
   rollup_calculation:
     - sum
   unit_type: currency
-  unit:
-    - us_dollar
-    - canadian_dollar
-    - pound_sterling
-    - euro
-    - australian_dollar
+  units:
+    - USD
+    - CAD
+    - GBP
+    - EUR
+    - AUD
   class:
     - cost      
 
@@ -244,7 +242,7 @@ PKED:
     - area
     - oat
   unit_type: power
-  unit:
+  units:
     - kilowatt
     - megawatt
   class:
@@ -261,7 +259,7 @@ PKDR:
   rollup_calculation:
     - sum
   unit_type: power
-  unit:
+  units:
     - kilowatt
     - megawatt
   class:
@@ -295,7 +293,7 @@ ELDPRFL:
   description: The typical electricity demand profile for the profile window.
   extends: DPRFL
   unit_type: power
-  unit:
+  units:
     - kilowatt
     - megawatt
   class:
@@ -306,7 +304,7 @@ NGDPRFL:
   description: The typical natural gas demand profile for the profile window.
   extends: DPRFL
   unit_type: power
-  unit:
+  units:
     - therms_per_hour
     - btus_per_hour
   class:
@@ -317,7 +315,7 @@ CHWDPRFL:
   description: The typical chilled water demand profile for the profile window.
   extends: DPRFL
   unit_type: power
-  unit:
+  units:
     - tons_refrigeration
   class:
     - energy 
@@ -327,7 +325,7 @@ HWDPRFL:
   description: The typical hot water demand profile for the profile window.
   extends: DPRFL
   unit_type: power
-  unit:
+  units:
     - btus_per_hour
   class:
     - energy      
@@ -337,7 +335,7 @@ STDPRFL:
   description: The typical steam demand profile for the profile window.
   extends: DPRFL
   unit_type: mass_flow
-  unit:
+  units:
     - pounds_per_hour
     - kilograms_per_hour
   class:
@@ -360,7 +358,7 @@ SEUI:
     - previous_month
     - previous_year
   unit_type: energy_by_area
-  unit:
+  units:
     - kilobtu_per_square_foot
   class:
     - energy    
@@ -368,10 +366,37 @@ SEUI:
 # Health and Comfort KPIs
 
 COMF:
-  name: Comfort Summary
-  description: For all equipment contained under the entity, this summarizes whether spaces were too hot, too cold or within setpoint during occupied hours. 
+  name: Comfort Summary Over Time
+  description: For all equipment contained under the entity, this summarizes whether zone temperatures were too hot, too cold or within setpoint during occupied hours. 
+    The result is a percentage of time in each band for each time period. 
   # if you pass in an equip it gives the summary for the equip
   # If you pass in a site, it gives the comfort summary for all equips 
+  filter: 
+    - adm
+    - equipType
+  range:
+    - current
+    - date
+  rollup_interval:
+    - day
+    - week
+    - month
+    - range
+  rollup_calculation:
+    - none
+  units:
+    - percent
+  class:
+    - comfort  
+
+COMFEQUIP:
+  name: Comfort Summary
+  description: For all equipment contained under the entity, this sums the number of hours the zone temperature associated with that equip was too hot, too cold or within setpoint during occupied hours. 
+  # if you pass in an equip it gives the summary for the equip
+  # If you pass in a site, it gives the comfort summary for all equips 
+  filter: 
+    - adm
+    - equipType
   range:
     - current
     - date
@@ -379,10 +404,10 @@ COMF:
     - range
   rollup_calculation:
     - none
-  unit:
-    - percent
   class:
     - comfort  
+
+
 IAQI:
   name: Indoor Air Quality Index
   short_name: Indoor AQI
@@ -397,7 +422,7 @@ IAQI:
     - day
   rollup_calculation:
     - avg
-  unit:
+  units:
     - percent
   class:
     - health  
@@ -424,19 +449,17 @@ OCCCT:
 # Equipment KPIs
 TOPINS:
   name: Top Insights
-  description: Creates a breakdown of the most common insights related to an equipment or an entity by % of insights.
+  description: For all equipment contained under the entity, such as a site, this KPI provides a total number of unique insight occurences.
   range:
     - current
     - date
   filter: 
-    - admDisqualification
+    - adm
+    - equipType
   rollup_interval:
     - range
   rollup_calculation:
-    - sum
-  unit_type: dimensionless
-  unit: 
-    - percent
+    - none
   class: 
     - maintenance
 
@@ -446,14 +469,10 @@ EQSTS:
   is_base: true
   range:
     - current
-    - date
   rollup_interval:
     - range
   rollup_calculation:
-    - sum
-  unit_type: dimensionless
-  unit: 
-    - percent
+    - none
   class: 
     - maintenance
 

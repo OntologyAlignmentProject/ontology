@@ -12,7 +12,6 @@ AIR:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
       - deviceRef  
     reference_optional:
@@ -31,7 +30,6 @@ AIRSP:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
       - equipRef
 ZCO:
@@ -45,8 +43,26 @@ ZCO:
     type:
       - co
       - zone
+  units:
+    - parts_per_million
+    - parts_per_billion
+ZCOAUX:
+  name: Zone CO Auxiliary
+  short_name: Zone CO Aux
+  description: This auxiliary CO point is used when multiple sensors are in place in a single zone or space. Typically not used for control directly, but used to make an Average CO
+  extends: ZCO
+  haystack:
+    type:
+      - auxiliary
     identification:
-      - unit: ppm
+      - id: "ZCO-AUX or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZCO-AUX-1, ZCO-AUX-2, etc."
+      - navName: "ZCO-AUX or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZCO-AUX-1, ZCO-AUX-2, etc."
+      - dis: "Zone CO-AUX or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone CO-AUX-1, Zone CO-AUX-2, etc."
+    reference:
+      - spaceRef
 ZCO2:
   name: Zone CO2
   short_name: CO₂
@@ -66,6 +82,23 @@ ZCO2:
           <INTEGER>  : Zone CO2-1, Zone CO2-2, etc."
     reference:
       - spaceRef
+ZCO2AUX:
+  name: Zone CO₂ Auxiliary
+  short_name: Zone CO₂ Aux
+  description: This auxiliary CO₂ point is used when multiple sensors are in place in a single zone or space. Typically not used for control directly, but used to make an Average CO2
+  extends: ZCO2
+  haystack:
+    type:
+      - auxiliary
+    identification:
+      - id: "ZCO2-AUX or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZCO2-AUX-1, ZCO2-AUX-2, etc."
+      - navName: "ZCO2-AUX or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZCO2-AUX-1, ZCO2-AUX-2, etc."
+      - dis: "Zone CO2-AUX or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone CO2-AUX-1, Zone CO2-AUX-2, etc."
+    reference:
+      - spaceRef
 ZTVOC:
   name: Zone TVOC
   short_name: TVOC
@@ -77,8 +110,9 @@ ZTVOC:
     type:
       - tvoc
       - zone
-    identification:
-      - unit: µg/m³
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZPM01:
   name: Zone PM 0.1
@@ -89,8 +123,9 @@ ZPM01:
     type:
       - pm01
       - zone
-    identification:
-      - unit: µg/m³
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZPM25:
   name: Zone PM 2.5
@@ -103,8 +138,9 @@ ZPM25:
     type:
       - pm25
       - zone
-    identification:
-      - unit: µg/m³
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZPM10:
   name: Zone PM 10
@@ -117,8 +153,9 @@ ZPM10:
     type:
       - pm10
       - zone
-    identification:
-      - unit: µg/m³
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZCH2O:
   name: Zone CH2O
@@ -131,8 +168,9 @@ ZCH2O:
     type:
       - ch2o
       - zone
-    identification:
-      - unit: ppb
+  units:
+    - parts_per_million
+    - parts_per_billion
 
 ZNO2:
   name: Zone NO2
@@ -145,8 +183,9 @@ ZNO2:
     type:
       - no2
       - zone
-    identification:
-      - unit: µg/m³
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZO3:
   name: Zone O3
@@ -159,8 +198,9 @@ ZO3:
     type:
       - o3
       - zone
-    identification:
-      - unit: ppb
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZNH3:
   name: Zone NH3
@@ -172,8 +212,9 @@ ZNH3:
     type:
       - nh3
       - zone
-    identification:
-      - unit: ppb
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 ZRF:
   name: Zone Air Refrigerant Concentration
   description: Refrigerant concentration measured in the air within a space
@@ -187,7 +228,9 @@ ZRF:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>
-      - unit: ppm      
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter   
 ZCO2SP:
   name: Zone CO2 Setpoint
   extends: AIRSP
@@ -204,10 +247,11 @@ ZCO2SP:
           <INTEGER>  : ZCO2SP-1, ZCO2SP-2, etc."
       - dis: "Zone CO2 Setpoint or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Zone CO2 Setpoint-1, Zone CO2 Setpoint-2, etc."
-      - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
       - equipRef
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter 
 ZCOSP:
   name: Zone CO (Carbon Monoxide) Setpoint
   google_ontology: zone_air_co_concentration_setpoint
@@ -219,10 +263,11 @@ ZCOSP:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
       - equipRef      
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter 
 ZRFSP:
   name: Zone Air Refrigerant Concentration Setpoint
   google_ontology: zone_air_refrigerant_concentration_setpoint
@@ -234,10 +279,11 @@ ZRFSP:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
       - equipRef            
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter 
 ZTVOCSP:
   name: Zone Air Total VOC Setpoint
   google_ontology: zone_air_voc_concentration_setpoint
@@ -249,10 +295,11 @@ ZTVOCSP:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
-      - equipRef          
+      - equipRef   
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter        
 RFALRMH:
   name: Refrigerant Concentration Level Alarm High
   description: Refrigerant concentration level has exceeded a certain threshold and 
@@ -356,6 +403,7 @@ OCCDWTM:
     reference:
       - spaceRef
       - deviceRef
+  unit_type: time
 ZALMSP:
   name: Zone Alarm Setpoint (Base Definition)
   is_base: true
@@ -388,8 +436,8 @@ ZCH4:
     type:
       - ch4
       - zone
-    identification:
-      - unit: "%LEL"
+  units:
+    - percent
 
 ZCH4ALMSP:
   name: Zone CH4 Alarm Setpoint
@@ -399,8 +447,8 @@ ZCH4ALMSP:
   haystack:
     type:
       - ch4
-    identification:
-      - unit: "%LEL"
+  units:
+    - percent
 
 ZCOALMSP:
   name: Zone CO Alarm Setpoint
@@ -410,8 +458,9 @@ ZCOALMSP:
   haystack:
     type:
       - co
-    identification:
-      - unit: ppm
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter
 
 ZNO2ALMSP:
   name: Zone NO2 Alarm Setpoint
@@ -421,8 +470,9 @@ ZNO2ALMSP:
   haystack:
     type:
       - no2
-    identification:
-      - unit: µg/m³
+  units:
+    - milligrams_per_cubic_meter
+    - micrograms_per_cubic_meter 
 
 MOST:
   name: Motion Sensor Status

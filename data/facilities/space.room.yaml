@@ -166,7 +166,7 @@ LCKRROOM:
       - navName: <ABBREVIATION> + - + <INTEGER> 
       - dis: <NAME> + - + <INTEGER> 
       - id: <ABBREVIATION> + <INTEGER> 
-OFFICE:
+OFFICERM:
   name: Office
   description: "A room or other area where an organization's employees perform
     administrative work in order to support and realize objects and goals of the

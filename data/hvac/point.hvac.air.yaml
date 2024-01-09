@@ -32,9 +32,9 @@ FANI:
       - dis: "Fan Current or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Fan Current-1, Fan Current-2, etc."
       - kind: Number
-      - unit: amperage
     reference:
       - equipRef
+  unit_type: electric_current
 FANP:
   name: Fan Power (Base Definition)
   is_base: true
@@ -52,9 +52,9 @@ FANP:
       - dis: "Fan Power or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Fan Power-1, Fan Power-2, etc."
       - kind: Number
-      - unit: power
     reference:
       - equipRef
+  unit_type: power
 FLTST:
   name: Filter Status
   extends: ST
@@ -81,7 +81,8 @@ LOAD:
       - kind: Number
     reference:
       - equipRef
-
+  units:
+    - percent
 CDAFLW:
   name: Cold Deck Air Flow
   extends: AIRFLOW
@@ -134,7 +135,7 @@ HCDAT:
           <INTEGER>  : HCDAT-1, HCDAT-2, etc."
       - dis: "Heating Coil Discharge Air Temperature or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Heating Coil Discharge Air Temperature-1, Heating Coil Discharge Air
-          Temperature-2, etc."    
+          Temperature-2, etc."   
 HDAFLW:
   name: Hot Deck Air Flow
   extends: AIRFLOW
@@ -152,7 +153,7 @@ HDDAT:
       - hotDeck
     identification:
       - navName: <CODE> + - + <INTEGER>
-      - dis: <NAME> + - + <INTEGER>                      
+      - dis: <NAME> + - + <INTEGER>                    
 DACO2:
   name: Discharge Air CO2
   extends: AIRCO2
@@ -166,7 +167,6 @@ DACO2:
           <INTEGER>  : DACO2-1, DACO2-2, etc."
       - dis: "Discharge Air CO2 or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Discharge Air CO2-1, Discharge Air CO2-2, etc."
-
 DAFLW:
   name: Discharge Air Flow
   extends: AIRFLOW
@@ -185,7 +185,6 @@ DAFLW:
           <INTEGER>  : DAFLW-1, DAFLW-2, etc."
       - dis: "Discharge Air Flow or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Discharge Air Flow-1, Discharge Air Flow-2, etc."
-          
 DARH:
   name: Discharge Air Relative Humidity
   short_name: Discharge Air RH
@@ -345,7 +344,6 @@ EAT:
       - dis: "Exhaust Air Temperature or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Exhaust Air Temperature-1, Exhaust Air
           Temperature-2, etc."
-
 EFST:
   name: Exhaust Fan Status
   short_name: EF Status
@@ -390,7 +388,6 @@ HVACMDCMD:
       - kind: Str
     reference:
       - equipRef
-
 MACO2:
   name: Mixed Air CO2
   extends: AIRCO2
@@ -433,6 +430,7 @@ MAFLW:
           <INTEGER>  : MAFLW-1, MAFLW-2, etc."
       - dis: "Mixed Air Flow or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Mixed Air Flow-1, Mixed Air Flow-2, etc."
+  unit_type: volumetric_flow
 MAENTH:
   name: Mixed Air Enthalpy
   extends: AIRENTH
@@ -456,7 +454,7 @@ MARH:
           <INTEGER>  : MARH-1, MARH-2, etc."
       - dis: "Mixed Air Rel Humidity or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Mixed Air Rel Humidity-1, Mixed Air Rel Humidity-2,
-          etc."          
+          etc."       
 MAT:
   name: Mixed Air Temperature
   short_name: Mixed Air Temp
@@ -529,7 +527,7 @@ RADWP:
       - return
     identification:
       - navName: <CODE> + - + <INTEGER>
-      - dis: <NAME> + - + <INTEGER>      
+      - dis: <NAME> + - + <INTEGER>    
 RAENTH:
   name: Return Air Enthalpy
   extends: AIRENTH
@@ -620,7 +618,24 @@ ZRH:
     reference:
       - equipRef
       - spaceRef
-
+ZRHAUX:
+  name: Zone Relative Humidity Auxiliary
+  short_name: Zone RH Aux
+  description: This auxiliary RH point is used when multiple sensors are in place in a single zone or space. Typically not used for control directly, but used to make an Average RH.
+  extends: ZRH
+  haystack:
+    type:
+      - auxiliary
+    identification:
+      - id: "ZRHAUX or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZRHAUX-1, ZRHAUX-2, etc."
+      - navName: "ZRHAUX or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZRHAUX-1, ZRHAUX-2, etc."
+      - dis: "Zone Rel Humidity Aux or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone Rel Humidity Aux-1, Zone Rel Humidity Aux-2, etc."
+    reference:
+      - equipRef
+      - spaceRef
 ZRHAVG:
   name: Average Zone Relative Humidity
   short_name: Avg Zone RH
@@ -640,7 +655,6 @@ ZRHAVG:
     reference:
       - equipRef
       - spaceRef
-
 ZT:
   name: Zone Temperature
   short_name: Zone Temp
@@ -661,7 +675,24 @@ ZT:
     reference:
       - equipRef
       - spaceRef
-
+ZTAUX:
+  name: Zone Temperature Auxiliary
+  short_name: Zone Temp Aux
+  description: The air temperature of an indoor space where there are multiple sensor readings.
+  extends: ZT
+  haystack:
+    type:
+      - auxiliary
+    identification:
+      - id: "ZTAUX or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ZTAUX-1, ZT-2, etc."
+      - navName: "ZTAUX or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ZTAUX-1, ZTAUX-2, etc."
+      - dis: "Zone Temperature or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Zone Temperature Aux-1, Zone Temperature Aux-2, etc."
+    reference:
+      - equipRef
+      - spaceRef
 ZTAVG:
   name: Average Zone Temperature
   short_name: Avg Zone Temp
@@ -695,7 +726,6 @@ ZTCA:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
     reference:
       - equipRef
 ZTHA:
@@ -710,7 +740,6 @@ ZTHA:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
     reference:
       - equipRef
 HRWCMD:
@@ -730,7 +759,6 @@ HRWCMD:
           <INTEGER>  : HRWCMD-1, HRWCMD-2, etc."
       - dis: "Heat Recovery Wheel Command or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heat Recovery Wheel Command-1, Heat Recovery Wheel Command-2, etc."
-
 HRWST:
   name: Heat Recovery Wheel Status
   short_name: Heat Wheel Status
@@ -748,7 +776,6 @@ HRWST:
           <INTEGER>  : HRWST-1, HRWST-2, etc."
       - dis: "Heat Recovery Wheel Status or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heat Recovery Wheel Status-1, Heat Recovery Wheel Status-2, etc."
-
 HRWSPCMD:
   name: Heat Recovery Wheel Speed Command
   short_name: Heat Recovery Wheel Speed Cmd
@@ -766,7 +793,9 @@ HRWSPCMD:
           <INTEGER>  : HRWSPCMD-1, HRWSPCMD-2, etc."
       - dis: "Heat Recovery Wheel Speed Command or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heat Recovery Wheel Speed Command-1, Heat Recovery Wheel Speed Command-2, etc."
-
+      - kind: Number
+  units: 
+    - percent
 HRBYPDCMD:
   name: Heat Recovery Bypass Damper Command
   description: The heat recovery bypass damper command.
@@ -783,7 +812,6 @@ HRBYPDCMD:
           <INTEGER>  : HRBYPDCMD-1, HRBYPDCMD-2, etc."
       - dis: "Heat Recovery Bypass Damper Command or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heat Recovery Bypass Damper Command-1, Heat Recovery Bypass Damper Command-2, etc."
-
 HRDAT:
   name: Heat Recovery Discharge Air Temperature
   description: The discharge air temperature leaving the heat recovery wheel.
@@ -799,7 +827,6 @@ HRDAT:
           <INTEGER>  : HRDAT-1, HRDAT-2, etc."
       - dis: "Heat Recovery Discharge Air Temperature or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heat Recovery Discharge Air Temperature-1, Heat Recovery Discharge Air Temperature-2, etc."
-
 IAFLW:
   name: Inlet Air Flow
   extends: AIRFLOW
@@ -826,9 +853,9 @@ ADP:
       - sensor
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
+  unit_type: pressure
 ADPSP:
   name: Air Pressure Setpoint (Base Definition)
   is_base: true
@@ -840,9 +867,9 @@ ADPSP:
       - sp
     identification:
       - kind: Number
-      - unit: pressure
     reference:
       - equipRef
+  unit_type: pressure
 AFLWSP:
   name: Air Flow Setpoint (Base Definition)
   is_base: true
@@ -854,9 +881,16 @@ AFLWSP:
       - sp
     identification:
       - kind: Number
-      - unit: volumetric flow
     reference:
       - equipRef
+  units:
+    - cubic_meters_per_second
+    - cubic_feet_per_second
+    - cubic_feet_per_minute
+    - cubic_feet_per_hour
+    - kilocubic_feet_per_minute
+    - cubic_meters_per_minute
+    - cubic_meters_per_hour
 ATSP:
   name: Air Temperature Setpoint (Base Definition)
   is_base: true
@@ -868,12 +902,10 @@ ATSP:
       - sp
     identification:
       - kind: Number
-      - unit: temperature
     reference:
       - equipRef
+  unit_type: temperature
 # Base air point definitions
-
-
 
 RHSP: 
   name: Relative Humidity Setpoint
@@ -887,11 +919,13 @@ RHSP:
       - air
     identification:
       - kind: Number 
-      - unit: percentage
     referece: 
       - equipRef
+  units: 
+    - percent_relative_humidity
 DHCMD:
   name: Dehumidify Command
+  short_name: Dehumidify Cmd
   google_ontology: dehumidification_run_command
   haystack: 
     type: 
@@ -931,9 +965,10 @@ DPRCMD:
       - cmd
     identification:
       - kind: Number
-      - unit: percentage
     reference:
       - equipRef
+  units: 
+    - percent
 FANCMD:
   name: Fan Command 
   short_name: Fan Cmd
@@ -964,6 +999,8 @@ FANSPCMD:
       - kind: Number
     reference:
       - equipRef 
+  units: 
+    - percent
 FANSPFBK:
   name: Fan Speed Feedback
   haystack:
@@ -978,6 +1015,8 @@ FANSPFBK:
       - dis: <NAME> + - + <INTEGER>   
     reference: 
       - equipRef
+  units: 
+    - percent
 FANSPMD:
   name: Fan Speed Mode Status
   description: Current fan speed mode. Typically an enumerated list of fan speeds (i.e. OFF, LOW, HIGH).
@@ -1008,6 +1047,9 @@ FANSPMDCMD:
       - equipRef
 REQ:
   name: Requests (Base Definition)
+  description: At the zone level, a request represents a call for a particular operation at the central system (i.e. more heating, cooling or pressure).
+               At the central system level, requests represent the total number of calls for a particular operation from all of the downstream equipment. 
+               Typically requests are used in trim and respond controls.
   is_base: true
   haystack:
     type:
@@ -1017,7 +1059,7 @@ REQ:
     identification:
       - kind: Number
     reference:
-      - equipRef     
+      - equipRef   
 VCMD:
   name: Valve Command (Base Definition)
   is_base: true
@@ -1030,6 +1072,8 @@ VCMD:
       - kind: Number
     reference:
       - equipRef
+  units: 
+    - percent
 VPOS:
   name: Valve Position (Base Definition)
   is_base: true
@@ -1044,11 +1088,15 @@ VPOS:
       - kind: Number
     reference:
       - equipRef
+  units: 
+    - percent
 
 # Standard air point definitions
 
 BLDSPR:
-  name: Bldg Static Pressure
+  name: Building Static Pressure
+  short_name: Bldg Static Pressure
+  description: Pressure measured either inside the return air duct or within the building itself relative to the outside air pressure. 
   extends: ADP
   google_ontology: building_air_static_pressure_sensor
   haystack:
@@ -1062,7 +1110,7 @@ BLDSPR:
       - dis: "Bldg Static Pressure or if more than 1 in the equip/device, use <NAME> + -
           + <INTEGER>  : Bldg Static Pressure-1, Bldg Static Pressure-2, etc."
 BLDSPRSP:
-  name: Bldg Static Pressure Setpoint
+  name: Building Static Pressure Setpoint
   short_name: Bldg Static Pressure Sp
   extends: ADPSP
   google_ontology: building_air_static_pressure_setpoint
@@ -1107,11 +1155,61 @@ BYPDFBK:
       - dis: "Bypass Damper Feedback or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Bypass Damper Feedback-1,
           Bypass Damper Feedback-2, etc."
-      - kind: Number
     type:
       - bypass
     reference:
       - equipRef
+COILBYPCMD:
+  name: Generic Coil Bypass Command
+  short_name: Coil Bypass Cmd
+  description: A mechanism to reduce backpressure on the unit
+  haystack:
+    type:
+      - point
+      - air
+      - cmd
+      - damper
+      - faceBypass
+    identification:
+      - id: "COILBYPCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          COILBYPCMD-1, COILBYPCMD-2, etc."
+      - navName: "COILBYPCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : COILBYPCMD-1, COILBYPCMD-2, etc."
+      - dis: "Cgit oil Bypass Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Coil Bypass Command-1, Coil Bypass Command-2,
+          etc."
+CHWCOILBYPCMD:
+  name: Chilled Water Coil Bypass Command
+  short_name: CHW Coil Bypass Cmd
+  extends: COILBYPCMD
+  description: A mechanism to reduce backpressure on the unit where the command allows air to bypass the chilled water coil
+  haystack:
+    type:
+      - chilled
+    identification:
+      - id: "CHWCOILBYPCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          CHWCOILBYPCMD-1, CHWCOILBYPCMD-2, etc."
+      - navName: "CHWCOILBYPCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : CHWCOILBYPCMD-1, CHWCOILBYPCMD-2, etc."
+      - dis: "Chilled Water Coil Bypass Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Chilled Water Coil Bypass Command-1, Chilled Water Coil Bypass Command-2,
+          etc."
+HWCOILBYPCMD:
+  name: Hot Water Coil Bypass Command
+  short_name: HW Coil Bypass Cmd
+  extends: COILBYPCMD
+  description: A mechanism to reduce backpressure on the unit where the command allows air to bypass the hot water coil
+  haystack:
+    type:
+      - hot
+    identification:
+      - id: "HWCOILBYPCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          HWCOILBYPCMD-1, HWCOILBYPCMD-2, etc."
+      - navName: "HWCOILBYPCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : HWCOILBYPCMD-1, HWCOILBYPCMD-2, etc."
+      - dis: "Hot Water Coil Bypass Command or if more than 1 in the equip/device, use <NAME> +
+          - + <INTEGER>  : Hot Water Coil Bypass Command-1, Hot Water Coil Bypass Command-2,
+          etc."
 EFFCDAFLWSP:
   name: Effective Cold Deck Air Flow Setpoint
   extends: AFLWSP
@@ -1368,9 +1466,10 @@ CLCMD:
       - dis: "Cooling Command or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Cooling Command-1, Cooling Command-2, etc."
       - kind: Number
-      - unit: percentage
     reference:
       - equipRef
+  units: 
+    - percent
 CLSTGCT:
   name: Cooling Stage Count
   short_name: Cool Stage Count
@@ -1380,7 +1479,8 @@ CLSTGCT:
     type:
       - point
       - cool
-      - stage
+      - stageCount
+      - sensor
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
@@ -1407,7 +1507,6 @@ CLSTG1CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG2CMD:
   name: Cooling Stage 2 Command
   short_name: Cool Stage 2 Cmd
@@ -1428,7 +1527,6 @@ CLSTG2CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG3CMD:
   name: Cooling Stage 3 Command
   short_name: Cool Stage 3 Cmd
@@ -1449,7 +1547,6 @@ CLSTG3CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG4CMD:
   name: Cooling Stage 4 Command
   short_name: Cool Stage 4 Cmd
@@ -1470,7 +1567,6 @@ CLSTG4CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG5CMD:
   name: Cooling Stage 5 Command
   short_name: Cool Stage 5 Cmd
@@ -1491,7 +1587,6 @@ CLSTG5CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG6CMD:
   name: Cooling Stage 6 Command
   short_name: Cool Stage 6 Cmd
@@ -1512,7 +1607,6 @@ CLSTG6CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG7CMD:
   name: Cooling Stage 7 Command
   short_name: Cool Stage 7 Cmd
@@ -1533,7 +1627,6 @@ CLSTG7CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG8CMD:
   name: Cooling Stage 8 Command
   short_name: Cool Stage 8 Cmd
@@ -1555,7 +1648,6 @@ CLSTG8CMD:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG1STS:
   name: Cooling Stage 1 Status
   short_name: Cool Stage 1 Status
@@ -1575,7 +1667,6 @@ CLSTG1STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG2STS:
   name: Cooling Stage 2 Status
   short_name: Cool Stage 2 Status
@@ -1595,7 +1686,6 @@ CLSTG2STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG3STS:
   name: Cooling Stage 3 Status
   short_name: Cool Stage 3 Status
@@ -1615,7 +1705,6 @@ CLSTG3STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG4STS:
   name: Cooling Stage 4 Status
   short_name:: Cool Stage 4 Status
@@ -1635,7 +1724,6 @@ CLSTG4STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG5STS:
   name: Cooling Stage 5 Status
   short_name: Cool Stage 5 Status
@@ -1655,7 +1743,6 @@ CLSTG5STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG6STS:
   name: Cooling Stage 6 Status
   short_name: Cool Stage 6 Status
@@ -1675,7 +1762,6 @@ CLSTG6STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG7STS:
   name: Cooling Stage 7 Status
   short_name: Cool Stage 7 Status
@@ -1695,7 +1781,6 @@ CLSTG7STS:
       - kind: Bool
     reference:
       - equipRef
-
 CLSTG8STS:
   name: Cooling Stage 8 Status
   short_name: Cool Stage 8 Status
@@ -1731,7 +1816,7 @@ CLSTS:
       - equipRef    
 CLDEM:
   name: Cooling Demand
-  description: The calculated demand for cooling
+  description: The calculated demand for cooling. The proportion of the total capacity for cooling the equipment is using (% of total). Commonly referred to as cooling capacity. 
   google_ontology: cooling_percentage_sensor
   extends: LOAD
   haystack:
@@ -1744,9 +1829,14 @@ CLDEM:
           <INTEGER>  : CLDEM-1, CLDEM-2, etc."
       - dis: "Cooling Demand or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Cooling Demand-1, Cooling Demand-2, etc."
-      - unit: percentage
+      - kind: Number
+  units:
+    - percent
 CLREQ: 
   name: Cooling Requests
+  description: At the zone level, a cooling request represents a call for more cooling.
+               At the central system level, cooling requests represent the total number of cooling calls from all of the downstream equipment. 
+               Typically requests are used in trim and respond controls.
   extends: REQ
   google_ontology: cooling_request_count
   haystack:
@@ -1910,7 +2000,6 @@ CWVFBK:
       - dis: <NAME> + - + <INTEGER>   
     reference:
       - equipRef    
-        
 DADCMD:
   name: Discharge Air Damper Command
   short_name: Discharge Air Damper Cmd
@@ -1997,6 +2086,8 @@ ADFBK:
       - air
       - damper
       - sensor
+  units:
+    - percent
 DADCTSPRSP:
   name: Discharge Air Duct Static Pressure Setpoint
   short_name: Discharge Air Duct Static Pressure Sp
@@ -2069,8 +2160,6 @@ DPRCMDCL:
           - + <INTEGER>  : Damper Command Closed-1, Damper Command Closed-2,
           etc."
       - kind: Bool
-
-
 DPRREQ:
   name: Damper Requests
   extends: REQ
@@ -2085,7 +2174,6 @@ DPRREQ:
       - dis: "Damper Requests or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Damper Requests-1, Damper Requests-2,
           etc."       
-
 EFFDAFLWSP:
   name: Effective Discharge Air Flow Setpoint
   short_name: Effective Discharge Air Flow Sp
@@ -2103,7 +2191,6 @@ EFFDAFLWSP:
       - dis: "Effective Discharge Air Flow Setpoint or if more than 1 in the
           equip/device, use <NAME> + - + <INTEGER>  : Effective Discharge Air Flow
           Setpoint-1, Effective Discharge Air Flow Setpoint-2, etc."
-
 EFFIAFLWSP:
   name: Effective Air Flow Setpoint
   short_name: Effective Air Flow Sp
@@ -2151,7 +2238,6 @@ DAFLWSP:
       - dis: "Discharge Air Flow Setpoint or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Discharge Air Flow Setpoint-1, Discharge Air
           Flow Setpoint-2, etc."
-
 DATSP:
   name: Discharge Air Temperature Setpoint
   short_name: Discharge Air Temp Sp
@@ -2231,8 +2317,6 @@ DARHSP:
       - dis: "Discharge Air Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Discharge Air Humidity Setpoint-1, Discharge Air Humidity Setpoint-2,
           etc."
-      - kind: Number
-      - unit: percentage
     reference:
       - equipRef
 DAHUMRHSP:
@@ -2253,9 +2337,11 @@ DAHUMRHSP:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: percentage
     reference:
       - equipRef
+  units:
+    - percent_relative_humidity
+
 DADHRHSP:
   name: Discharge Air Dehumidification Relative Humidity Setpoint
   short_name: Discharge Air Dehumidification RH Sp
@@ -2274,9 +2360,11 @@ DADHRHSP:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: percentage
     reference:
-      - equipRef            
+      - equipRef
+  units:
+    - percent_relative_humidity
+         
 DFCMD:
   name: Discharge Fan Command
   short_name: Discharge Fan Cmd
@@ -2381,13 +2469,25 @@ DFFREQ:
       - discharge
       - fan
     identification:
-      - kind: Number
-      - unit: frequency
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
     reference:
       - deviceRef
     reference_optional:
+      - equipRef
+DMPDPR:
+  name: Damper Differential Pressure
+  description: 
+  extends: ADP
+  google_ontology: differential_pressure_sensor
+  haystack:
+    type: 
+      - damper
+      - delta
+    identification:   
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER> 
+    reference: 
       - equipRef
 EADCMD:
   name: Exhaust Air Damper Command
@@ -2397,7 +2497,6 @@ EADCMD:
   google_ontology_full:
     - exhaust_air_damper_percentage_command:
       - kind: Number
-      - unit: percentage
   haystack:
     type:
       - air
@@ -2489,8 +2588,9 @@ ECMDSP:
       - kind: Str      
 
 ECCMD:
-  name: Economizer Output Command
-  google_ontology: outside_air_damper_command
+  name: Economizer Damper Command
+  short_name: Economizer Cmd
+  description: Economizer damper command for a dedicated economizer damper. 
   haystack:
     type:
       - point
@@ -2506,8 +2606,33 @@ ECCMD:
           <INTEGER>  : ECCMD-1, ECCMD-2, etc."
       - dis: "Economizer Output Command or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Economizer Output Command-1, Economizer
-          Output Command-2, etc."
-      - kind: Bool
+          Output Command-2, etc." 
+      - kind: Number
+  units: 
+    - percent
+
+ECDFBK:
+  name: Economizer Damper Position Feedback
+  short_name: Economizer Position
+  haystack:
+    type:
+      - point
+      - economizing
+      - outside
+      - air
+      - damper
+      - sensor
+    identification:
+      - id: "ECCMD or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          ECCMD-1, ECCMD-2, etc."
+      - navName: "ECCMD or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : ECCMD-1, ECCMD-2, etc."
+      - dis: "Economizer Output Command or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Economizer Output Command-1, Economizer
+          Output Command-2, etc."        
+      - kind: Number
+  units:
+    - percent  
 ECENCMD:
   name: Economizer Enable Command
   haystack:
@@ -2527,6 +2652,7 @@ ECENCMD:
       - kind: Bool
 ECOALCKTSP:
   name: Economizer Outside Air Lockout Temperature Setpoint
+  shortname: Economizer Outside Air Lockout Temp Sp
   extends: ATSP
   haystack:
     type:
@@ -2545,6 +2671,7 @@ ECOALCKTSP:
           Temperature Setpoint-2, etc."
 ECOALCKESP:
   name: Economizer Outside Air Lockout Enthalpy Setpoint
+  shortname: Economizer Outside Air Lockout Enthalpy Sp
   haystack:
     type:
       - enthalpy
@@ -2642,8 +2769,6 @@ EFFREQ:
       - exhaust
       - fan
     identification:
-      - kind: Number
-      - unit: frequency
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
     reference:
@@ -2680,6 +2805,7 @@ EFANP:
           + <INTEGER>  : Exhaust Fan Power-1, Exhaust Fan Power-2, etc."
 EHTOCMD:
   name: Electric Heating Output Command
+  shortname: Elec Heat Output Cmd
   google_ontology: heating_percentage_command
   haystack:
     type:
@@ -2696,6 +2822,8 @@ EHTOCMD:
           <NAME> + - + <INTEGER>  : Electric Heating Output Command-1, Electric
           Heating Output Command-2, etc."
       - kind: Number
+  units:
+    - percent
 FLGST:
   name: Flue Gas Temperature
   extends: AIRTEMP
@@ -2714,6 +2842,7 @@ FLTDPR:
   google_ontology: filter_differential_pressure_sensor
   haystack:
     type:
+      - delta
       - filter
     identification:
       - id: "FLTDPR or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
@@ -2755,6 +2884,8 @@ IGVFBK:
           equip/device, use <NAME> + - + <INTEGER>  : Inlet Guide Vane Feedback-1, Inlet Guide Vane Feedback-2,
           etc."
       - kind: Number
+  units:
+    - percent
 HDDATSP:
   name: Hot Deck Discharge Air Temperature Setpoint
   extends: ATSP
@@ -2819,7 +2950,7 @@ HTSTGCT:
     type:
       - point
       - heat
-      - stage
+      - stageCount
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
@@ -2854,7 +2985,7 @@ AUXHTST:
       - equipRef    
 HTDEM:
   name: Heating Demand
-  description: The calculated demand for heating
+  description: The calculated demand for heating. The proportion of the total capacity for heating the equipment is using (% of total). Commonly referred to as heating capacity. 
   google_ontology: heating_percentage_command
   extends: LOAD
   haystack:
@@ -2867,9 +2998,11 @@ HTDEM:
           <INTEGER>  : HTDEM-1, HTDEM-2, etc."
       - dis: "Heating Demand or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Heating Demand-1, Heating Demand-2, etc."
-      - kind: Number    
 HTREQ: 
   name: Heating Requests
+  description: At the zone level, a heating request represents a call for more heating.
+               At the central system level, heating requests represent the total number of heating calls from all of the downstream equipment. 
+               Typically requests are used in trim and respond controls.
   extends: REQ
   google_ontology: heating_request_count
   haystack:
@@ -2929,6 +3062,7 @@ HTGRHSP:
       - dis: "Hot Gas Reheat Setpoint or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Hot Gas Reheat Setpoint-1, Hot Gas Reheat Setpoint-2, etc."
       - kind: Number
+  unit_type: temperature
 HTGRHDBSP:
   name: Hot Gas Reheat Deadband Setpoint
   short_name: Hot Gas Reheat Deadband Sp
@@ -2947,6 +3081,7 @@ HTGRHDBSP:
       - dis: "Hot Gas Reheat Deadband Setpoint or if more than 1 in the equip/device, use <NAME> + - +
           <INTEGER>  : Hot Gas Reheat Deadband Setpoint-1, Hot Gas Reheat Deadband Setpoint-2, etc."
       - kind: Number
+  unit_type: temperature
 HTSTG1CMD:
   name: Heating Stage 1 Command
   short_name: Heat Stage 1 Cmd
@@ -3424,12 +3559,12 @@ NGVCMD:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-      - kind: Number
     reference:
       - equipRef
 
 OACLLCKTSP:
   name: Cooling Lockout Temperature Setpoint
+  short_name: Cooling Lockout Temp Sp
   extends: ATSP
   haystack:
     type:
@@ -3446,6 +3581,7 @@ OACLLCKTSP:
           Temperature Setpoint-1, Cooling Lockout Temperature Setpoint-2, etc."
 OADCMD:
   name: Outside Air Damper Command
+  shortname: Outside Air Damper Cmd
   extends: DPRCMD
   google_ontology: outside_air_damper_command
   google_ontology_full:
@@ -3454,7 +3590,6 @@ OADCMD:
       - kind: Bool
     - outside_air_damper_percentage_command:
       - kind: Number
-      - unit: percentage
   haystack:
     type:
       - outside
@@ -3496,6 +3631,8 @@ MNOADSP:
           <NAME> + - + <INTEGER>  : Minimum Outside Air Damper Setpoint-1, Minimum Outside 
           Air Damper Setpoint-2, etc."
       - kind: Number
+  units:
+    - percent
 OADFBK:
   name: Outside Air Damper Feedback
   extends: ADFBK
@@ -3545,6 +3682,7 @@ OAFLWSP:
           Flow Setpoint-2, etc."
 OAHTLCKTSP:
   name: Heating Lockout Temperature Setpoint
+  shortname: Heating Lockout Temp Sp
   extends: ATSP
   haystack:
     type:
@@ -3561,6 +3699,7 @@ OAHTLCKTSP:
           Temperature Setpoint-1, Heating Lockout Temperature Setpoint-2, etc."
 OALCKTSP:
   name: Outside Air Lockout Temperature Setpoint
+  shortname: Outside Air Lockout Temp Sp
   extends: ATSP
   haystack:
     type:
@@ -3775,6 +3914,7 @@ MXZDWPSP:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
+  unit_type: temperature
 OCCZRHSP:
   name: Occupied Zone Relative Humidity Setpoint
   short_name: Occ Zone RH Sp
@@ -3792,6 +3932,7 @@ OCCZRHSP:
           equip/device, use <NAME> + - + <INTEGER>  : Occupied Zone Relative
           Humidity Setpoint-1, Occupied Zone Relative Humidity Setpoint-2,
           etc."
+
 OCCZTCLSP:
   name: Occupied Zone Temperature Cooling Setpoint
   short_name: Occ Zone Temp Cooling Sp
@@ -3978,10 +4119,9 @@ RARHSP:
       - dis: "Return Air Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Return Air Humidity Setpoint-1, Return Air Humidity Setpoint-2,
           etc."
-      - kind: Number
-      - unit: RH%
     reference:
       - equipRef
+
 RAHRHSP:
   name: Return Air Humidification Humidity Setpoint
   extends: RHSP
@@ -3998,12 +4138,12 @@ RAHRHSP:
       - dis: "Return Air Humidification Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Return Air Humidification Humidity Setpoint-1, Return Air Humidification Humidity Setpoint-2,
           etc."
-      - kind: Number
-      - unit: RH%
     reference:
       - equipRef
+
 RADRHSP:
-  name: Return Air Dehumidification Humidity Setpoint
+  name: Return Air Dehumidification Relative Humidity Setpoint
+  shortname: Return Air Dehumidification RH Sp
   extends: RHSP
   google_ontology: return_air_dehumidification_relative_humidity_setpoint
   haystack:
@@ -4018,8 +4158,6 @@ RADRHSP:
       - dis: "Return Air Dehumidification Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Return Air Dehumidification Humidity Setpoint-1, Return Air Dehumidification Humidity Setpoint-2,
           etc."
-      - kind: Number
-      - unit: RH%
     reference:
       - equipRef
 
@@ -4036,9 +4174,11 @@ RACO2SP:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: concentration (ppm, ...)
     reference:
       - equipRef
+  units:
+    - parts_per_million
+    - parts_per_billion
 REFCMD:
   name: Refrig Exhaust Fan
   extends: FANCMD
@@ -4600,6 +4740,7 @@ UOCZRHSP:
           equip/device, use <NAME> + - + <INTEGER>  : Unoccupied Zone Relative
           Humidity Setpoint-1, Unoccupied Zone Relative Humidity Setpoint-2,
           etc."
+
 UOCZTHTSP:
   name: Unoccupied Zone Temperature Heating Setpoint
   short_name: Unocc Zone Temp Heating Sp
@@ -4698,10 +4839,9 @@ ZRHSP:
       - dis: "Zone Humidity Setpoint or if more than 1 in the equip/device, use <NAME> +
           - + <INTEGER>  : Zone Humidity Setpoint-1, Zone Humidity Setpoint-2,
           etc."
-      - kind: Number
-      - unit: RH%
     reference:
       - equipRef
+
 ZDHRHSP:
   name: Zone Air Dehumidification Relative Humidity Setpoint
   short_name: Zone Air Dehumidification RH Sp
@@ -4715,10 +4855,9 @@ ZDHRHSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit: RH%
     reference:
       - equipRef
+  
 ZHUMRHSP:
   name: Zone Air Humidification Relative Humidity Setpoint
   short_name: Zone Air Humidification RH Sp
@@ -4732,10 +4871,9 @@ ZHUMRHSP:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
-      - unit: RH%
     reference:
       - equipRef   
+
 ZDPR:
   name: Zone Differential Pressure
   extends: ADP
@@ -4782,6 +4920,7 @@ ZSPRSP:
 ZTADJSP:
   name: Zone Temperature Adjust Setpoint
   short_name: Zone Temp Adjust Sp
+  description: The offset from a base setpoint that is used to calculate effective or occupied setpoints. Effective SP = Base + Adjust.
   extends: ATSP
   google_ontology: zone_air_offset_temperature_setpoint
   haystack:
@@ -4796,7 +4935,24 @@ ZTADJSP:
       - dis: "Zone Temperature Adjust Setpoint or if more than 1 in the equip/device,
           use <NAME> + - + <INTEGER>  : Zone Temperature Adjust Setpoint-1, Zone
           Temperature Adjust Setpoint-2, etc."
-
+ZTADJCLSP:
+  name: Zone Temperature Adjust Cooling Setpoint
+  short_name: Zone Temp Adjust Cool Sp
+  extends: ATSP
+  haystack:
+    type:
+      - zone
+      - adjust
+      - cooling
+ZTADJHTSP:
+  name: Zone Temperature Adjust Heating Setpoint
+  short_name: Zone Temp Adjust Heat Sp
+  extends: ATSP
+  haystack:
+    type:
+      - zone
+      - adjust
+      - heating
 EFFZTDB:
   name: Effective Zone Temperature Deadband
   short_name: Effective Zone Temp Deadband
@@ -4818,6 +4974,7 @@ EFFZTDB:
           use <NAME> + - + <INTEGER>  : Effective Zone Temperature Deadband-1,
           Effective Zone Temperature Deadband-2, etc."
       - kind: Number
+  unit_type: temperature
 EFFZTSP:
   name: Effective Zone Temperature Setpoint
   short_name: Effective Zone Temp Sp
@@ -4916,7 +5073,7 @@ OCCZCLDB:
           use <NAME> + - + <INTEGER>  : Occupied Zone Cooling Deadband-1,
           Occupied Zone Cooling Deadband-2, etc."
       - kind: Number
-
+  unit_type: temperature
 OCCZHTDB:
   name: Occupied Zone Heating Deadband
   haystack:
@@ -4938,6 +5095,7 @@ OCCZHTDB:
           use <NAME> + - + <INTEGER>  : Occupied Zone Heating Deadband-1,
           Occupied Zone Heating Deadband-2, etc."
       - kind: Number
+  unit_type: temperature
 OCCZDB:
   name: Occupied Zone Deadband
   description: Adjustable difference between heating and cooling setpoints during occupied periods
@@ -4955,6 +5113,7 @@ OCCZDB:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
+  unit_type: temperature
 UOCCZDB:
   name: Unoccupied Zone Deadband
   description: Adjustable difference between heating and cooling setpoints during unoccupied periods
@@ -4971,25 +5130,24 @@ UOCCZDB:
       - id:  <CODE> + - + <INTEGER> 
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number      
+      - kind: Number  
+  unit_type: temperature    
 IAT:
   name: Inlet Air Temperature
+  short_name: Inlet Air Temp
+  extends: AIRTEMP
+  google_ontology: supply_air_temperature_sensor
+  brick_ontology: Discharge_Air_Temperature_Sensor
   haystack:
     type:
-      - entering
-      - air
-      - temp
-      - sensor
-      - point
+      - inlet
     identification:
-      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
-          etc.
-      - dis
-      - id
-      - kind: Number
-      - unit: temperature
-    reference:
-      - equipRef
+      - id: "IAT or if more than 1 in the equip/device, use <CODE> + - + <INTEGER>  :
+          IAT-1, IAT-2, etc."
+      - navName: "IAT or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : IAT-1, IAT-2, etc."
+      - dis: "Inlet Air Temp or if more than 1 in the equip/device, use <NAME> + - +
+          <INTEGER>  : Inlet Air Temp-1, Inlet Air Temp-2, etc."
 FRZST:
   name: Freezestat status
   extends: ST
@@ -4999,10 +5157,22 @@ FRZST:
     identification:
       - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
           etc.
-      - dis
+      - dis: <NAME> + - + <INTEGER>
       - id
       - kind: Bool
     reference:
       - equipRef      
-
-
+FDST:
+  name: Fire Damper Status
+  short_name: FD Status
+  extends: ST
+  haystack:
+    type:
+      - fire
+    identification:
+      - navName: <name><uniqueInteger>, e.g. FDST-1
+      - dis: <NAME> + - + <INTEGER>
+      - id
+      - kind: Bool
+    reference:
+      - equipRef

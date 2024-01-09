@@ -19,7 +19,7 @@ CAM:
       - spaceRef
       - systemRef
   points:
-    - ILLUM
+    - LTPC
     - RES
 CNTRL:
   name: Controller

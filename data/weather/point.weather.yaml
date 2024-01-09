@@ -35,11 +35,12 @@ WTHWBTEMP:
           + - + <INTEGER>  : Weather Wet Bulb Temperature-1, Weather Wet Bulb 
           Temperature-2, etc."
       - kind: Number
-      - unit: temperature
     reference:
       - weatherStationRef
     reference_optional:
-      - equipRef      
+      - equipRef
+  unit_type: temperature
+
 WTHFLS:
   name: Weather Feels Like Temperature
   short_name: Weather Feels Like Temp
@@ -55,7 +56,6 @@ WTHFLS:
       - dis: "Weather Feels Like Temperature or if more than 1 in the equip/device, use <NAME>
           + - + <INTEGER>  : Weather Feels Like Temperature-1, Weather Feels Like 
           Temperature-2, etc."
-      - kind: Number
     reference:
       - weatherStationRef
     reference_optional:
@@ -104,7 +104,6 @@ WTHENTH:
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>   
-      - kind: Number
     reference:
       - weatherStationRef
     reference_optional:
@@ -151,11 +150,12 @@ WTHCLD:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: percent
     reference:
       - weatherStationRef
     reference_optional:
       - equipRef
+  units:
+    - percent
 WTHWNDSPD: 
   name: Weather Wind Speed
   description: Wind Speed from a weather service
@@ -166,7 +166,6 @@ WTHWNDSPD:
     identification:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
-      - kind: Number
     reference:
       - weatherStationRef
     reference_optional:
@@ -237,11 +236,11 @@ WTHSOLIRR:
       - navName: <CODE> + - + <INTEGER>
       - dis: <NAME> + - + <INTEGER>
       - kind: Number
-      - unit: irradiance
     reference:
       - weatherStationRef
     reference_optional:
       - equipRef 
+  unit_type: irradiance
 WTHCOND: 
   name: Weather Conditions
   description: Descritption of weather conditions from a weather service
@@ -276,5 +275,9 @@ WTHVIS:
       - weatherStationRef
     reference_optional:
       - equipRef      
-
-
+  units:
+    - meter
+    - kilometer
+    - foot
+    - yard
+    - mile

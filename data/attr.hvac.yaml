@@ -127,6 +127,17 @@ designMaxAirFlow:
     type: 
       - max
 
+kFactor:
+  name: "K Factor"
+  domain: hvac.air
+  haystack:
+    type:
+      - attr
+      - air
+      - kfactor
+    identification:
+      - kind: Number
+
 ### Water ###
 
 designWaterFlow: 

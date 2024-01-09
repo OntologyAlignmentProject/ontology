@@ -13,7 +13,7 @@ CHWC:
       - chilledWaterCooling
 CWCOIL:
   name: Condenser Water Coil
-  description: Heat exchanger used to heat or cool air using ccondenser water as
+  description: Heat exchanger used to heat or cool air using condenser water as
     the source. Coils are sub-components of HVAC equipment such as
     airHandlingEquip.
   extends: COIL
@@ -656,6 +656,7 @@ CH:
     - CWISOVCMD
     - CWISOVFBK
     - CWVFBK
+    - DUTYST
     - ECHWFLST
     - ECHWISOVCMD
     - ECHWISOVFBK
@@ -710,12 +711,17 @@ CHWPL:
     - CH
     - CT
     - CWP
+    - PCWP
+    - SCWP
     - LTCH
     - HXW
     - CHWP
     - DEA
     - PCHWP
     - SCHWP
+    - FC
+    - DC
+    - CHWLP
   points:
     - ALRMPT
     - BYPCHWFL
@@ -732,6 +738,7 @@ CHWPL:
     - CWDPR
     - CWISOVFBK
     - CWVFBK
+    - DUTYST
     - ECHWFL
     - ECHWFLST
     - ECHWISOVCMD
@@ -833,6 +840,34 @@ CHWHWPL:
     - SCHWFL
     - WECVCMD
     - WECVPOS
+
+LTCHWPL:
+  name: Low Temperature Chilled Water Plant
+  description: A chilled water plant containing equipment and piping to deliver 
+    fluids chilled below 32°F to a building, process, or equipment.
+  extends: CHWPL
+  haystack:
+    type:
+      - lowTemp
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis
+      - id
+  contains:
+    - CH
+    - CT
+    - CWP
+    - PCWP
+    - SCWP
+    - LTCH
+    - HXW
+    - CHWP
+    - DEA
+    - PCHWP
+    - SCHWP
+  points:
+    - LTLCHWT
+    - LTECHWT
 
 CNR:
   name: Condensate Receiver
@@ -1003,6 +1038,68 @@ CTSEP:
     reference_optional:
       - deviceRef
 
+FC:
+  name: Fluid Cooler
+  description: A fluid cooler is a heat rejection equipment that uses water as a cooling medium.
+  extends: CT
+  haystack:
+    type:
+      - fluidCooler
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FC-1 or FC-37
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. FC-1 or FC-39
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FC1 or FC40
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+      - domesticWaterRef
+      - domesticWaterMeterRef
+      - blowdownWaterMeterRef
+  points:
+    - FANST
+    - FANCMD
+    - FANSPCMD
+    - CWISOVCMD
+    - ECWT
+    - LCWT
+    - LCWFL
+    - LCWTSP
+
+DC:
+  name: Dry Cooler
+  is_base: true
+  description: A dry cooler is a heat rejection equipment that uses air as a cooling medium.
+  brick_ontology: Dry_Cooler
+  haystack:
+    type:
+      - equip
+      - dryCooler
+    identification:
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DC-1 or DC-37
+      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DC-1 or DC-39
+      - id: <ABBREVIATION> + <INTEGER> - e.g. DC1 or DC40
+    reference:
+      - siteRef
+      - equipRef
+    reference_optional:
+      - systemRef
+      - spaceRef
+      - elecMeterRef
+      - deviceRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+  points:
+    - FANST
+    - FANCMD
+    - FANSPCMD
+
 CWPL:
   name: Condenser Water Plant
   short_name: CW Plant
@@ -1032,6 +1129,11 @@ CWPL:
     - CT
     - HXW
     - CWP
+    - PCWP
+    - SCWP
+    - FC
+    - DC
+    - CWLP
   points:
     - ALRMPT
     - BSWPSSCMD
@@ -1045,6 +1147,7 @@ CWPL:
     - CWDPR
     - CWDPRSP
     - CWISOVFBK
+    - DUTYST
     - ECWISOVCMD
     - CWVFBK
     - ECWISOVFBK
@@ -1106,20 +1209,6 @@ DEA:
     reference_optional:
       - equipRef
 
-DH:
-  name: Duct Heater
-  haystack:
-    type:
-      - equip
-      - heater
-      - duct
-    identification:
-      - id: <ABBREVIATION> + <INTEGER> - e.g. DH1 or DH404
-      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. DH-1 or DH-404
-      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. DH-1 or DH-406
-    reference_optional:
-      - equipRef
-
 DHUM:
   name: Dehumidifier
   haystack:
@@ -1142,19 +1231,6 @@ HC:
       - id: <ABBREVIATION> + <INTEGER> - e.g. HC1 or HC456
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HC-1 or HC-456
       - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HC-1 or HC-458
-    reference_optional:
-      - equipRef
-
-HRU:
-  name: Heat Recovery Unit
-  haystack:
-    type:
-      - equip
-      - heatRecovery
-    identification:
-      - id: <ABBREVIATION> + <INTEGER> - e.g. HRU1 or HRU430
-      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. HRU-1 or HRU-430
-      - dis: <ABBREVIATION> + - + <INTEGER> - e.g. HRU-1 or HRU-432
     reference_optional:
       - equipRef
 
@@ -1207,13 +1283,17 @@ HWPL:
     - BCP
     - BFWP
     - CNR
+    - HTDEM
     - PRV
     - PHWP
     - SHWP
+    - PUMPGRP
+    - HWLP
   points:
     - ALRMPT
     - BCPSSCMD
     - BCPSSST
+    - DUTYST
     - EHWISOVCMD
     - EHWISOVFBK
     - EHWT
@@ -1222,7 +1302,6 @@ HWPL:
     - ENCMD
     - EWTSP
     - FLGST
-    - HWBPVCMD
     - HTSTGCT
     - HTTHRMPWR
     - HWBYPVCMD
@@ -1412,3 +1491,72 @@ WTWHP:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <ABBREVIATION> + - + <INTEGER>
       - id
+
+LOOP: 
+  name: Loop
+  description: Subsystem connected by a common pathway, typically conduit, pipe or duct
+  is_base: true
+  haystack:
+    type: 
+      - loop
+      - equip
+    type_optional:
+      - primaryLoop
+      - secondaryLoop
+AIRLP: 
+  name: Air Loop
+  description: Subsystem of air components connected by a common pathway, typically a duct
+  extends: LOOP
+  brick_ontology: Air Loop
+  haystack:
+    type: 
+      - air
+    reference_as:
+      - airRef
+CHWLP: 
+  name: Chilled Water Loop
+  description: Subsystem of chilled water components connected by a common pathway, typically pipe 
+  extends: LOOP
+  brick_ontology: Chilled Water Loop
+  haystack:
+    type: 
+      - chilled
+      - water   
+    reference_as:
+      - chilledWaterRef  
+  points: 
+    - SCCHWDPR
+    - SCCHWDPRSP      
+HWLP: 
+  name: Hot Water Loop
+  description: Subsystem of hot water components connected by a common pathway, typically pipe 
+  extends: LOOP
+  brick_ontology: Hot Water Loop
+  haystack:
+    type: 
+      - hot
+      - water
+    reference_as:
+      - hotWaterRef           
+  points: 
+    - SCHWDPRSP
+    - SCHWDPR
+CWLP: 
+  name: Condenser Water Loop
+  description: Subsystem of condenser water components connected by a common pathway, typically pipe 
+  extends: LOOP
+  haystack:
+    type: 
+      - condenser
+      - water    
+    reference_as:
+      - condenserWaterRef            
+RADI: 
+  name: Radiator
+  description: Heating equipment used to warm a space by radiating heat. 
+  is_base: true
+  brick_ontology: Space Heater
+  haystack:
+    type: 
+      - equip
+      - radiator
