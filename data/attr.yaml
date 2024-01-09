@@ -161,4 +161,15 @@ ratedVoltage:
     identification:
       - kind: Number
   unit_type: electric_potential
-  
+
+ratedWattage:
+  name: Rated Wattage
+  domain: electrical
+  haystack:
+    type: 
+      - rated
+      - wattage
+      - attr
+    identification:
+      - kind: Number
+  unit_type: electric_wattage
