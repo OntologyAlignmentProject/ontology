@@ -134,6 +134,10 @@ battery:
   description: Equipment used to store electric energy
   type: MARKER
   source: HAY
+bin:
+  description: A vessel to store or transport waste
+  type: marker
+  source: OAP
 blinds:
   description: Window coverings, usually made out of wood, vinyl, or metal
   type: MARKER
@@ -327,6 +331,11 @@ constantAirVolume:
     equipment with a single speed fan.
   type: MARKER
   source: HAY
+contamination:
+  description: The proportion of a substance that is considered a contaminant. E.g. the
+    percentage of organic waste in a comingled recycling bin
+  type: MARKER
+  source: OAP
 controller:
   description: Microprocessor based device used in a control system
   type: MARKER
@@ -1035,6 +1044,10 @@ loadType:
     - refrigeration
   type: ENUM
   source: OAP  
+location:
+  description: The physical location history of a movable object that is able to be tracked
+  type: MARKER
+  source: OAP
 loop: 
   description: Subsystem connected by a common conduit of either pipe or wire.
   type: MARKER
@@ -1933,6 +1946,11 @@ vrf:
   description: Variable refrigerant flow
   type: MARKER
   source: HAY
+waste:
+  description: Unwanted or unusable material. In this context, waste refers to material being discarded
+    from a commercial facility through contracted or arraqnged collections.
+  type: MARKER
+  source: OAP
 wastewater:
   description: "Wastewater (or waste water) is any water that has been
     contaminated by human use. "
@@ -1963,6 +1981,10 @@ weatherStation:
   description: Logical weather station and its measurement points
   type: MARKER
   source: HAY
+weight:
+  description: The weight history of an object with sensors to read the mass of the object
+  type: MARKER
+  source: OAP
 west:
   description: the direction toward the point of the horizon where the sun sets at the equinoxes, on the left-hand side of a person facing north
   type: MARKER

@@ -1,0 +1,69 @@
+## Waste point definitions
+
+LOC:
+  name: Location
+  description: For location history of portable bins in RTLS system
+  haystack:         
+    type:
+      - location
+      - point
+      - sensor
+    identification:
+      - kind: Number
+      - dis: <LEVEL> + - + <ROOM>
+      - id: machine generated
+    reference:
+      - equipRef
+WASWT:
+  name: Waste Weight
+  description: Weight of bin contents. For weighing stations or bin-mounted load cells
+  metadata:         ## Not really described by Haystack.
+    type:
+      - waste
+      - weight
+      - sensor
+      - point
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+WASFL:
+  name: Waste Level
+  description: Volumetric fill level, typically via ultrasonic distance measurement
+  metadata:         ## Not really described by Haystack. `quantity. Volume marker` type broadly describes the concept but is not a point
+    type:
+      - waste
+      - level
+      - sensor
+      - point
+    identification:
+      - kind: Number
+      - unit: Percentage
+    reference:
+      - equipRef
+WASCR:              ## Check for clashes
+  name: Waste Contamination Rate
+  description: Contamination rate by weight 
+  metadata:         ## Not really described by Haystack.
+    type:
+      - waste
+      - contamination
+      - point
+    identification:
+      - kind: Number
+      - unit: Percentage
+    reference:
+      - equipRef
+PWBST:              ## Check for clashes
+  name: Bin fill state
+  description: Enumerated point to describe the state of the bin. Primary intent is to manage bins that may not ben in service and therefore may attract differing behaviour from analytics (e.g. 'clean', 'filling', 'full', 'dirty')
+  metadata:         ## Not really described by Haystack.
+    type:
+      - bin
+      - sensor
+      - state
+      - point
+    identification:
+      - kind: Enum
+    reference:
+      - equipRef

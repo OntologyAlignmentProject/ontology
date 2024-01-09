@@ -162,3 +162,30 @@ ratedVoltage:
       - kind: Number
   unit_type: electric_potential
   
+###Common, equip-level numerical Attributes ####
+VOL:
+  name:  Volume
+  description: The design volume a piece of equipment can hold.  
+  domain: common
+  haystack:
+    type:
+     - attr
+     - volume
+    identification:
+      -kind: Number
+  unit_type: volume
+  #This has been added to support modelling of waste bins however it has been added as a common attribute to 
+ # support generic usage where needed.
+ 
+###Waste ###
+WASTETYPE:
+  name: Waste Type
+  description: The intended waste stream within a bin or waste management process. E.g. General, Organic, Comingled, Paper & Cardboard etc
+  domain: waste
+  haystack:
+    type:
+      - attr
+      - type
+      - waste
+    identification:
+      - kind: Str
