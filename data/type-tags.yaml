@@ -454,6 +454,10 @@ dispenser:
   description:  Machine or container which is designed to release a specific amount of its content.
   type: MARKER
   source: OAP  
+doas:
+  description: Dedicated Outside Air System.
+  type: MARKER
+  source: HAY
 docSection:
   description: This tag is documented with its own section
   type: MARKER

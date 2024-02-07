@@ -514,6 +514,9 @@ RWS:
       - siteRef
       - spaceRef
       - systemRef
+  points: 
+    - CMST
+    - ALRMPT
   contains: 
     - RWST
     - PUMPGRP

@@ -1707,7 +1707,7 @@ CLSTG3STS:
       - equipRef
 CLSTG4STS:
   name: Cooling Stage 4 Status
-  short_name:: Cool Stage 4 Status
+  short_name: Cool Stage 4 Status
   haystack:
     type:
       - point
@@ -3789,7 +3789,7 @@ OCCIAFLWMXSP:
 
 OCCIAFLWCLMNSP:
   name: Occupied Cooling Air Flow Min Setpoint
-  short_name: Occ Cooling Air Flow Min Sp
+  short_name: Occ Cool Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3808,7 +3808,7 @@ OCCIAFLWCLMNSP:
 
 OCCIAFLWCLMXSP:
   name: Occupied Cooling Air Flow Max Setpoint
-  short_name: Occ Cooling Air Flow Max Sp
+  short_name: Occ Cool Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3827,7 +3827,7 @@ OCCIAFLWCLMXSP:
 
 OCCIAFLWHTMNSP:
   name: Occupied Heating Air Flow Min Setpoint
-  short_name: Occ Heating Air Flow Min Sp
+  short_name: Occ Heat Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3846,7 +3846,7 @@ OCCIAFLWHTMNSP:
 
 OCCIAFLWHTMXSP:
   name: Occupied Heating Air Flow Max Setpoint
-  short_name: Occ Heating Air Flow Max Sp
+  short_name: Occ Heat Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -3935,7 +3935,7 @@ OCCZRHSP:
 
 OCCZTCLSP:
   name: Occupied Zone Temperature Cooling Setpoint
-  short_name: Occ Zone Temp Cooling Sp
+  short_name: Occ Zone Temp Cool Sp
   extends: ATSP
   brick_ontology: Occupied_Air_Temperature_Cooling_Setpoint
   haystack:
@@ -3954,7 +3954,7 @@ OCCZTCLSP:
           etc."
 OCCZTHTSP:
   name: Occupied Zone Temperature Heating Setpoint
-  short_name: Occ Zone Temp Heating Sp
+  short_name: Occ Zone Temp Heat Sp
   extends: ATSP
   brick_ontology: Occupied_Air_Temperature_Heating_Setpoint
   google_ontology: zone_air_occupied_heating_temperature_setpoint
@@ -3990,7 +3990,7 @@ OFCMD:
           Command-2, etc."
 RACTSP:
   name: Return Air Cooling Temperature Setpoint
-  short_name: Return Air Cooling Temp Sp
+  short_name: Return Air Cool Temp Sp
   extends: ATSP
   google_ontology: return_air_cooling_temperature_setpoint
   haystack:
@@ -4072,7 +4072,7 @@ RAFLWSP:
           Setpoint-2, etc."
 RAHTSP:
   name: Return Air Heating Temperature Setpoint
-  short_name: Return Air Heating Temp Sp
+  short_name: Return Air Heat Temp Sp
   extends: ATSP
   google_ontology: return_air_heating_temperature_setpoint
   haystack:
@@ -4560,7 +4560,7 @@ UOCCDAFLWMXSP:
           
 UOCIAFLWCLMNSP:
   name: Unoccupied Cooling Air Flow Min Setpoint
-  short_name: Unocc Cooling Air Flow Min Sp
+  short_name: Unocc Cool Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4579,7 +4579,7 @@ UOCIAFLWCLMNSP:
 
 UOCIAFLWCLMXSP:
   name: Unoccupied Cooling Air Flow Max Setpoint
-  short_name: Unocc Cooling Air Flow Max Sp
+  short_name: Unocc Cool Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4598,7 +4598,7 @@ UOCIAFLWCLMXSP:
 
 UOCIAFLWHTMNSP:
   name: Unoccupied Heating Air Flow Min Setpoint
-  short_name: Unocc Heating Air Flow Min Sp
+  short_name: Unocc Heat Air Flow Min Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4617,7 +4617,7 @@ UOCIAFLWHTMNSP:
 
 UOCIAFLWHTMXSP:
   name: Unoccupied Heating Air Flow Max Setpoint
-  short_name: Unocc Heating Air Flow Max Sp
+  short_name: Unocc Heat Air Flow Max Sp
   extends: AFLWSP
   haystack:
     type:
@@ -4705,7 +4705,7 @@ UOCHDAFLWMXSP:
           Flow Setpoint-1, Max Unoccupied Hot Deck Air Flow Setpoint-2, etc."
 UOCZTCLSP:
   name: Unoccupied Zone Temperature Cooling Setpoint
-  short_name: Unocc Zone Temp Cooling Sp
+  short_name: Unocc Zone Temp Cool Sp
   extends: ATSP
   brick_ontology: Unoccupied_Air_Temperature_Cooling_Setpoint
   haystack:
@@ -4743,7 +4743,7 @@ UOCZRHSP:
 
 UOCZTHTSP:
   name: Unoccupied Zone Temperature Heating Setpoint
-  short_name: Unocc Zone Temp Heating Sp
+  short_name: Unocc Zone Temp Heat Sp
   extends: ATSP
   brick_ontology: Unoccupied_Air_Temperature_Heating_Setpoint
   google_ontology: zone_air_unoccupied_heating_temperature_setpoint
@@ -4994,7 +4994,7 @@ EFFZTSP:
           Effective Zone Temperature Setpoint-2, etc."
 EFFZTCLSP:
   name: Effective Zone Temperature Cooling Setpoint
-  short_name: Effective Zone Temp Cooling Sp
+  short_name: Effective Zone Temp Cool Sp
   google_ontology: zone_air_cooling_temperature_setpoint
   extends: ATSP
   haystack:
@@ -5013,7 +5013,7 @@ EFFZTCLSP:
           etc."
 EFFZTHTSP:
   name: Effective Zone Temperature Heating Setpoint
-  short_name: Effective Zone Temp Heating Sp
+  short_name: Effective Zone Temp Heat Sp
   google_ontology: zone_air_heating_temperature_setpoint
   extends: ATSP
   haystack:
