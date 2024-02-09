@@ -1045,6 +1045,11 @@ GEF:
     - EADFBK
     - OADCMD
     - OADFBK
+  functions:
+    - ED
+    - EFSS
+    - EFVSC
+    - CSP    
 
 GHC:
   name: Gas Heat Coil
