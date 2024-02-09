@@ -46,13 +46,15 @@ ex. Type: AHU -> subtype: DOAS
 
 Unlike points which typically correspond to streaming telemetry data, attributes define properties that are typically fixed or static
 
-### Extends 
+### Extension
 
 Most entities in OAP are extensible including: sites, spaces, equips, devices, points, KPIs and attributes. This allows the subtype to inherit tags from its parent type. For points, spaces, sites, and equips extending will also cause inheritance of the unit, functions, kpis and attributes defined on an entity. 
 
+For equips, points and functions are not inherited by default. In order for points or functions to be inherited by subtypes, they should be specified under `points_base` or `functions_base` respectively. 
+
 For attributes, subtypes inherit tags and units.
 
- For KPIs, subtypes inherit ranges, rollupCalculations, rollupIntervals, normalizations, comparisons, units, rangeFilters and profileWindows. 
+For KPIs, subtypes inherit ranges, rollupCalculations, rollupIntervals, normalizations, comparisons, units, rangeFilters and profileWindows. 
 
 ### Contains 
 
