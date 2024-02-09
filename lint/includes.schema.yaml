@@ -1,0 +1,28 @@
+haystack:
+  type: list(str(), include("haystack_type_attr"))
+  type_optional: list(str(), include("haystack_type_attr"), required=False)
+  identification: list(str(equals="id"), str(equals="dis"), str(equals="navName"), include("identification"), required=False)
+  reference: list(str(), map(str()), required=False)
+  reference_optional: list(str(), map(str()), required=False)
+  measure_reference: list(str(), required=False)
+  output_reference: list(str(), required=False)
+
+identification:
+  id: str(required=False)
+  dis: str(required=False)
+  navName: str(required=False)
+  kind: include("kind", required=False)
+  dwgId: str(required=False)
+  unit: str(required=False)
+  unit_type: enum("mass", "volume", "volumetric_flow", "mass_flow", "electric_potential", "pressure", "temperature", "temperature_differential", required=False)
+
+haystack_type_attr:
+  phase: enum("A", "B", "C", "AB", "BC", "CA", required=False)
+  unit_type: str(required=False)
+  stage: Integer(required=False)
+
+google_ontology_full:
+  kind: include("kind", required=False)
+  unit: str(required=False)
+
+kind: enum("Bool", "Number", "Str", "List", required=False)

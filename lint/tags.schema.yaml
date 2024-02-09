@@ -1,0 +1,9 @@
+map(include('tag'))
+---
+tag:
+  description: str()
+  type: enum("MARKER", "STRING", "NUMBER", "REF", "ENUM", "COORD", required=False)
+  source: enum("OAP", "HAY", "HAY3", "BIOT", required=False)
+  subtype: enum("FLOW", "MEASURE", "CONTAIN", required=False)
+  enum: list(str(), required=False)
+  fundamental_entity: bool(required=False)
