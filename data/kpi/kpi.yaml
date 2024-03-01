@@ -40,6 +40,7 @@ EC:
   rollup_interval:
     - day
     - month
+    - year
     - range
   rollup_calculation:
     - sum
@@ -71,6 +72,9 @@ TNGEC:
     - kilobtu
     - megabtu
     - therm
+    - cubic_meter
+    - cubic_foot
+    - cubic_feet_natural_gas
 
 TCHWEC:
   name: Total Chilled Water Energy Consumption
@@ -80,6 +84,7 @@ TCHWEC:
     - kilobtu
     - megabtu
     - kilowatt_hour
+    - tons_refrigeration_hour
 
 THWEC:
   name: Total Hot Water Energy Consumption
@@ -96,7 +101,21 @@ TSTEC:
   extends: EC
   units: 
     - kilobtu
-    - megabtu    
+    - megabtu 
+    - pound
+    - kilopound
+
+TFOEC:
+  name: Total Fuel Oil Consumption
+  description: Total energy from fuel oil consumed by an entity from an external source.
+  extends: EC
+  units: 
+    - kilobtu
+    - megabtu
+    - therm    
+    - pound
+    - kilopound
+    - gallon
 
 TEC:
   name: Total Energy Consumption
@@ -108,10 +127,12 @@ TEC:
     - TCHWEC
     - THWEC
     - TSTEC
+    - TFOEC
   units: 
     - kilobtu
     - megabtu
     - kilowatt_hour
+
 TES:
   name: Total Energy Savings
   description: The total energy saved by an entity from various external sources compared to a baseline.

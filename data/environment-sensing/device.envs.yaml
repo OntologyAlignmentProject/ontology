@@ -1,8 +1,7 @@
 # Base Environment Sensor definitions
-# Sensors are categorized in to five main type:
+# Sensors are categorized in to these main base type:
 #   - Occupancy Sensors (OCCS)
 #   - Air Sensors (AIRS)
-#   - Light Sensors (LTS)
 #   - Surface Sensors (SURS)
 #   - Multi Sensors (MTS)
 
@@ -24,15 +23,10 @@ OCCS:
       - systemRef
       - hvacZoneRef
       - lightingZoneRef
+  functions_base:
+    - SSTM
   points_base:
-    - OCCEFFSP
-    - CMST
-    - BATST
-    - BATLVL
     - OCCSNS
-    - LNIPCNT
-    - LNOPCNT 
-    - ZPCNT 
 
 AIRS:
   name: Air Sensor
@@ -51,24 +45,13 @@ AIRS:
       - networkRef
       - systemRef
       - hvacZoneRef
-  points_base:
-    - ALRMPT
-    - OCCEFFSP
-    - CMST
-    - BATST
-    - BATLVL
-    - ZCO
+      - equipRef
+  functions_base:
+    - SSTM
+  points:
+    - ZT
+    - ZRH
     - ZCO2
-    - ZCO2SP
-    - ZRF 
-    - ZRFSP 
-    - ZTVOCSP 
-    - ZCH4 
-    - ZCH4ALMSP 
-    - ZCOSP 
-    - ZCOALMSP 
-    - SIGSTR
-    - RSSI
 
 SURS:
   name: Surface Sensor
@@ -86,12 +69,8 @@ SURS:
     reference_optional:
       - networkRef
       - systemRef
-  points_base:
-    - ALRMPT
-    - OCCEFFSP
-    - CMST
-    - BATST
-    - BATLVL
+  functions_base:
+    - SSTM
 
 MTS:
   name: Multi Sensor
@@ -111,26 +90,17 @@ MTS:
       - systemRef
       - hvacZoneRef
   points_base:
-    - ALRMPT
     - ACSLVL
-    - OCCEFFSP
-    - CMST
-    - BATST
-    - BATLVL
     - LTLVL
     - LNIPCNT
     - LNOPCNT 
     - OCCSNS
-    - ZCO
-    - ZCO2
-    - ZCO2SP
-    - ZRF 
-    - ZRFSP 
-    - ZTVOCSP 
-    - ZCH4 
-    - ZCH4ALMSP
-    - ZCOSP 
-    - ZCOALMSP
+    - ZT
+    - ZRH
+  functions_base:
+    - SSTM
+  functions:
+    - AQM
 
 # Occupancy Sensors
 
@@ -143,10 +113,8 @@ MOS:
   haystack:
     type:
       - motion
-    identification:
-      - id
-      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. MOS-1 or MOS-171
-      - dis: Motion Sensor 1 or MOS-1
+  points:
+    - MOST
 
 OCCPS:
   name: Occupancy Presence Sensor
@@ -205,10 +173,6 @@ ATPS:
   haystack:
     type:
       - temp
-    identification:
-      - id
-      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. ATPS-1 or ATPS-187
-      - dis: Air Temperature Sensor 1 or ATPS-1
   points:
     - ZT
 
@@ -226,7 +190,20 @@ AHMS:
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. AHMS-1 or AHMS-187
       - dis: Air Humidity Sensor 1 or AHMS-1
   points:
+    - ZT
     - ZRH
+
+ACO2S:
+  name: CO2 Sensor
+  description: A device that measures the CO2 in the air around it
+  extends: AIRS
+  haystack:
+    type:
+      - co2
+  points:
+    - ZT
+    - ZRH
+    - ZCO2
 
 AQS:
   name: Air Quality Sensor
@@ -242,6 +219,9 @@ AQS:
       - dis: Air Quality Sensor 1 or AQS-1
   functions:
     - AQM
+  points:
+    - ZT
+    - ZRH
 
 GDS:
   name: Gas Detector
@@ -258,6 +238,22 @@ GDS:
       - dis: Gas Detector 1 or GDS-1
   functions:
     - TCGM
+
+REFS:
+  name: Refrigerant Monitor
+  description: A Refrigerant Leak Monitor (or Refrigerant Detection Sensor) monitors concentrations changes 
+    of refrigerants to detect leaks in refrigerant systems.
+  extends: AIRS
+  ifc_class: ifcSensor
+  haystack:
+    type:
+      - refrig
+    identification:
+      - id
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. REFS-1 or REFS-187
+      - dis: Refrigerant Detector 1 or REFS-1
+  functions:
+    - RFM
 
 # Surface Sensor Types
 
@@ -319,6 +315,7 @@ OAS:
     - OATVOC
     - OADWP
     - OARH
+    - OAENTH
     - OATEMP
     - OAWBTEMP
     - WNDSPD

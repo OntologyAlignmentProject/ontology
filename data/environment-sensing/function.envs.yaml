@@ -1,3 +1,18 @@
+# Sensor Status Monitoring
+
+SSTM:
+  name: SSTM
+  description: Sensor Status Monitoring
+  points:
+    - ALRMPT
+    - CMST
+    - BATST
+    - BATLVL
+    - SIGSTR
+    - RSSI
+
+# Air Monitoring Functions
+
 AQM:
   name: AQM
   description: Air Quality Monitoring
@@ -26,6 +41,13 @@ TCGM:
     - ZNO2ALMSP
     - ZCH4
     - ZCH4ALMSP
+
+RFM:
+  name: RFM
+  description: Refrigerant Monitoring
+  points:
+    - ZRF
+    - ZRFALRMSP
 
 # Occupancy or Presence Functions
 

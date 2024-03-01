@@ -14,7 +14,6 @@ LVLLFLT:
       - equipRef
     reference_optional:
       - deviceRef
-
 LVLHFLT:
   name: Level High Fault
   description: Level has gone above a certain threshold and is generating a fault.

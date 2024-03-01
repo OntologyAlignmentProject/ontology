@@ -99,6 +99,11 @@ fuelOilRef:
   type: REF
   subtype: FLOW
   source: HAY
+fuelOilMeterRef:
+  description: Reference to the fueloil meter which monitors oil consumption by this entity
+  type: REF
+  subtype: MEASURE
+  source: OAP  
 gasolineRef:
   description: Gasoline flows from the the referent to this entity
   type: REF

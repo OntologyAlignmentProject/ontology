@@ -16,6 +16,7 @@ AIR:
       - deviceRef  
     reference_optional:
       - equipRef
+
 AIRSP:
   name: Air Concentration Setpoint (Base Definition)
   is_base: true
@@ -32,6 +33,7 @@ AIRSP:
       - kind: Number
     reference:
       - equipRef
+
 ZCO:
   name: Zone CO
   short_name: CO
@@ -63,6 +65,7 @@ ZCOAUX:
           <INTEGER>  : Zone CO-AUX-1, Zone CO-AUX-2, etc."
     reference:
       - spaceRef
+
 ZCO2:
   name: Zone CO2
   short_name: CO₂
@@ -231,6 +234,20 @@ ZRF:
   units:
     - milligrams_per_cubic_meter
     - micrograms_per_cubic_meter   
+
+ZCH4:
+  name: Zone CH4
+  short_name: CH₄
+  description: Methane (CH₄) measured in the air within a space
+  extends: AIR
+  google_ontology: zone_air_ch4_concentration_sensor
+  haystack:
+    type:
+      - ch4
+      - zone
+  units:
+    - percent
+
 ZCO2SP:
   name: Zone CO2 Setpoint
   extends: AIRSP
@@ -300,24 +317,9 @@ ZTVOCSP:
   units:
     - milligrams_per_cubic_meter
     - micrograms_per_cubic_meter        
-RFALRMH:
-  name: Refrigerant Concentration Level Alarm High
-  description: Refrigerant concentration level has exceeded a certain threshold and 
-    is generating an alarm.
-  extends: ALRMPT
-  haystack:
-    type:
-      - refrig
-      - concentration
-      - high
-    identification:
-      - kind: Bool
-      - navName: <ABBREVIATION> + - + <INTEGER>
-      - dis: <NAME> + - + <INTEGER>    
-    reference:
-      - equipRef
-    reference_optional:
-      - deviceRef      
+
+# Occpancy Points
+
 ZPCNT:
   name: Zone People Count
   description: The number of people detected in an area or zone
@@ -404,6 +406,24 @@ OCCDWTM:
       - spaceRef
       - deviceRef
   unit_type: time
+
+MOST:
+  name: Motion Sensor Status
+  short_name: Motion Status
+  description: Motion Sensor Status
+  haystack:
+    type:
+      - motion
+      - sensor
+      - point 
+    identification:
+      - id
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Bool
+ 
+# Alarm Setpoints
+
 ZALMSP:
   name: Zone Alarm Setpoint (Base Definition)
   is_base: true
@@ -425,19 +445,6 @@ ZALMSP:
       - deviceRef
     reference_optional:
       - equipRef
-
-ZCH4:
-  name: Zone CH4
-  short_name: CH₄
-  description: Methane (CH₄) measured in the air within a space
-  extends: AIR
-  google_ontology: zone_air_ch4_concentration_sensor
-  haystack:
-    type:
-      - ch4
-      - zone
-  units:
-    - percent
 
 ZCH4ALMSP:
   name: Zone CH4 Alarm Setpoint
@@ -474,18 +481,15 @@ ZNO2ALMSP:
     - milligrams_per_cubic_meter
     - micrograms_per_cubic_meter 
 
-MOST:
-  name: Motion Sensor Status
-  short_name: Motion Status
-  description: Motion Sensor Status
+ZRFALMSP:
+  name: Refrigerant Concentration Level Alarm Setpoint
+  description: Refrigerant concentration level has exceeded a certain threshold and 
+    is generating an alarm.
+  extends: ZALMSP
   haystack:
     type:
-      - motion
-      - sensor
-      - point 
-    identification:
-      - id
-      - navName: <CODE> + - + <INTEGER>
-      - dis: <NAME> + - + <INTEGER>
-      - kind: Bool
- 
+      - refrig
+    reference:
+      - equipRef
+    reference_optional:
+      - deviceRef      

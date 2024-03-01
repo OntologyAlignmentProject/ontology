@@ -308,6 +308,7 @@ HSP:
     - UOCZTHTSP
     - ZT
     - EFFZTSP
+    - EFFZTHTSP
     - ZTSP
     - ZTADJSP
 HTEZC:
@@ -323,6 +324,7 @@ HTEZC:
     - HTSTG2CMD
     - HTSTG3CMD
     - HTSTG4CMD
+    - EHTOCMD
 HTGZC:
   name: HTGZC
   description: Gas heater control on zone side (ZC).
@@ -376,6 +378,8 @@ PHWSC:
     - HWVCMD
     - DAT
     - DATSP
+    - PHDAT
+    - PHDATSP
 HWDC:
   name: HWDC
   description: Hot water valve control on discharge air side.

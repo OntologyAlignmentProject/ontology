@@ -35,9 +35,6 @@ WM:
     - MTR
   functions_base:
     - MTR
-  points:
-    - WFLOW
-    - WVOL
   points_base:
     - WFLOW
     - WVOL
@@ -172,7 +169,11 @@ HM:
     - MTR
   points:
     - THRMEN
+    - THRMENEXP
+    - THRMENIMP
     - THRMPWR
+    - THRMPWREXP
+    - THRMPWRIMP
 
 SM:
   name: Steam Meter
@@ -345,3 +346,30 @@ WWM:
       - id: <ABBREVIATION> + <INTEGER> - e.g. WWM1 or WWM421
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. WWM-1 or WWM-421
       - dis: Wastewater Meter 1 or WWM-1
+
+FOM:
+  name: Fuel Oil Meter
+  description: A device that measures the amount of fuel oil
+    consumed by a residence, a business or equipment.
+  is_base: true
+  haystack:
+    type:
+      - fuelOil
+      - equip
+      - meter
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> - e.g. FOM2 or FOM92
+      - navName: <ABBREVIATION> + - + <INTEGER> - e.g. FOM-1 or FOM-392
+      - dis: Fuel Oil Meter 1 or FOM-1
+    reference:
+      - siteRef
+    reference_optional:
+      - submeterOf
+      - spaceRef
+    reference_as:
+      - fuelOilMeterRef
+  functions:
+    - MTR
+  points:
+    - ALRMPT
+    - FOMFL

@@ -136,6 +136,32 @@ HCDAT:
       - dis: "Heating Coil Discharge Air Temperature or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Heating Coil Discharge Air Temperature-1, Heating Coil Discharge Air
           Temperature-2, etc."   
+PHDAT:
+  name: Preheat Coil Discharge Air Temperature
+  description: The air temperature measured by a sensor in the discharge air duct immediately downstream of a preheating coil.
+  extends: DAT
+  google_ontology: leaving_air_preheating_coil_temperature_sensor
+  haystack:
+    type:
+      - preheatCoil
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+    unit_type: temperature
+PHDATSP:
+  name: Preheat Coil Discharge Air Temperature Setpoint
+  extends: ATSP
+  haystack:
+    type:
+      - preheatCoil
+      - discharge
+      - effective
+    identification:
+      - kind: Number
+    reference:
+      - equipRef
+    unit_type: temperature
 HDAFLW:
   name: Hot Deck Air Flow
   extends: AIRFLOW
@@ -1997,9 +2023,7 @@ CWVFBK:
       - water
     identification:
       - navName: <CODE> + - + <INTEGER>
-      - dis: <NAME> + - + <INTEGER>   
-    reference:
-      - equipRef    
+      - dis: <NAME> + - + <INTEGER>     
 DADCMD:
   name: Discharge Air Damper Command
   short_name: Discharge Air Damper Cmd
@@ -3425,8 +3449,6 @@ HWVFBK:
       - dis: "Hot Water Valve Position Feedback or if more than 1 in the equip/device, use <NAME>
           + - + <INTEGER>  : Hot Water Valve Position Feedback-1, Hot Water Valve
           Position Feedback-2, etc."
-    reference:
-      - equipRef
 HWISOVCMD:
   name: Hot Water Isolation Valve Command
   extends: VCMD
@@ -3559,9 +3581,6 @@ NGVCMD:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-    reference:
-      - equipRef
-
 OACLLCKTSP:
   name: Cooling Lockout Temperature Setpoint
   short_name: Cooling Lockout Temp Sp

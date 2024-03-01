@@ -376,6 +376,20 @@ CTBYPVCMD:
   name: Cooling Tower Bypass Valve Command
   short_name: CT Bypass Valve Cmd
   extends: VCMD
+  description: A valve command for when condenser water is bypassing the cooling towers to maintain minimum flow.
+  haystack:
+    type:
+      - coolingTower
+      - condenser
+      - water
+      - bypass
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+CTBYPVFBK:
+  name: Cooling Tower Bypass Valve Position Feedback
+  short_name: CT Bypass Valve Position
+  extends: VPOS
   haystack:
     type:
       - coolingTower
@@ -389,6 +403,8 @@ CWBYPVCMD:
   name: Condenser Water Bypass Valve Command
   short_name: CW Bypass Valve Cmd
   extends: VCMD
+  description: A system bypass when condenser water is bypassing end-use condenser 
+    water equipment such as water to water heat pumps.
   google_ontology: condensing_water_bypass_valve_percentage_command
   haystack:
     type:
@@ -826,11 +842,6 @@ LCWFL:
   extends: WFLOW
   brick_ontology: Leaving_Condenser_Water_Flow_Sensor
   google_ontology: condensing_water_flowrate_sensor
-  google_ontology_full:
-    - condensing_water_flowrate_sensor:
-      - kind: Number
-    - condensing_water_flowrate_status:
-      - kind: Bool
   haystack:
     type:
       - condenser
@@ -841,6 +852,21 @@ LCWFL:
       - dis: "Leaving Condenser Water Flow or if more than 1 in the equip/device, use
           <NAME> + - + <INTEGER>  : Leaving Condenser Water Flow-1, Leaving
           Condenser Water Flow-2, etc."
+LCWFLST:
+  name: Leaving Condenser Water Flow Status
+  short_name: Leaving CW Flow Status
+  extends: WFLWST
+  google_ontology: condensing_water_flowrate_status
+  haystack:
+    type:
+      - condenser
+      - leaving
+    identification:
+      - navName: "LCWFLST or if more than 1 in the equip/device, use <CODE> + - +
+          <INTEGER>  : LCWFLST-1, LCWFLST-2, etc."
+      - dis: "Leaving Condenser Water Flow Status or if more than 1 in the equip/device, use
+          <NAME> + - + <INTEGER>  : Leaving Condenser Water Flow Status-1, Leaving
+          Condenser Water Flow Status-2, etc."
 LCWFLSP:
   name: Leaving Condenser Water Flow Setpoint
   short_name: Leaving CW Flow Sp
@@ -1929,8 +1955,6 @@ COVCMD:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
       - kind: Bool
-    reference:
-      - equipRef
 COVFBK:
   name: Change Over Valve Feedback
   short_name: Change Over Valve Fbk
@@ -1941,8 +1965,6 @@ COVFBK:
     identification:
       - navName: <CODE> + - + <INTEGER>  
       - dis: <NAME> + - + <INTEGER>  
-    reference:
-      - equipRef
 CHWDT:
   name: Chilled Water Delta Temperature 
   short_name: CHW Delta Temp
@@ -2013,9 +2035,7 @@ WECVCMD:
       - economizing
     identification:
       - navName: <CODE> + - + <INTEGER>  
-      - dis: <NAME> + - + <INTEGER>  
-    reference:
-      - equipRef             
+      - dis: <NAME> + - + <INTEGER>          
 WECVPOS:
   name: Waterside Economizer Valve Position
   description: Position of a waterside economizer control valve
@@ -2026,6 +2046,4 @@ WECVPOS:
       - economizing
     identification:
       - navName: <CODE> + - + <INTEGER>  
-      - dis: <NAME> + - + <INTEGER>  
-    reference:
-      - equipRef                  
+      - dis: <NAME> + - + <INTEGER>                   

@@ -1,0 +1,84 @@
+CLDCAB:
+  name: Cold Cabinet
+  description: A cabinet which is kept cool for storing goods and is part of a refrigeration system
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - refrigeration
+      - coldCabinet
+    reference:
+      - equipRef
+      - refrigRef
+      - siteRef
+      - systemRef
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+  contains:
+    - AIRS
+    - ATPS
+
+CLDRM:
+  name: Cold Room
+  description: Walk in room or chamber for cold storage
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - refrigeration
+      - coldRoom
+    reference:
+      - siteRef
+    reference_optional:
+      - equipRef
+      - refrigRef
+      - systemRef
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+  contains:
+    - REFFCU
+    - AIRS
+    - ATPS
+
+FRIG:
+  name: Refrigerator
+  description: A self contained refrigeration cabinet which is kept cool for storing goods
+  is_base: true
+  haystack:
+    type:
+      - equip
+      - refrigerator
+    reference:
+      - siteRef
+    identification:
+      - id: <ABBREVIATION> + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER> 
+      - dis: <ABBREVIATION> + - + <INTEGER> 
+  contains: 
+    - AIRS
+    - ATPS
+
+REFFCU:
+  name: Refrigeration FCU
+  description: A dedicated refrigeration FCU typically used in a cold room
+  extends: FCU
+  google_ontology: CRREF_DXZTC_DFSS
+  haystack:
+    type:
+      - refrigeration
+
+REFSYS:
+  name: Refrigeration System
+  description: A refrigeration system containing equipement to cool dedicated cabinets and rooms
+  extends: RFSYS
+  haystack:
+    type:
+      - refrigeration
+  contains:
+    - CLDRM
+    - CLDCAB
+    - REFFCU

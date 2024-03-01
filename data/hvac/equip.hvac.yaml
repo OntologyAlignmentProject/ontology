@@ -100,7 +100,7 @@ RADFE:
 RFCIR:
   name: Refrigerant Circuit
   description: A refrigerant circuit encompasses comporessors, refrigerant piping, condenser & evaperator coils.
-               This is typically a sub-component of a system reponsible for fluid heat exchange. 
+    This is typically a sub-component of a system reponsible for fluid heat exchange. 
   haystack:
     type:
       - equip
@@ -115,6 +115,7 @@ RFCIR:
   points:
     - CMPRFLT
     - CMPRFET
+    - CMPST
     - CNDFSPCMD
     - CNDRFPR
     - CNDRFLT
@@ -127,7 +128,7 @@ RFCIR:
 RFSYS:
   name: Refrigerant System
   description: Refrigerant distribution to fulfill all or parts of a refrigeration cycle.
-               Typiclly comprised of multiple refrigerant circuits.
+    Typically comprised of multiple refrigerant circuits.
   haystack:
     type:
       - equip
