@@ -490,6 +490,9 @@ DHWPL:
       - systemRef
       - elecMeterRef
       - deviceRef
+      - hotWaterRef
+    reference_as:
+      - domesticHotWaterRef
   contains:
     - RCP
     - DHWST

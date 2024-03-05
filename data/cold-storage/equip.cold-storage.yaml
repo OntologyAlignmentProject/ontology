@@ -82,3 +82,32 @@ REFSYS:
     - CLDRM
     - CLDCAB
     - REFFCU
+REFPL:
+  name: Refrigerant Plant
+  description: A refrigerant plant containing equipment and piping to deliver
+    hot or chilled refrigerant to a building, process, or equipment.
+  haystack:
+    type:
+      - equip
+      - plant
+      - refrig
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+    reference_optional:
+      - systemRef
+      - elecMeterRef
+      - deviceRef
+      - condenserWaterRef
+      - condenserWaterMeterRef
+    reference_as:
+      - refrigRef
+  contains:
+    - CT
+    - FC
+    - DC
+    - CMP
+  points:
+    - ALRMPT
