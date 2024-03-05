@@ -511,10 +511,11 @@ ENCMD:
     identification:
       - navName: <name><uniqueInteger>, e.g. ENCMD-1
 THRMEN:
-  name: Thermal Energy 
-  description: energy associated with heating or cooling, measured in units such as kBtu or kJ
+  name: Net Thermal Energy 
+  description: Energy associated with heating or cooling, measured in units such as kBtu or kJ
   haystack:
     type:
+      - net
       - energy
       - sensor
       - thermal
@@ -529,11 +530,88 @@ THRMEN:
       - deviceRef
       - equipRef
   unit_type: energy
+THRMENIMP:
+  name: Imported Thermal Energy 
+  description: Total imported (aka consumed) energy associated with heating or cooling, measured in units such as kBtu or kJ
+  haystack:
+    type:
+      - import
+      - energy
+      - sensor
+      - thermal
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+  unit_type: energy  
+THRMENEXP:
+  name: Exported Thermal Energy 
+  description: Total exported (aka generated) energy associated with heating or cooling, measured in units such as kBtu or kJ
+  haystack:
+    type:
+      - export
+      - energy
+      - sensor
+      - thermal
+      - point
+    identification:
+      - navName: <name><uniqueInteger>, e.g. ENTITY1, CAMPUS1, OFFICE22, AHU16, LP41,
+          etc.
+      - dis
+      - id
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+  unit_type: energy  
 THRMPWR:
-  name: Thermal Power
+  name: Net Thermal Power
   description: Power associated with heating or cooling, measured in units such as kBTU/h or Watts
   haystack:
     type:
+      - net
+      - power
+      - sensor
+      - thermal
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+  unit_type: power
+THRMPWRIMP:
+  name: Imported Thermal Power
+  description: Total imported (aka consumed) power associated with heating or cooling, measured in units such as kBTU/h or Watts
+  haystack:
+    type:
+      - import
+      - power
+      - sensor
+      - thermal
+      - point
+    identification:
+      - navName: <CODE> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+    reference:
+      - deviceRef
+      - equipRef
+  unit_type: power
+THRMPWREXP:
+  name: Exported Thermal Power
+  description: Total exported (aka generated) power associated with heating or cooling, measured in units such as kBTU/h or Watts
+  haystack:
+    type:
+      - export
       - power
       - sensor
       - thermal

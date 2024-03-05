@@ -201,11 +201,13 @@ PUMP:
     - PSS 
   points_base: 
     - ALRMPT
+    - CMST
     - HOAST
   points:
     - DHWTT
     - MXWVCMD
     - MXWVFBK
+    - VFDSPCMD
     - VFDSPREF
     - WLALRMH
 PUMPGRP:
@@ -549,8 +551,12 @@ ENV:
   points:
     - WFLOW
     - WFLOWSP
-    - THRMPWR
     - THRMEN
+    - THRMENEXP
+    - THRMENIMP
+    - THRMPWR
+    - THRMPWREXP
+    - THRMPWRIMP
     - ALRMPT
     - CNTMDCFG
     - DT
@@ -671,10 +677,13 @@ CH:
     - LCHWT
     - LCHWTSP
     - LCWT
+    - LCWFL
+    - LCWFLST
     - LCHWISOVCMD
     - LCHWISOVFBK
     - LCWISOVCMD
     - LCWISOVFBK
+    - THERMEFF
 
 CHWPL:
   name: Chilled Water Plant
@@ -734,6 +743,8 @@ CHWPL:
     - CLDEM
     - CLTHRMPWR
     - CTBYPVCMD
+    - CTBYPVFBK
+    - CWBYPVCMD
     - CWBYPVFBK
     - CWDPR
     - CWISOVFBK
@@ -757,6 +768,7 @@ CHWPL:
     - LCHWT
     - LCHWTSP
     - LCWFL
+    - LCWFLST
     - LCWTSP
     - LCHWISOVCMD
     - LCHWISOVFBK
@@ -780,6 +792,7 @@ CHWPL:
     - SCECHWT
     - SCLCHWT
     - SCLCHWTSP
+    - THERMEFF
     - TRCHWFL
     - TRCHWDPR
     - TRCHWDPRSP
@@ -840,6 +853,7 @@ CHWHWPL:
     - SCHWFL
     - WECVCMD
     - WECVPOS
+    - THERMEFF
 
 LTCHWPL:
   name: Low Temperature Chilled Water Plant
@@ -929,10 +943,12 @@ CT:
     - FANCMD
     - FANSPCMD
     - CTBYPVCMD
+    - CTBYPVFBK
     - CWISOVCMD
     - ECWT
     - LCWT
     - LCWFL
+    - LCWFLST
     - LCWTSP
     - BAHTST
     - BSWPSSCMD
@@ -1142,6 +1158,7 @@ CWPL:
     - COVCMD
     - COVFBK
     - CTBYPVCMD
+    - CTBYPVFBK
     - CWBYPVCMD
     - CWBYPVFBK
     - CWDPR
@@ -1179,6 +1196,7 @@ CWPL:
     - SLLCWFLSP
     - SLLCWFLOW
     - SCCWHXBYPVCMD
+    - THERMEFF
     - TRCHWFL
     - TRHWFL
     - TRCHWDPR
@@ -1330,6 +1348,7 @@ HWPL:
     - SHWFL
     - SCHWDPR
     - SCHWDPRSP
+    - THERMEFF
     - TRHWFL
     - TREHWT
     - TRHWDPR
@@ -1419,6 +1438,8 @@ SPL:
     - STCNMFLOW
     - LSTT
     - LSTP
+    - THERMEFF
+
 
 SPRV:
   name: Steam Pressure Reducing Valve
@@ -1560,3 +1581,11 @@ RADI:
     type: 
       - equip
       - radiator
+    reference:
+      - siteRef
+      - spaceRef
+      - hotWaterRef
+      - hvacZoneRef
+  functions:
+    - HSP
+    - HWZC

@@ -1101,7 +1101,7 @@ AVAIL:
   brick_ontology: Availability_Status
   haystack:
     type:
-      - availablility
+      - availability
       - sensor
       - point
     identification:

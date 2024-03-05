@@ -270,6 +270,8 @@ AHU:
     - OCCZTHTSP
     - OFCMD
     - PHWVCMD
+    - PHDAT
+    - PHDATSP
     - PRREQ
     - RACO2
     - RACO2SP
@@ -1471,6 +1473,7 @@ VRFOU:
     - VRFOUREF
   points_base: 
     - ALRMPT
+    - ALRMPTCD
     - CMPSSCMD
     - CMPST
     - CNDRFSTT
@@ -1553,10 +1556,9 @@ VRFSYS:
     more skids containing a compressor and condenser) and several indoor units (often called 
     "fan coils"). The system is connected by refrigerant piping and comm wire running from the
     outdoor units to all indoor units.
+  extends: RFSYS
   haystack:
     type:
-      - equip
-      - system
       - vrf
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. VRFSYS1 or VRFSYS502
@@ -1852,6 +1854,7 @@ VAV:
     - EFFZTCLSP
     - EFFZTHTSP
     - EFFZTSP
+    - EFFZTDB
     - EHTOCMD
     - FLTDPR
     - HDDATSP
@@ -1872,6 +1875,7 @@ VAV:
     - OCCIAFLWHTMXSP
     - OCCSCHSP
     - OCCSNS
+    - OCCZDB
     - OCCZCLDB
     - OCCZHTDB
     - OCCZTCLSP
@@ -1900,6 +1904,7 @@ VAV:
     - UOCIAFLWMNSP
     - UOCZTCLSP
     - UOCZTHTSP
+    - UOCCZDB
     - ZCH4ALMSP
     - ZCO2
     - ZCO2SP
@@ -1912,6 +1917,9 @@ VAV:
     - ZRHSP
     - ZSPR
     - ZSPRSP
+    - ZTADJSP
+    - ZTADJCLSP
+    - ZTADJHTSP
     - ZTSP
 # VAV Variant Definitions
 

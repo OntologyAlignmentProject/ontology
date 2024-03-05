@@ -99,7 +99,7 @@ auxiliary:
   description: Providing supplemental or additional support, typically in the form of heating. 
   type: MARKER
   source: OAP  
-availablility: 
+availability: 
   description: Ability to be used in operation.
   type: MARKER
   source: OAP
@@ -274,13 +274,21 @@ coil:
   type: MARKER
   source: HAY
 coldAisle:
-  description:  Cool or cold supply air side of a rack of servers
+  description: Cool or cold supply air side of a rack of servers
   type: MARKER
   source: OAP   
+coldCabinet: 
+  description: A compartment which is artificially kept cool via an external refrigeration system
+  type: MARKER
+  source: OAP
 coldDeck:
   description: Duct carries air for cooling
   type: MARKER
   source: HAY
+coldRoom: 
+  description: Dedicated insulated room which is artificially kept cool by a refrigeration system
+  type: MARKER
+  source: OAP
 comm: 
   description: Communication between two devices
   type: MARKER
@@ -1393,6 +1401,10 @@ preheat:
   description: To heat before using or before subjecting to some further process
   type: MARKER
   source: OAP
+preheatCoil:
+  description: Coil used to heat air before using or before subjecting to some further process
+  type: MARKER
+  source: OAP
 pressure:
   description: Measure of force applied
   type: MARKER
@@ -1495,7 +1507,7 @@ radiator:
   type: MARKER
   source: HAY
 rainwater: 
-  description:  Related to rainwater/precipitation collection (for purposes of onsite reuse) in a building, typically only water that falls on a roof, not the site.
+  description: Related to rainwater/precipitation collection (for purposes of onsite reuse) in a building, typically only water that falls on a roof, not the site.
   type: MARKER
   source: OAP
 rav:
@@ -1518,6 +1530,14 @@ refrig:
   description: Fluid used in refrigeration and heat exchange
   type: MARKER
   source: HAY
+refrigeration: 
+  description: Cooling of a space, substance or system to lower and/or maintain its temperature below the ambient one (removed heat is rejected at a higher temperature)
+  type: MARKER
+  source: OAP
+refrigerator: 
+  description: An appliance or compartment which is artificially kept cool via an integrated refrigeration system
+  type: MARKER
+  source: OAP
 reheat:
   description: Command point for reheats process
   type: MARKER
