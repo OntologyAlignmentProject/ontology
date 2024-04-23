@@ -39,7 +39,8 @@ ahuZoneDeliveryType:
   type: MARKER
   source: HAY
 adjust:
-  description: The amount of offset for a setpoint for a process.
+  description: The amount of adjustment for a setpoint for a process. Typically 
+    used for local user overrides.
   type: MARKER
   source: OAP
 air:
@@ -127,7 +128,7 @@ barometric:
   source: HAY
 base:
   description: Applied to a setpoint that is used to calculate an effective setpoint by 
-    adding a deadband or offset. 
+    adding an offset. 
   type: MARKER
   source: OAP
 battery:
@@ -1227,6 +1228,10 @@ occupied:
   description: Setpoint or sensor indicating occupancy of a space
   type: MARKER
   source: HAY
+offset:
+  description: A programmable delta from a base setpoint  
+  type: MARKER
+  source: OAP  
 oil:
   description: An oil is any nonpolar chemical substance that is a viscous liquid
     at ambient temperatures and is both hydrophobic and lipophilic

@@ -65,6 +65,8 @@ BLR:
       - hotWaterRef
   attributes:
     - heatingCapacity
+    - ratedHeatingCapacity
+    - designHeatingCapacity
     - designWaterFlow
     - designEWT
     - designLWT
@@ -197,8 +199,8 @@ PUMP:
     - designWaterPressure
     - ratedMotorPower
   functions_base: 
-    - PVSC   
-    - PSS 
+    - PVSC
+    - PSS
   points_base: 
     - ALRMPT
     - CMST
@@ -213,6 +215,7 @@ PUMP:
 PUMPGRP:
   name: Pump Group
   description: A set of pumps that are controlled together.
+  is_base: true
   haystack:
     type:
       - equip
@@ -227,12 +230,12 @@ PUMPGRP:
       - equipRef
   contains:
     - PUMP
-    - SMPP
-    - BSP
+  functions_base: 
+    - PVSC
   points:
     - ALRMPT
-    - PSSCMD
-    - PSSST
+    - VFDSPCMD
+    - VFDSPREF
     - CMST
 BCP:
   name: Boiler Circulation Pump
@@ -731,6 +734,7 @@ CHWPL:
     - FC
     - DC
     - CHWLP
+    - CWLP
   points:
     - ALRMPT
     - BYPCHWFL
@@ -934,6 +938,8 @@ CT:
   attributes:
     - designWaterFlow
     - coolingCapacity
+    - ratedCoolingCapacity
+    - designCoolingCapacity
     - designAirFlow
     - designEWT
     - designLWT
@@ -1141,6 +1147,7 @@ CWPL:
       - domesticWaterRef
       - domesticWaterMeterRef
       - blowdownWaterMeterRef
+      - hotWaterRef
   contains:
     - CT
     - HXW
@@ -1512,7 +1519,6 @@ WTWHP:
       - navName: <ABBREVIATION> + - + <INTEGER>
       - dis: <ABBREVIATION> + - + <INTEGER>
       - id
-
 LOOP: 
   name: Loop
   description: Subsystem connected by a common pathway, typically conduit, pipe or duct
@@ -1545,9 +1551,70 @@ CHWLP:
       - water   
     reference_as:
       - chilledWaterRef  
-  points: 
+  points:  
+    - ALRMPT
+    - BYPCHWFL
+    - CHWBYPVCMD
+    - CHWBYPVFBK
+    - CHWDPR
+    - CHWDPRSP
+    - CHWDT
+    - CHWISOVFBK
+    - CLDEM
+    - CLTHRMPWR
+    - CTBYPVCMD
+    - CTBYPVFBK
+    - CWBYPVCMD
+    - CWBYPVFBK
+    - CWDPR
+    - CWISOVFBK
+    - CWVFBK
+    - ECHWFL
+    - ECHWFLST
+    - ECHWISOVCMD
+    - ECHWISOVFBK
+    - ECHWT
+    - ECWISOVCMD
+    - ECWISOVFBK
+    - ECWT
+    - EHXISOVCMD
+    - EHXISOVFBK
+    - ENCMD
+    - EWTSP
+    - LCHWFL
+    - LCHWFLOWSP
+    - LCHWFLST
+    - LCHWT
+    - LCHWTSP
+    - LCWFL
+    - LCWFLST
+    - LCWTSP
+    - LCHWISOVCMD
+    - LCHWISOVFBK
+    - LCWISOVCMD
+    - LCWISOVFBK
+    - LCWT
+    - LHXISOVCMD
+    - LHXISOVFBK
+    - LWISOVCMD
+    - LWISOVST
+    - MKUPWVCMD
+    - PRCHWDPR
+    - PRCHWDPRSP
+    - PRECHWT
+    - PRLCHWT
+    - PRLCHWTSP
+    - SCHWFL
     - SCCHWDPR
-    - SCCHWDPRSP      
+    - SCCHWDPRSP
+    - SCECHWT
+    - SCLCHWT
+    - SCLCHWTSP
+    - TRCHWFL
+    - TRCHWDPR
+    - TRCHWDPRSP
+    - TRECHWT
+    - TRLCHWT   
 HWLP: 
   name: Hot Water Loop
   description: Subsystem of hot water components connected by a common pathway, typically pipe 
@@ -1559,9 +1626,50 @@ HWLP:
       - water
     reference_as:
       - hotWaterRef           
-  points: 
-    - SCHWDPRSP
+  points:
+    - ALRMPT
+    - BCPSSCMD
+    - BCPSSST
+    - EHWISOVCMD
+    - EHWISOVFBK
+    - EHWT
+    - EHXISOVCMD
+    - EHXISOVFBK
+    - ENCMD
+    - EWTSP
+    - FLGST
+    - HTSTGCT
+    - HTTHRMPWR
+    - HWBYPVCMD
+    - HWDT
+    - PREHWT
+    - PRLHWT
+    - SCEHWT
+    - SCLHWT
+    - HWDPR
+    - HWDPRSP
+    - LHWFL
+    - LHWT
+    - PRLHWTSP
+    - SCLHWTSP
+    - LHXISOVCMD
+    - LHXISOVFBK
+    - LHWISOVCMD
+    - LHWISOVFBK
+    - LHWTSP
+    - LWISOVCMD
+    - LWISOVST
+    - MKUPWVCMD
+    - PRHWDPR
+    - PRHWDPRSP
+    - SHWFL
     - SCHWDPR
+    - SCHWDPRSP
+    - TRHWFL
+    - TREHWT
+    - TRHWDPR
+    - TRHWDPRSP
+    - TRLHWT
 CWLP: 
   name: Condenser Water Loop
   description: Subsystem of condenser water components connected by a common pathway, typically pipe 
@@ -1569,9 +1677,66 @@ CWLP:
   haystack:
     type: 
       - condenser
-      - water    
+      - water
     reference_as:
-      - condenserWaterRef            
+      - condenserWaterRef
+  points:
+    - ALRMPT
+    - BSWPSSCMD
+    - BSWPSSST
+    - CLTHRMPWR
+    - COVCMD
+    - COVFBK
+    - CTBYPVCMD
+    - CTBYPVFBK
+    - CWBYPVCMD
+    - CWBYPVFBK
+    - CWDPR
+    - CWDPRSP
+    - CWISOVFBK
+    - ECWISOVCMD
+    - CWVFBK
+    - ECWISOVFBK
+    - EHXISOVCMD
+    - EHXISOVFBK
+    - EWTSP
+    - HWVCMD
+    - HWVFBK
+    - HXISOVCMD
+    - LCWISOVCMD
+    - LCWISOVFBK
+    - LHXISOVCMD
+    - LHXISOVFBK
+    - LWISOVCMD
+    - LWISOVST
+    - MKUPWVCMD
+    - PRLCWT
+    - PRLCWTSP
+    - PRECWT
+    - PLLCWFLSP
+    - PLLCWFLOW
+    - PRLENCMD
+    - SCLENCMD
+    - SCLCWT
+    - SCLCWTSP
+    - SCLCWCTSP
+    - SCLCWHTSP
+    - SCECWT
+    - SLLCWFLSP
+    - SLLCWFLOW
+    - SCCWHXBYPVCMD
+    - TRCHWFL
+    - TRHWFL
+    - TRCHWDPR
+    - TRCHWDPRSP
+    - TRECHWT
+    - TREHWT
+    - TRHWDPR
+    - TRHWDPRSP
+    - TRLCHWT
+    - TRLHWT
+    - WECVCMD
+    - WECVPOS
 RADI: 
   name: Radiator
   description: Heating equipment used to warm a space by radiating heat. 

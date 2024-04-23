@@ -151,6 +151,10 @@ AHU:
     - designReturnTotalAirPressure
     - coolingCapacity
     - heatingCapacity
+    - ratedCoolingCapacity
+    - designCoolingCapacity
+    - ratedHeatingCapacity
+    - designHeatingCapacity
   points_base:
     - DASDST  
   points:
@@ -1556,10 +1560,13 @@ VRFSYS:
     more skids containing a compressor and condenser) and several indoor units (often called 
     "fan coils"). The system is connected by refrigerant piping and comm wire running from the
     outdoor units to all indoor units.
-  extends: RFSYS
+  is_base: true
   haystack:
     type:
       - vrf
+      - equip
+      - refrig
+      - system
     identification:
       - id: <ABBREVIATION> + <INTEGER> - e.g. VRFSYS1 or VRFSYS502
       - navName: <ABBREVIATION> + - + <INTEGER> - e.g. VRFSYS-1 or VRFSYS-502

@@ -2,6 +2,7 @@
 
 ratedMotorPower:
   name: Rated Motor Power
+  description: Power rating of a motor; the amount of power a motor is able to produce.
   domain: hvac
   haystack:
     type:
@@ -13,6 +14,35 @@ ratedMotorPower:
       - kind: Number
   unit_type: power
 
+fanRatedMotorPower:
+  name: Rated Motor Power
+  description: Power rating of a motor associated with a fan. 
+  extends: ratedMotorPower
+  haystack:
+    type: 
+      - fan
+      - external
+dischargeFanRatedMotorPower:
+  name: Discharge Fan Rated Motor Power
+  description: Power rating of a motor associated with a discharge fan. 
+  extends: fanRatedMotorPower
+  haystack:
+    type: 
+      - discharge
+returnFanRatedMotorPower:
+  name: Return Fan Rated Motor Power
+  description: Power rating of a motor associated with a return fan. 
+  extends: fanRatedMotorPower
+  haystack:
+    type: 
+      - Return
+exhaustFanRatedMotorPower:
+  name: Exhaust Fan Rated Motor Power
+  description: Power rating of a motor associated with an exhaust fan. 
+  extends: fanRatedMotorPower
+  haystack:
+    type: 
+      - exhaust      
 ### Air ###
 
 designAirPressure: 
@@ -207,9 +237,9 @@ designWaterPressure:
 
 
 ## Heating and Cooling ##
-
 coolingCapacity:
-  name: Cooling Capacity
+  name:  Cooling Capacity
+  description:  Generic cooling capacity (to be deprecated) 
   domain: hvac
   haystack:
     type:
@@ -219,9 +249,36 @@ coolingCapacity:
     identification:
       - kind: Number
   unit_type: power
+ratedCoolingCapacity:
+  name: Rated Cooling Capacity
+  description: Nominal cooling capacity at test conditions as specified by an equipment manufacturer. 
+  domain: hvac
+  haystack:
+    type:
+      - rated
+      - cooling
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power
 
+designCoolingCapacity:
+  name: Design Cooling Capacity
+  description: Amount of Cooling required to cool a space at design conditions
+  domain: hvac
+  haystack:
+    type:
+      - design
+      - cooling
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power
 heatingCapacity:
-  name: Heating Capacity
+  name:  Heating Capacity
+  description:  Generic heating capacity (to be deprecated) 
   domain: hvac
   haystack:
     type:
@@ -231,4 +288,30 @@ heatingCapacity:
     identification:
       - kind: Number
   unit_type: power
+ratedHeatingCapacity:
+  name: Rated Heating Capacity
+  description: Nominal heating capacity at test conditions as specified by an equipment manufacturer. 
+  domain: hvac
+  haystack:
+    type:
+      - rated
+      - heating
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power
 
+designHeatingCapacity:
+  name: Design Heating Capacity
+  description: Amount of Heating required to heat a space at design conditions
+  domain: hvac
+  haystack:
+    type:
+      - design
+      - heating
+      - power
+      - attr
+    identification:
+      - kind: Number
+  unit_type: power

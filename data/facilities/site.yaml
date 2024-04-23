@@ -419,14 +419,3 @@ WORSHIP:
   haystack:
     type:
       - primaryFunction: Worship Facility
-
-WING:
-  name: Wing
-  description: A wing, or sub-building, is a portion of a building that is not physically distinct but otherwise is subordinate to the primary structure.
-  extends: SITE
-  brick_ontology: Wing
-  haystack:
-    type:
-      - primaryFunction: Other
-
-  
