@@ -399,6 +399,7 @@ PVSC:
     - PSSCMD
     - PSSST
     - PSPCMD
+    - PSPFBK
 RD:
   name: RD
   description: Return air flow control.

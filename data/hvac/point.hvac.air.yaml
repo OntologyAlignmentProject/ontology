@@ -4939,7 +4939,9 @@ ZSPRSP:
 ZTADJSP:
   name: Zone Temperature Adjust Setpoint
   short_name: Zone Temp Adjust Sp
-  description: The offset from a base setpoint that is used to calculate effective or occupied setpoints. Effective SP = Base + Adjust.
+  description: The adjustment from a base setpoint that allows 
+    for occupant customization. Typically done via an adjustment on a wall thermostat
+    or other local control. 
   extends: ATSP
   google_ontology: zone_air_offset_temperature_setpoint
   haystack:
@@ -4957,6 +4959,9 @@ ZTADJSP:
 ZTADJCLSP:
   name: Zone Temperature Adjust Cooling Setpoint
   short_name: Zone Temp Adjust Cool Sp
+  description: Adjustment from the occupied cooling setpoint to allow
+    for occupant customization. Typically done via an adjustment on a wall thermostat
+    or other local control. This point is uncommon.
   extends: ATSP
   haystack:
     type:
@@ -4966,6 +4971,9 @@ ZTADJCLSP:
 ZTADJHTSP:
   name: Zone Temperature Adjust Heating Setpoint
   short_name: Zone Temp Adjust Heat Sp
+  description: Adjustment from the occupied heating setpoint to allow
+    for occupant customization. Typically done via an adjustment on a wall thermostat
+    or other local control. This point is uncommon.
   extends: ATSP
   haystack:
     type:
@@ -4975,7 +4983,8 @@ ZTADJHTSP:
 EFFZTDB:
   name: Effective Zone Temperature Deadband
   short_name: Effective Zone Temp Deadband
-  description: Adjustable difference between heating and cooling setpoints
+  description: Adjustable difference between heating and cooling setpoints. This point
+    dynamically reflects both the occupied and unoccupied deadbands. This point is uncommon.
   haystack:
     type:
       - effective
@@ -5053,7 +5062,7 @@ ZTSP:
   name: Zone Temperature Base Setpoint
   short_name: Zone Temp Base Sp
   description: The zone temperature setpoint that is used to calculate the effective or occupied setpoints
-    when adding a deadband or offset. 
+    when adding an offset. 
   extends: ATSP
   google_ontology: zone_air_temperature_setpoint
   brick_ontology: Zone_Air_Temperature_Setpoint
@@ -5071,12 +5080,13 @@ ZTSP:
           Temperature Setpoint-2, etc."
 
 OCCZCLDB:
-  name: Occupied Zone Cooling Deadband
-  description: Adjustable cooling setpoint offset used by a device's setpoint control
+  name: Occupied Zone Temperature Base Setpoint Cooling Offset
+  description: Programmable cooling setpoint offset used by a device's 
+    setpoint control. Occupied Zone Temp Cooling Setpoint = Zone Temp Base Setpoint + Occupied Zone Cooling Offset
   haystack:
     type:
       - cooling
-      - deadband
+      - offset
       - occ
       - point
       - sp
@@ -5094,10 +5104,12 @@ OCCZCLDB:
       - kind: Number
   unit_type: temperature
 OCCZHTDB:
-  name: Occupied Zone Heating Deadband
+  name: Occupied Zone Temperature Base Setpoint Heating Offset
+  description: Programmable heating setpoint offset used by a device's 
+    setpoint control. Occupied Zone Temp Heating Setpoint = Zone Temp Base Setpoint - Occupied Zone Heating Offset
   haystack:
     type:
-      - deadband
+      - offset
       - heating
       - occ
       - point
@@ -5115,9 +5127,52 @@ OCCZHTDB:
           Occupied Zone Heating Deadband-2, etc."
       - kind: Number
   unit_type: temperature
+OCCZOFF:
+  name: Occupied Zone Temperature Base Setpoint Offset
+  short_name: Occ Zone Temp Sp Offset
+  description: Programmable difference between a single, base setpoint
+    and its occupied heating and cooling setpoints. This is one half the occupied deadband value.
+    Occupied Zone Temp Heating Setpoint = Zone Temp Base Setpoint - Occupied Zone Setpoint Offset
+    Occupied Zone Temp Cooling Setpoint = Zone Temp Base Setpoint + Occupied Zone Setpoint Offset
+  haystack:
+    type:
+      - offset
+      - occ
+      - point
+      - sp
+      - zone
+      - air
+      - temp
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+  unit_type: temperature
+UNOCCZOFF:
+  name: Unoccupied Zone Temperature Base Setpoint Offset
+  short_name: Unocc Zone Temp Sp Offset
+  description: Programmable difference between a single, base setpoint
+    and its unoccupied heating and cooling setpoints. This is one half the unoccupied deadband value.
+  haystack:
+    type:
+      - offset
+      - unocc
+      - point
+      - sp
+      - zone
+      - air
+      - temp
+    identification:
+      - id:  <CODE> + - + <INTEGER> 
+      - navName: <ABBREVIATION> + - + <INTEGER>
+      - dis: <NAME> + - + <INTEGER>
+      - kind: Number
+  unit_type: temperature
 OCCZDB:
   name: Occupied Zone Deadband
-  description: Adjustable difference between heating and cooling setpoints during occupied periods
+  description: Programmable difference between heating and cooling 
+    setpoints during occupied periods.
   haystack:
     type:
       - deadband
@@ -5135,7 +5190,8 @@ OCCZDB:
   unit_type: temperature
 UOCCZDB:
   name: Unoccupied Zone Deadband
-  description: Adjustable difference between heating and cooling setpoints during unoccupied periods
+  description: Programmable difference between heating and cooling
+    setpoints during unoccupied periods.
   haystack:
     type:
       - deadband
